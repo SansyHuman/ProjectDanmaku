@@ -1,0 +1,55 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &98233311808973853
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 98233311808973850}
+  - component: {fileID: 98233311808973851}
+  m_Layer: 9
+  m_Name: TestBossPattern
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &98233311808973850
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 98233311808973853}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &98233311808973851
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 98233311808973853}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a59a5ade408512044a865ec97fbc968f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  patternBullets:
+  - {fileID: 8996831788548077838, guid: 94e553c133a6b1646b2c286cc1843967, type: 3}
+  - {fileID: -6419917914108885785, guid: 237e7c20b051f0b4a8d3bd92191ae686, type: 3}
+  type: 0
+  hasTimeLimit: 0
+  timeLimit: 20
+  removeBullets: 2
+  NumberOfBullets: 28
+  BulletSpeed: 6
+  laser: {fileID: -7593140598186531753, guid: bca690461e3d2334e96ea61dcafb0736, type: 3}

@@ -1,0 +1,26 @@
+var struct_sansy_human_1_1_u_d_e_1_1_util_1_1_math_1_1_u_d_e_math_1_1_cartesian_coord =
+[
+    [ "CartesianCoord", "struct_sansy_human_1_1_u_d_e_1_1_util_1_1_math_1_1_u_d_e_math_1_1_cartesian_coord.html#a086f31e06da13fe272b6d1a1b671c92d", null ],
+    [ "CartesianCoord", "struct_sansy_human_1_1_u_d_e_1_1_util_1_1_math_1_1_u_d_e_math_1_1_cartesian_coord.html#ae1a85e61571a126e942aaab74b0990a4", null ],
+    [ "CartesianCoord", "struct_sansy_human_1_1_u_d_e_1_1_util_1_1_math_1_1_u_d_e_math_1_1_cartesian_coord.html#a3482f388f0ce48fd835eee718154c8c8", null ],
+    [ "Deconstruct", "struct_sansy_human_1_1_u_d_e_1_1_util_1_1_math_1_1_u_d_e_math_1_1_cartesian_coord.html#a0715c9421878a3341580fd65e22c3f7a", null ],
+    [ "Equals", "struct_sansy_human_1_1_u_d_e_1_1_util_1_1_math_1_1_u_d_e_math_1_1_cartesian_coord.html#a30ab606a75d90b5919bfa2adbaa75358", null ],
+    [ "Equals", "struct_sansy_human_1_1_u_d_e_1_1_util_1_1_math_1_1_u_d_e_math_1_1_cartesian_coord.html#a596634103b8b056ac8575838681033a2", null ],
+    [ "GetHashCode", "struct_sansy_human_1_1_u_d_e_1_1_util_1_1_math_1_1_u_d_e_math_1_1_cartesian_coord.html#a343fc8f388131c36970b2867a2b627f4", null ],
+    [ "operator", "struct_sansy_human_1_1_u_d_e_1_1_util_1_1_math_1_1_u_d_e_math_1_1_cartesian_coord.html#ae978ed673dc2ea70de04563e1cfd9dcb", null ],
+    [ "operator !=", "struct_sansy_human_1_1_u_d_e_1_1_util_1_1_math_1_1_u_d_e_math_1_1_cartesian_coord.html#a41900e6d440093ab05cbf786c11214ad", null ],
+    [ "operator *", "struct_sansy_human_1_1_u_d_e_1_1_util_1_1_math_1_1_u_d_e_math_1_1_cartesian_coord.html#a50c84a6cf57fe53f4dac953bdab96b31", null ],
+    [ "operator *", "struct_sansy_human_1_1_u_d_e_1_1_util_1_1_math_1_1_u_d_e_math_1_1_cartesian_coord.html#a8fb8cd7c316f457294a7be949923cabd", null ],
+    [ "operator -", "struct_sansy_human_1_1_u_d_e_1_1_util_1_1_math_1_1_u_d_e_math_1_1_cartesian_coord.html#a81ee0afd2453a456d0fe5ba4b3e72f66", null ],
+    [ "operator -", "struct_sansy_human_1_1_u_d_e_1_1_util_1_1_math_1_1_u_d_e_math_1_1_cartesian_coord.html#a21b7558965f39287b8d36e70af000af9", null ],
+    [ "operator PolarCoord", "struct_sansy_human_1_1_u_d_e_1_1_util_1_1_math_1_1_u_d_e_math_1_1_cartesian_coord.html#a391d016403d88bf41388dbf00b4e0a65", null ],
+    [ "operator UnityEngine.Vector2", "struct_sansy_human_1_1_u_d_e_1_1_util_1_1_math_1_1_u_d_e_math_1_1_cartesian_coord.html#a7f7b13812897721545c4b2217a4338b7", null ],
+    [ "operator+", "struct_sansy_human_1_1_u_d_e_1_1_util_1_1_math_1_1_u_d_e_math_1_1_cartesian_coord.html#ad908307a2502b3b9bcf1f2d72b77320c", null ],
+    [ "operator+", "struct_sansy_human_1_1_u_d_e_1_1_util_1_1_math_1_1_u_d_e_math_1_1_cartesian_coord.html#a458482b067ef140367b0546b34732f7e", null ],
+    [ "operator==", "struct_sansy_human_1_1_u_d_e_1_1_util_1_1_math_1_1_u_d_e_math_1_1_cartesian_coord.html#a15588ea25d5dceef0928ed68f9f3d759", null ],
+    [ "ToVector2", "struct_sansy_human_1_1_u_d_e_1_1_util_1_1_math_1_1_u_d_e_math_1_1_cartesian_coord.html#aa3f8b14dc8cc3955a9a129c856956824", null ],
+    [ "x", "struct_sansy_human_1_1_u_d_e_1_1_util_1_1_math_1_1_u_d_e_math_1_1_cartesian_coord.html#ad82e6dd3c5b53021c64dd09383c9716f", null ],
+    [ "y", "struct_sansy_human_1_1_u_d_e_1_1_util_1_1_math_1_1_u_d_e_math_1_1_cartesian_coord.html#aa67bb5ee427a156fc024d8b2951fe8e3", null ],
+    [ "Magnitude", "struct_sansy_human_1_1_u_d_e_1_1_util_1_1_math_1_1_u_d_e_math_1_1_cartesian_coord.html#a2182085390b207a4f20ad250ad4cca50", null ],
+    [ "SquareMagnitude", "struct_sansy_human_1_1_u_d_e_1_1_util_1_1_math_1_1_u_d_e_math_1_1_cartesian_coord.html#aa1fc5e1f1de537d1e359d8d3e7528d44", null ]
+];
