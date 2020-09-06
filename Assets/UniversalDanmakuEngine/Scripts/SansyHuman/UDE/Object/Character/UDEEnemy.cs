@@ -158,7 +158,7 @@ namespace SansyHuman.UDE.Object
                 UDELaser laser = collision.GetComponent<UDELaser>();
                 if (laser != null && laser.OriginCharacter is UDEPlayer)
                 {
-                    health -= laser.Dps * Time.deltaTime;
+                    health -= laser.Dps * Time.deltaTime * UDETime.Instance.PlayerTimeScale;
                 }
             }
         }

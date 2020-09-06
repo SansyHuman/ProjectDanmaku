@@ -178,8 +178,6 @@ namespace SansyHuman.UDE.Object
                 return;
             }
 
-            base.Initialize(initPos, origin, initRotation, originCharacter, originShotPattern, movements, setOriginToCharacter, loop);
-
             this.position = initPos;
             this.origin = origin;
             this.rotation = initRotation;
@@ -190,7 +188,8 @@ namespace SansyHuman.UDE.Object
 
             this.loop = loop;
             this.movements = movements;
-            this.movementsOriginal = (UDEBulletMovement[])movements.Clone();
+            this.movementsOriginal = new UDEBulletMovement[movements.Length];
+            movements.CopyTo(this.movementsOriginal, 0);
 
             r = (initPos - origin).magnitude;
             angle = r > 0.01f ? UDEMath.Deg(initPos - origin) : movements[0].angle;
@@ -225,6 +224,8 @@ namespace SansyHuman.UDE.Object
             if (originShotPattern != null)
                 _ = originShotPattern + this;
             bulletTr.SetPositionAndRotation(position, Quaternion.Euler(0, 0, rotation));
+
+            base.Initialize(initPos, origin, initRotation, originCharacter, originShotPattern, movements, setOriginToCharacter, loop);
         }
 
         /// <summary>
@@ -239,7 +240,7 @@ namespace SansyHuman.UDE.Object
         /// <param name="movement">Movement of the bullet.</param>
         /// <param name="setOriginToCharacter">Whether set the origin in polar coordinate to origin character's position</param>
         /// <param name="loop">Whether turn back to first movement when the last movement end</param>
-        public override void Initialize(Vector2 initPos, Vector2 origin, float initRotation, UDEBaseCharacter originCharacter, UDEBaseShotPattern originShotPattern, UDEBulletMovement movement, bool setOriginToCharacter = false, bool loop = false)
+        public override void Initialize(Vector2 initPos, Vector2 origin, float initRotation, UDEBaseCharacter originCharacter, UDEBaseShotPattern originShotPattern, in UDEBulletMovement movement, bool setOriginToCharacter = false, bool loop = false)
         {
             this.Initialize(initPos, origin, initRotation, originCharacter, originShotPattern, new UDEBulletMovement[] { movement }, setOriginToCharacter, loop);
         }
@@ -362,7 +363,7 @@ namespace SansyHuman.UDE.Object
                     break;
                 case MoveMode.POLAR:
                     var radialVel = UDEMath.Polar2Cartesian(prev.radialSpeed, this.angle);
-                    var angularVel = UDEMath.Polar2Cartesian(prev.angularSpeed, this.angle + 90f);
+                    var angularVel = UDEMath.Polar2Cartesian(prev.angularSpeed * Mathf.Deg2Rad * this.r, this.angle + 90f);
                     prevVelocity = new Vector2(radialVel.x + angularVel.x, radialVel.y + angularVel.y);
                     break;
             }
@@ -379,8 +380,8 @@ namespace SansyHuman.UDE.Object
                     break;
                 case MoveMode.POLAR:
                     (float speed, float angle) polarVel2 = UDEMath.Cartesian2Polar(prevVelocity);
-                    next.radialSpeed = polarVel2.speed * Mathf.Cos(polarVel2.angle - this.angle);
-                    next.angularSpeed = polarVel2.speed * Mathf.Sin(polarVel2.angle - this.angle);
+                    next.radialSpeed = polarVel2.speed * Mathf.Cos((polarVel2.angle - this.angle) * Mathf.Deg2Rad);
+                    next.angularSpeed = polarVel2.speed * Mathf.Sin((polarVel2.angle - this.angle) * Mathf.Deg2Rad) * Mathf.Rad2Deg / this.r;
                     break;
             }
         }

@@ -42,6 +42,7 @@ public class TestBossPattern : UDEBaseShotPattern
             yield return StartCoroutine(UDETime.Instance.WaitForScaledSeconds(0.07f, UDETime.TimeScale.ENEMY));
         }
         */
+
         float angle = 360f / NumberOfBullets;
 
         var result = UDETransitionHelper.MoveTo(originEnemy.gameObject, (Vector2)Camera.main.ViewportToWorldPoint(new Vector3(0.5f, 0.85f)), 1.5f, UDETransitionHelper.easeOutCubic, UDETime.TimeScale.ENEMY, true);
@@ -49,7 +50,7 @@ public class TestBossPattern : UDEBaseShotPattern
         yield return StartCoroutine(UDETime.Instance.WaitForScaledSeconds(0.5f, UDETime.TimeScale.ENEMY));
 
         for (int i = 0; true; i++)
-        {
+        {           
             float extraAngle = Random.Range(-3f, 3f);
 
             UDECartesianPolarMovementBuilder builder = UDECartesianPolarMovementBuilder.Create().Speed(BulletSpeed);
@@ -84,6 +85,7 @@ public class TestBossPattern : UDEBaseShotPattern
                         break;
                 }
             }
+            
 
             yield return StartCoroutine(UDETime.Instance.WaitForScaledSeconds(0.25f, UDETime.TimeScale.ENEMY));
         }

@@ -44,8 +44,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   patternBullets:
-  - {fileID: 8996831788548077838, guid: 94e553c133a6b1646b2c286cc1843967, type: 3}
-  - {fileID: -6419917914108885785, guid: 237e7c20b051f0b4a8d3bd92191ae686, type: 3}
+  - {fileID: 7824805110825671395, guid: 89217dd2be8181c4ea8909df897a0208, type: 3}
+  - {fileID: 8538881713743166300, guid: 7166056ed715e5a4da04a2cd69d3fc3d, type: 3}
   type: 0
   hasTimeLimit: 0
   timeLimit: 20

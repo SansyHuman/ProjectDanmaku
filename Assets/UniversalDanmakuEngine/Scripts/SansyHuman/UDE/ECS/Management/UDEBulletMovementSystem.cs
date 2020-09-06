@@ -263,6 +263,7 @@ namespace SansyHuman.UDE.ECS.Management
                         if (movement.Movement.setSpeedToPrevMovement)
                             SyncMovementSpeed(ref prevMovement, ref movement.Movement, ref polarCoord);
                         movement.Phase = 0;
+                        movement.Time = 0;
                     }
                 }
             }
@@ -290,7 +291,7 @@ namespace SansyHuman.UDE.ECS.Management
                         break;
                     case MoveMode.POLAR:
                         var radialVel = UDEMath.Polar2Cartesian(prev.radialSpeed, angle);
-                        var angularVel = UDEMath.Polar2Cartesian(prev.angularSpeed, angle + 90f);
+                        var angularVel = UDEMath.Polar2Cartesian(prev.angularSpeed * Mathf.Deg2Rad * polarCoord.Radius, angle + 90f);
                         prevVelocity = new Vector2(radialVel.x + angularVel.x, radialVel.y + angularVel.y);
                         break;
                 }
@@ -307,8 +308,8 @@ namespace SansyHuman.UDE.ECS.Management
                         break;
                     case MoveMode.POLAR:
                         (float speed, float angle) polarVel2 = UDEMath.Cartesian2Polar(prevVelocity);
-                        next.radialSpeed = polarVel2.speed * Mathf.Cos(polarVel2.angle - angle);
-                        next.angularSpeed = polarVel2.speed * Mathf.Sin(polarVel2.angle - angle);
+                        next.radialSpeed = polarVel2.speed * Mathf.Cos((polarVel2.angle - angle) * Mathf.Deg2Rad);
+                        next.angularSpeed = polarVel2.speed * Mathf.Sin((polarVel2.angle - angle) * Mathf.Deg2Rad) * Mathf.Rad2Deg / polarCoord.Radius;
                         break;
                 }
             }
@@ -353,6 +354,7 @@ namespace SansyHuman.UDE.ECS.Management
         protected override JobHandle OnUpdate(JobHandle inputDeps)
         {
             MovementJob job = new MovementJob() { deltaTime = Time.deltaTime };
+            
             PhaseUpdateJob job2 = new PhaseUpdateJob();
             PolarCoordAndTimeScaleUpdateJob job3 = new PolarCoordAndTimeScaleUpdateJob();
             JobHandle movement = job.Schedule(this, inputDeps);
