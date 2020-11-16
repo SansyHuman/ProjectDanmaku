@@ -1,6 +1,5 @@
 var hierarchy =
 [
-    [ "SansyHuman.UDE.Util.Math.CatmullRomSpline", "class_sansy_human_1_1_u_d_e_1_1_util_1_1_math_1_1_catmull_rom_spline.html", null ],
     [ "ComponentDataProxy", null, [
       [ "SansyHuman.UDE.ECS.Object.UDEBulletMovementsComponent", "class_sansy_human_1_1_u_d_e_1_1_e_c_s_1_1_object_1_1_u_d_e_bullet_movements_component.html", null ],
       [ "SansyHuman.UDE.ECS.Object.UDEBulletTimeScaleComponenent", "class_sansy_human_1_1_u_d_e_1_1_e_c_s_1_1_object_1_1_u_d_e_bullet_time_scale_componenent.html", null ],
@@ -15,12 +14,6 @@ var hierarchy =
       [ "SansyHuman.UDE.Exception.UDEInvalidBulletMovementException", "class_sansy_human_1_1_u_d_e_1_1_exception_1_1_u_d_e_invalid_bullet_movement_exception.html", null ],
       [ "SansyHuman.UDE.Exception.UDEPatternRunningException", "class_sansy_human_1_1_u_d_e_1_1_exception_1_1_u_d_e_pattern_running_exception.html", null ]
     ] ],
-    [ "ICloneable", null, [
-      [ "SansyHuman.UDE.Util.Math.UDEMath.IMatrix< T >", "interface_sansy_human_1_1_u_d_e_1_1_util_1_1_math_1_1_u_d_e_math_1_1_i_matrix.html", [
-        [ "SansyHuman.UDE.Util.Math.UDEMath.ISquareMatrix< T >", "interface_sansy_human_1_1_u_d_e_1_1_util_1_1_math_1_1_u_d_e_math_1_1_i_square_matrix.html", null ]
-      ] ],
-      [ "SansyHuman.UDE.Util.Math.UDEMath.IVector< T >", "interface_sansy_human_1_1_u_d_e_1_1_util_1_1_math_1_1_u_d_e_math_1_1_i_vector.html", null ]
-    ] ],
     [ "IComponentData", null, [
       [ "SansyHuman.UDE.ECS.Object.UDEBulletMovements", "struct_sansy_human_1_1_u_d_e_1_1_e_c_s_1_1_object_1_1_u_d_e_bullet_movements.html", null ],
       [ "SansyHuman.UDE.ECS.Object.UDEBulletSummonPhase", "struct_sansy_human_1_1_u_d_e_1_1_e_c_s_1_1_object_1_1_u_d_e_bullet_summon_phase.html", null ],
@@ -30,32 +23,25 @@ var hierarchy =
     ] ],
     [ "IEquatable", null, [
       [ "SansyHuman.UDE.Util.Math.UDEMath.CartesianCoord", "struct_sansy_human_1_1_u_d_e_1_1_util_1_1_math_1_1_u_d_e_math_1_1_cartesian_coord.html", null ],
-      [ "SansyHuman.UDE.Util.Math.UDEMath.IMatrix< T >", "interface_sansy_human_1_1_u_d_e_1_1_util_1_1_math_1_1_u_d_e_math_1_1_i_matrix.html", null ],
-      [ "SansyHuman.UDE.Util.Math.UDEMath.IVector< T >", "interface_sansy_human_1_1_u_d_e_1_1_util_1_1_math_1_1_u_d_e_math_1_1_i_vector.html", null ],
       [ "SansyHuman.UDE.Util.Math.UDEMath.PolarCoord", "struct_sansy_human_1_1_u_d_e_1_1_util_1_1_math_1_1_u_d_e_math_1_1_polar_coord.html", null ]
     ] ],
-    [ "SansyHuman.UDE.Util.Math.UDEMath.IMatrix< Matrix >", "interface_sansy_human_1_1_u_d_e_1_1_util_1_1_math_1_1_u_d_e_math_1_1_i_matrix.html", [
-      [ "SansyHuman.UDE.Util.Math.UDEMath.Matrix", "struct_sansy_human_1_1_u_d_e_1_1_util_1_1_math_1_1_u_d_e_math_1_1_matrix.html", null ]
-    ] ],
     [ "SansyHuman.UDE.Management.UDEBulletPool.InitializingObject", "struct_sansy_human_1_1_u_d_e_1_1_management_1_1_u_d_e_bullet_pool_1_1_initializing_object.html", null ],
-    [ "SansyHuman.UDE.Util.Math.UDEMath.ISquareMatrix< Matrix2x2 >", "interface_sansy_human_1_1_u_d_e_1_1_util_1_1_math_1_1_u_d_e_math_1_1_i_square_matrix.html", [
-      [ "SansyHuman.UDE.Util.Math.UDEMath.Matrix2x2", "struct_sansy_human_1_1_u_d_e_1_1_util_1_1_math_1_1_u_d_e_math_1_1_matrix2x2.html", null ]
-    ] ],
-    [ "SansyHuman.UDE.Util.Math.UDEMath.ISquareMatrix< SquareMatrix >", "interface_sansy_human_1_1_u_d_e_1_1_util_1_1_math_1_1_u_d_e_math_1_1_i_square_matrix.html", [
-      [ "SansyHuman.UDE.Util.Math.UDEMath.SquareMatrix", "struct_sansy_human_1_1_u_d_e_1_1_util_1_1_math_1_1_u_d_e_math_1_1_square_matrix.html", null ]
-    ] ],
     [ "SansyHuman.UDE.Util.UDETransitionHelper.ITransitiontInfo", "interface_sansy_human_1_1_u_d_e_1_1_util_1_1_u_d_e_transition_helper_1_1_i_transitiont_info.html", null ],
     [ "SansyHuman.UDE.Object.IUDEControllable", "interface_sansy_human_1_1_u_d_e_1_1_object_1_1_i_u_d_e_controllable.html", [
       [ "SansyHuman.UDE.Object.UDEPlayer", "class_sansy_human_1_1_u_d_e_1_1_object_1_1_u_d_e_player.html", null ]
     ] ],
     [ "SansyHuman.UDE.Object.IUDELaserFirable", "interface_sansy_human_1_1_u_d_e_1_1_object_1_1_i_u_d_e_laser_firable.html", null ],
-    [ "SansyHuman.UDE.Util.Math.UDEMath.IVector< Vector >", "interface_sansy_human_1_1_u_d_e_1_1_util_1_1_math_1_1_u_d_e_math_1_1_i_vector.html", [
-      [ "SansyHuman.UDE.Util.Math.UDEMath.Vector", "struct_sansy_human_1_1_u_d_e_1_1_util_1_1_math_1_1_u_d_e_math_1_1_vector.html", null ]
+    [ "SansyHuman.UDE.Util.Math.IUDERandom", "interface_sansy_human_1_1_u_d_e_1_1_util_1_1_math_1_1_i_u_d_e_random.html", [
+      [ "SansyHuman.UDE.Util.Math.UDEMersenneRandom", "class_sansy_human_1_1_u_d_e_1_1_util_1_1_math_1_1_u_d_e_mersenne_random.html", null ],
+      [ "SansyHuman.UDE.Util.Math.UDEModRandom", "class_sansy_human_1_1_u_d_e_1_1_util_1_1_math_1_1_u_d_e_mod_random.html", null ],
+      [ "SansyHuman.UDE.Util.Math.UDESquareRandom", "class_sansy_human_1_1_u_d_e_1_1_util_1_1_math_1_1_u_d_e_square_random.html", null ],
+      [ "SansyHuman.UDE.Util.Math.UDEXORRandom", "class_sansy_human_1_1_u_d_e_1_1_util_1_1_math_1_1_u_d_e_x_o_r_random.html", null ]
     ] ],
     [ "JobComponentSystem", null, [
       [ "SansyHuman.UDE.ECS.Management.UDEBulletMovementSystem", "class_sansy_human_1_1_u_d_e_1_1_e_c_s_1_1_management_1_1_u_d_e_bullet_movement_system.html", null ]
     ] ],
     [ "SansyHuman.UDE.Object.UDEPlayer.KeyMappingInfo", "struct_sansy_human_1_1_u_d_e_1_1_object_1_1_u_d_e_player_1_1_key_mapping_info.html", null ],
+    [ "SansyHuman.UDE.Util.Math.UDEMersenneRandom.MersenneRandomInit", "struct_sansy_human_1_1_u_d_e_1_1_util_1_1_math_1_1_u_d_e_mersenne_random_1_1_mersenne_random_init.html", null ],
     [ "MonoBehaviour", null, [
       [ "SansyHuman.UDE.Management.UDESingleton< T >", "class_sansy_human_1_1_u_d_e_1_1_management_1_1_u_d_e_singleton.html", null ],
       [ "SansyHuman.UDE.Object.UDEInitializable", "class_sansy_human_1_1_u_d_e_1_1_object_1_1_u_d_e_initializable.html", [
@@ -81,6 +67,7 @@ var hierarchy =
     ] ],
     [ "SansyHuman.UDE.Object.UDEEnemy.ShotPattern", "struct_sansy_human_1_1_u_d_e_1_1_object_1_1_u_d_e_enemy_1_1_shot_pattern.html", null ],
     [ "SansyHuman.UDE.Util.UDETransitionHelper.TransitionResult", "class_sansy_human_1_1_u_d_e_1_1_util_1_1_u_d_e_transition_helper_1_1_transition_result.html", null ],
+    [ "SansyHuman.UDE.Object.UDEBulletExtensions", "class_sansy_human_1_1_u_d_e_1_1_object_1_1_u_d_e_bullet_extensions.html", null ],
     [ "SansyHuman.UDE.Object.UDEBulletMovement", "struct_sansy_human_1_1_u_d_e_1_1_object_1_1_u_d_e_bullet_movement.html", null ],
     [ "SansyHuman.UDE.ECS.Object.UDEBulletMovementECS", "struct_sansy_human_1_1_u_d_e_1_1_e_c_s_1_1_object_1_1_u_d_e_bullet_movement_e_c_s.html", null ],
     [ "SansyHuman.UDE.Util.Builder.UDECommonBulletMovementBuilder< T >", "class_sansy_human_1_1_u_d_e_1_1_util_1_1_builder_1_1_u_d_e_common_bullet_movement_builder.html", null ],

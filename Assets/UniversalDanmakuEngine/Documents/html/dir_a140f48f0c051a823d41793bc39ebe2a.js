@@ -1,7 +1,8 @@
 var dir_a140f48f0c051a823d41793bc39ebe2a =
 [
-    [ "CatmullRomSpline.cs", "_catmull_rom_spline_8cs.html", [
-      [ "CatmullRomSpline", "class_sansy_human_1_1_u_d_e_1_1_util_1_1_math_1_1_catmull_rom_spline.html", null ]
+    [ "CatmullRomSpline.cs", "_catmull_rom_spline_8cs.html", null ],
+    [ "IUDERandom.cs", "_i_u_d_e_random_8cs.html", [
+      [ "IUDERandom", "interface_sansy_human_1_1_u_d_e_1_1_util_1_1_math_1_1_i_u_d_e_random.html", "interface_sansy_human_1_1_u_d_e_1_1_util_1_1_math_1_1_i_u_d_e_random" ]
     ] ],
     [ "UDECurve.cs", "_u_d_e_curve_8cs.html", [
       [ "UDECurve", "class_sansy_human_1_1_u_d_e_1_1_util_1_1_math_1_1_u_d_e_curve.html", "class_sansy_human_1_1_u_d_e_1_1_util_1_1_math_1_1_u_d_e_curve" ]
@@ -15,13 +16,19 @@ var dir_a140f48f0c051a823d41793bc39ebe2a =
     [ "UDEMath_Structure.cs", "_u_d_e_math___structure_8cs.html", [
       [ "UDEMath", "class_sansy_human_1_1_u_d_e_1_1_util_1_1_math_1_1_u_d_e_math.html", "class_sansy_human_1_1_u_d_e_1_1_util_1_1_math_1_1_u_d_e_math" ],
       [ "PolarCoord", "struct_sansy_human_1_1_u_d_e_1_1_util_1_1_math_1_1_u_d_e_math_1_1_polar_coord.html", "struct_sansy_human_1_1_u_d_e_1_1_util_1_1_math_1_1_u_d_e_math_1_1_polar_coord" ],
-      [ "CartesianCoord", "struct_sansy_human_1_1_u_d_e_1_1_util_1_1_math_1_1_u_d_e_math_1_1_cartesian_coord.html", "struct_sansy_human_1_1_u_d_e_1_1_util_1_1_math_1_1_u_d_e_math_1_1_cartesian_coord" ],
-      [ "IMatrix", "interface_sansy_human_1_1_u_d_e_1_1_util_1_1_math_1_1_u_d_e_math_1_1_i_matrix.html", "interface_sansy_human_1_1_u_d_e_1_1_util_1_1_math_1_1_u_d_e_math_1_1_i_matrix" ],
-      [ "ISquareMatrix", "interface_sansy_human_1_1_u_d_e_1_1_util_1_1_math_1_1_u_d_e_math_1_1_i_square_matrix.html", "interface_sansy_human_1_1_u_d_e_1_1_util_1_1_math_1_1_u_d_e_math_1_1_i_square_matrix" ],
-      [ "IVector", "interface_sansy_human_1_1_u_d_e_1_1_util_1_1_math_1_1_u_d_e_math_1_1_i_vector.html", "interface_sansy_human_1_1_u_d_e_1_1_util_1_1_math_1_1_u_d_e_math_1_1_i_vector" ],
-      [ "Matrix2x2", "struct_sansy_human_1_1_u_d_e_1_1_util_1_1_math_1_1_u_d_e_math_1_1_matrix2x2.html", "struct_sansy_human_1_1_u_d_e_1_1_util_1_1_math_1_1_u_d_e_math_1_1_matrix2x2" ],
-      [ "Matrix", "struct_sansy_human_1_1_u_d_e_1_1_util_1_1_math_1_1_u_d_e_math_1_1_matrix.html", "struct_sansy_human_1_1_u_d_e_1_1_util_1_1_math_1_1_u_d_e_math_1_1_matrix" ],
-      [ "SquareMatrix", "struct_sansy_human_1_1_u_d_e_1_1_util_1_1_math_1_1_u_d_e_math_1_1_square_matrix.html", "struct_sansy_human_1_1_u_d_e_1_1_util_1_1_math_1_1_u_d_e_math_1_1_square_matrix" ],
-      [ "Vector", "struct_sansy_human_1_1_u_d_e_1_1_util_1_1_math_1_1_u_d_e_math_1_1_vector.html", "struct_sansy_human_1_1_u_d_e_1_1_util_1_1_math_1_1_u_d_e_math_1_1_vector" ]
+      [ "CartesianCoord", "struct_sansy_human_1_1_u_d_e_1_1_util_1_1_math_1_1_u_d_e_math_1_1_cartesian_coord.html", "struct_sansy_human_1_1_u_d_e_1_1_util_1_1_math_1_1_u_d_e_math_1_1_cartesian_coord" ]
+    ] ],
+    [ "UDEMersenneRandom.cs", "_u_d_e_mersenne_random_8cs.html", [
+      [ "UDEMersenneRandom", "class_sansy_human_1_1_u_d_e_1_1_util_1_1_math_1_1_u_d_e_mersenne_random.html", "class_sansy_human_1_1_u_d_e_1_1_util_1_1_math_1_1_u_d_e_mersenne_random" ],
+      [ "MersenneRandomInit", "struct_sansy_human_1_1_u_d_e_1_1_util_1_1_math_1_1_u_d_e_mersenne_random_1_1_mersenne_random_init.html", "struct_sansy_human_1_1_u_d_e_1_1_util_1_1_math_1_1_u_d_e_mersenne_random_1_1_mersenne_random_init" ]
+    ] ],
+    [ "UDEModRandom.cs", "_u_d_e_mod_random_8cs.html", [
+      [ "UDEModRandom", "class_sansy_human_1_1_u_d_e_1_1_util_1_1_math_1_1_u_d_e_mod_random.html", "class_sansy_human_1_1_u_d_e_1_1_util_1_1_math_1_1_u_d_e_mod_random" ]
+    ] ],
+    [ "UDESquareRandom.cs", "_u_d_e_square_random_8cs.html", [
+      [ "UDESquareRandom", "class_sansy_human_1_1_u_d_e_1_1_util_1_1_math_1_1_u_d_e_square_random.html", "class_sansy_human_1_1_u_d_e_1_1_util_1_1_math_1_1_u_d_e_square_random" ]
+    ] ],
+    [ "UDEXORRandom.cs", "_u_d_e_x_o_r_random_8cs.html", [
+      [ "UDEXORRandom", "class_sansy_human_1_1_u_d_e_1_1_util_1_1_math_1_1_u_d_e_x_o_r_random.html", "class_sansy_human_1_1_u_d_e_1_1_util_1_1_math_1_1_u_d_e_x_o_r_random" ]
     ] ]
 ];

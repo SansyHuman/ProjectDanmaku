@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['norm',['Norm',['../interface_sansy_human_1_1_u_d_e_1_1_util_1_1_math_1_1_u_d_e_math_1_1_i_vector.html#a03b8ba10edb73f25a814a28a08c33ed6',1,'SansyHuman::UDE::Util::Math::UDEMath::IVector']]]
+  ['origincharacter_965',['OriginCharacter',['../class_sansy_human_1_1_u_d_e_1_1_object_1_1_u_d_e_abstract_bullet.html#ab5ee7c509378ea662166f2e061bb4c32',1,'SansyHuman.UDE.Object.UDEAbstractBullet.OriginCharacter()'],['../class_sansy_human_1_1_u_d_e_1_1_object_1_1_u_d_e_laser.html#a53c655931e2107ee2ddc2f5e7bb888f1',1,'SansyHuman.UDE.Object.UDELaser.OriginCharacter()']]]
 ];

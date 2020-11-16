@@ -109,13 +109,10 @@ namespace SansyHuman.UDE.Management
         }
 
         /// <summary>
-        /// Deletes pool if all bullets in the pool are inactive, else just delete bullets that are inactive and leaves the pool.
-        /// <para>If you set <paramref name="deleteActiveBullets"/> to <c>true</c>, It will destroy all the bullets
-        /// even if they are active and delete the pool.</para>
+        /// Deletes bullets in the pool that are inactive and leaves the pool.
         /// </summary>
         /// <param name="prefab"><see cref="SansyHuman.UDE.Object.UDEAbstractBullet"/> prefab to destroy</param>
-        /// <param name="deleteActiveBullets">If true, delete all bullets in the pool even if they are active. The default value is <c>false</c></param>
-        public void ClearPool(UDEAbstractBullet prefab, bool deleteActiveBullets = false)
+        public void ClearPool(UDEAbstractBullet prefab)
         {
             Stack<UDEAbstractBullet> pool;
             if (!poolList.TryGetValue(prefab, out pool))
@@ -124,39 +121,21 @@ namespace SansyHuman.UDE.Management
                 return;
             }
 
-            Stack<UDEAbstractBullet> temp = new Stack<UDEAbstractBullet>(pool.Count);
-
             for (int i = 0; i < pool.Count; i++)
             {
                 UDEAbstractBullet bullet = pool.Pop();
-                if (!deleteActiveBullets && bullet.gameObject.activeSelf)
-                    temp.Push(bullet);
-                else
-                    Destroy(bullet.gameObject);
-            }
-
-            if (temp.Count > 0)
-            {
-                for (int i = 0; i < temp.Count; i++)
-                    pool.Push(temp.Pop());
-            }
-            else
-            {
-                poolList.Remove(prefab);
+                Destroy(bullet.gameObject);
             }
         }
 
         /// <summary>
-        /// Deletes all existing pools if all bullets in the pool are inactive, else just delete bullets that are inactive and leaves the pool.
-        /// <para>If you set <paramref name="deleteActiveBullets"/> to <c>true</c>, It will destroy all the bullets
-        /// even if they are active and delete the pool.</para>
+        /// Deletes bullets in all pools that are inactive and leaves the pool.
         /// </summary>
-        /// <param name="deleteActiveBullets">If true, delete all bullets in the pool even if they are active. The default value is <c>false</c></param>
-        public void ClearAllPools(bool deleteActiveBullets = false)
+        public void ClearAllPools()
         {
             List<UDEAbstractBullet> pools = new List<UDEAbstractBullet>(poolList.Keys);
             for (int i = 0; i < pools.Count; i++)
-                ClearPool(pools[i], deleteActiveBullets);
+                ClearPool(pools[i]);
         }
 
         /// <summary>
@@ -209,7 +188,7 @@ namespace SansyHuman.UDE.Management
         {
             if (!target.gameObject.activeSelf)
             {
-                Debug.LogWarning("You tried to release bullet that already released. THe release is ignored.");
+                Debug.LogWarning("You tried to release bullet that already released. The release is ignored.");
                 return;
             }
             target.gameObject.SetActive(false);

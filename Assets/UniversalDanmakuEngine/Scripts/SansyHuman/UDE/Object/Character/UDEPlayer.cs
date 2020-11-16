@@ -172,14 +172,14 @@ namespace SansyHuman.UDE.Object
         }
 
         // Update is called once per frame
-        private void Update()
+        protected virtual void Update()
         {
 #pragma warning disable CS0618 // Type or member is obsolete
             Move(Time.deltaTime);
 #pragma warning restore CS0618 // Type or member is obsolete
         }
 
-        private void OnTriggerStay2D(Collider2D collision)
+        protected virtual void OnTriggerStay2D(Collider2D collision)
         {
             if (invincible)
                 return;

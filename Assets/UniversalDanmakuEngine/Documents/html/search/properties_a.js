@@ -1,6 +1,11 @@
 var searchData=
 [
-  ['phase',['Phase',['../class_sansy_human_1_1_u_d_e_1_1_e_c_s_1_1_object_1_1_u_d_e_bullet_e_c_s.html#ac1298ba971000fda481b08215278eda1',1,'SansyHuman.UDE.ECS.Object.UDEBulletECS.Phase()'],['../class_sansy_human_1_1_u_d_e_1_1_object_1_1_u_d_e_base_bullet.html#ac22d229da1cd347732115d955591522b',1,'SansyHuman.UDE.Object.UDEBaseBullet.Phase()']]],
-  ['playertimescale',['PlayerTimeScale',['../class_sansy_human_1_1_u_d_e_1_1_management_1_1_u_d_e_time.html#ab94307d70e79715bc5dbc587bbcb4398',1,'SansyHuman::UDE::Management::UDETime']]],
-  ['progression',['Progression',['../interface_sansy_human_1_1_u_d_e_1_1_util_1_1_u_d_e_transition_helper_1_1_i_transitiont_info.html#a424c2c6d461aff33e723f076713eb217',1,'SansyHuman::UDE::Util::UDETransitionHelper::ITransitiontInfo']]]
+  ['scoreondeath_969',['ScoreOnDeath',['../class_sansy_human_1_1_u_d_e_1_1_object_1_1_u_d_e_enemy.html#a2d64377f69c97bffc485da8b0e464d1c',1,'SansyHuman::UDE::Object::UDEEnemy']]],
+  ['shotpatternon_970',['ShotPatternOn',['../class_sansy_human_1_1_u_d_e_1_1_pattern_1_1_u_d_e_base_shot_pattern.html#af4f7a0aefef83f841a4dfec26b9ad7c6',1,'SansyHuman::UDE::Pattern::UDEBaseShotPattern']]],
+  ['slowmodespeedmultiplier_971',['SlowModeSpeedMultiplier',['../interface_sansy_human_1_1_u_d_e_1_1_object_1_1_i_u_d_e_controllable.html#aaa57a9b28c0cd087f0ab970a98ff0a18',1,'SansyHuman.UDE.Object.IUDEControllable.SlowModeSpeedMultiplier()'],['../class_sansy_human_1_1_u_d_e_1_1_object_1_1_u_d_e_player.html#acc2661ab7ad6c828a6c6373034911b66',1,'SansyHuman.UDE.Object.UDEPlayer.SlowModeSpeedMultiplier()']]],
+  ['speed_972',['Speed',['../interface_sansy_human_1_1_u_d_e_1_1_object_1_1_i_u_d_e_controllable.html#a3577e7f70d317fc5e14b18b82f509ec8',1,'SansyHuman.UDE.Object.IUDEControllable.Speed()'],['../class_sansy_human_1_1_u_d_e_1_1_object_1_1_u_d_e_player.html#a89b6c8e53d95c680c9c4697994d35e8e',1,'SansyHuman.UDE.Object.UDEPlayer.Speed()']]],
+  ['sqrmagnitudefromorigin_973',['SqrMagnitudeFromOrigin',['../class_sansy_human_1_1_u_d_e_1_1_object_1_1_u_d_e_base_bullet.html#a73254b76c68200418fc2483c65de1edd',1,'SansyHuman::UDE::Object::UDEBaseBullet']]],
+  ['squaremagnitude_974',['SquareMagnitude',['../struct_sansy_human_1_1_u_d_e_1_1_util_1_1_math_1_1_u_d_e_math_1_1_cartesian_coord.html#aa1fc5e1f1de537d1e359d8d3e7528d44',1,'SansyHuman::UDE::Util::Math::UDEMath::CartesianCoord']]],
+  ['stagepatternon_975',['StagePatternOn',['../class_sansy_human_1_1_u_d_e_1_1_pattern_1_1_u_d_e_base_stage_pattern.html#a3df34ce780224f9860f24693e5675cfc',1,'SansyHuman::UDE::Pattern::UDEBaseStagePattern']]],
+  ['summontime_976',['SummonTime',['../class_sansy_human_1_1_u_d_e_1_1_object_1_1_u_d_e_base_bullet.html#ad04226824afe74992bdedee2aee5a815',1,'SansyHuman::UDE::Object::UDEBaseBullet']]]
 ];

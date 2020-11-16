@@ -27,13 +27,13 @@ namespace SansyHuman.UDE.Editor
     [CustomEditor(typeof(UDEEnemy))]
     public class UDEEnemyEditor : UnityEditor.Editor
     {
-        SerializedProperty shotPatterns;
-        SerializedProperty scoreOnDeath;
-        SerializedProperty canBeDamaged;
+        protected SerializedProperty shotPatterns;
+        protected SerializedProperty scoreOnDeath;
+        protected SerializedProperty canBeDamaged;
 
         UDEEnemy targetEnemy;
 
-        private void OnEnable()
+        protected virtual void OnEnable()
         {
             targetEnemy = (UDEEnemy)target;
 
@@ -42,9 +42,9 @@ namespace SansyHuman.UDE.Editor
             canBeDamaged = serializedObject.FindProperty("canBeDamaged");
         }
 
-        bool showEnemyProperties = true;
+        protected bool showEnemyProperties = true;
 
-        int enemyType = 0; // 0: Destroyable 1: Invincible
+        protected int enemyType = 0; // 0: Destroyable 1: Invincible
 
         public override void OnInspectorGUI()
         {

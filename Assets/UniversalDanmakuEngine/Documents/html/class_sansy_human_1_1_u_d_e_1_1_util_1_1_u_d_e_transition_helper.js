@@ -36,6 +36,8 @@ var class_sansy_human_1_1_u_d_e_1_1_util_1_1_u_d_e_transition_helper =
       [ "EaseOutBounce", "class_sansy_human_1_1_u_d_e_1_1_util_1_1_u_d_e_transition_helper.html#ab84bf170726ee8f85832170fa23396b4a8b4fb23969cc9a99597f936502d692cd", null ],
       [ "EaseInOutBounce", "class_sansy_human_1_1_u_d_e_1_1_util_1_1_u_d_e_transition_helper.html#ab84bf170726ee8f85832170fa23396b4a009d0dbb48b182b03569883379cf5294", null ]
     ] ],
+    [ "ChangeColorTo", "class_sansy_human_1_1_u_d_e_1_1_util_1_1_u_d_e_transition_helper.html#a86011780c7f957d945a8b19cbaa03aed", null ],
+    [ "ChangeScaleTo", "class_sansy_human_1_1_u_d_e_1_1_util_1_1_u_d_e_transition_helper.html#a8860d294f5cb6e362aff4b256626247e", null ],
     [ "CombineInOutEase", "class_sansy_human_1_1_u_d_e_1_1_util_1_1_u_d_e_transition_helper.html#a3b73adadf535f1ae90433bf2b461706d", null ],
     [ "ConvertIn2Out", "class_sansy_human_1_1_u_d_e_1_1_util_1_1_u_d_e_transition_helper.html#aa794dfa6ed30631e82e2924e048edecf", null ],
     [ "EaseTypeOf", "class_sansy_human_1_1_u_d_e_1_1_util_1_1_u_d_e_transition_helper.html#a20b17c197fce7692949785d246ae4004", null ],
@@ -48,6 +50,8 @@ var class_sansy_human_1_1_u_d_e_1_1_util_1_1_u_d_e_transition_helper =
     [ "MoveTo", "class_sansy_human_1_1_u_d_e_1_1_util_1_1_u_d_e_transition_helper.html#a62fd21bf30719f01fb9cb6c895dae27a", null ],
     [ "MoveTo", "class_sansy_human_1_1_u_d_e_1_1_util_1_1_u_d_e_transition_helper.html#a36c265a038272b7b8c42836b897090ad", null ],
     [ "MoveTo", "class_sansy_human_1_1_u_d_e_1_1_util_1_1_u_d_e_transition_helper.html#a4e5bfea20a738e508e44ecab70f269b0", null ],
+    [ "RotateAmount", "class_sansy_human_1_1_u_d_e_1_1_util_1_1_u_d_e_transition_helper.html#a3e776d185ce731cd8971813be04f039e", null ],
+    [ "RotateTo", "class_sansy_human_1_1_u_d_e_1_1_util_1_1_u_d_e_transition_helper.html#adc170fcca347be28183ebfee3ed3d3e7", null ],
     [ "easeInBack", "class_sansy_human_1_1_u_d_e_1_1_util_1_1_u_d_e_transition_helper.html#a89a35c987163beb4d212622d822b43f1", null ],
     [ "easeInBounce", "class_sansy_human_1_1_u_d_e_1_1_util_1_1_u_d_e_transition_helper.html#abc6ce8088038b9f4ab5daaa9d881c0aa", null ],
     [ "easeInCirc", "class_sansy_human_1_1_u_d_e_1_1_util_1_1_u_d_e_transition_helper.html#a81444a70c6d39d2bb6f6cbe04162fb5c", null ],
