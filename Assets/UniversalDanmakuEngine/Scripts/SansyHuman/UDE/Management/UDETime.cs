@@ -35,6 +35,9 @@ namespace SansyHuman.UDE.Management
         [SerializeField] private float playerTimeScale = 1f;
         private bool paused = false;
 
+        /// <value>Gets whether the game has paused.</value>
+        public bool Paused => paused;
+
         /// <value>Gets and sets the time scale of all enemies and bullets from enemies.</value>
         public float EnemyTimeScale
         {

@@ -1,5 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+
+using SansyHuman.Management;
+
 using UnityEngine;
 
 namespace SansyHuman.Item
@@ -9,6 +12,20 @@ namespace SansyHuman.Item
         [SerializeField]
         private float power = 0.01f;
 
-        public float PowerPoint => power;
+        public float PowerPoint
+        {
+            get => power;
+            internal set
+            {
+                power = value;
+            }
+        }
+
+        public override bool UsesObjectPool => true;
+
+        public override void RemoveItem()
+        {
+            ObjectPool.Instance.ReturnObject(this);
+        }
     }
 }

@@ -1,5 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+
+using SansyHuman.Management;
 using SansyHuman.UDE.Management;
 using SansyHuman.UDE.Object;
 
@@ -40,16 +42,16 @@ namespace SansyHuman.Item
         private Transform tr;
         private Camera mainCamera;
 
+        /// <summary>
+        /// Gets whether the item uses object pool. The default setting is false.
+        /// If the item uses the object pool, override this property.
+        /// </summary>
+        public virtual bool UsesObjectPool => false;
+
         private void Awake()
         {
             tr = transform;
             mainCamera = Camera.main;
-        }
-
-        public virtual void Initialize(float initVelocity, Vector2 initPosition)
-        {
-            velocity = initVelocity;
-            tr.position = initPosition;
         }
 
         private void FixedUpdate()
@@ -96,6 +98,21 @@ namespace SansyHuman.Item
             tr.position = pos;
         }
 
+        public virtual void Initialize(float initVelocity, Vector2 initPosition)
+        {
+            velocity = initVelocity;
+            tr.position = initPosition;
+
+            ItemManager.Instance.AddItem(this);
+        }
+
+        protected virtual void OnDisable()
+        {
+            ItemManager.Instance.RemoveItem(this);
+            dragToPlayer = false;
+            player = null;
+        }
+
         /// <summary>
         /// Called when the item is destroyed. The default action is to destroy
         /// the item object. You can override it(for example, override to return the item
@@ -110,6 +127,8 @@ namespace SansyHuman.Item
         {
             dragToPlayer = true;
             this.player = player;
+
+            ItemManager.Instance.MoveToDraggedItems(this);
         }
     }
 }

@@ -135,6 +135,6 @@ MonoBehaviour:
   fallDirection: 0
   acceleration: 2
   maxSpeed: 4
-  dragSpeed: 7
+  dragSpeed: 15
   itemDestructionThreashold: 0.05
   power: 0.01

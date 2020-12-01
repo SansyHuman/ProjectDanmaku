@@ -108,9 +108,19 @@ namespace SansyHuman.UDE.Object
                 yield return new WaitUntil(() =>
                     (health < 0 || (pattern.HasTimeLimit && pattern.Time > pattern.TimeLimit)));
                 pattern.EndPattern();
+                OnPatternEnd(pattern);
             }
             alive = false;
             OnDeath();
+        }
+
+        /// <summary>
+        /// Called when one pattern ends. Override this to do something when pattern ended.
+        /// </summary>
+        /// <param name="endedPattern">Pattern that has ended</param>
+        protected virtual void OnPatternEnd(UDEBaseShotPattern endedPattern)
+        {
+
         }
 
         /// <summary>
@@ -123,7 +133,7 @@ namespace SansyHuman.UDE.Object
         }
 
         // Registers itself to object manager.
-        private void OnEnable()
+        protected virtual void OnEnable()
         {
 #pragma warning disable CS0618 // Type or member is obsolete
             UDEObjectManager.Instance.AddEnemy(this);
@@ -131,7 +141,7 @@ namespace SansyHuman.UDE.Object
         }
 
         // Deregisters itself from object manager.
-        private void OnDisable()
+        protected virtual void OnDisable()
         {
 #pragma warning disable CS0618 // Type or member is obsolete
             UDEObjectManager.Instance.RemoveEnemy(this);
@@ -139,7 +149,7 @@ namespace SansyHuman.UDE.Object
             Destroy(self);
         }
 
-        private void OnTriggerStay2D(Collider2D collision)
+        protected virtual void OnTriggerStay2D(Collider2D collision)
         {
             if (!canBeDamaged)
                 return;

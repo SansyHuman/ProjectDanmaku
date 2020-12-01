@@ -92,6 +92,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8360352441026715441}
   - component: {fileID: 8360352441026732238}
+  - component: {fileID: 4629412537463188589}
   m_Layer: 0
   m_Name: Yuresia_Subweapon3
   m_TagString: Untagged
@@ -162,6 +163,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &4629412537463188589
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8360352441026715440}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee65714c4e10f764dab339c9e57b3252, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 0
+  timeScale: 0
 --- !u!1 &8360352441300860531
 GameObject:
   m_ObjectHideFlags: 0
@@ -172,6 +187,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8360352441300860528}
   - component: {fileID: 8360352441300860529}
+  - component: {fileID: 3828757203588941619}
   m_Layer: 0
   m_Name: Yuresia_Subweapon1
   m_TagString: Untagged
@@ -242,6 +258,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &3828757203588941619
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8360352441300860531}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee65714c4e10f764dab339c9e57b3252, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 100
+  timeScale: 1
 --- !u!1 &8360352441313261174
 GameObject:
   m_ObjectHideFlags: 0
@@ -282,6 +312,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8360352441395820789}
   - component: {fileID: 8360352441395820786}
+  - component: {fileID: 4627657225715965435}
   m_Layer: 0
   m_Name: Yuresia_Subweapon2
   m_TagString: Untagged
@@ -352,6 +383,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &4627657225715965435
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8360352441395820788}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee65714c4e10f764dab339c9e57b3252, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: -100
+  timeScale: 1
 --- !u!1 &8360352441649167254
 GameObject:
   m_ObjectHideFlags: 0
@@ -362,7 +407,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8360352441649167255}
   - component: {fileID: 8360352441649167252}
-  - component: {fileID: 8360352441649167253}
+  - component: {fileID: 8660405577486551408}
   m_Layer: 0
   m_Name: Yuresia_Slow
   m_TagString: Untagged
@@ -433,7 +478,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &8360352441649167253
+--- !u!114 &8660405577486551408
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -442,10 +487,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 8360352441649167254}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9c4d592af631e404e8c9b8c3cc022555, type: 3}
+  m_Script: {fileID: 11500000, guid: ee65714c4e10f764dab339c9e57b3252, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotationSpeed: 180
+  speed: 180
+  timeScale: 1
 --- !u!1 &8360352442013533579
 GameObject:
   m_ObjectHideFlags: 0
@@ -456,6 +502,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8360352442013533576}
   - component: {fileID: 8360352442013533577}
+  - component: {fileID: 2559601046193523824}
   m_Layer: 0
   m_Name: Yuresia_Subweapon4
   m_TagString: Untagged
@@ -526,6 +573,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &2559601046193523824
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8360352442013533579}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee65714c4e10f764dab339c9e57b3252, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 100
+  timeScale: 1
 --- !u!1 &8360352442333584634
 GameObject:
   m_ObjectHideFlags: 0
@@ -666,6 +727,13 @@ MonoBehaviour:
   slowMarker: {fileID: 8360352441649167252}
   mainShotPoint: {fileID: 8360352441313261175}
   power: 0
+  circleColorInvert: {fileID: -5992072061145249290, guid: 67fea48c56f1394458d2b06b0c2cddba,
+    type: 3}
+  distortion: {fileID: 900933266348724370, guid: 712cc9b72fe3b774a913348a0685ffc6,
+    type: 3}
+  dieSound: {fileID: 8300000, guid: 33eaa2a2a7ff8fd4fa30bd4607064457, type: 3}
+  mainShotAngle: 20
+  mainShotAngleMultiplier: 0.1
   subWeaponsDistance: 0.8
   subWeaponAngle: 40
   subWeaponAngleSlowMultiplier: 0.35
@@ -686,6 +754,10 @@ MonoBehaviour:
     type: 3}
   subHomingBullet: {fileID: 2984021519527956245, guid: bce46e4aad74ac04bb9f3b202a3b57c1,
     type: 3}
+  mainCenterBulletDamage: 1
+  mainSubBulletDamage: 0.6
+  subBulletDamage: 0.2
+  subHomingBulletDamage: 1
 --- !u!50 &664140854
 Rigidbody2D:
   serializedVersion: 4

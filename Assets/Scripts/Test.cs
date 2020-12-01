@@ -4,11 +4,15 @@ using System.Collections.Generic;
 using SansyHuman.Save;
 
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Test : MonoBehaviour
 {
     [SerializeField]
     private StoryEntry[] entries;
+
+    [SerializeField]
+    private AnimationCurve curve;
 
     // Start is called before the first frame update
     void Start()

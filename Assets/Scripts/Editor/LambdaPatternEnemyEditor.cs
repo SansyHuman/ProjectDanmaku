@@ -41,6 +41,7 @@ namespace SansyHuman.Editor
                 scoreOnDeath.intValue = 0;
 
             EditorGUILayout.PropertyField(death, true);
+            EditorGUILayout.PropertyField(dropPowerItems, true);
             EditorGUILayout.PropertyField(dropItems, true);
             itemDropRange.floatValue = EditorGUILayout.Slider(itemDropRangeLbl, itemDropRange.floatValue, 0.1f, 5f);
 

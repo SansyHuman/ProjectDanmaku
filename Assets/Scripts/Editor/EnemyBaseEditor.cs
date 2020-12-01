@@ -12,6 +12,7 @@ namespace SansyHuman.Editor
     {
         protected SerializedProperty death;
         protected SerializedProperty dropItems;
+        protected SerializedProperty dropPowerItems;
         protected SerializedProperty itemDropRange;
 
         protected override void OnEnable()
@@ -20,6 +21,7 @@ namespace SansyHuman.Editor
 
             death = serializedObject.FindProperty("death");
             dropItems = serializedObject.FindProperty("dropItems");
+            dropPowerItems = serializedObject.FindProperty("dropPowerItems");
             itemDropRange = serializedObject.FindProperty("itemDropRange");
         }
 
@@ -32,6 +34,7 @@ namespace SansyHuman.Editor
             serializedObject.Update();
 
             EditorGUILayout.PropertyField(death, true);
+            EditorGUILayout.PropertyField(dropPowerItems, true);
             EditorGUILayout.PropertyField(dropItems, true);
             itemDropRange.floatValue = EditorGUILayout.Slider(itemDropRangeLbl, itemDropRange.floatValue, 0.1f, 5f);
 

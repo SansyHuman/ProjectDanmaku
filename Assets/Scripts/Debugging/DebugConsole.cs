@@ -6,6 +6,8 @@ using SansyHuman.Debugging.Commands;
 using SansyHuman.UDE.Management;
 using SansyHuman.UDE.Util;
 using SansyHuman.UDE.Util.Math;
+using SansyHuman.UI.Pause;
+
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -31,6 +33,9 @@ namespace SansyHuman.Debugging
         [SerializeField]
         private int maxOutputLength = 4096;
 
+        [SerializeField]
+        private GameObject pauseMenu;
+
         private LinkedList<string> undo;
         private LinkedList<string> redo;
 
@@ -54,7 +59,7 @@ namespace SansyHuman.Debugging
 
         private void Update()
         {
-            if (consoleStateChangable && commandInput.enabled && Input.GetKeyDown(KeyCode.F2))
+            if (!pauseMenu.activeSelf && consoleStateChangable && commandInput.enabled && Input.GetKeyDown(KeyCode.F2))
             {
                 UnityEngine.Debug.Log("Disable");
 
@@ -70,7 +75,7 @@ namespace SansyHuman.Debugging
                 return;
             }
 
-            if (consoleStateChangable && !commandInput.enabled && Input.GetKeyDown(KeyCode.F2))
+            if (!pauseMenu.activeSelf && consoleStateChangable && !commandInput.enabled && Input.GetKeyDown(KeyCode.F2))
             {
                 UnityEngine.Debug.Log("Enable");
 

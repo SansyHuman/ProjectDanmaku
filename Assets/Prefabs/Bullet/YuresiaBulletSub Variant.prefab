@@ -12,6 +12,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: YuresiaBulletSub Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 5057782303879656826, guid: 58538dbefb8d94347a4836cb25237061,
+        type: 3}
+      propertyPath: damage
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 3887354456412286170, guid: 58538dbefb8d94347a4836cb25237061,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -73,10 +78,5 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1186191241046255239, guid: a12a0830d689b5642b796f56e76f4244,
         type: 3}
-    - target: {fileID: 5057782303879656826, guid: 58538dbefb8d94347a4836cb25237061,
-        type: 3}
-      propertyPath: damage
-      value: 0.2
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 58538dbefb8d94347a4836cb25237061, type: 3}
