@@ -65,6 +65,18 @@ namespace SansyHuman.UDE.ECS.Object
             }
         }
 
+        /// <value>Sets the summon time(default value is 0.08 seconds.</value>
+        public float SummonTime
+        {
+            get => summonTime;
+            set
+            {
+                summonTime = value;
+                if (summonTime < 0)
+                    summonTime = 0;
+            }
+        }
+
         protected override void Awake()
         {
             base.Awake();

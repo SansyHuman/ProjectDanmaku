@@ -9,6 +9,7 @@ using SansyHuman.UDE.Util.Math;
 
 using UnityEngine;
 using UnityEngine.Assertions.Must;
+using UnityEngine.InputSystem;
 
 namespace SansyHuman.Player
 {
@@ -87,9 +88,11 @@ namespace SansyHuman.Player
 
             while (true)
             {
-                if (Input.GetKey(shoot))
+                Gamepad pad = Gamepad.current;
+
+                if (Input.GetKey(shoot) || pad.rightTrigger.isPressed)
                     accTime += Time.deltaTime * UDETime.Instance.PlayerTimeScale;
-                if (accTime >= bulletFireInterval && Input.GetKey(shoot))
+                if (accTime >= bulletFireInterval && (Input.GetKey(shoot) || pad.rightTrigger.isPressed))
                 {
                     accTime = 0;
                     ShotBullet();
@@ -137,7 +140,9 @@ namespace SansyHuman.Player
         {
             base.Update();
 
-            if (Input.GetKeyDown(slowMode))
+            Gamepad pad = Gamepad.current;
+
+            if (Input.GetKeyDown(slowMode) || (pad != null && pad.rightShoulder.wasPressedThisFrame))
             {
                 if (subWeaponTransition != null)
                 {
@@ -147,7 +152,7 @@ namespace SansyHuman.Player
                 StartCoroutine(subWeaponTransition);
             }
 
-            if (Input.GetKeyUp(slowMode))
+            if (Input.GetKeyUp(slowMode) || (pad != null && pad.rightShoulder.wasReleasedThisFrame))
             {
                 if (subWeaponTransition != null)
                 {
@@ -156,6 +161,8 @@ namespace SansyHuman.Player
                 subWeaponTransition = SubWeaponTransit();
                 StartCoroutine(subWeaponTransition);
             }
+
+            // TODO: return when paused or debug console enabled when using bomb.
         }
 
         protected override void OnPowerLevelChange()

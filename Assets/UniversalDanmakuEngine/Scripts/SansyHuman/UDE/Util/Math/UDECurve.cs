@@ -67,6 +67,11 @@ namespace SansyHuman.UDE.Util.Math
             curves.Add(curveName, this);
         }
 
+        private void OnDestroy()
+        {
+            curves.Remove(curveName);
+        }
+
         /// <summary>
         /// Gets the curve of name.
         /// </summary>

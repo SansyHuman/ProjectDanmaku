@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 1307263970121642554}
   - component: {fileID: 7950453019554779866}
   - component: {fileID: 8341407755058622543}
+  - component: {fileID: 6640728766144492036}
   m_Layer: 9
   m_Name: DarkGreenLuminusBullet
   m_TagString: Bullet
@@ -157,3 +158,15 @@ Halo:
     serializedVersion: 2
     rgba: 4278228997
   m_Size: 0.29
+--- !u!114 &6640728766144492036
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6128219221677658922}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1aed2c4565b4e14c8eb13129bad2f17, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

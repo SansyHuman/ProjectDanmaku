@@ -111,11 +111,15 @@ namespace SansyHuman.Enemy
         public virtual void OnDestroy()
         {
             base.OnDeath();
+            enemyHealthBar.fillAmount = 0;
+            patternCnt.text = "0";
         }
 
         public override void OnDeath()
         {
             base.OnDeath();
+
+            GameManager.player.AddScore(scoreOnDeath);
 
             GameObject obj = Instantiate(death);
             obj.transform.position = transform.position;

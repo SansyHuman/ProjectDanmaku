@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using TMPro;
 
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 namespace SansyHuman.UI.Setting
 {
@@ -28,7 +29,9 @@ namespace SansyHuman.UI.Setting
             if (graphicsSetting.currentSetting != GraphicsSetting.Settings.TRIPLE_BUFFERING)
                 return;
 
-            if (Input.GetKeyDown(KeyCode.LeftArrow))
+            Gamepad pad = Gamepad.current;
+
+            if (Input.GetKeyDown(KeyCode.LeftArrow) || (pad != null && pad.dpad.left.wasPressedThisFrame))
             {
                 if (selectedQueuedFrames >= 3)
                 {
@@ -44,7 +47,7 @@ namespace SansyHuman.UI.Setting
                     graphicsSetting.audioSource.Play();
                 }
             }
-            else if (Input.GetKeyDown(KeyCode.RightArrow))
+            else if (Input.GetKeyDown(KeyCode.RightArrow) || (pad != null && pad.dpad.right.wasPressedThisFrame))
             {
                 if (selectedQueuedFrames < 3)
                 {
@@ -60,7 +63,7 @@ namespace SansyHuman.UI.Setting
                     graphicsSetting.audioSource.Play();
                 }
             }
-            else if (Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.KeypadEnter))
+            else if (Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.KeypadEnter) || (pad != null && pad.buttonSouth.wasPressedThisFrame))
             {
                 if (selectedQueuedFrames != QualitySettings.maxQueuedFrames)
                 {

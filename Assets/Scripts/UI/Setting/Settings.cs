@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
 namespace SansyHuman.UI.Setting
@@ -10,7 +11,9 @@ namespace SansyHuman.UI.Setting
     {
         void Update()
         {
-            if (Input.GetKeyDown(KeyCode.Escape))
+            Gamepad pad = Gamepad.current;
+
+            if (Input.GetKeyDown(KeyCode.Escape) || (pad != null && pad.buttonEast.wasPressedThisFrame))
             {
                 SceneManager.UnloadSceneAsync("Settings");
             }

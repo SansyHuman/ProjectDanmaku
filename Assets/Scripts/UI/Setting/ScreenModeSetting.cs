@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using TMPro;
 
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 namespace SansyHuman.UI.Setting
 {
@@ -20,7 +21,7 @@ namespace SansyHuman.UI.Setting
         {
             currentMode = lastCurrentMode;
             selectedMode = currentMode;
-            screenMode.text = modes[currentMode].ToString();
+            screenMode.text = I2.Loc.LocalizationManager.GetTranslation($"Settings/Graphics/ScreenMode/{modes[selectedMode].ToString()}");
             Screen.SetResolution(Screen.currentResolution.width, Screen.currentResolution.height, modes[currentMode], Screen.currentResolution.refreshRate);
         }
 
@@ -41,17 +42,24 @@ namespace SansyHuman.UI.Setting
 
         public FullScreenMode CurrentMode => modes[currentMode];
 
+        public void OnLocalChange()
+        {
+            screenMode.text = I2.Loc.LocalizationManager.GetTranslation($"Settings/Graphics/ScreenMode/{modes[selectedMode].ToString()}");
+        }
+
         private void Update()
         {
             if (graphicsSetting.currentSetting != GraphicsSetting.Settings.SCREEN_MODE)
                 return;
 
-            if (Input.GetKeyDown(KeyCode.LeftArrow))
+            Gamepad pad = Gamepad.current;
+
+            if (Input.GetKeyDown(KeyCode.LeftArrow) || (pad != null && pad.dpad.left.wasPressedThisFrame))
             {
                 if (selectedMode > 0)
                 {
                     selectedMode--;
-                    screenMode.text = modes[selectedMode].ToString();
+                    screenMode.text = I2.Loc.LocalizationManager.GetTranslation($"Settings/Graphics/ScreenMode/{modes[selectedMode].ToString()}");
 
                     graphicsSetting.audioSource.clip = graphicsSetting.menuMove;
                     graphicsSetting.audioSource.Play();
@@ -62,12 +70,12 @@ namespace SansyHuman.UI.Setting
                     graphicsSetting.audioSource.Play();
                 }
             }
-            else if (Input.GetKeyDown(KeyCode.RightArrow))
+            else if (Input.GetKeyDown(KeyCode.RightArrow) || (pad != null && pad.dpad.right.wasPressedThisFrame))
             {
                 if (selectedMode < modes.Length - 1)
                 {
                     selectedMode++;
-                    screenMode.text = modes[selectedMode].ToString();
+                    screenMode.text = I2.Loc.LocalizationManager.GetTranslation($"Settings/Graphics/ScreenMode/{modes[selectedMode].ToString()}");
 
                     graphicsSetting.audioSource.clip = graphicsSetting.menuMove;
                     graphicsSetting.audioSource.Play();
@@ -78,7 +86,7 @@ namespace SansyHuman.UI.Setting
                     graphicsSetting.audioSource.Play();
                 }
             }
-            else if (Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.KeypadEnter))
+            else if (Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.KeypadEnter) || (pad != null && pad.buttonSouth.wasPressedThisFrame))
             {
                 if (selectedMode != currentMode)
                 {

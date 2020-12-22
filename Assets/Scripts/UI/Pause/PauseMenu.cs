@@ -1,11 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 
+using SansyHuman.Debugging;
+using SansyHuman.Management;
 using SansyHuman.UDE.Management;
 
 using TMPro;
 
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
 namespace SansyHuman.UI.Pause
@@ -27,6 +30,9 @@ namespace SansyHuman.UI.Pause
         private TextMeshProUGUI[] menuEntries;
 
         [SerializeField]
+        private WarningMessageBox warningBox;
+
+        [SerializeField]
         private AudioClip pauseSound;
 
         [SerializeField]
@@ -39,9 +45,13 @@ namespace SansyHuman.UI.Pause
         private AudioSource pauseSource;
 
         private int selectedEntry = 0;
-        private bool menuTransitioning = false;
+        private bool menuAnimationing = false;
+        private bool readInput = true;
 
         public bool GamePaused => pauseMenu.activeSelf;
+
+        [SerializeField]
+        private DebugConsole debugConsole;
 
         private void Awake()
         {
@@ -59,8 +69,10 @@ namespace SansyHuman.UI.Pause
 
         private void Update()
         {
-            if (menuTransitioning)
+            if (!readInput || menuAnimationing || debugConsole.DebugConsoleEnabled)
                 return;
+
+            Gamepad pad = Gamepad.current;
 
             if (pauseMenu.activeSelf)
             {
@@ -68,7 +80,7 @@ namespace SansyHuman.UI.Pause
                 if (settings.IsValid() && settings.isLoaded)
                     return;
 
-                if (Input.GetKeyDown(KeyCode.DownArrow))
+                if (Input.GetKeyDown(KeyCode.DownArrow) || (pad != null && pad.dpad.down.wasPressedThisFrame))
                 {
                     audioSource.clip = menuMove;
                     audioSource.Play();
@@ -82,7 +94,7 @@ namespace SansyHuman.UI.Pause
 
                     menuEntries[selectedEntry].GetComponent<Animator>().SetBool("Selected", true);
                 }
-                else if (Input.GetKeyDown(KeyCode.UpArrow))
+                else if (Input.GetKeyDown(KeyCode.UpArrow) || (pad != null && pad.dpad.up.wasPressedThisFrame))
                 {
                     audioSource.clip = menuMove;
                     audioSource.Play();
@@ -96,27 +108,19 @@ namespace SansyHuman.UI.Pause
 
                     menuEntries[selectedEntry].GetComponent<Animator>().SetBool("Selected", true);
                 }
-                else if (Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.KeypadEnter))
+                else if (Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.KeypadEnter) || (pad != null && pad.buttonSouth.wasPressedThisFrame))
                 {
                     audioSource.clip = menuSelect;
                     audioSource.Play();
 
-                    switch (selectedEntry)
-                    {
-                        case RESUME:
-                            pause.gameObject.SetActive(false);
-                            StartCoroutine(UnpauseTransition());
-                            menuTransitioning = true;
-                            break;
-                        case SETTINGS:
-                            SceneManager.LoadSceneAsync("Settings", LoadSceneMode.Additive);
-                            break;
-                    }
+                    menuAnimationing = true;
+                    StartCoroutine(MenuSelecting());
                 }
             }
 
-            if (Input.GetKeyDown(KeyCode.Escape))
+            if (Input.GetKeyDown(KeyCode.Escape) || (pad != null && pad.startButton.wasPressedThisFrame))
             {
+
                 if (!pauseMenu.activeSelf)
                 {
                     GameManager.Instance.PauseBGM();
@@ -132,14 +136,105 @@ namespace SansyHuman.UI.Pause
                     menuBox.localScale = new Vector3(1, 0, 1);
 
                     StartCoroutine(PauseTransition());
-                    menuTransitioning = true;
+                    menuAnimationing = true;
                 }
                 else
                 {
                     pause.gameObject.SetActive(false);
                     StartCoroutine(UnpauseTransition());
-                    menuTransitioning = true;
+                    menuAnimationing = true;
                 }
+            }
+        }
+
+        private IEnumerator MenuSelecting()
+        {
+            var animator = menuEntries[selectedEntry].GetComponent<Animator>();
+            animator.SetTrigger("Select");
+
+            AsyncOperation result = null;
+            switch (selectedEntry)
+            {
+                case RESUME:
+                    break;
+                case RETURN_TO_TITLE:
+                    break;
+                case RESTART_STAGE:
+                    break;
+                case SETTINGS:
+                    result = SceneManager.LoadSceneAsync("Settings", LoadSceneMode.Additive);
+                    result.allowSceneActivation = false;
+                    break;
+                case EXIT_GAME:
+                    break;
+            }
+
+            yield return null;
+            yield return new WaitWhile(() => animator.GetCurrentAnimatorStateInfo(0).IsName("Menu Selecting"));
+
+            WarningMessageBox.WarningMessageBoxResult msg;
+
+            switch (selectedEntry)
+            {
+                case RESUME:
+                    pause.gameObject.SetActive(false);
+                    yield return StartCoroutine(UnpauseTransition());
+                    break;
+                case RETURN_TO_TITLE:
+                    msg = warningBox.ShowMessage(I2.Loc.ScriptTerms.Generic.WarningReturnToTitle);
+                    readInput = false;
+                    yield return new WaitUntil(() => msg.isDone);
+                    if (msg.isYes)
+                    {
+                        GameManager.Instance.StopStage();
+                        LoadingSceneManager.LoadScene("MainMenu");
+                    }
+                    break;
+                case RESTART_STAGE:
+                    msg = warningBox.ShowMessage(I2.Loc.ScriptTerms.Generic.WarningRestart);
+                    readInput = false;
+                    yield return new WaitUntil(() => msg.isDone);
+                    if (msg.isYes)
+                    {
+                        GameManager.Instance.StopStage();
+                        LoadingSceneManager.LoadScene(SceneManager.GetActiveScene().name);
+                    }
+                    break;
+                case SETTINGS:
+                    result.allowSceneActivation = true;
+                    readInput = false;
+                    yield return new WaitUntil(() => result.isDone);
+                    break;
+                case EXIT_GAME:
+                    msg = warningBox.ShowMessage(I2.Loc.ScriptTerms.Generic.WarningExitGame);
+                    readInput = false;
+                    yield return new WaitUntil(() => msg.isDone);
+                    if (msg.isYes)
+                        Application.Quit(0);
+                    break;
+            }
+
+            menuAnimationing = false;
+
+            Scene scene = new Scene();
+            switch (selectedEntry)
+            {
+                case RESUME:
+                    break;
+                case RETURN_TO_TITLE:
+                    readInput = true;
+                    break;
+                case RESTART_STAGE:
+                    readInput = true;
+                    break;
+                case SETTINGS:
+                    scene = SceneManager.GetSceneByName("Settings");
+                    yield return new WaitWhile(() => scene.isLoaded || scene.IsValid());
+                    readInput = true;
+                    break;
+                case EXIT_GAME:
+                    readInput = true;
+                    break;
             }
         }
 
@@ -180,7 +275,7 @@ namespace SansyHuman.UI.Pause
             selectedEntry = 0;
             menuEntries[0].GetComponent<Animator>().SetBool("Selected", true);
 
-            menuTransitioning = false;
+            menuAnimationing = false;
             yield return null;
         }
 
@@ -212,7 +307,7 @@ namespace SansyHuman.UI.Pause
             }
 
             GameManager.Instance.ResumeBGM();
-            menuTransitioning = false;
+            menuAnimationing = false;
 
             yield return null;
         }

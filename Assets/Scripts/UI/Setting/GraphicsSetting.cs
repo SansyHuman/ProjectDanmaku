@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using TMPro;
 
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 namespace SansyHuman.UI.Setting
 {
@@ -89,7 +90,9 @@ namespace SansyHuman.UI.Setting
 
         private void Update()
         {
-            if (Input.GetKeyDown(KeyCode.DownArrow))
+            Gamepad pad = Gamepad.current;
+
+            if (Input.GetKeyDown(KeyCode.DownArrow) || (pad != null && pad.dpad.down.wasPressedThisFrame))
             {
                 if (currentSetting < Settings.TRIPLE_BUFFERING)
                 {
@@ -129,7 +132,7 @@ namespace SansyHuman.UI.Setting
                     audioSource.Play();
                 }
             }
-            else if (Input.GetKeyDown(KeyCode.UpArrow))
+            else if (Input.GetKeyDown(KeyCode.UpArrow) || (pad != null && pad.dpad.up.wasPressedThisFrame))
             {
                 if (currentSetting > Settings.RESOLUTION)
                 {

@@ -1,0 +1,70 @@
+LICENSE
+
+Copyright (c) 2020 Subo Lee (KAIST HAJE)
+Please direct any bugs/comments/suggestions to suboo0308@gmail.com
+
+1. You can modify resources in the game or add new resources to make modes
+(i.e. replaced character sprite, revised stage, revised character stats, etc.).
+You can freely distribute your modes, but you cannot sell the modes.
+
+2. You can freely make derivative works based on this game and distribute it.
+You can use resources of this game in your works. When you distribute your works,
+you must provide the name of the original game and creator of the original game.
+You can sell your derivative works based on this game.
+
+
+This program used Universal Danmaku Engine by Subo Lee.
+
+License of Universal Danmaku Engine
+Copyright (c) 2019 Subo Lee (KAIST HAJE)
+Please direct any bugs/comments/suggestions to suboo0308@gmail.com
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.
+
+The following components are governed by the licenses indicated below.
+
+Assets in the following folders
+Assets/UniversalDanmakuEngine/Example/Sounds
+Assets/UniversalDanmakuEngine/Example/Sprites
+Assets/UniversalDanmakuEngine/Example/Textures(except laser)
+https://github.com/unity3d-jp-tutorials/2d-shooting-game
+
+Files in Plugins/TestMySpline
+https://www.codeproject.com/Articles/560163/Csharp-Cubic-Spline-Interpolation
+
+
+This program used and remixed some sounds from others.
+
+Enemy_Die License
+Name of the creator: InspectorJ
+Attribution parties: freesound
+License: Attribution 3.0 Unported (CC BY 3.0)
+Source link: https://freesound.org/people/InspectorJ/sounds/328864/
+
+Menu_Move License
+Name of the creator: Greencouch
+Attribution parties: freesound
+License: Attribution 3.0 Unported (CC BY 3.0)
+Source link: https://freesound.org/people/Greencouch/sounds/124899/
+
+Menu_Select License
+Name of the creator: RunnerPack
+Attribution parties: freesound
+License: Attribution 3.0 Unported (CC BY 3.0)
+Source link: https://freesound.org/people/RunnerPack/sounds/87035/

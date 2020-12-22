@@ -125,7 +125,7 @@ namespace SansyHuman.UDE.Object
         /// </summary>
         /// <param name="deltaTime">Time passed from the last call</param>
         [Obsolete("This method is called only internally.")]
-        public void Move(float deltaTime)
+        public virtual void Move(float deltaTime)
         {
             float realSpeed = Speed;
             if (Input.GetKey(slowMode))

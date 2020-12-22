@@ -48,7 +48,7 @@ namespace SansyHuman.Item
         /// </summary>
         public virtual bool UsesObjectPool => false;
 
-        private void Awake()
+        private void OnEnable()
         {
             tr = transform;
             mainCamera = Camera.main;

@@ -9,6 +9,7 @@ using SansyHuman.UDE.Util.Math;
 using SansyHuman.UI.Pause;
 
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
 namespace SansyHuman.Debugging
@@ -34,7 +35,7 @@ namespace SansyHuman.Debugging
         private int maxOutputLength = 4096;
 
         [SerializeField]
-        private GameObject pauseMenu;
+        private PauseMenu pauseMenu;
 
         private LinkedList<string> undo;
         private LinkedList<string> redo;
@@ -57,9 +58,19 @@ namespace SansyHuman.Debugging
         private bool consoleStateChangable = true;
         private string undoLastOriginal = null;
 
+        private bool debugConsoleEnabled = false;
+        public bool DebugConsoleEnabled => debugConsoleEnabled;
+
         private void Update()
         {
-            if (!pauseMenu.activeSelf && consoleStateChangable && commandInput.enabled && Input.GetKeyDown(KeyCode.F2))
+            if (pauseMenu.GamePaused)
+                return;
+
+            Gamepad pad = Gamepad.current;
+
+            if (consoleStateChangable && commandInput.enabled &&
+                (Input.GetKeyDown(KeyCode.F2) || (pad != null && pad.selectButton.wasPressedThisFrame))
+                )
             {
                 UnityEngine.Debug.Log("Disable");
 
@@ -71,11 +82,14 @@ namespace SansyHuman.Debugging
                 commandInput.enabled = false;
 
                 StartCoroutine(TransitConsole(yEnabled, yDisabled, 0.5f, UDETransitionHelper.easeOutQuart, UDETime.Instance.ResumeGame));
+                debugConsoleEnabled = false;
 
                 return;
             }
 
-            if (!pauseMenu.activeSelf && consoleStateChangable && !commandInput.enabled && Input.GetKeyDown(KeyCode.F2))
+            if (consoleStateChangable && !commandInput.enabled &&
+                (Input.GetKeyDown(KeyCode.F2) || (pad != null && pad.selectButton.wasPressedThisFrame))
+                )
             {
                 UnityEngine.Debug.Log("Enable");
 
@@ -90,13 +104,14 @@ namespace SansyHuman.Debugging
                     commandInput.enabled = true;
                     commandInput.ActivateInputField();
                 }));
+                debugConsoleEnabled = true;
 
                 return;
             }
 
             if (commandInput.enabled && commandInput.isFocused)
             {
-                if (Input.GetKeyDown(KeyCode.UpArrow)) // Undo
+                if (Input.GetKeyDown(KeyCode.UpArrow) || (pad != null && pad.dpad.up.wasPressedThisFrame)) // Undo
                 {
                     if (undo.Count == 0)
                         return;
@@ -112,7 +127,7 @@ namespace SansyHuman.Debugging
                     return;
                 }
 
-                if (Input.GetKeyDown(KeyCode.DownArrow)) // Redo
+                if (Input.GetKeyDown(KeyCode.DownArrow) || (pad != null && pad.dpad.down.wasPressedThisFrame)) // Redo
                 {
                     if (redo.Count == 0)
                         return;
@@ -129,6 +144,11 @@ namespace SansyHuman.Debugging
                         undoLastOriginal = commandInput.text;
 
                     return;
+                }
+
+                if (pad != null && pad.startButton.wasPressedThisFrame)
+                {
+                    OnEndEdit();
                 }
             }
         }
@@ -165,7 +185,9 @@ namespace SansyHuman.Debugging
 
         public void OnEndEdit()
         {
-            if (!Input.GetKeyDown(KeyCode.Return))
+            Gamepad pad = Gamepad.current;
+
+            if (!Input.GetKeyDown(KeyCode.Return) && !(pad != null && pad.startButton.wasPressedThisFrame))
                 return;
 
             string command = commandInput.text;

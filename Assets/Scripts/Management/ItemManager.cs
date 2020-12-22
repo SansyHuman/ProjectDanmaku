@@ -48,6 +48,24 @@ namespace SansyHuman.Management
             draggedItems.Remove(item);
         }
 
+        public void DestroyAllItems()
+        {
+            ItemBase[] nd = new ItemBase[notDraggedItems.Count];
+            notDraggedItems.CopyTo(nd);
+
+            ItemBase[] d = new ItemBase[draggedItems.Count];
+            draggedItems.CopyTo(d);
+
+            foreach (var e in nd)
+                ObjectPool.Instance.ReturnObject(e);
+
+            foreach (var e in d)
+                ObjectPool.Instance.ReturnObject(e);
+
+            notDraggedItems.Clear();
+            draggedItems.Clear();
+        }
+
         /// <summary>
         /// Summons the power item. The power item should use object pool.
         /// </summary>

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 namespace SansyHuman.Debugging
 {
@@ -19,7 +20,9 @@ namespace SansyHuman.Debugging
         // Update is called once per frame
         void Update()
         {
-            if (Input.GetKeyDown(KeyCode.F3))
+            Gamepad pad = Gamepad.current;
+
+            if (Input.GetKeyDown(KeyCode.F3) || (pad != null && pad.rightStickButton.wasPressedThisFrame))
             {
                 debugUI.SetActive(!debugUI.gameObject.activeSelf);
             }

@@ -131,15 +131,19 @@ namespace SansyHuman.UDE.Management
         /// <summary>
         /// Disables all bullets that are enabled.
         /// </summary>
-        public void DestroyAllBullets()
+        /// <param name="destroyPlayerBullets">
+        /// If <see langword="true"/>, disables player bullets also. Else, disables
+        /// only enemy bullets. The default value is <see langword="false"/>.
+        /// </param>
+        public void DestroyAllBullets(bool destroyPlayerBullets = false)
         {
             for (int i = 0; i < bullets.Count; i++)
             {
-                if (bullets[i].OriginCharacter is UDEEnemy)
-                {
-                    UDEBulletPool.Instance.ReleaseBullet(bullets[i]);
-                    i--;
-                }
+                if (!destroyPlayerBullets && bullets[i].OriginCharacter is UDEPlayer)
+                    continue;
+
+                UDEBulletPool.Instance.ReleaseBullet(bullets[i]);
+                i--;
             }
         }
 

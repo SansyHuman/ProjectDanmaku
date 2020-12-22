@@ -11,9 +11,6 @@ public class Test : MonoBehaviour
     [SerializeField]
     private StoryEntry[] entries;
 
-    [SerializeField]
-    private AnimationCurve curve;
-
     // Start is called before the first frame update
     void Start()
     {
@@ -23,6 +20,19 @@ public class Test : MonoBehaviour
         foreach(var e in loadedEntries)
         {
             Debug.Log(e.ToString());
+        }
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            I2.Loc.LocalizationManager.CurrentLanguage = "English";
+        }
+
+        if (Input.GetKeyDown(KeyCode.K))
+        {
+            I2.Loc.LocalizationManager.CurrentLanguage = "Korean";
         }
     }
 }

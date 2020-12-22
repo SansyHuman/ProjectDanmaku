@@ -1,16 +1,19 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 
+using SansyHuman.Debugging;
 using SansyHuman.Effect;
 using SansyHuman.Item;
 using SansyHuman.Management;
 using SansyHuman.UDE.Management;
 using SansyHuman.UDE.Object;
 using SansyHuman.UDE.Util;
+using SansyHuman.UI.Pause;
 
 using TMPro;
 
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 namespace SansyHuman.Player
 {
@@ -25,11 +28,19 @@ namespace SansyHuman.Player
         [Tooltip("The spawn point of the main player bullet.")]
         protected Transform mainShotPoint;
 
+        protected int score = 0;
+
         [SerializeField]
         [Range(0.0f, 3.0f)]
         [Tooltip("The power of the character.")]
         protected float power = 0.0f;
         protected int powerLevel = 0;
+
+        protected int graze = 0;
+
+        [SerializeField]
+        [Tooltip("The score of one graze.")]
+        protected int scorePerGraze = 1000;
 
         [SerializeField]
         protected ColorInvert circleColorInvert;
@@ -38,7 +49,16 @@ namespace SansyHuman.Player
         protected CircleWaveDistortion distortion;
 
         [SerializeField]
+        protected AudioClip grazeSoundClip;
+
+        [SerializeField]
         protected AudioClip dieSound;
+
+        [SerializeField]
+        protected PauseMenu pauseMenu;
+
+        [SerializeField]
+        protected DebugConsole debugConsole;
 
         /// <summary>
         /// Maximum health level.
@@ -56,14 +76,21 @@ namespace SansyHuman.Player
         protected bool controllable = true;
 
         private AudioSource fireSound;
+        private AudioSource grazeSound;
 
         private Camera mainCamera;
+
+        private Animator animator;
 
         private UnityEngine.UI.Image healthBar;
         private TextMeshProUGUI healthText;
 
         private UnityEngine.UI.Image powerBar;
         private TextMeshProUGUI powerText;
+
+        private TextMeshProUGUI scoreText;
+
+        private TextMeshProUGUI grazeText;
 
         protected override void Awake()
         {
@@ -81,6 +108,12 @@ namespace SansyHuman.Player
             powerText = GameObject.Find("PowerAmount").GetComponent<TextMeshProUGUI>();
             powerText.text = $"{power:0.00}";
 
+            scoreText = GameObject.Find("ScoreAmount").GetComponent<TextMeshProUGUI>();
+            scoreText.text = $"{score:D12}";
+
+            grazeText = GameObject.Find("GrazeAmount").GetComponent<TextMeshProUGUI>();
+            grazeText.text = $"{graze}";
+
             Color col = slowMarker.color;
             col.a = 0;
             slowMarker.color = col;
@@ -88,10 +121,79 @@ namespace SansyHuman.Player
             slowMarkerTr = slowMarker.gameObject.transform;
 
             fireSound = GetComponent<AudioSource>();
+            grazeSound = gameObject.AddComponent<AudioSource>();
+            grazeSound.clip = grazeSoundClip;
+            grazeSound.volume = 0.3f;
 
             mainCamera = Camera.main;
 
+            animator = GetComponent<Animator>();
+
             tmp = new Stack<ItemBase>();
+        }
+
+        [System.Obsolete("This method is called only internally.")]
+        public override void Move(float deltaTime)
+        {
+            Gamepad pad = Gamepad.current;
+            if (pad == null)
+            {
+                base.Move(deltaTime); // Use default keyboard input.
+
+                int tmp = 0;
+                if (Input.GetKey(moveRight))
+                    tmp += 1;
+                if (Input.GetKey(moveLeft))
+                    tmp -= 1;
+
+                animator.SetFloat("Direction", (float)tmp);
+
+                return;
+            }
+
+            Keyboard key = Keyboard.current;
+            if (key != null && key.anyKey.isPressed)
+            {
+                base.Move(deltaTime);
+
+                int tmp = 0;
+                if (Input.GetKey(moveRight))
+                    tmp += 1;
+                if (Input.GetKey(moveLeft))
+                    tmp -= 1;
+
+                animator.SetFloat("Direction", (float)tmp);
+
+                return;
+            }
+
+            // Gamepad control
+            // Left stick: move
+            // RB: slow move
+            float realSpeed = Speed;
+            if (pad.rightShoulder.isPressed)
+                realSpeed *= slowModeSpeedMultiplier;
+
+            Vector3 velocity = pad.leftStick.ReadValue().normalized * realSpeed;
+            characterTr.Translate(velocity * deltaTime * UDETime.Instance.PlayerTimeScale);
+
+            Vector3 pos = Camera.main.WorldToViewportPoint(characterTr.position);
+            if (pos.x < 0)
+                pos.x = 0;
+            if (pos.x > 1)
+                pos.x = 1;
+            if (pos.y < 0)
+                pos.y = 0;
+            if (pos.y > 1)
+                pos.y = 1;
+            characterTr.position = Camera.main.ViewportToWorldPoint(pos);
+
+            if (velocity.x > 0.0001)
+                animator.SetFloat("Direction", 1);
+            else if (velocity.x < -0.0001)
+                animator.SetFloat("Direction", -1);
+            else
+                animator.SetFloat("Direction", 0);
         }
 
         // Temporary stack for item drag. If directely enumerate items and drag, it will cause
@@ -121,23 +223,34 @@ namespace SansyHuman.Player
 
         protected override void Update()
         {
+            if (pauseMenu.GamePaused || debugConsole.DebugConsoleEnabled)
+            {
+                fireSound.Stop();
+                return;
+            }
+
             if (controllable)
                 base.Update();
 
-            if (Input.GetKeyDown(slowMode))
+            Gamepad pad = Gamepad.current;
+
+            if (Input.GetKeyDown(slowMode) || (pad != null && pad.rightShoulder.wasPressedThisFrame))
             {
                 EnableSlowMode();
             }
 
-            if (Input.GetKeyUp(slowMode))
+            if (Input.GetKeyUp(slowMode) || (pad != null && pad.rightShoulder.wasReleasedThisFrame))
             {
                 DisableSlowMove();
             }
 
-            if (Input.GetKeyDown(shoot))
+            // Gamepad control
+            // RTrigger: shoot
+
+            if (Input.GetKeyDown(shoot) || (pad != null && pad.rightTrigger.wasPressedThisFrame))
                 fireSound.Play();
 
-            if (Input.GetKeyUp(shoot))
+            if (Input.GetKeyUp(shoot) || (pad != null && pad.rightTrigger.wasReleasedThisFrame))
                 fireSound.Stop();
 
             int tmpLvl = (int)power;
@@ -166,6 +279,23 @@ namespace SansyHuman.Player
         /// Called when the power level changed.
         /// </summary>
         protected abstract void OnPowerLevelChange();
+
+        // Add score to the player(internal only).
+        internal void AddScore(int score)
+        {
+            this.score += score;
+            scoreText.text = $"{this.score:D12}";
+        }
+
+        // Add one graze to player(internal only).
+        internal void AddGraze()
+        {
+            graze++;
+            grazeText.text = $"{graze}";
+            grazeSound.Stop();
+            grazeSound.Play();
+            AddScore(scorePerGraze);
+        }
 
         protected override void OnTriggerStay2D(Collider2D collision)
         {
@@ -196,11 +326,12 @@ namespace SansyHuman.Player
             {
                 ItemBase item = collision.GetComponent<ItemBase>();
 
-                if (item is Power power && this.power < 3.0f)
+                if (item is Power power)
                 {
+                    AddScore(500);
                     this.power += power.PowerPoint;
-                    if (this.power > 3.0f)
-                        this.power = 3.0f;
+                    if (this.power > MaxPower)
+                        this.power = MaxPower;
 
                     powerBar.fillAmount = this.power / MaxPower;
                     powerText.text = $"{this.power:0.00}";
@@ -213,6 +344,8 @@ namespace SansyHuman.Player
         // TODO: Reduce player's power and drop some power.
         private IEnumerator DamageSelf(float damage)
         {
+            animator.SetFloat("Direction", 0);
+
             health -= damage;
             healthBar.fillAmount = health / MaxHealth;
             healthText.text = $"x{health:0.0}";
