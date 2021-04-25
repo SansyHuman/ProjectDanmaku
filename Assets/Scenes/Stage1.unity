@@ -289,10 +289,10 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_text: "\uC124\uC815"
+  m_text: settings
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: bb978781911b25b4e8324122fdb6fc59, type: 2}
-  m_sharedMaterial: {fileID: -7149330062116522197, guid: bb978781911b25b4e8324122fdb6fc59,
+  m_fontAsset: {fileID: 11400000, guid: 186f905afa692f7469966da6f6b9ed4f, type: 2}
+  m_sharedMaterial: {fileID: 2714957613792895188, guid: 186f905afa692f7469966da6f6b9ed4f,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -359,7 +359,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 48866133}
-    characterCount: 2
+    characterCount: 8
     spriteCount: 0
     spaceCount: 0
     wordCount: 1
@@ -429,25 +429,8 @@ MonoBehaviour:
   mGUI_ShowReferences: 0
   mGUI_ShowTems: 1
   mGUI_ShowCallback: 0
-  mLocalizeTarget: {fileID: 1661484182}
+  mLocalizeTarget: {fileID: 0}
   mLocalizeTargetName: I2.Loc.LocalizeTarget_TextMeshPro_UGUI
---- !u!114 &67809432
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp:I2.Loc:LocalizeTarget_TextMeshPro_UGUI
-  mTarget: {fileID: 1074656709}
-  mAlignment_RTL: 260
-  mAlignment_LTR: 257
-  mAlignmentWasRTL: 0
-  mInitializeAlignment: 0
 --- !u!1 &165263498
 GameObject:
   m_ObjectHideFlags: 0
@@ -647,6 +630,108 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!1 &174445766
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 174445767}
+  - component: {fileID: 174445770}
+  - component: {fileID: 174445769}
+  - component: {fileID: 174445768}
+  m_Layer: 0
+  m_Name: ManaHUD
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &174445767
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 174445766}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.99963933, y: 0.99963933, z: 0.99963933}
+  m_Children:
+  - {fileID: 753763188}
+  - {fileID: 1112059394}
+  - {fileID: 1891030454}
+  - {fileID: 831778689}
+  m_Father: {fileID: 1460125899}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 1, y: 1}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -272.65, y: -489.86}
+  m_SizeDelta: {x: 502.45996, y: 145.86}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &174445768
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 174445766}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1301386320, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IgnoreReversedGraphics: 1
+  m_BlockingObjects: 0
+  m_BlockingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+--- !u!114 &174445769
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 174445766}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1980459831, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_UiScaleMode: 0
+  m_ReferencePixelsPerUnit: 100
+  m_ScaleFactor: 1
+  m_ReferenceResolution: {x: 800, y: 600}
+  m_ScreenMatchMode: 0
+  m_MatchWidthOrHeight: 0
+  m_PhysicalUnit: 3
+  m_FallbackScreenDPI: 96
+  m_DefaultSpriteDPI: 96
+  m_DynamicPixelsPerUnit: 1
+--- !u!223 &174445770
+Canvas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 174445766}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_RenderMode: 0
+  m_Camera: {fileID: 0}
+  m_PlaneDistance: 100
+  m_PixelPerfect: 0
+  m_ReceivesEvents: 1
+  m_OverrideSorting: 0
+  m_OverridePixelPerfect: 0
+  m_SortingBucketNormalizedSize: 0
+  m_AdditionalShaderChannelsFlag: 25
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
+  m_TargetDisplay: 0
 --- !u!1 &202603038
 GameObject:
   m_ObjectHideFlags: 0
@@ -725,10 +810,10 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_text: "\uC2A4\uD14C\uC774\uC9C0 \uC7AC\uC2DC\uC791"
+  m_text: restart stage
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: bb978781911b25b4e8324122fdb6fc59, type: 2}
-  m_sharedMaterial: {fileID: -7149330062116522197, guid: bb978781911b25b4e8324122fdb6fc59,
+  m_fontAsset: {fileID: 11400000, guid: 186f905afa692f7469966da6f6b9ed4f, type: 2}
+  m_sharedMaterial: {fileID: 2714957613792895188, guid: 186f905afa692f7469966da6f6b9ed4f,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -795,7 +880,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 202603041}
-    characterCount: 8
+    characterCount: 13
     spriteCount: 0
     spaceCount: 1
     wordCount: 2
@@ -865,7 +950,7 @@ MonoBehaviour:
   mGUI_ShowReferences: 0
   mGUI_ShowTems: 1
   mGUI_ShowCallback: 0
-  mLocalizeTarget: {fileID: 1017358042}
+  mLocalizeTarget: {fileID: 0}
   mLocalizeTargetName: I2.Loc.LocalizeTarget_TextMeshPro_UGUI
 --- !u!1 &209892006
 GameObject:
@@ -1179,40 +1264,6 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!114 &226586597
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp:I2.Loc:LocalizeTarget_TextMeshPro_UGUI
-  mTarget: {fileID: 2048056455}
-  mAlignment_RTL: 1028
-  mAlignment_LTR: 1025
-  mAlignmentWasRTL: 0
-  mInitializeAlignment: 0
---- !u!114 &313121982
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp:I2.Loc:LocalizeTarget_TextMeshPro_UGUI
-  mTarget: {fileID: 1374704027}
-  mAlignment_RTL: 514
-  mAlignment_LTR: 514
-  mAlignmentWasRTL: 0
-  mInitializeAlignment: 0
 --- !u!1 &321237002
 GameObject:
   m_ObjectHideFlags: 0
@@ -1291,7 +1342,7 @@ MonoBehaviour:
   mGUI_ShowReferences: 0
   mGUI_ShowTems: 1
   mGUI_ShowCallback: 0
-  mLocalizeTarget: {fileID: 611818235}
+  mLocalizeTarget: {fileID: 0}
   mLocalizeTargetName: I2.Loc.LocalizeTarget_TextMeshPro_UGUI
 --- !u!95 &321237005
 Animator:
@@ -1332,10 +1383,10 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_text: "\uB124"
+  m_text: Yes
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: bb978781911b25b4e8324122fdb6fc59, type: 2}
-  m_sharedMaterial: {fileID: -7149330062116522197, guid: bb978781911b25b4e8324122fdb6fc59,
+  m_fontAsset: {fileID: 11400000, guid: 186f905afa692f7469966da6f6b9ed4f, type: 2}
+  m_sharedMaterial: {fileID: 2714957613792895188, guid: 186f905afa692f7469966da6f6b9ed4f,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -1402,7 +1453,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 321237006}
-    characterCount: 1
+    characterCount: 3
     spriteCount: 0
     spaceCount: 0
     wordCount: 1
@@ -1767,7 +1818,7 @@ RectTransform:
   - {fileID: 2136309203}
   - {fileID: 425962208}
   m_Father: {fileID: 1460125899}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -2424,23 +2475,6 @@ RectTransform:
   m_AnchoredPosition: {x: 197.4, y: -105.81}
   m_SizeDelta: {x: 346.83, y: 184.04}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &587561707
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp:I2.Loc:LocalizeTarget_TextMeshPro_UGUI
-  mTarget: {fileID: 2058908309}
-  mAlignment_RTL: 514
-  mAlignment_LTR: 514
-  mAlignmentWasRTL: 0
-  mInitializeAlignment: 0
 --- !u!1 &609464966
 GameObject:
   m_ObjectHideFlags: 0
@@ -2612,11 +2646,10 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_text: " \uD798"
+  m_text: ' Power'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 120d1fbf7118ad7408c0fdffdb6b1ac3, type: 2}
-  m_sharedMaterial: {fileID: -6623423189622006589, guid: 120d1fbf7118ad7408c0fdffdb6b1ac3,
-    type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8a89fa14b10d46a99122fd4f73fca9a2, type: 2}
+  m_sharedMaterial: {fileID: 2140474, guid: 8a89fa14b10d46a99122fd4f73fca9a2, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -2658,7 +2691,7 @@ MonoBehaviour:
   m_enableWordWrapping: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
-  m_firstOverflowCharacterIndex: -1
+  m_firstOverflowCharacterIndex: 0
   m_linkedTextComponent: {fileID: 0}
   m_isLinkedTextComponent: 0
   m_isTextTruncated: 0
@@ -2682,7 +2715,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 610711736}
-    characterCount: 2
+    characterCount: 6
     spriteCount: 0
     spaceCount: 1
     wordCount: 2
@@ -2752,25 +2785,8 @@ MonoBehaviour:
   mGUI_ShowReferences: 0
   mGUI_ShowTems: 1
   mGUI_ShowCallback: 0
-  mLocalizeTarget: {fileID: 1398679528}
+  mLocalizeTarget: {fileID: 0}
   mLocalizeTargetName: I2.Loc.LocalizeTarget_TextMeshPro_UGUI
---- !u!114 &611818235
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp:I2.Loc:LocalizeTarget_TextMeshPro_UGUI
-  mTarget: {fileID: 321237006}
-  mAlignment_RTL: 258
-  mAlignment_LTR: 258
-  mAlignmentWasRTL: 0
-  mInitializeAlignment: 0
 --- !u!1 &736777769
 GameObject:
   m_ObjectHideFlags: 0
@@ -2842,6 +2858,97 @@ CanvasRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 736777769}
+  m_CullTransparentMesh: 0
+--- !u!1 &753763187
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 753763188}
+  - component: {fileID: 753763191}
+  - component: {fileID: 753763190}
+  - component: {fileID: 753763189}
+  m_Layer: 0
+  m_Name: ManaBar
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &753763188
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 753763187}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 174445767}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 1, y: 1}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -217.53, y: -92.00008}
+  m_SizeDelta: {x: 435.06, y: 48.49}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &753763189
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 753763187}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1573420865, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 0, g: 0.026940795, b: 0.23529412, a: 0.7372549}
+  m_EffectDistance: {x: 1.5, y: -2}
+  m_UseGraphicAlpha: 1
+--- !u!114 &753763190
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 753763187}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_Sprite: {fileID: -4750089258648431207, guid: c7a4ea878c55364498b67480293c0a76,
+    type: 3}
+  m_Type: 3
+  m_PreserveAspect: 1
+  m_FillCenter: 1
+  m_FillMethod: 0
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+--- !u!222 &753763191
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 753763187}
   m_CullTransparentMesh: 0
 --- !u!1 &778869488
 GameObject:
@@ -2921,10 +3028,10 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_text: "\uD0C0\uC774\uD2C0\uB85C \uB3CC\uC544\uAC00\uAE30"
+  m_text: return to title
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: bb978781911b25b4e8324122fdb6fc59, type: 2}
-  m_sharedMaterial: {fileID: -7149330062116522197, guid: bb978781911b25b4e8324122fdb6fc59,
+  m_fontAsset: {fileID: 11400000, guid: 186f905afa692f7469966da6f6b9ed4f, type: 2}
+  m_sharedMaterial: {fileID: 2714957613792895188, guid: 186f905afa692f7469966da6f6b9ed4f,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -2991,10 +3098,10 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 778869491}
-    characterCount: 9
+    characterCount: 15
     spriteCount: 0
-    spaceCount: 1
-    wordCount: 2
+    spaceCount: 2
+    wordCount: 3
     linkCount: 0
     lineCount: 1
     pageCount: 1
@@ -3061,25 +3168,165 @@ MonoBehaviour:
   mGUI_ShowReferences: 0
   mGUI_ShowTems: 1
   mGUI_ShowCallback: 0
-  mLocalizeTarget: {fileID: 1666678243}
+  mLocalizeTarget: {fileID: 0}
   mLocalizeTargetName: I2.Loc.LocalizeTarget_TextMeshPro_UGUI
---- !u!114 &788328132
+--- !u!1 &831778688
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 831778689}
+  - component: {fileID: 831778691}
+  - component: {fileID: 831778690}
+  m_Layer: 0
+  m_Name: ManaAmount
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &831778689
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 831778688}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.99984384, y: 0.99984384, z: 0.99984384}
+  m_Children: []
+  m_Father: {fileID: 174445767}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 1, y: 1}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -47.300003, y: -41.213}
+  m_SizeDelta: {x: 79.36, y: 53.092}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &831778690
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 831778688}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp:I2.Loc:LocalizeTarget_TextMeshPro_UGUI
-  mTarget: {fileID: 1270303500}
-  mAlignment_RTL: 258
-  mAlignment_LTR: 258
-  mAlignmentWasRTL: 0
-  mInitializeAlignment: 0
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_text: 400
+  m_isRightToLeft: 0
+  m_fontAsset: {fileID: 11400000, guid: 8a89fa14b10d46a99122fd4f73fca9a2, type: 2}
+  m_sharedMaterial: {fileID: 2100000, guid: 749b9069dc4742c5bfa5c74644049926, type: 2}
+  m_fontSharedMaterials: []
+  m_fontMaterial: {fileID: 0}
+  m_fontMaterials: []
+  m_fontColor32:
+    serializedVersion: 2
+    rgba: 4294907414
+  m_fontColor: {r: 0.08627451, g: 0.08627451, b: 1, a: 1}
+  m_enableVertexGradient: 0
+  m_colorMode: 3
+  m_fontColorGradient:
+    topLeft: {r: 1, g: 1, b: 1, a: 1}
+    topRight: {r: 1, g: 1, b: 1, a: 1}
+    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
+    bottomRight: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColorGradientPreset: {fileID: 0}
+  m_spriteAsset: {fileID: 11400000, guid: 14aa93acbb234d16aaef0e8b46814db6, type: 2}
+  m_tintAllSprites: 0
+  m_overrideHtmlColors: 0
+  m_faceColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_outlineColor:
+    serializedVersion: 2
+    rgba: 4278190080
+  m_fontSize: 37
+  m_fontSizeBase: 37
+  m_fontWeight: 400
+  m_enableAutoSizing: 0
+  m_fontSizeMin: 18
+  m_fontSizeMax: 72
+  m_fontStyle: 0
+  m_textAlignment: 1028
+  m_characterSpacing: 0
+  m_wordSpacing: 0
+  m_lineSpacing: 0
+  m_lineSpacingMax: 0
+  m_paragraphSpacing: 0
+  m_charWidthMaxAdj: 0
+  m_enableWordWrapping: 1
+  m_wordWrappingRatios: 0.4
+  m_overflowMode: 0
+  m_firstOverflowCharacterIndex: 0
+  m_linkedTextComponent: {fileID: 0}
+  m_isLinkedTextComponent: 0
+  m_isTextTruncated: 0
+  m_enableKerning: 1
+  m_enableExtraPadding: 0
+  checkPaddingRequired: 0
+  m_isRichText: 1
+  m_parseCtrlCharacters: 1
+  m_isOrthographic: 1
+  m_isCullingEnabled: 0
+  m_ignoreRectMaskCulling: 0
+  m_ignoreCulling: 1
+  m_horizontalMapping: 0
+  m_verticalMapping: 0
+  m_uvLineOffset: 0
+  m_geometrySortingOrder: 0
+  m_VertexBufferAutoSizeReduction: 1
+  m_firstVisibleCharacter: 0
+  m_useMaxVisibleDescender: 1
+  m_pageToDisplay: 1
+  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_textInfo:
+    textComponent: {fileID: 831778690}
+    characterCount: 3
+    spriteCount: 0
+    spaceCount: 0
+    wordCount: 1
+    linkCount: 0
+    lineCount: 1
+    pageCount: 1
+    materialCount: 1
+  m_isUsingLegacyAnimationComponent: 0
+  m_isVolumetricText: 0
+  m_spriteAnimator: {fileID: 0}
+  m_hasFontAssetChanged: 0
+  m_subTextObjects:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  m_baseMaterial: {fileID: 0}
+  m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!222 &831778691
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 831778688}
+  m_CullTransparentMesh: 0
 --- !u!1 &882663140
 GameObject:
   m_ObjectHideFlags: 0
@@ -3349,7 +3596,7 @@ MonoBehaviour:
   mGUI_ShowReferences: 0
   mGUI_ShowTems: 1
   mGUI_ShowCallback: 0
-  mLocalizeTarget: {fileID: 1439960742}
+  mLocalizeTarget: {fileID: 0}
   mLocalizeTargetName: I2.Loc.LocalizeTarget_TextMeshPro_UGUI
 --- !u!114 &897466978
 MonoBehaviour:
@@ -3371,11 +3618,10 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_text: "\uADF8\uB808\uC774\uC988"
+  m_text: Graze
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 120d1fbf7118ad7408c0fdffdb6b1ac3, type: 2}
-  m_sharedMaterial: {fileID: -6623423189622006589, guid: 120d1fbf7118ad7408c0fdffdb6b1ac3,
-    type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8a89fa14b10d46a99122fd4f73fca9a2, type: 2}
+  m_sharedMaterial: {fileID: 2140474, guid: 8a89fa14b10d46a99122fd4f73fca9a2, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -3417,7 +3663,7 @@ MonoBehaviour:
   m_enableWordWrapping: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
-  m_firstOverflowCharacterIndex: -1
+  m_firstOverflowCharacterIndex: 0
   m_linkedTextComponent: {fileID: 0}
   m_isLinkedTextComponent: 0
   m_isTextTruncated: 0
@@ -3441,7 +3687,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 897466978}
-    characterCount: 4
+    characterCount: 5
     spriteCount: 0
     spaceCount: 0
     wordCount: 1
@@ -3992,23 +4238,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1017358042
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp:I2.Loc:LocalizeTarget_TextMeshPro_UGUI
-  mTarget: {fileID: 202603041}
-  mAlignment_RTL: 260
-  mAlignment_LTR: 257
-  mAlignmentWasRTL: 0
-  mInitializeAlignment: 0
 --- !u!1 &1054942840
 GameObject:
   m_ObjectHideFlags: 0
@@ -4147,10 +4376,10 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_text: "\uC774\uC5B4\uD558\uAE30"
+  m_text: resume
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: bb978781911b25b4e8324122fdb6fc59, type: 2}
-  m_sharedMaterial: {fileID: -7149330062116522197, guid: bb978781911b25b4e8324122fdb6fc59,
+  m_fontAsset: {fileID: 11400000, guid: 186f905afa692f7469966da6f6b9ed4f, type: 2}
+  m_sharedMaterial: {fileID: 2714957613792895188, guid: 186f905afa692f7469966da6f6b9ed4f,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -4217,7 +4446,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 1074656709}
-    characterCount: 4
+    characterCount: 6
     spriteCount: 0
     spaceCount: 0
     wordCount: 1
@@ -4306,25 +4535,99 @@ MonoBehaviour:
   mGUI_ShowReferences: 0
   mGUI_ShowTems: 1
   mGUI_ShowCallback: 0
-  mLocalizeTarget: {fileID: 67809432}
+  mLocalizeTarget: {fileID: 0}
   mLocalizeTargetName: I2.Loc.LocalizeTarget_TextMeshPro_UGUI
---- !u!114 &1098179159
+--- !u!1 &1112059393
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1112059394}
+  - component: {fileID: 1112059397}
+  - component: {fileID: 1112059396}
+  - component: {fileID: 1112059395}
+  m_Layer: 0
+  m_Name: ManaEmpty
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1112059394
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1112059393}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 174445767}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 1, y: 1}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -217.53015, y: -92}
+  m_SizeDelta: {x: 435.06, y: 48.49}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1112059395
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1112059393}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
+  m_Script: {fileID: 1573420865, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp:I2.Loc:LocalizeTarget_TextMeshPro_UGUI
-  mTarget: {fileID: 1112162454}
-  mAlignment_RTL: 260
-  mAlignment_LTR: 257
-  mAlignmentWasRTL: 0
-  mInitializeAlignment: 0
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5}
+  m_EffectDistance: {x: 1, y: -1.2}
+  m_UseGraphicAlpha: 1
+--- !u!114 &1112059396
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1112059393}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_Sprite: {fileID: 4975741955291382485, guid: c7a4ea878c55364498b67480293c0a76,
+    type: 3}
+  m_Type: 0
+  m_PreserveAspect: 1
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+--- !u!222 &1112059397
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1112059393}
+  m_CullTransparentMesh: 0
 --- !u!1 &1112162451
 GameObject:
   m_ObjectHideFlags: 0
@@ -4403,10 +4706,10 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_text: "\uAC8C\uC784 \uC885\uB8CC"
+  m_text: ExitGame
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: bb978781911b25b4e8324122fdb6fc59, type: 2}
-  m_sharedMaterial: {fileID: -7149330062116522197, guid: bb978781911b25b4e8324122fdb6fc59,
+  m_fontAsset: {fileID: 11400000, guid: 186f905afa692f7469966da6f6b9ed4f, type: 2}
+  m_sharedMaterial: {fileID: 2714957613792895188, guid: 186f905afa692f7469966da6f6b9ed4f,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -4473,10 +4776,10 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 1112162454}
-    characterCount: 5
+    characterCount: 8
     spriteCount: 0
-    spaceCount: 1
-    wordCount: 2
+    spaceCount: 0
+    wordCount: 1
     linkCount: 0
     lineCount: 1
     pageCount: 1
@@ -4543,7 +4846,7 @@ MonoBehaviour:
   mGUI_ShowReferences: 0
   mGUI_ShowTems: 1
   mGUI_ShowCallback: 0
-  mLocalizeTarget: {fileID: 1098179159}
+  mLocalizeTarget: {fileID: 0}
   mLocalizeTargetName: I2.Loc.LocalizeTarget_TextMeshPro_UGUI
 --- !u!1 &1112169380
 GameObject:
@@ -4603,10 +4906,10 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_text: "\uC77C\uC2DC\uC815\uC9C0"
+  m_text: pause
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 5cd6796678d6cdb41890034e9b7c196e, type: 2}
-  m_sharedMaterial: {fileID: -9055119686715854902, guid: 5cd6796678d6cdb41890034e9b7c196e,
+  m_fontAsset: {fileID: 11400000, guid: 3919fc314d0bb6340a8b31579b627d60, type: 2}
+  m_sharedMaterial: {fileID: -3813420954249406041, guid: 3919fc314d0bb6340a8b31579b627d60,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -4673,7 +4976,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 1112169382}
-    characterCount: 4
+    characterCount: 5
     spriteCount: 0
     spaceCount: 0
     wordCount: 1
@@ -4743,7 +5046,7 @@ MonoBehaviour:
   mGUI_ShowReferences: 0
   mGUI_ShowTems: 1
   mGUI_ShowCallback: 0
-  mLocalizeTarget: {fileID: 1309347709}
+  mLocalizeTarget: {fileID: 0}
   mLocalizeTargetName: I2.Loc.LocalizeTarget_TextMeshPro_UGUI
 --- !u!1 &1130538078
 GameObject:
@@ -4978,10 +5281,10 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_text: "\uC544\uB2C8\uC624"
+  m_text: No
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: bb978781911b25b4e8324122fdb6fc59, type: 2}
-  m_sharedMaterial: {fileID: -7149330062116522197, guid: bb978781911b25b4e8324122fdb6fc59,
+  m_fontAsset: {fileID: 11400000, guid: 186f905afa692f7469966da6f6b9ed4f, type: 2}
+  m_sharedMaterial: {fileID: 2714957613792895188, guid: 186f905afa692f7469966da6f6b9ed4f,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -5048,7 +5351,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 1270303500}
-    characterCount: 3
+    characterCount: 2
     spriteCount: 0
     spaceCount: 0
     wordCount: 1
@@ -5110,7 +5413,7 @@ MonoBehaviour:
   mGUI_ShowReferences: 0
   mGUI_ShowTems: 1
   mGUI_ShowCallback: 0
-  mLocalizeTarget: {fileID: 788328132}
+  mLocalizeTarget: {fileID: 0}
   mLocalizeTargetName: I2.Loc.LocalizeTarget_TextMeshPro_UGUI
 --- !u!95 &1270303502
 Animator:
@@ -5158,23 +5461,6 @@ RectTransform:
   m_AnchoredPosition: {x: 145, y: 57}
   m_SizeDelta: {x: 196.40002, y: 48.700012}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1309347709
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp:I2.Loc:LocalizeTarget_TextMeshPro_UGUI
-  mTarget: {fileID: 1112169382}
-  mAlignment_RTL: 260
-  mAlignment_LTR: 257
-  mAlignmentWasRTL: 0
-  mInitializeAlignment: 0
 --- !u!1 &1358951522
 GameObject:
   m_ObjectHideFlags: 0
@@ -5328,8 +5614,8 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_text: Are you sure?
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: ad3c4963c5a02234e9bf099d4fcd46b6, type: 2}
-  m_sharedMaterial: {fileID: -301758402778016359, guid: ad3c4963c5a02234e9bf099d4fcd46b6,
+  m_fontAsset: {fileID: 11400000, guid: 6a59d1ee76c106142b7d5335f3674a3e, type: 2}
+  m_sharedMaterial: {fileID: 1447487696065325497, guid: 6a59d1ee76c106142b7d5335f3674a3e,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -5466,25 +5752,8 @@ MonoBehaviour:
   mGUI_ShowReferences: 0
   mGUI_ShowTems: 1
   mGUI_ShowCallback: 0
-  mLocalizeTarget: {fileID: 313121982}
+  mLocalizeTarget: {fileID: 0}
   mLocalizeTargetName: I2.Loc.LocalizeTarget_TextMeshPro_UGUI
---- !u!114 &1398679528
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp:I2.Loc:LocalizeTarget_TextMeshPro_UGUI
-  mTarget: {fileID: 610711736}
-  mAlignment_RTL: 1028
-  mAlignment_LTR: 1025
-  mAlignmentWasRTL: 0
-  mInitializeAlignment: 0
 --- !u!1 &1402214441
 GameObject:
   m_ObjectHideFlags: 0
@@ -5722,23 +5991,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1403470741}
   m_CullTransparentMesh: 0
---- !u!114 &1439960742
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp:I2.Loc:LocalizeTarget_TextMeshPro_UGUI
-  mTarget: {fileID: 897466978}
-  mAlignment_RTL: 516
-  mAlignment_LTR: 513
-  mAlignmentWasRTL: 0
-  mInitializeAlignment: 0
 --- !u!1 &1460125898
 GameObject:
   m_ObjectHideFlags: 0
@@ -5772,6 +6024,7 @@ RectTransform:
   - {fileID: 1975940895}
   - {fileID: 890444363}
   - {fileID: 1641478765}
+  - {fileID: 174445767}
   - {fileID: 1920430967}
   - {fileID: 484155782}
   m_Father: {fileID: 576648100}
@@ -6114,40 +6367,6 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
---- !u!114 &1661484182
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp:I2.Loc:LocalizeTarget_TextMeshPro_UGUI
-  mTarget: {fileID: 48866133}
-  mAlignment_RTL: 260
-  mAlignment_LTR: 257
-  mAlignmentWasRTL: 0
-  mInitializeAlignment: 0
---- !u!114 &1666678243
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp:I2.Loc:LocalizeTarget_TextMeshPro_UGUI
-  mTarget: {fileID: 778869491}
-  mAlignment_RTL: 260
-  mAlignment_LTR: 257
-  mAlignmentWasRTL: 0
-  mInitializeAlignment: 0
 --- !u!1 &1736998741
 GameObject:
   m_ObjectHideFlags: 0
@@ -6633,6 +6852,205 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1794957682}
   m_CullTransparentMesh: 0
+--- !u!1 &1891030453
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1891030454}
+  - component: {fileID: 1891030456}
+  - component: {fileID: 1891030455}
+  - component: {fileID: 1891030457}
+  m_Layer: 0
+  m_Name: Mana
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1891030454
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1891030453}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 174445767}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 1, y: 1}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -370.57, y: -41.211}
+  m_SizeDelta: {x: 128.99, y: 53.088}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1891030455
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1891030453}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_text: ' MP'
+  m_isRightToLeft: 0
+  m_fontAsset: {fileID: 11400000, guid: 8a89fa14b10d46a99122fd4f73fca9a2, type: 2}
+  m_sharedMaterial: {fileID: 2140474, guid: 8a89fa14b10d46a99122fd4f73fca9a2, type: 2}
+  m_fontSharedMaterials: []
+  m_fontMaterial: {fileID: 0}
+  m_fontMaterials: []
+  m_fontColor32:
+    serializedVersion: 2
+    rgba: 4294907414
+  m_fontColor: {r: 0.08627451, g: 0.08627451, b: 1, a: 1}
+  m_enableVertexGradient: 0
+  m_colorMode: 3
+  m_fontColorGradient:
+    topLeft: {r: 1, g: 1, b: 1, a: 1}
+    topRight: {r: 1, g: 1, b: 1, a: 1}
+    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
+    bottomRight: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColorGradientPreset: {fileID: 0}
+  m_spriteAsset: {fileID: 11400000, guid: 14aa93acbb234d16aaef0e8b46814db6, type: 2}
+  m_tintAllSprites: 0
+  m_overrideHtmlColors: 0
+  m_faceColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_outlineColor:
+    serializedVersion: 2
+    rgba: 4278190080
+  m_fontSize: 40
+  m_fontSizeBase: 40
+  m_fontWeight: 400
+  m_enableAutoSizing: 0
+  m_fontSizeMin: 18
+  m_fontSizeMax: 72
+  m_fontStyle: 0
+  m_textAlignment: 1025
+  m_characterSpacing: 0
+  m_wordSpacing: 0
+  m_lineSpacing: 0
+  m_lineSpacingMax: 0
+  m_paragraphSpacing: 0
+  m_charWidthMaxAdj: 0
+  m_enableWordWrapping: 1
+  m_wordWrappingRatios: 0.4
+  m_overflowMode: 0
+  m_firstOverflowCharacterIndex: 0
+  m_linkedTextComponent: {fileID: 0}
+  m_isLinkedTextComponent: 0
+  m_isTextTruncated: 0
+  m_enableKerning: 1
+  m_enableExtraPadding: 0
+  checkPaddingRequired: 0
+  m_isRichText: 1
+  m_parseCtrlCharacters: 1
+  m_isOrthographic: 1
+  m_isCullingEnabled: 0
+  m_ignoreRectMaskCulling: 0
+  m_ignoreCulling: 1
+  m_horizontalMapping: 0
+  m_verticalMapping: 0
+  m_uvLineOffset: 0
+  m_geometrySortingOrder: 0
+  m_VertexBufferAutoSizeReduction: 1
+  m_firstVisibleCharacter: 0
+  m_useMaxVisibleDescender: 1
+  m_pageToDisplay: 1
+  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_textInfo:
+    textComponent: {fileID: 1891030455}
+    characterCount: 3
+    spriteCount: 0
+    spaceCount: 1
+    wordCount: 2
+    linkCount: 0
+    lineCount: 1
+    pageCount: 1
+    materialCount: 1
+  m_isUsingLegacyAnimationComponent: 0
+  m_isVolumetricText: 0
+  m_spriteAnimator: {fileID: 0}
+  m_hasFontAssetChanged: 0
+  m_subTextObjects:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  m_baseMaterial: {fileID: 0}
+  m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!222 &1891030456
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1891030453}
+  m_CullTransparentMesh: 0
+--- !u!114 &1891030457
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1891030453}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 344445a89b4f74a0e9a0a766903df87e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mTerm: HUD/Mana
+  mTermSecondary: HUD/HUDFont
+  PrimaryTermModifier: 0
+  SecondaryTermModifier: 0
+  TermPrefix: 
+  TermSuffix: 
+  LocalizeOnAwake: 1
+  IgnoreRTL: 0
+  MaxCharactersInRTL: 0
+  IgnoreNumbersInRTL: 1
+  CorrectAlignmentForRTL: 1
+  AddSpacesToJoinedLanguages: 0
+  AllowLocalizedParameters: 1
+  AllowParameters: 1
+  TranslatedObjects: []
+  LocalizeEvent:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  AlwaysForceLocalize: 0
+  LocalizeCallBack:
+    Target: {fileID: 0}
+    MethodName: 
+  mGUI_ShowReferences: 0
+  mGUI_ShowTems: 1
+  mGUI_ShowCallback: 0
+  mLocalizeTarget: {fileID: 0}
+  mLocalizeTargetName: I2.Loc.LocalizeTarget_TextMeshPro_UGUI
 --- !u!1 &1901743381
 GameObject:
   m_ObjectHideFlags: 0
@@ -6759,11 +7177,11 @@ RectTransform:
   - {fileID: 897466976}
   - {fileID: 556061208}
   m_Father: {fileID: 1460125899}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -272.74, y: -637.7}
+  m_AnchoredPosition: {x: -272.87, y: -611}
   m_SizeDelta: {x: 502.32, y: 50.9}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1920430968
@@ -6826,23 +7244,6 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
---- !u!114 &1921265686
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp:I2.Loc:LocalizeTarget_TextMeshPro_UGUI
-  mTarget: {fileID: 2058908309}
-  mAlignment_RTL: 514
-  mAlignment_LTR: 514
-  mAlignmentWasRTL: 0
-  mInitializeAlignment: 0
 --- !u!1 &1967565194
 GameObject:
   m_ObjectHideFlags: 0
@@ -7169,11 +7570,10 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_text: " \uCCB4\uB825"
+  m_text: ' Health'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 120d1fbf7118ad7408c0fdffdb6b1ac3, type: 2}
-  m_sharedMaterial: {fileID: -6623423189622006589, guid: 120d1fbf7118ad7408c0fdffdb6b1ac3,
-    type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8a89fa14b10d46a99122fd4f73fca9a2, type: 2}
+  m_sharedMaterial: {fileID: 2140474, guid: 8a89fa14b10d46a99122fd4f73fca9a2, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -7215,7 +7615,7 @@ MonoBehaviour:
   m_enableWordWrapping: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
-  m_firstOverflowCharacterIndex: -1
+  m_firstOverflowCharacterIndex: 0
   m_linkedTextComponent: {fileID: 0}
   m_isLinkedTextComponent: 0
   m_isTextTruncated: 0
@@ -7239,7 +7639,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 2048056455}
-    characterCount: 3
+    characterCount: 7
     spriteCount: 0
     spaceCount: 1
     wordCount: 2
@@ -7309,7 +7709,7 @@ MonoBehaviour:
   mGUI_ShowReferences: 0
   mGUI_ShowTems: 1
   mGUI_ShowCallback: 0
-  mLocalizeTarget: {fileID: 226586597}
+  mLocalizeTarget: {fileID: 0}
   mLocalizeTargetName: I2.Loc.LocalizeTarget_TextMeshPro_UGUI
 --- !u!1 &2058908306
 GameObject:
@@ -7389,7 +7789,7 @@ MonoBehaviour:
   mGUI_ShowReferences: 0
   mGUI_ShowTems: 1
   mGUI_ShowCallback: 0
-  mLocalizeTarget: {fileID: 1921265686}
+  mLocalizeTarget: {fileID: 0}
   mLocalizeTargetName: I2.Loc.LocalizeTarget_TextMeshPro_UGUI
 --- !u!114 &2058908309
 MonoBehaviour:
@@ -7411,11 +7811,10 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_text: "\uC810\uC218"
+  m_text: Score
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 120d1fbf7118ad7408c0fdffdb6b1ac3, type: 2}
-  m_sharedMaterial: {fileID: -6623423189622006589, guid: 120d1fbf7118ad7408c0fdffdb6b1ac3,
-    type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8a89fa14b10d46a99122fd4f73fca9a2, type: 2}
+  m_sharedMaterial: {fileID: 2140474, guid: 8a89fa14b10d46a99122fd4f73fca9a2, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -7457,7 +7856,7 @@ MonoBehaviour:
   m_enableWordWrapping: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
-  m_firstOverflowCharacterIndex: -1
+  m_firstOverflowCharacterIndex: 0
   m_linkedTextComponent: {fileID: 0}
   m_isLinkedTextComponent: 0
   m_isTextTruncated: 0
@@ -7481,7 +7880,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 2058908309}
-    characterCount: 2
+    characterCount: 5
     spriteCount: 0
     spaceCount: 0
     wordCount: 1
@@ -7551,7 +7950,7 @@ MonoBehaviour:
   mGUI_ShowReferences: 0
   mGUI_ShowTems: 1
   mGUI_ShowCallback: 0
-  mLocalizeTarget: {fileID: 587561707}
+  mLocalizeTarget: {fileID: 0}
   mLocalizeTargetName: I2.Loc.LocalizeTarget_TextMeshPro_UGUI
 --- !u!1 &2136309202
 GameObject:

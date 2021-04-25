@@ -90,9 +90,9 @@ namespace SansyHuman.Player
             {
                 Gamepad pad = Gamepad.current;
 
-                if (Input.GetKey(shoot) || pad.rightTrigger.isPressed)
+                if (Input.GetKey(shoot) || (pad != null && pad.rightTrigger.isPressed))
                     accTime += Time.deltaTime * UDETime.Instance.PlayerTimeScale;
-                if (accTime >= bulletFireInterval && (Input.GetKey(shoot) || pad.rightTrigger.isPressed))
+                if (accTime >= bulletFireInterval && (Input.GetKey(shoot) || (pad != null && pad.rightTrigger.isPressed)))
                 {
                     accTime = 0;
                     ShotBullet();

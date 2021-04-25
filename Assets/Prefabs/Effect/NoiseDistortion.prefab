@@ -140,3 +140,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63040c13468c7274fa330440515d8a04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  noiseMap: {fileID: 2800000, guid: 6c26baee88a88ed48a6d6103ea4b5c9f, type: 3}

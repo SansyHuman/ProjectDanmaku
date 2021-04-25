@@ -65,8 +65,8 @@ namespace SansyHuman.UDE.ECS.Object
             }
         }
 
-        /// <value>Sets the summon time(default value is 0.08 seconds.</value>
-        public float SummonTime
+        /// <inheritdoc/>
+        public override float SummonTime
         {
             get => summonTime;
             set

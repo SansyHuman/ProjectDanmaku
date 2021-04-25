@@ -22,17 +22,4 @@ public class Test : MonoBehaviour
             Debug.Log(e.ToString());
         }
     }
-
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            I2.Loc.LocalizationManager.CurrentLanguage = "English";
-        }
-
-        if (Input.GetKeyDown(KeyCode.K))
-        {
-            I2.Loc.LocalizationManager.CurrentLanguage = "Korean";
-        }
-    }
 }

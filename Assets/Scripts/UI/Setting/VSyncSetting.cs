@@ -11,6 +11,9 @@ namespace SansyHuman.UI.Setting
     public class VSyncSetting : MonoBehaviour
     {
         [SerializeField]
+        private SansyHuman.UI.Setting.Settings settings;
+
+        [SerializeField]
         private GraphicsSetting graphicsSetting;
 
         [SerializeField]
@@ -52,13 +55,11 @@ namespace SansyHuman.UI.Setting
                         vsync.text = $"On({selectedVsyncCnt})";
                     }
 
-                    graphicsSetting.audioSource.clip = graphicsSetting.menuMove;
-                    graphicsSetting.audioSource.Play();
+                    settings.PlayMenuMove();
                 }
                 else
                 {
-                    graphicsSetting.audioSource.clip = graphicsSetting.menuError;
-                    graphicsSetting.audioSource.Play();
+                    settings.PlayMenuError();
                 }
             }
             else if (Input.GetKeyDown(KeyCode.RightArrow) || (pad != null && pad.dpad.right.wasPressedThisFrame))
@@ -75,13 +76,11 @@ namespace SansyHuman.UI.Setting
                         vsync.text = $"On({selectedVsyncCnt})";
                     }
 
-                    graphicsSetting.audioSource.clip = graphicsSetting.menuMove;
-                    graphicsSetting.audioSource.Play();
+                    settings.PlayMenuMove();
                 }
                 else
                 {
-                    graphicsSetting.audioSource.clip = graphicsSetting.menuError;
-                    graphicsSetting.audioSource.Play();
+                    settings.PlayMenuError();
                 }
             }
             else if (Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.KeypadEnter) || (pad != null && pad.buttonSouth.wasPressedThisFrame))
@@ -90,13 +89,11 @@ namespace SansyHuman.UI.Setting
                 {
                     QualitySettings.vSyncCount = selectedVsyncCnt;
 
-                    graphicsSetting.audioSource.clip = graphicsSetting.menuSelect;
-                    graphicsSetting.audioSource.Play();
+                    settings.PlayMenuSelect();
                 }
                 else
                 {
-                    graphicsSetting.audioSource.clip = graphicsSetting.menuError;
-                    graphicsSetting.audioSource.Play();
+                    settings.PlayMenuError();
                 }
             }
         }

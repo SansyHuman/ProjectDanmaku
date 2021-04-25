@@ -120,6 +120,16 @@ namespace SansyHuman.UDE.Util
                 return result;
             }
 
+            /// <summary>
+            /// Stops all transitions. Only used internally.
+            /// </summary>
+            public void StopAllTransition()
+            {
+                nonphysicsInfos.Clear();
+                physicsInfos.Clear();
+                enabled = false;
+            }
+
             // Not physics
             private void Update()
             {
@@ -925,6 +935,17 @@ namespace SansyHuman.UDE.Util
         public static TransitionResult RotateAmount(GameObject target, Vector3 delta, float duration, UDEMath.TimeFunction easeFunc, UDETime.TimeScale timeScale, bool isPhysics)
         {
             return RotateTo(target, target.transform.rotation.eulerAngles + delta, duration, easeFunc, timeScale, isPhysics);
+        }
+
+        /// <summary>
+        /// Stops all currently running transitions of the object.
+        /// </summary>
+        /// <param name="target"><see cref="GameObject"/> to stop transition</param>
+        public static void StopAllTransitions(GameObject target)
+        {
+            UDETransition transition = target.GetComponent<UDETransition>();
+            if (transition != null && transition.enabled)
+                transition.StopAllTransition();
         }
         #endregion
     }

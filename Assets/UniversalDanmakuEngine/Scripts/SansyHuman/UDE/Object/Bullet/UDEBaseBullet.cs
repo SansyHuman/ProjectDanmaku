@@ -89,8 +89,8 @@ namespace SansyHuman.UDE.Object
         public ref UDEBulletMovement CurrentMovement { get => ref movements[phase]; }
         /// <value>Gets the movement in phase.</value>
         public ref UDEBulletMovement this[int phase] { get => ref movements[phase]; }
-        /// <value>Sets the summon time(default value is 0.08 seconds.</value>
-        public float SummonTime
+        /// <inheritdoc/>
+        public override float SummonTime
         {
             get => summonTime;
             set

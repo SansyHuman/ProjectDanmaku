@@ -8,6 +8,7 @@ using UnityEngine.InputSystem;
 
 namespace SansyHuman.UI.Setting
 {
+    [DisallowMultipleComponent]
     public class GraphicsSetting : MonoBehaviour
     {
         [SerializeField]
@@ -15,6 +16,9 @@ namespace SansyHuman.UI.Setting
 
         [SerializeField]
         private Color unselectColor;
+
+        [SerializeField]
+        private SansyHuman.UI.Setting.Settings settings; 
 
         [SerializeField]
         private TextMeshProUGUI resolution;
@@ -28,12 +32,6 @@ namespace SansyHuman.UI.Setting
         [SerializeField]
         private TextMeshProUGUI tripleBuffering;
 
-        public AudioClip menuMove;
-        public AudioClip menuSelect;
-        public AudioClip menuError;
-
-        public AudioSource audioSource;
-
         public enum Settings
         {
             RESOLUTION = 0,
@@ -43,11 +41,6 @@ namespace SansyHuman.UI.Setting
         }
 
         public Settings currentSetting = Settings.RESOLUTION;
-
-        private void Awake()
-        {
-            audioSource = GetComponent<AudioSource>();
-        }
 
         private void OnEnable()
         {
@@ -123,13 +116,11 @@ namespace SansyHuman.UI.Setting
                             break;
                     }
 
-                    audioSource.clip = menuMove;
-                    audioSource.Play();
+                    settings.PlayMenuMove();
                 }
                 else
                 {
-                    audioSource.clip = menuError;
-                    audioSource.Play();
+                    settings.PlayMenuError();
                 }
             }
             else if (Input.GetKeyDown(KeyCode.UpArrow) || (pad != null && pad.dpad.up.wasPressedThisFrame))
@@ -163,13 +154,11 @@ namespace SansyHuman.UI.Setting
                             break;
                     }
 
-                    audioSource.clip = menuMove;
-                    audioSource.Play();
+                    settings.PlayMenuMove();
                 }
                 else
                 {
-                    audioSource.clip = menuError;
-                    audioSource.Play();
+                    settings.PlayMenuError();
                 }
             }
         }

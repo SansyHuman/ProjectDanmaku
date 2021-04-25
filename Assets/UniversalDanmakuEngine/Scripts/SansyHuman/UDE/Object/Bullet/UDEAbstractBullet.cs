@@ -68,6 +68,12 @@ namespace SansyHuman.UDE.Object
             }
         }
 
+        /// <value>Sets the summon time.</value>
+        public abstract float SummonTime
+        {
+            get; set;
+        }
+
         /// <value>Gets the character that shot the bullet.</value>
         public UDEBaseCharacter OriginCharacter { get => originCharacter; }
 

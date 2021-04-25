@@ -21,6 +21,9 @@ namespace SansyHuman.Stage
         public const int Fairy = 1;
         public const int FairyRed = 2;
 
+        // Sub boss codes
+        public const int SheroSub = 0;
+
         // Bullet codes
         public const int GreenLuminusBullet = 0;
         public const int LightBlueLuminusBullet = 1;
@@ -33,7 +36,7 @@ namespace SansyHuman.Stage
 
         public enum Wave
         {
-            Intro, Wave1, Wave2
+            Intro, Wave1, Wave2, Wave3
         }
 
         [SerializeField]
@@ -49,6 +52,8 @@ namespace SansyHuman.Stage
                     goto WAVE_1;
                 case Wave.Wave2:
                     goto WAVE_2;
+                case Wave.Wave3:
+                    goto WAVE_3;
             }
 
             INTRO:
@@ -133,6 +138,18 @@ namespace SansyHuman.Stage
             fairyRed.transform.SetPositionAndRotation(Camera.main.ViewportToWorldPoint(new Vector3(1.1f, 0.4f, 0)), Quaternion.Euler(0, 0, 0));
             fairyRed.Initialize(Wave2FairyPattern, 45, UDEBaseShotPattern.RemoveBulletsOnDeath.NONE, bullets[GreenCircleBullet], bullets[RedCircleBullet], bullets[LightBlueCircleBullet]);
             fairyRed.ShowHealthAndSpecllCount();
+
+            yield return StartCoroutine(UDETime.Instance.WaitForScaledSeconds(8f, UDETime.TimeScale.ENEMY));
+
+            UDEObjectManager.Instance.DestroyAllEnemies();
+
+            WAVE_3:
+            // Wave 3
+
+            EnemyBase sheroSub = SummonEnemy(subBoss[SheroSub]) as EnemyBase;
+            sheroSub.transform.SetPositionAndRotation(Camera.main.ViewportToWorldPoint(new Vector3(1.1f, 0.4f, 0)), Quaternion.Euler(0, 0, 0));
+            sheroSub.Initialize();
+            sheroSub.ShowHealthAndSpecllCount();
         }
 
         private IEnumerator IntroWhiteSpiritPattern(LambdaShotPattern pattern, List<UDEAbstractBullet> bullets, UDEEnemy enemy)
@@ -143,7 +160,7 @@ namespace SansyHuman.Stage
             for (int i = 0; i < 5; i++)
             {
                 UDEAbstractBullet bullet = UDEBulletPool.Instance.GetBullet(bullets[0]);
-                ((UDEBaseBullet)bullet).SummonTime = 0.08f;
+                bullet.SummonTime = 0.08f;
                 bullet.MoveBulletToDirection(enemy, pattern, enemy.transform.position, 0, new Vector2(-5, 0), true);
 
                 yield return StartCoroutine(UDETime.Instance.WaitForScaledSeconds(0.8f, UDETime.TimeScale.ENEMY));
@@ -183,7 +200,7 @@ namespace SansyHuman.Stage
                 (float x, float y) = UDEMath.Polar2Cartesian(0.4f, moveAngle);
 
                 UDEAbstractBullet bullet = UDEBulletPool.Instance.GetBullet(bullets[0]);
-                ((UDEBaseBullet)bullet).SummonTime = 0.12f;
+                bullet.SummonTime = 0.12f;
                 bullet.Initialize(enemyTr.position + new Vector3(x, y), enemyTr.position, 0, enemy, pattern, builder.Angle(moveAngle).Build());
             }
 
@@ -193,7 +210,7 @@ namespace SansyHuman.Stage
                 (float x, float y) = UDEMath.Polar2Cartesian(0.4f, angle);
 
                 UDEAbstractBullet bullet = UDEBulletPool.Instance.GetBullet(bullets[0]);
-                ((UDEBaseBullet)bullet).SummonTime = 0.12f;
+                bullet.SummonTime = 0.12f;
                 bullet.Initialize(enemyTr.position + new Vector3(x, y), enemyTr.position, 0, enemy, pattern, builder.MinSpeed(3.0f + 0.6f * i).Build());
             }
 
@@ -237,11 +254,13 @@ namespace SansyHuman.Stage
                 UDEBulletMovement lower = builder.Angle(180 + angle).Build();
 
                 UDEAbstractBullet bullet = UDEBulletPool.Instance.GetBullet(bullets[0]); // Upper
-                ((UDEBaseBullet)bullet).SummonTime = 0.05f;
+                bullet.SummonTime = 0.05f;
+                bullet.transform.localScale = new Vector3(0.85f, 0.85f);
                 bullet.Initialize(enemyTr.position, enemyTr.position, 0, enemy, pattern, upper);
 
                 bullet = UDEBulletPool.Instance.GetBullet(bullets[1]); // Lower
-                ((UDEBaseBullet)bullet).SummonTime = 0.05f;
+                bullet.SummonTime = 0.05f;
+                bullet.transform.localScale = new Vector3(0.85f, 0.85f);
                 bullet.Initialize(enemyTr.position, enemyTr.position, 0, enemy, pattern, lower);
 
                 float accTimeD = accTime + 1f;
@@ -255,12 +274,14 @@ namespace SansyHuman.Stage
 
                 upper.angle = 180 - angle * 2f;
                 bullet = UDEBulletPool.Instance.GetBullet(bullets[2]);
-                ((UDEBaseBullet)bullet).SummonTime = 0.05f;
+                bullet.SummonTime = 0.05f;
+                bullet.transform.localScale = new Vector3(0.85f, 0.85f);
                 bullet.Initialize(enemyTr.position, enemyTr.position, 0, enemy, pattern, upper);
 
                 lower.angle = 180 + angle * 2f;
                 bullet = UDEBulletPool.Instance.GetBullet(bullets[2]);
-                ((UDEBaseBullet)bullet).SummonTime = 0.05f;
+                bullet.SummonTime = 0.05f;
+                bullet.transform.localScale = new Vector3(0.85f, 0.85f);
                 bullet.Initialize(enemyTr.position, enemyTr.position, 0, enemy, pattern, lower);
 
                 accTime += dt;

@@ -7,12 +7,13 @@ namespace I2.Loc
 
 		public static class Generic
 		{
+			public static string License 		{ get{ return LocalizationManager.GetTranslation ("Generic/License"); } }
 			public static string No 		{ get{ return LocalizationManager.GetTranslation ("Generic/No"); } }
 			public static string WarningExitGame 		{ get{ return LocalizationManager.GetTranslation ("Generic/WarningExitGame"); } }
 			public static string WarningFont 		{ get{ return LocalizationManager.GetTranslation ("Generic/WarningFont"); } }
+			public static string WarningRestart 		{ get{ return LocalizationManager.GetTranslation ("Generic/WarningRestart"); } }
 			public static string WarningReturnToTitle 		{ get{ return LocalizationManager.GetTranslation ("Generic/WarningReturnToTitle"); } }
 			public static string Yes 		{ get{ return LocalizationManager.GetTranslation ("Generic/Yes"); } }
-			public static string WarningRestart 		{ get{ return LocalizationManager.GetTranslation ("Generic/WarningRestart"); } }
 		}
 
 		public static class HUD
@@ -20,6 +21,7 @@ namespace I2.Loc
 			public static string Graze 		{ get{ return LocalizationManager.GetTranslation ("HUD/Graze"); } }
 			public static string HUDFont 		{ get{ return LocalizationManager.GetTranslation ("HUD/HUDFont"); } }
 			public static string Health 		{ get{ return LocalizationManager.GetTranslation ("HUD/Health"); } }
+			public static string Mana 		{ get{ return LocalizationManager.GetTranslation ("HUD/Mana"); } }
 			public static string Power 		{ get{ return LocalizationManager.GetTranslation ("HUD/Power"); } }
 			public static string Score 		{ get{ return LocalizationManager.GetTranslation ("HUD/Score"); } }
 		}
@@ -37,6 +39,10 @@ namespace I2.Loc
 
 		public static class Settings
 		{
+			public static string Gamepad 		{ get{ return LocalizationManager.GetTranslation ("Settings/Gamepad"); } }
+			public static string Graphics 		{ get{ return LocalizationManager.GetTranslation ("Settings/Graphics"); } }
+			public static string Keyboard 		{ get{ return LocalizationManager.GetTranslation ("Settings/Keyboard"); } }
+			public static string Language 		{ get{ return LocalizationManager.GetTranslation ("Settings/Language"); } }
 			public static string SettingsFont 		{ get{ return LocalizationManager.GetTranslation ("Settings/SettingsFont"); } }
 		}
 
@@ -54,6 +60,17 @@ namespace I2.Loc
 			public static string FullScreenWindow 		{ get{ return LocalizationManager.GetTranslation ("Settings/Graphics/ScreenMode/FullScreenWindow"); } }
 			public static string Windowed 		{ get{ return LocalizationManager.GetTranslation ("Settings/Graphics/ScreenMode/Windowed"); } }
 		}
+
+		public static class Settings_Keyboard
+		{
+			public static string ReadingKey 		{ get{ return LocalizationManager.GetTranslation ("Settings/Keyboard/ReadingKey"); } }
+		}
+
+		public static class Settings_Language
+		{
+			public static string English 		{ get{ return LocalizationManager.GetTranslation ("Settings/Language/English"); } }
+			public static string Korean 		{ get{ return LocalizationManager.GetTranslation ("Settings/Language/Korean"); } }
+		}
 	}
 
     public static class ScriptTerms
@@ -61,12 +78,13 @@ namespace I2.Loc
 
 		public static class Generic
 		{
+		    public const string License = "Generic/License";
 		    public const string No = "Generic/No";
 		    public const string WarningExitGame = "Generic/WarningExitGame";
 		    public const string WarningFont = "Generic/WarningFont";
+		    public const string WarningRestart = "Generic/WarningRestart";
 		    public const string WarningReturnToTitle = "Generic/WarningReturnToTitle";
 		    public const string Yes = "Generic/Yes";
-		    public const string WarningRestart = "Generic/WarningRestart";
 		}
 
 		public static class HUD
@@ -74,6 +92,7 @@ namespace I2.Loc
 		    public const string Graze = "HUD/Graze";
 		    public const string HUDFont = "HUD/HUDFont";
 		    public const string Health = "HUD/Health";
+		    public const string Mana = "HUD/Mana";
 		    public const string Power = "HUD/Power";
 		    public const string Score = "HUD/Score";
 		}
@@ -91,6 +110,10 @@ namespace I2.Loc
 
 		public static class Settings
 		{
+		    public const string Gamepad = "Settings/Gamepad";
+		    public const string Graphics = "Settings/Graphics";
+		    public const string Keyboard = "Settings/Keyboard";
+		    public const string Language = "Settings/Language";
 		    public const string SettingsFont = "Settings/SettingsFont";
 		}
 
@@ -107,6 +130,17 @@ namespace I2.Loc
 		    public const string ExclusiveFullScreen = "Settings/Graphics/ScreenMode/ExclusiveFullScreen";
 		    public const string FullScreenWindow = "Settings/Graphics/ScreenMode/FullScreenWindow";
 		    public const string Windowed = "Settings/Graphics/ScreenMode/Windowed";
+		}
+
+		public static class Settings_Keyboard
+		{
+		    public const string ReadingKey = "Settings/Keyboard/ReadingKey";
+		}
+
+		public static class Settings_Language
+		{
+		    public const string English = "Settings/Language/English";
+		    public const string Korean = "Settings/Language/Korean";
 		}
 	}
 }

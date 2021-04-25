@@ -241,6 +241,70 @@ MonoBehaviour:
       - "\uB77C\uC774\uC120\uC2A4"
       Flags: 0000
       Languages_Touch: []
+    - Term: HUD/Mana
+      TermType: 0
+      Description: 
+      Languages:
+      - ' MP'
+      - " \uB9C8\uB098"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Settings/Graphics
+      TermType: 0
+      Description: 
+      Languages:
+      - Graphics
+      - "\uADF8\uB798\uD53D"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Settings/Language
+      TermType: 0
+      Description: 
+      Languages:
+      - Language
+      - "\uC5B8\uC5B4"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Settings/Keyboard
+      TermType: 0
+      Description: 
+      Languages:
+      - Keyboard
+      - "\uD0A4\uBCF4\uB4DC"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Settings/Gamepad
+      TermType: 0
+      Description: 
+      Languages:
+      - Gamepad
+      - "\uAC8C\uC784\uD328\uB4DC"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Settings/Language/English
+      TermType: 0
+      Description: 
+      Languages:
+      - English
+      - "\uC601\uC5B4"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Settings/Language/Korean
+      TermType: 0
+      Description: 
+      Languages:
+      - Korean
+      - "\uD55C\uAD6D\uC5B4"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Settings/Keyboard/ReadingKey
+      TermType: 0
+      Description: 
+      Languages:
+      - <Press the key to assign...>
+      - "<\uD560\uB2F9\uD560 \uD0A4\uB97C \uB204\uB974\uC2ED\uC2DC\uC624...>"
+      Flags: 0000
+      Languages_Touch: []
     CaseInsensitiveTerms: 0
     OnMissingTranslation: 1
     mTerm_AppName: 

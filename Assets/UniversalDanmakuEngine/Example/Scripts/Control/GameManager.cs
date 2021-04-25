@@ -14,14 +14,17 @@ public class GameManager : UDESingleton<GameManager>
     public List<UDEBaseStagePattern> stages;
 
     private int currentStage;
-    private bool stageRunning = false;
+    private bool stageRunning;
     
     private AudioSource bgm;
+    private bool bgmRunning;
 
     protected override void Awake()
     {
         base.Awake();
         bgm = GetComponent<AudioSource>();
+        stageRunning = false;
+        bgmRunning = false;
     }
 
     public void StartStage(int stageNumber)
@@ -34,6 +37,7 @@ public class GameManager : UDESingleton<GameManager>
 
         GameManager.player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerBase>();
         GameManager.player.transform.position = new Vector2(-6, 0);
+        KeyMappingManager.Instance.ApplyMapping();
 
         currentStage = stageNumber;
         stageRunning = true;
@@ -42,12 +46,14 @@ public class GameManager : UDESingleton<GameManager>
 
     public void PauseBGM()
     {
-        bgm.Pause();
+        if (bgmRunning)
+            bgm.Pause();
     }
 
     public void ResumeBGM()
     {
-        bgm.Play();
+        if (bgmRunning)
+            bgm.Play();
     }
 
     public void StopStage()
@@ -66,6 +72,7 @@ public class GameManager : UDESingleton<GameManager>
         UDETime.Instance.PlayerTimeScale = 1;
 
         bgm.Stop();
+        bgmRunning = false;
 
         StopAllCoroutines();
         stageRunning = false;
@@ -75,9 +82,10 @@ public class GameManager : UDESingleton<GameManager>
 
     IEnumerator RunStage(int stageNumber)
     {
-        yield return new WaitForSeconds(1f);
+        yield return UDETime.Instance.WaitForScaledSeconds(1.0f, UDETime.TimeScale.ENEMY);
         bgm.time = 0;
         bgm.Play();
+        bgmRunning = true;
         stages[stageNumber].StartStage();
     }
 }

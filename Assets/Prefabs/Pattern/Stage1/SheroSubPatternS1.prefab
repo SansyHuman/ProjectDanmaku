@@ -1,0 +1,55 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &3995374504937978251
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1526069810474956964}
+  - component: {fileID: 5934808226296944737}
+  m_Layer: 0
+  m_Name: SheroSubPatternS1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1526069810474956964
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3995374504937978251}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 11.255483, y: -4.2873964, z: -2.0932617}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5934808226296944737
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3995374504937978251}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc9bf21c1e29d304daf6a7c88599815b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  patternBullets:
+  - {fileID: 5309483236982385077, guid: 1bbbc55a1fa129a4497211d00f6a20d3, type: 3}
+  - {fileID: 2944077472419195511, guid: 21201032ad987a3409c3c2f1033f83ba, type: 3}
+  type: 1
+  hasTimeLimit: 0
+  timeLimit: 0
+  removeBullets: 2
+  angleDifference: 20
+  numberOfBullets: 8
+  radialSpeed: 5.5

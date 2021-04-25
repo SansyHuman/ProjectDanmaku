@@ -28,6 +28,10 @@ namespace SansyHuman.Player
         [Tooltip("The spawn point of the main player bullet.")]
         protected Transform mainShotPoint;
 
+
+        // Character stats
+
+        // Score of the player
         protected int score = 0;
 
         [SerializeField]
@@ -36,11 +40,23 @@ namespace SansyHuman.Player
         protected float power = 0.0f;
         protected int powerLevel = 0;
 
+        [SerializeField]
+        [Range(0, 400)]
+        [Tooltip("The MP of the character.")]
+        protected int mana = 0;
+
+        [SerializeField]
+        [Range(0, 5)]
+        [Tooltip("The regeneration speed of MP per second")]
+        protected float manaRegenerationPerSecond = 0.0f;
+
+        // One graze means it passed near by a bullet.
         protected int graze = 0;
 
         [SerializeField]
         [Tooltip("The score of one graze.")]
         protected int scorePerGraze = 1000;
+
 
         [SerializeField]
         protected ColorInvert circleColorInvert;
@@ -70,6 +86,11 @@ namespace SansyHuman.Player
         /// </summary>
         protected const float MaxPower = 3.0f;
 
+        /// <summary>
+        /// Maximum MP level.
+        /// </summary>
+        protected const int MaxMana = 400;
+
         protected bool isSlowMode = false;
         private IEnumerator slowTransition = null;
 
@@ -82,19 +103,25 @@ namespace SansyHuman.Player
 
         private Animator animator;
 
+        private TextMeshProUGUI scoreText;
+
         private UnityEngine.UI.Image healthBar;
         private TextMeshProUGUI healthText;
 
         private UnityEngine.UI.Image powerBar;
         private TextMeshProUGUI powerText;
 
-        private TextMeshProUGUI scoreText;
+        private UnityEngine.UI.Image manaBar;
+        private TextMeshProUGUI manaText;
 
         private TextMeshProUGUI grazeText;
 
         protected override void Awake()
         {
             base.Awake();
+
+            scoreText = GameObject.Find("ScoreAmount").GetComponent<TextMeshProUGUI>();
+            scoreText.text = $"{score:D12}";
 
             health = 3;
             healthBar = GameObject.Find("HealthBar").GetComponent<UnityEngine.UI.Image>();
@@ -108,8 +135,11 @@ namespace SansyHuman.Player
             powerText = GameObject.Find("PowerAmount").GetComponent<TextMeshProUGUI>();
             powerText.text = $"{power:0.00}";
 
-            scoreText = GameObject.Find("ScoreAmount").GetComponent<TextMeshProUGUI>();
-            scoreText.text = $"{score:D12}";
+            mana = 0;
+            manaBar = GameObject.Find("ManaBar").GetComponent<UnityEngine.UI.Image>();
+            manaBar.fillAmount = (float)mana / MaxMana;
+            manaText = GameObject.Find("ManaAmount").GetComponent<TextMeshProUGUI>();
+            manaText.text = $"{mana:D3}";
 
             grazeText = GameObject.Find("GrazeAmount").GetComponent<TextMeshProUGUI>();
             grazeText.text = $"{graze}";
@@ -221,6 +251,9 @@ namespace SansyHuman.Player
             slowMarker.color = col;
         }
 
+        // Used on MP regeneration.
+        private float accScaledTime = 0.0f;
+
         protected override void Update()
         {
             if (pauseMenu.GamePaused || debugConsole.DebugConsoleEnabled)
@@ -253,11 +286,20 @@ namespace SansyHuman.Player
             if (Input.GetKeyUp(shoot) || (pad != null && pad.rightTrigger.wasReleasedThisFrame))
                 fireSound.Stop();
 
+            // Power level check
             int tmpLvl = (int)power;
             if (tmpLvl != powerLevel)
             {
                 powerLevel = tmpLvl;
                 OnPowerLevelChange();
+            }
+
+            // MP regeneration
+            accScaledTime += Time.deltaTime * UDETime.Instance.PlayerTimeScale * manaRegenerationPerSecond;
+            if (accScaledTime >= 1.0f)
+            {
+                AddMana(1);
+                accScaledTime = 0.0f;
             }
 
             if (mainCamera.WorldToViewportPoint(characterTr.position).x > 0.75f)
@@ -287,6 +329,60 @@ namespace SansyHuman.Player
             scoreText.text = $"{this.score:D12}";
         }
 
+        // Reset score to 0(internal only).
+        internal void ResetScore()
+        {
+            score = 0;
+            scoreText.text = $"{score:D12}";
+        }
+
+        // Add power to the player(internal only).
+        internal void AddPower(float power)
+        {
+            this.power += power;
+            if (this.power > MaxPower)
+                this.power = MaxPower;
+
+            powerBar.fillAmount = this.power / MaxPower;
+            powerText.text = $"{this.power:0.00}";
+        }
+
+        // Set power of the player(internal only).
+        internal void SetPower(float power)
+        {
+            this.power = power;
+            if (this.power > MaxPower)
+                this.power = MaxPower;
+            if (this.power < 0)
+                this.power = 0;
+
+            powerBar.fillAmount = this.power / MaxPower;
+            powerText.text = $"{this.power:0.00}";
+        }
+
+        // Add MP to the player(internal only).
+        internal void AddMana(int mana)
+        {
+            this.mana += mana;
+            if (this.mana > MaxMana)
+                this.mana = MaxMana;
+
+            manaBar.fillAmount = (float)this.mana / MaxMana;
+            manaText.text = $"{this.mana:D3}";
+        }
+
+        internal void SetMana(int mana)
+        {
+            this.mana = mana;
+            if (this.mana > MaxMana)
+                this.mana = MaxMana;
+            if (this.mana < 0)
+                this.mana = 0;
+
+            manaBar.fillAmount = (float)this.mana / MaxMana;
+            manaText.text = $"{this.mana:D3}";
+        }
+
         // Add one graze to player(internal only).
         internal void AddGraze()
         {
@@ -295,6 +391,13 @@ namespace SansyHuman.Player
             grazeSound.Stop();
             grazeSound.Play();
             AddScore(scorePerGraze);
+        }
+
+        // Reset graze to 0(internal only).
+        internal void ResetGraze()
+        {
+            graze = 0;
+            grazeText.text = $"{graze}";
         }
 
         protected override void OnTriggerStay2D(Collider2D collision)
@@ -329,12 +432,7 @@ namespace SansyHuman.Player
                 if (item is Power power)
                 {
                     AddScore(500);
-                    this.power += power.PowerPoint;
-                    if (this.power > MaxPower)
-                        this.power = MaxPower;
-
-                    powerBar.fillAmount = this.power / MaxPower;
-                    powerText.text = $"{this.power:0.00}";
+                    AddPower(power.PowerPoint);
                 }
 
                 item.RemoveItem();

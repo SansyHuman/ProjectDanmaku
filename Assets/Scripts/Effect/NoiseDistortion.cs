@@ -15,6 +15,9 @@ namespace SansyHuman.Effect
         private int noiseSpeedID;
         private int noiseIntensityID;
 
+        [SerializeField]
+        private Texture2D noiseMap;
+
         public Texture2D NoiseIntensityMap
         {
             get => mat.GetTexture(noiseIntensityMapID) as Texture2D;
@@ -53,6 +56,11 @@ namespace SansyHuman.Effect
             noiseSizeID = Shader.PropertyToID("_NoiseSize");
             noiseSpeedID = Shader.PropertyToID("_NoiseSpeed");
             noiseIntensityID = Shader.PropertyToID("_NoiseIntensity");
+
+            NoiseIntensityMap = noiseMap;
+            NoiseSize = 0.07f;
+            NoiseSpeed = 0.66f;
+            NoiseIntensity = 0.2f;
         }
     }
 }
