@@ -89,6 +89,12 @@ namespace SansyHuman.Enemy
             }
         }
 
+        public virtual void LateUpdate()
+        {
+            if (showHealth)
+                enemyHealthBar.fillAmount = health / shotPatterns[currentPhase].health;
+        }
+
         protected override void OnPatternEnd(UDEBaseShotPattern endedPattern)
         {
             base.OnPatternEnd(endedPattern);
@@ -174,8 +180,7 @@ namespace SansyHuman.Enemy
                 if (bullet != null && bullet.gameObject.activeSelf && bullet.OriginCharacter is UDEPlayer)
                 {
                     health -= bullet.Damage;
-                    if (showHealth)
-                        enemyHealthBar.fillAmount = health / shotPatterns[currentPhase].health;
+
                     UDEBulletPool.Instance.ReleaseBullet(bullet);
                 }
             }
@@ -185,8 +190,6 @@ namespace SansyHuman.Enemy
                 if (laser != null && laser.OriginCharacter is UDEPlayer)
                 {
                     health -= laser.Dps * Time.deltaTime * UDETime.Instance.PlayerTimeScale;
-                    if (showHealth)
-                        enemyHealthBar.fillAmount = health / shotPatterns[currentPhase].health;
                 }
             }
         }

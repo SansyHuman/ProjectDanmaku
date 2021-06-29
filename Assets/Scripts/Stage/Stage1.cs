@@ -9,7 +9,7 @@ using SansyHuman.UDE.Pattern;
 using SansyHuman.UDE.Util;
 using SansyHuman.UDE.Util.Builder;
 using SansyHuman.UDE.Util.Math;
-
+using SansyHuman.UI.HUD;
 using UnityEngine;
 
 namespace SansyHuman.Stage
@@ -145,6 +145,9 @@ namespace SansyHuman.Stage
 
             WAVE_3:
             // Wave 3
+
+            WarningHUD warning = GameObject.Find("WarningHUD").GetComponent<WarningHUD>();
+            warning.Warn();
 
             EnemyBase sheroSub = SummonEnemy(subBoss[SheroSub]) as EnemyBase;
             sheroSub.transform.SetPositionAndRotation(Camera.main.ViewportToWorldPoint(new Vector3(1.1f, 0.4f, 0)), Quaternion.Euler(0, 0, 0));

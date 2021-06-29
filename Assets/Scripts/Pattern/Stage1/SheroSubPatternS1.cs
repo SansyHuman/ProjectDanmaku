@@ -1,6 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-
+using SansyHuman.Enemy;
 using SansyHuman.UDE.Management;
 using SansyHuman.UDE.Object;
 using SansyHuman.UDE.Pattern;
@@ -27,13 +27,25 @@ namespace SansyHuman.Pattern
         [SerializeField]
         private float radialSpeed = 5.5f;
 
+        [SerializeField]
+        private GameObject background;
+
+        [SerializeField]
+        private Color changeBackgroundColorTo;
+
+        private Color originalBackgroundColor;
+
         protected override IEnumerator ShotPattern()
         {
             UDETransitionHelper.StopAllTransitions(originEnemy.gameObject);
 
+            originalBackgroundColor = background.GetComponent<SpriteRenderer>().color;
+
             originEnemy.CanBeDamaged = false;
-            var trResult = UDETransitionHelper.MoveTo(originEnemy.gameObject, Camera.main.ViewportToWorldPoint(new Vector3(0.77f, 0.5f, 0)), 0.75f, UDETransitionHelper.easeOutCubic, UDE.Management.UDETime.TimeScale.ENEMY, true);
-            yield return StartCoroutine(UDETime.Instance.WaitForScaledSeconds(1f, UDETime.TimeScale.ENEMY));
+            UDETransitionHelper.MoveTo(originEnemy.gameObject, Camera.main.ViewportToWorldPoint(new Vector3(0.77f, 0.5f, 0)), 0.75f, UDETransitionHelper.easeOutCubic, UDE.Management.UDETime.TimeScale.ENEMY, true);
+            UDETransitionHelper.ChangeScaleTo(background, new Vector3(1.2f, 1.2f, 1f), 1f, UDETransitionHelper.easeLinear, UDETime.TimeScale.ENEMY, false);
+            UDETransitionHelper.ChangeColorTo(background, changeBackgroundColorTo, 1f, UDETransitionHelper.easeLinear, UDETime.TimeScale.ENEMY, false);
+            yield return StartCoroutine(UDETime.Instance.WaitForScaledSeconds(2f, UDETime.TimeScale.ENEMY));
 
             originEnemy.CanBeDamaged = true;
 
@@ -89,6 +101,14 @@ namespace SansyHuman.Pattern
 
                 yield return StartCoroutine(UDETime.Instance.WaitForScaledSeconds(0.25f, UDETime.TimeScale.ENEMY));
             }
+        }
+
+        public override void EndPattern()
+        {
+            base.EndPattern();
+
+            UDETransitionHelper.ChangeScaleTo(background, new Vector3(1f, 1f, 1f), 0.5f, UDETransitionHelper.easeLinear, UDETime.TimeScale.ENEMY, false);
+            UDETransitionHelper.ChangeColorTo(background, originalBackgroundColor, 0.5f, UDETransitionHelper.easeLinear, UDETime.TimeScale.ENEMY, false);
         }
     }
 }

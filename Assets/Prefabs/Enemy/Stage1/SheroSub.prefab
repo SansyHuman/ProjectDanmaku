@@ -552,6 +552,11 @@ PrefabInstance:
       propertyPath: m_SortingOrder
       value: -20
       objectReference: {fileID: 0}
+    - target: {fileID: 2427751381556276838, guid: f498b71704d025b40823e223c52d70b9,
+        type: 3}
+      propertyPath: m_MaskInteraction
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f498b71704d025b40823e223c52d70b9, type: 3}
 --- !u!4 &4060728909148888297 stripped
@@ -571,6 +576,46 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SheroSubPatternS1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5934808226296944737, guid: 86787b96466b66443957146060fca7d3,
+        type: 3}
+      propertyPath: numberOfBullets
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 5934808226296944737, guid: 86787b96466b66443957146060fca7d3,
+        type: 3}
+      propertyPath: angleDifference
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 5934808226296944737, guid: 86787b96466b66443957146060fca7d3,
+        type: 3}
+      propertyPath: radialSpeed
+      value: 3.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 5934808226296944737, guid: 86787b96466b66443957146060fca7d3,
+        type: 3}
+      propertyPath: background
+      value: 
+      objectReference: {fileID: 3462360580963880046}
+    - target: {fileID: 5934808226296944737, guid: 86787b96466b66443957146060fca7d3,
+        type: 3}
+      propertyPath: changeBackgroundColorTo.a
+      value: 0.5294118
+      objectReference: {fileID: 0}
+    - target: {fileID: 5934808226296944737, guid: 86787b96466b66443957146060fca7d3,
+        type: 3}
+      propertyPath: changeBackgroundColorTo.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5934808226296944737, guid: 86787b96466b66443957146060fca7d3,
+        type: 3}
+      propertyPath: changeBackgroundColorTo.g
+      value: 0.3490566
+      objectReference: {fileID: 0}
+    - target: {fileID: 5934808226296944737, guid: 86787b96466b66443957146060fca7d3,
+        type: 3}
+      propertyPath: changeBackgroundColorTo.b
+      value: 0.3490566
       objectReference: {fileID: 0}
     - target: {fileID: 1526069810474956964, guid: 86787b96466b66443957146060fca7d3,
         type: 3}
@@ -626,21 +671,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5934808226296944737, guid: 86787b96466b66443957146060fca7d3,
-        type: 3}
-      propertyPath: numberOfBullets
-      value: 12
-      objectReference: {fileID: 0}
-    - target: {fileID: 5934808226296944737, guid: 86787b96466b66443957146060fca7d3,
-        type: 3}
-      propertyPath: angleDifference
-      value: 16
-      objectReference: {fileID: 0}
-    - target: {fileID: 5934808226296944737, guid: 86787b96466b66443957146060fca7d3,
-        type: 3}
-      propertyPath: radialSpeed
-      value: 3.7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 86787b96466b66443957146060fca7d3, type: 3}

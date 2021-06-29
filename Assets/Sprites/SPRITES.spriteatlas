@@ -42,7 +42,7 @@ SpriteAtlas:
     variantMultiplier: 1
     packables:
     - {fileID: 102900000, guid: b2ac079b5a184cc49b813e29947db7d3, type: 3}
-    totalSpriteSurfaceArea: 6376572
+    totalSpriteSurfaceArea: 6442108
     bindAsDefault: 1
   m_MasterAtlas: {fileID: 0}
   m_PackedSprites:
@@ -116,6 +116,7 @@ SpriteAtlas:
   - {fileID: -194723393921277474, guid: 8f9cb3554ff14f44580c08dd04a53228, type: 3}
   - {fileID: -472986464635634482, guid: 8f9cb3554ff14f44580c08dd04a53228, type: 3}
   - {fileID: -9127742186344010891, guid: 8f9cb3554ff14f44580c08dd04a53228, type: 3}
+  - {fileID: 21300000, guid: 6397bb65fb0816c4786b45183cb55c3d, type: 3}
   - {fileID: 21300000, guid: 1445d4c54f2d4e145aa8be56cb53b677, type: 3}
   - {fileID: -954979440334390129, guid: 32c303d6a00380749a8c8ae872b88f19, type: 3}
   - {fileID: 7915343921783344544, guid: 32c303d6a00380749a8c8ae872b88f19, type: 3}
@@ -231,6 +232,7 @@ SpriteAtlas:
   - Yuresia_3
   - Yuresia_0
   - Yuresia_1
+  - Warning
   - Xbox_Controller
   - XBox_LStick_Press
   - XBox_A
