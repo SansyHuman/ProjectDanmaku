@@ -1,0 +1,134 @@
+function testPattern()
+    pos = viewportToWorld(1.1, 0.5)
+    parent.setCharacterPosition(pos.x, pos.y)
+    parent.setCharacterRotation(0)
+    parent.canBeDamaged = false
+
+    pos = viewportToWorld(0.8, 0.5)
+    parent.moveCharacterTo(pos.x, pos.y, 0.5, "outCubic", true)
+    coroutine.yield(waitForScaledSecond("enemy", 0.5))
+
+    parent.canBeDamaged = true
+
+    moveVector = viewportToWorld(0.5, 0.65)
+
+    numberOfGreenBullets = 25
+    greenBulletSpeed = 6
+    blueBulletSpeed = 9
+    blueBulletAngle = 15
+
+    while true do
+        dtheta = 360 / numberOfGreenBullets
+        for i = 0, (numberOfGreenBullets - 1) do
+            vel = polar2cart(greenBulletSpeed, i * dtheta)
+            characterPos = parent.getCharacterPos()
+            parent.summonBullet(
+                "GreenLuminusBullet",
+                characterPos,
+                characterPos,
+                0,
+                vector(0.7, 0.7),
+                0.08,
+                false,
+                false,
+                { 
+                    { mode = "cart", startTime = 0, hasEndTime = false, limitSpeed = false, velocity = vel }
+                }
+            )
+        end
+
+        coroutine.yield(waitForScaledSecond("enemy", 0.35))
+
+        playerPos = getPlayerPos()
+        characterPos = parent.getCharacterPos()
+        direction = playerPos - characterPos
+        degree = deg(direction.x, direction.y)
+
+        vel1 = polar2cart(blueBulletSpeed, degree)
+        vel2 = polar2cart(blueBulletSpeed, degree + blueBulletAngle)
+        vel3 = polar2cart(blueBulletSpeed, degree - blueBulletAngle)
+
+        for i = 0, 4 do
+            parent.summonBullet(
+                "LightBlueLuminusBullet",
+                characterPos,
+                characterPos,
+                0,
+                vector(0.7, 0.7),
+                0.08,
+                false,
+                false,
+                { 
+                    { mode = "cart", startTime = 0, hasEndTime = false, limitSpeed = false, velocity = vel1 }
+                }
+            )
+            parent.summonBullet(
+                "LightBlueLuminusBullet",
+                characterPos,
+                characterPos,
+                0,
+                vector(0.7, 0.7),
+                0.08,
+                false,
+                false,
+                { 
+                    { mode = "cart", startTime = 0, hasEndTime = false, limitSpeed = false, velocity = vel2 }
+                }
+            )
+            parent.summonBullet(
+                "LightBlueLuminusBullet",
+                characterPos,
+                characterPos,
+                0,
+                vector(0.7, 0.7),
+                0.08,
+                false,
+                false,
+                { 
+                    { mode = "cart", startTime = 0, hasEndTime = false, limitSpeed = false, velocity = vel3 }
+                }
+            )
+            coroutine.yield(waitForScaledSecond("enemy", 0.15))
+        end
+
+        flag = math.random(0, 99)
+        characterPos = parent.getCharacterPos()
+        curPos = worldToViewport(characterPos.x, characterPos.y)
+
+        if (flag < 50) then
+            if (curPos.y >= 0.79) then
+                parent.moveCharacterAmount(0, -moveVector.y, 1, "outCubic", true)
+            else
+                parent.moveCharacterAmount(0, moveVector.y, 1, "outCubic", true)
+            end
+        else
+            if (curPos.y <= 0.21) then
+                parent.moveCharacterAmount(0, moveVector.y, 1, "outCubic", true)
+            else
+                parent.moveCharacterAmount(0, -moveVector.y, 1, "outCubic", true)
+            end
+        end
+
+        coroutine.yield(waitForScaledSecond("enemy", 0.3))
+
+        for i = 0, (numberOfGreenBullets - 1) do
+            vel = polar2cart(greenBulletSpeed, i * dtheta)
+            characterPos = parent.getCharacterPos()
+            parent.summonBullet(
+                "GreenLuminusBullet",
+                characterPos,
+                characterPos,
+                0,
+                vector(0.7, 0.7),
+                0.08,
+                false,
+                false,
+                { 
+                    { mode = "cart", startTime = 0, hasEndTime = false, limitSpeed = false, velocity = vel }
+                }
+            )
+        end
+
+        coroutine.yield(waitForScaledSecond("enemy", 0.7))
+    end
+end

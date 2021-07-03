@@ -1,0 +1,136 @@
+--- used in coroutine.yield( ... ) to make the coroutine wait for second with timescale.
+---@param tsc string "enemy": enemy time scale, "player": player time scale, "unscaled": no time scale
+---@param t number time to wait in seconds
+---@return table with timescale: string and time: number
+function waitForScaledSecond(tsc, t)
+    return { timescale = tsc, time = t }
+end
+
+--- transforms position in viewport to position in world space. It is same to Unity API's method.
+---@param vx number x coordinate in viewport
+---@param vy number y coordinate in viewport
+function viewportToWorld(vx, vy)
+    return viewportToWorld_internal(vx, vy)
+end
+
+--- transforms position in world space to position in viewport. It is same to Unity API's method.
+---@param wx number x coordinate in world space
+---@param wy number y coordinate in world space
+function worldToViewport(wx, wy)
+    return worldToViewport_internal(wx, wy)
+end
+
+--- gets current position of the player.
+---@return table identical from vector function, position of the player.
+function getPlayerPos()
+    p = getPlayerPos_internal()
+    return vector(p.x, p.y)
+end
+
+local vectorMT
+
+--- creates a vector.
+---@param xv number x coordinate
+---@param yv number y coordinate
+---@return table with x: number and y: number. This works like vector in Unity.
+function vector(xv, yv)
+    return setmetatable({ x = xv, y = yv }, vectorMT)
+end
+
+vectorMT = {
+    __add = function(lv, rv)
+        return vector(lv.x + rv.x, lv.y + rv.y)
+    end,
+    __sub = function(lv, rv)
+        return vector(lv.x - rv.x, lv.y - rv.y)
+    end,
+    __unm = function(v)
+        return vector(-v.x, -v.y)
+    end,
+    __eq = function(lv, rv)
+        return (lv.x == rv.x) and (lv.y == rv.y)
+    end
+}
+
+
+local matrixMT
+
+--- creates 2x2 matrix
+---@param v11 number 1, 1 element
+---@param v12 number 1, 2 element
+---@param v21 number 2, 1 element
+---@param v22 number 2, 2 element
+---@return table with four elements which can be accessed with row and column number
+function matrix(v11, v12, v21, v22)
+    return setmetatable({ { v11, v12 }, { v21, v22 } }, matrixMT)
+end
+
+matrixMT = {
+    __add = function(lv, rv)
+        return matrix(lv[1][1] + rv[1][1], lv[1][2] + rv[1][2], lv[2][1] + rv[2][1], lv[2][2] + rv[2][2])
+    end,
+    __sub = function(lv, rv)
+        return matrix(lv[1][1] - rv[1][1], lv[1][2] - rv[1][2], lv[2][1] - rv[2][1], lv[2][2] - rv[2][2])
+    end,
+    __unm = function(v)
+        return matrix(-v[1][1], -v[1][2], -v[2][1], -v[2][2])
+    end,
+    __mul = function(lv, rv)
+        return matrix(
+            (lv[1][1] * rv[1][1]) + (lv[1][2] * rv[2][1]),
+            (lv[1][1] * rv[1][2]) + (lv[1][2] * rv[2][2]),
+            (lv[2][1] * rv[1][1]) + (lv[2][2] * rv[2][1]),
+            (lv[2][1] * rv[1][2]) + (lv[2][2] * rv[2][2])
+        )
+    end,
+    __eq = function(lv, rv)
+        return (lv[1][1] == rv[1][1]) and (lv[1][2] == rv[1][2]) and (lv[2][1] == rv[2][1]) and (lv[2][2] == rv[2][2])
+    end
+}
+
+
+--- calculates dot product of two 2d-vector
+---@param lvec table from vector function
+---@param rvec table from vector function
+---@return number dot product of two vectors
+function dot(lvec, rvec)
+    return (lvec.x * rvec.x) + (lvec.y * rvec.y)
+end
+
+--- calculates the multiplication of matrix and vector
+---@param mat table from matrix function
+---@param vec table from vector function
+---@return table 2d vector identical from vector function
+function mul(mat, vec)
+    return vector((mat[1][1] * vec.x) + (mat[1][2] * vec.y), (mat[2][1] * vec.x) + (mat[2][2] * vec.y))
+end
+
+--- calculates the angle of the position in polar coordinate in degrees.
+---@param x number x coordinate
+---@param y number y coordinate
+---@return number degrees
+function deg(x, y)
+    local degree = math.deg(math.atan2(y, x))
+    if (degree < 0) then
+        degree = degree + 360
+    end
+
+    return degree
+end
+
+--- changes cartesian coordinate to polar coordinate.
+---@param x number x coordinate
+---@param y number y coordinate
+---@return table with r: number and deg: number
+function cart2polar(x, y)
+    return { r = math.sqrt((x * x) + (y * y)), deg = deg(x, y) }
+end
+
+--- changes polar coordinate to cartesian coordinate.
+---@param r number distance from the origin
+---@param deg number angle in degrees
+---@return table with x: number and y: number
+function polar2cart(r, deg)
+    local rad = math.rad(deg)
+    return vector(r * math.cos(rad), r * math.sin(rad))
+end

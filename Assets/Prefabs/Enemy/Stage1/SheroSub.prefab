@@ -101,7 +101,7 @@ Transform:
   m_Children:
   - {fileID: 4060728909148888297}
   m_Father: {fileID: 7348772131110987500}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &6455798049593160959
 SpriteRenderer:
@@ -213,6 +213,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4176238041131628212}
+  - {fileID: 2757775824165607450}
   - {fileID: 3153187016440713328}
   - {fileID: 5335611393981288289}
   - {fileID: 1416570741662000492}
@@ -343,7 +344,7 @@ MonoBehaviour:
     z: 0
   shotPatterns:
   - health: 60
-    shotPattern: {fileID: 2425775551504800021}
+    shotPattern: {fileID: 2990277485145641548}
   - health: 110
     shotPattern: {fileID: 971364098731700132}
   scoreOnDeath: 100000
@@ -353,6 +354,56 @@ MonoBehaviour:
   dropItems: []
   itemDropRange: 0.1
   showHealth: 0
+--- !u!1 &6861705933664017649
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2757775824165607450}
+  - component: {fileID: 2990277485145641548}
+  m_Layer: 0
+  m_Name: SheroLuaPattern
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2757775824165607450
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6861705933664017649}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 7348772131110987500}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2990277485145641548
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6861705933664017649}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec2186043dbcd5544bc3a03005eeb726, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  patternBullets: []
+  type: 0
+  hasTimeLimit: 0
+  timeLimit: 0
+  removeBullets: 2
+  scriptName: testPattern
+  background: {fileID: 3462360580963880046}
 --- !u!1001 &4522086196343232287
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -364,26 +415,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SheroSubPattern1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2264109313519324682, guid: d79db5c777ca1854bb53d70c9340efe2,
-        type: 3}
-      propertyPath: numberOfGreenBullets
-      value: 27
-      objectReference: {fileID: 0}
-    - target: {fileID: 2264109313519324682, guid: d79db5c777ca1854bb53d70c9340efe2,
-        type: 3}
-      propertyPath: greenBulletSpeed
-      value: 4.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 2264109313519324682, guid: d79db5c777ca1854bb53d70c9340efe2,
-        type: 3}
-      propertyPath: blueBulletSpeed
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 2264109313519324682, guid: d79db5c777ca1854bb53d70c9340efe2,
-        type: 3}
-      propertyPath: blueBulletAngle
-      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 1514321688151377775, guid: d79db5c777ca1854bb53d70c9340efe2,
         type: 3}
@@ -423,7 +454,7 @@ PrefabInstance:
     - target: {fileID: 1514321688151377775, guid: d79db5c777ca1854bb53d70c9340efe2,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1514321688151377775, guid: d79db5c777ca1854bb53d70c9340efe2,
         type: 3}
@@ -440,6 +471,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2264109313519324682, guid: d79db5c777ca1854bb53d70c9340efe2,
+        type: 3}
+      propertyPath: numberOfGreenBullets
+      value: 27
+      objectReference: {fileID: 0}
+    - target: {fileID: 2264109313519324682, guid: d79db5c777ca1854bb53d70c9340efe2,
+        type: 3}
+      propertyPath: greenBulletSpeed
+      value: 4.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2264109313519324682, guid: d79db5c777ca1854bb53d70c9340efe2,
+        type: 3}
+      propertyPath: blueBulletSpeed
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 2264109313519324682, guid: d79db5c777ca1854bb53d70c9340efe2,
+        type: 3}
+      propertyPath: blueBulletAngle
+      value: 15
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d79db5c777ca1854bb53d70c9340efe2, type: 3}
 --- !u!4 &3153187016440713328 stripped
@@ -448,18 +499,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 4522086196343232287}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &2425775551504800021 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2264109313519324682, guid: d79db5c777ca1854bb53d70c9340efe2,
-    type: 3}
-  m_PrefabInstance: {fileID: 4522086196343232287}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 263bb542fb940844784626e581511d08, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &5917020580604401488
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -655,7 +694,7 @@ PrefabInstance:
     - target: {fileID: 1526069810474956964, guid: 86787b96466b66443957146060fca7d3,
         type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1526069810474956964, guid: 86787b96466b66443957146060fca7d3,
         type: 3}

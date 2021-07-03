@@ -3,11 +3,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using MoonSharp.Interpreter;
-using MoonSharp.Interpreter.Loaders;
 using SansyHuman.UDE.Management;
 using SansyHuman.UDE.Object;
 using SansyHuman.UDE.Util.Math;
 using SansyHuman.UDE.Pattern;
+using SansyHuman.UDE.Util;
 using MoonSharp.Interpreter.Interop;
 
 namespace SansyHuman.Experiment.Lua
@@ -18,19 +18,51 @@ namespace SansyHuman.Experiment.Lua
         [Tooltip("Name of the shot pattern Lua script")]
         private string scriptName;
 
+        [SerializeField]
+        [Tooltip("Background object, which have sprite renderer, if exists")]
+        private GameObject background;
+
+        private SpriteRenderer backgroundSprite;
+        private Transform backgroundTransform;
+
         private Script script;
-        private DynValue function;
+        private DynValue patternFunc;
+        private DynValue vectorFunc;
+        private Dictionary<string, IEnumerator> subpatternDict;
 
         private void Awake()
         {
+            if (background != null)
+            {
+                backgroundSprite = background.GetComponent<SpriteRenderer>();
+                backgroundTransform = background.transform;
+            }
+
             script = new Script(CoreModules.Preset_SoftSandbox);
+
+            script.Options.DebugPrint = Debug.Log;
 
             DynValue pattern = UserData.Create(this);
             script.Globals.Set("parent", pattern);
-            script.Globals["waitForScaledSecond"] = (Func<Script, string, double, Table>)LuaUtilFunctions.WaitForScaledSecond;
-            script.Globals["vector"] = (Func<Script, double, double, Table>)LuaUtilFunctions.NewVector;
+            script.Globals["viewportToWorld_internal"] = (Func<Script, double, double, Table>)LuaUtilFunctions.ViewportToWorld;
+            script.Globals["worldToViewport_internal"] = (Func<Script, double, double, Table>)LuaUtilFunctions.WorldToViewport;
+            script.Globals["getPlayerPos_internal"] = (Func<Script, Table>)LuaUtilFunctions.GetPlayerPosition;
 
-            function = script.DoFile(scriptName);
+            script.DoFile("utils");
+            script.DoFile(scriptName);
+            patternFunc = script.Globals.Get(scriptName);
+            vectorFunc = script.Globals.Get("vector");
+            subpatternDict = new Dictionary<string, IEnumerator>();
+        }
+
+        /// <summary>
+        /// Used in Lua script.
+        /// </summary>
+        [MoonSharpVisible(true)]
+        private bool canBeDamaged
+        {
+            get => originEnemy.CanBeDamaged;
+            set => originEnemy.CanBeDamaged = value;
         }
 
         /// <summary>
@@ -39,11 +71,11 @@ namespace SansyHuman.Experiment.Lua
         [MoonSharpVisible(true)]
         private void summonBullet(
             string name,
-            double initX,
-            double initY,
-            double originX,
-            double originY,
+            Table initPos,
+            Table origin,
             double initRot,
+            Table bulletScale,
+            double summonTime,
             bool setOriginToCharacter,
             bool loop,
             Table movements)
@@ -53,13 +85,25 @@ namespace SansyHuman.Experiment.Lua
             UDEAbstractBullet prefab = BulletMap.Instance[name];
             if (prefab != null)
             {
+                Vector2 initPosVec;
+                if (!LuaUtilFunctions.TableToVector(initPos, out initPosVec))
+                    goto VectorError;
+
+                Vector2 originVec;
+                if (!LuaUtilFunctions.TableToVector(origin, out originVec))
+                    goto VectorError;
+
+                Vector2 scaleVec;
+                if (!LuaUtilFunctions.TableToVector(bulletScale, out scaleVec))
+                    goto VectorError;
+
                 UDEBulletMovement[] moves = new UDEBulletMovement[movements.Length];
 
                 for (int i = 0; i < movements.Length; i++)
                 {
                     Table move = movements[i + 1] as Table;
                     if (move == null)
-                        goto TableError;
+                        goto MovementError;
 
                     moves[i] = UDEBulletMovement.GetNoMovement();
 
@@ -76,13 +120,13 @@ namespace SansyHuman.Experiment.Lua
                             moves[i].mode = UDEBulletMovement.MoveMode.POLAR;
                             break;
                         default:
-                            goto TableError;
+                            goto MovementError;
                     }
 
                     foreach (TablePair keyVal in move.Pairs)
                     {
                         if (keyVal.Key.Type != DataType.String)
-                            goto TableError;
+                            goto MovementError;
 
                         string key = keyVal.Key.String;
 
@@ -92,197 +136,182 @@ namespace SansyHuman.Experiment.Lua
                                 break;
                             case "startTime":
                                 if (keyVal.Value.Type != DataType.Number)
-                                    goto TableError;
+                                    goto MovementError;
                                 moves[i].startTime = (float)keyVal.Value.Number;
                                 break;
                             case "endTime":
                                 if (keyVal.Value.Type != DataType.Number)
-                                    goto TableError;
+                                    goto MovementError;
                                 moves[i].endTime = (float)keyVal.Value.Number;
                                 break;
                             case "hasEndTime":
                                 if (keyVal.Value.Type != DataType.Boolean)
-                                    goto TableError;
+                                    goto MovementError;
                                 moves[i].hasEndTime = keyVal.Value.Boolean;
                                 break;
                             case "limitSpeed":
                                 if (keyVal.Value.Type != DataType.Boolean)
-                                    goto TableError;
+                                    goto MovementError;
                                 moves[i].limitSpeed = keyVal.Value.Boolean;
                                 break;
                             case "setSpeedToPrevMovement":
                                 if (keyVal.Value.Type != DataType.Boolean)
-                                    goto TableError;
+                                    goto MovementError;
                                 moves[i].setSpeedToPrevMovement = keyVal.Value.Boolean;
                                 break;
                             case "velocity":
                                 if (keyVal.Value.Type != DataType.Table)
-                                    goto TableError;
+                                    goto MovementError;
 
-                                Table velocity = keyVal.Value.Table;
-                                if (velocity.Length != 2)
-                                    goto TableError;
+                                Table rawVelocity = keyVal.Value.Table;
+                                if (!LuaUtilFunctions.TableToVector(rawVelocity, out Vector2 velocity))
+                                    goto MovementError;
 
-                                if (velocity.Get(1).Type != DataType.Number)
-                                    goto TableError;
-                                if (velocity.Get(2).Type != DataType.Number)
-                                    goto TableError;
-
-                                moves[i].velocity = new Vector2((float)velocity.Get(1).Number, (float)velocity.Get(2).Number);
+                                moves[i].velocity = velocity;
                                 break;
                             case "maxVelocity":
                                 if (keyVal.Value.Type != DataType.Table)
-                                    goto TableError;
+                                    goto MovementError;
 
-                                Table maxVelocity = keyVal.Value.Table;
-                                if (maxVelocity.Length != 2)
-                                    goto TableError;
+                                Table rawMaxVelocity = keyVal.Value.Table;
+                                if (!LuaUtilFunctions.TableToVector(rawMaxVelocity, out Vector2 maxVelocity))
+                                    goto MovementError;
 
-                                if (maxVelocity.Get(1).Type != DataType.Number)
-                                    goto TableError;
-                                if (maxVelocity.Get(2).Type != DataType.Number)
-                                    goto TableError;
-
-                                moves[i].maxVelocity = new Vector2((float)maxVelocity.Get(1).Number, (float)maxVelocity.Get(2).Number);
+                                moves[i].maxVelocity = maxVelocity;
                                 break;
                             case "minVelocity":
                                 if (keyVal.Value.Type != DataType.Table)
-                                    goto TableError;
+                                    goto MovementError;
 
-                                Table minVelocity = keyVal.Value.Table;
-                                if (minVelocity.Length != 2)
-                                    goto TableError;
+                                Table rawMinVelocity = keyVal.Value.Table;
+                                if (!LuaUtilFunctions.TableToVector(rawMinVelocity, out Vector2 minVelocity))
+                                    goto MovementError;
 
-                                if (minVelocity.Get(1).Type != DataType.Number)
-                                    goto TableError;
-                                if (minVelocity.Get(2).Type != DataType.Number)
-                                    goto TableError;
-
-                                moves[i].maxVelocity = new Vector2((float)minVelocity.Get(1).Number, (float)minVelocity.Get(2).Number);
+                                moves[i].minVelocity = minVelocity;
                                 break;
                             case "maxMagnitude":
                                 if (keyVal.Value.Type != DataType.Number)
-                                    goto TableError;
+                                    goto MovementError;
                                 moves[i].maxMagnitude = (float)keyVal.Value.Number;
                                 break;
                             case "minMagnitude":
                                 if (keyVal.Value.Type != DataType.Number)
-                                    goto TableError;
+                                    goto MovementError;
                                 moves[i].minMagnitude = (float)keyVal.Value.Number;
                                 break;
                             case "accel":
                                 if (keyVal.Value.Type != DataType.Table)
-                                    goto TableError;
+                                    goto MovementError;
 
                                 Table accel = keyVal.Value.Table;
                                 if (accel.Length != 2)
-                                    goto TableError;
+                                    goto MovementError;
 
                                 if (accel.Get(1).Type != DataType.Number)
-                                    goto TableError;
+                                    goto MovementError;
                                 if (accel.Get(2).Type != DataType.Number)
-                                    goto TableError;
+                                    goto MovementError;
 
                                 moves[i].accel = t => new UDEMath.CartesianCoord((float)accel.Get(1).Number, (float)accel.Get(2).Number);
                                 break;
                             case "speed":
                                 if (keyVal.Value.Type != DataType.Number)
-                                    goto TableError;
+                                    goto MovementError;
                                 moves[i].speed = (float)keyVal.Value.Number;
                                 break;
                             case "maxSpeed":
                                 if (keyVal.Value.Type != DataType.Number)
-                                    goto TableError;
+                                    goto MovementError;
                                 moves[i].maxSpeed = (float)keyVal.Value.Number;
                                 break;
                             case "minSpeed":
                                 if (keyVal.Value.Type != DataType.Number)
-                                    goto TableError;
+                                    goto MovementError;
                                 moves[i].minSpeed = (float)keyVal.Value.Number;
                                 break;
                             case "angle":
                                 if (keyVal.Value.Type != DataType.Number)
-                                    goto TableError;
+                                    goto MovementError;
                                 moves[i].angle = (float)keyVal.Value.Number;
                                 break;
                             case "tangentialAccel":
                                 if (keyVal.Value.Type != DataType.Number)
-                                    goto TableError;
+                                    goto MovementError;
                                 moves[i].tangentialAccel = t => (float)keyVal.Value.Number;
                                 break;
                             case "normalAccel":
                                 if (keyVal.Value.Type != DataType.Number)
-                                    goto TableError;
+                                    goto MovementError;
                                 moves[i].normalAccel = t => (float)keyVal.Value.Number;
                                 break;
                             case "radialSpeed":
                                 if (keyVal.Value.Type != DataType.Number)
-                                    goto TableError;
+                                    goto MovementError;
                                 moves[i].radialSpeed = (float)keyVal.Value.Number;
                                 break;
                             case "angularSpeed":
                                 if (keyVal.Value.Type != DataType.Number)
-                                    goto TableError;
+                                    goto MovementError;
                                 moves[i].angularSpeed = (float)keyVal.Value.Number;
                                 break;
                             case "maxRadialSpeed":
                                 if (keyVal.Value.Type != DataType.Number)
-                                    goto TableError;
+                                    goto MovementError;
                                 moves[i].maxRadialSpeed = (float)keyVal.Value.Number;
                                 break;
                             case "maxAngularSpeed":
                                 if (keyVal.Value.Type != DataType.Number)
-                                    goto TableError;
+                                    goto MovementError;
                                 moves[i].maxAngularSpeed = (float)keyVal.Value.Number;
                                 break;
                             case "minRadialSpeed":
                                 if (keyVal.Value.Type != DataType.Number)
-                                    goto TableError;
+                                    goto MovementError;
                                 moves[i].minRadialSpeed = (float)keyVal.Value.Number;
                                 break;
                             case "minAngularSpeed":
                                 if (keyVal.Value.Type != DataType.Number)
-                                    goto TableError;
+                                    goto MovementError;
                                 moves[i].minAngularSpeed = (float)keyVal.Value.Number;
                                 break;
                             case "radialAccel":
                                 if (keyVal.Value.Type != DataType.Number)
-                                    goto TableError;
+                                    goto MovementError;
                                 moves[i].radialAccel = t => (float)keyVal.Value.Number;
                                 break;
                             case "angularAccel":
                                 if (keyVal.Value.Type != DataType.Number)
-                                    goto TableError;
+                                    goto MovementError;
                                 moves[i].angularAccel = t => (float)keyVal.Value.Number;
                                 break;
                             case "faceToMovingDirection":
                                 if (keyVal.Value.Type != DataType.Boolean)
-                                    goto TableError;
+                                    goto MovementError;
                                 moves[i].faceToMovingDirection = keyVal.Value.Boolean;
                                 break;
                             case "rotationAngularSpeed":
                                 if (keyVal.Value.Type != DataType.Number)
-                                    goto TableError;
+                                    goto MovementError;
                                 moves[i].rotationAngularSpeed = (float)keyVal.Value.Number;
                                 break;
                             case "rotationAngularAcceleration":
                                 if (keyVal.Value.Type != DataType.Number)
-                                    goto TableError;
+                                    goto MovementError;
                                 moves[i].rotationAngularAcceleration = t => (float)keyVal.Value.Number;
                                 break;
                             case "limitRotationSpeed":
                                 if (keyVal.Value.Type != DataType.Boolean)
-                                    goto TableError;
+                                    goto MovementError;
                                 moves[i].limitRotationSpeed = keyVal.Value.Boolean;
                                 break;
                             case "minRotationSpeed":
                                 if (keyVal.Value.Type != DataType.Number)
-                                    goto TableError;
+                                    goto MovementError;
                                 moves[i].minRotationSpeed = (float)keyVal.Value.Number;
                                 break;
                             case "maxRotationSpeed":
                                 if (keyVal.Value.Type != DataType.Number)
-                                    goto TableError;
+                                    goto MovementError;
                                 moves[i].maxRotationSpeed = (float)keyVal.Value.Number;
                                 break;
                             default:
@@ -292,17 +321,18 @@ namespace SansyHuman.Experiment.Lua
                 }
 
                 UDEAbstractBullet bullet = bulletPool.GetBullet(prefab);
+                bullet.transform.localScale = scaleVec;
+                bullet.SummonTime = (float)summonTime;
                 bullet.Initialize(
-                    new Vector2((float)initX,
-                    (float)initY),
-                    new Vector2((float)originX,
-                    (float)originY),
+                    initPosVec,
+                    originVec,
                     (float)initRot,
                     originEnemy,
                     this,
                     moves,
                     setOriginToCharacter,
                     loop);
+                return;
             }
             else
             {
@@ -310,9 +340,14 @@ namespace SansyHuman.Experiment.Lua
                 return;
             }
 
-            TableError:
+            MovementError:
 
             Debug.LogError($"The movement argument is wrong.");
+            return;
+
+            VectorError:
+
+            Debug.LogError($"The vector in argument is invalid.");
             return;
         }
 
@@ -320,35 +355,175 @@ namespace SansyHuman.Experiment.Lua
         /// Used in Lua script.
         /// </summary>
         [MoonSharpVisible(true)]
-        private void getCharacterPos(out double x, out double y)
+        private Table getCharacterPos()
         {
-            x = originEnemy.transform.position.x;
-            y = originEnemy.transform.position.y;
+            return script.Call(vectorFunc, originEnemy.transform.position.x, originEnemy.transform.position.y).Table;
         }
 
+        /// <summary>
+        /// Used in Lua script.
+        /// </summary>
         [MoonSharpVisible(true)]
-        private void cart2polar(double x, double y, out double r, out double deg)
+        private void moveCharacterTo(double x, double y, double duration, string easeType, bool physics)
         {
-            float fr, fdeg;
-            UDEMath.Cartesian2Polar((float)x, (float)y, out fr, out fdeg);
-            r = fr; deg = fdeg;
+            UDETransitionHelper.MoveTo(originEnemy.gameObject, (float)x, (float)y, (float)duration, LuaUtilFunctions.GetEaseFunction(easeType), UDETime.TimeScale.ENEMY, physics);
         }
 
+        /// <summary>
+        /// Used in Lua script.
+        /// </summary>
         [MoonSharpVisible(true)]
-        private void polar2cart(double r, double deg, out double x, out double y)
+        private void moveCharacterAmount(double dx, double dy, double duration, string easeType, bool physics)
         {
-            float fx, fy;
-            UDEMath.Polar2Cartesian((float)r, (float)deg, out fx, out fy);
-            x = fx; y = fy;
+            UDETransitionHelper.MoveAmount(originEnemy.gameObject, (float)dx, (float)dy, (float)duration, LuaUtilFunctions.GetEaseFunction(easeType), UDETime.TimeScale.ENEMY, physics);
         }
 
-        [MoonSharpHidden]
-        protected override IEnumerator ShotPattern()
+        /// <summary>
+        /// Used in Lua script.
+        /// </summary>
+        [MoonSharpVisible(true)]
+        private void setCharacterPosition(double x, double y)
         {
-            DynValue coroutine = script.CreateCoroutine(function);
+            originEnemy.transform.position = new Vector3((float)x, (float)y);
+        }
+
+        /// <summary>
+        /// Used in Lua script.
+        /// </summary>
+        [MoonSharpVisible(true)]
+        private double getBackgroundScale(out double y)
+        {
+            if (background == null)
+            {
+                Debug.LogError("No character background.");
+                y = -1;
+                return -1;
+            }
+
+            y = backgroundTransform.localScale.y;
+            return backgroundTransform.localScale.x;
+        }
+
+        /// <summary>
+        /// Used in Lua script.
+        /// </summary>
+        [MoonSharpVisible(true)]
+        private void changeBackgroundScaleTo(double x, double y, double duration, string easeType, bool physics)
+        {
+            if (background == null)
+            {
+                Debug.LogError("No character background.");
+                return;
+            }
+            UDETransitionHelper.ChangeScaleTo(background, new Vector3((float)x, (float)y, 1), (float)duration, LuaUtilFunctions.GetEaseFunction(easeType), UDETime.TimeScale.ENEMY, physics);
+        }
+
+        /// <summary>
+        /// Used in Lua script.
+        /// </summary>
+        [MoonSharpVisible(true)]
+        private double getBackgroundColor(out double g, out double b, out double a)
+        {
+            if (background == null)
+            {
+                Debug.LogError("No character background.");
+                g = -1;
+                b = -1;
+                a = -1;
+                return -1;
+            }
+
+            Color color = backgroundSprite.color;
+
+            g = color.g;
+            b = color.b;
+            a = color.a;
+            return color.r;
+        }
+
+        /// <summary>
+        /// Used in Lua script. Changes the background color by time with ease function, if the background exists.
+        /// </summary>
+        /// <param name="r">R value of the color to change to</param>
+        /// <param name="g">G value of the color to change to</param>
+        /// <param name="b">B value of the color to change to</param>
+        /// <param name="a">A value of the color to change to</param>
+        /// <param name="duration">Transition time</param>
+        /// <param name="easeType">Type of ease function</param>
+        /// <param name="physics">Whether the transition is calculated in FixedUpdate or not</param>
+        [MoonSharpVisible(true)]
+        private void changeBackgroundColorTo(double r, double g, double b, double a, double duration, string easeType, bool physics)
+        {
+            if (background == null)
+            {
+                Debug.LogError("No character background.");
+                return;
+            }
+            UDETransitionHelper.ChangeColorTo(background, new Color((float)r, (float)g, (float)b, (float)a), (float)duration, LuaUtilFunctions.GetEaseFunction(easeType), UDETime.TimeScale.ENEMY, physics);
+        }
+
+        /// <summary>
+        /// Used in Lua script. Sets the rotation of the character.
+        /// </summary>
+        /// <param name="deg">Rotation of the character in degrees</param>
+        [MoonSharpVisible(true)]
+        private void setCharacterRotation(double deg)
+        {
+            originEnemy.transform.rotation = Quaternion.Euler(0, 0, (float)deg);
+        }
+
+        /// <summary>
+        /// Used in Lua script. Starts subpattern that runs parallel with the main pattern.
+        /// </summary>
+        /// <param name="name">The name of subpattern function in Lua script</param>
+        [MoonSharpVisible(true)]
+        private void startSubpattern(string name)
+        {
+            if (subpatternDict.ContainsKey(name))
+            {
+                Debug.LogError($"Subpattern {name} is already running.");
+                return;
+            }
+
+            DynValue subpattern = script.Globals.Get(name);
+            if (subpattern.Type != DataType.Function || subpattern.Type != DataType.ClrFunction)
+            {
+                Debug.LogError($"No such subpattern function named {name}.");
+                return;
+            }
+
+            IEnumerator coroutine = PlayPattern(subpattern);
+            subpatternDict.Add(name, coroutine);
+
+            StartCoroutine(coroutine);
+        }
+
+        /// <summary>
+        /// Used in Lua script. Stops subpattern.
+        /// </summary>
+        /// <param name="name">The name of subpattern function in Lua script</param>
+        [MoonSharpVisible(true)]
+        private void stopSubpattern(string name)
+        {
+            if (!subpatternDict.ContainsKey(name))
+            {
+                Debug.LogError($"Subpattern {name} is not running.");
+                return;
+            }
+
+            StopCoroutine(subpatternDict[name]);
+            subpatternDict.Remove(name);
+        }
+
+        private IEnumerator PlayPattern(DynValue pattern)
+        {
+            DynValue coroutine = script.CreateCoroutine(pattern);
 
             foreach (DynValue ret in coroutine.Coroutine.AsTypedEnumerable())
             {
+                if (ret.Type == DataType.Void)
+                    yield break;
+
                 if (ret.Type != DataType.Table)
                 {
                     Debug.LogError("Unknown yield.");
@@ -373,7 +548,7 @@ namespace SansyHuman.Experiment.Lua
                     yield return null;
                     continue;
                 }
-                float time = (float)rawTimeScale.Number;
+                float time = (float)rawTime.Number;
 
                 switch (timeScale)
                 {
@@ -392,6 +567,12 @@ namespace SansyHuman.Experiment.Lua
                         continue;
                 }
             }
+        }
+
+        [MoonSharpHidden]
+        protected override IEnumerator ShotPattern()
+        {
+            yield return StartCoroutine(PlayPattern(patternFunc));
         }
     }
 }

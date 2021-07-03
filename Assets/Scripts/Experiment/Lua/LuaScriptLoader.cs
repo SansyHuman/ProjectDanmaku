@@ -25,7 +25,8 @@ namespace SansyHuman.Experiment.Lua
             for (int i = 0; i < result.Length; i++)
                 scripts.Add(result[i].name, result[i].text);
 
-            Script.DefaultOptions.ScriptLoader = new UnityAssetsScriptLoader(scripts);
+            var scriptLoader = new UnityAssetsScriptLoader(scripts);
+            Script.DefaultOptions.ScriptLoader = scriptLoader;
 
             UserData.RegisterType<LuaShotPattern>();
         }

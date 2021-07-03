@@ -38,7 +38,7 @@ namespace SansyHuman.Pattern
 
             IUDERandom random = new UDEXORRandom();
             Vector2 moveVector = Camera.main.ViewportToWorldPoint(new Vector3(0.5f, 0.65f, 0));
-            Debug.Log(moveVector);
+            moveVector = new Vector2(0, moveVector.y);
 
             while (true)
             {
