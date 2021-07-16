@@ -27,6 +27,7 @@ namespace SansyHuman.Experiment.Lua
 
         private Script script;
         private DynValue patternFunc;
+        private DynValue endFunc;
         private DynValue vectorFunc;
         private Dictionary<string, IEnumerator> subpatternDict;
 
@@ -51,6 +52,7 @@ namespace SansyHuman.Experiment.Lua
             script.DoFile("utils");
             script.DoFile(scriptName);
             patternFunc = script.Globals.Get(scriptName);
+            endFunc = script.Globals.Get("onPatternEnd");
             vectorFunc = script.Globals.Get("vector");
             subpatternDict = new Dictionary<string, IEnumerator>();
         }
@@ -106,6 +108,18 @@ namespace SansyHuman.Experiment.Lua
                         goto MovementError;
 
                     moves[i] = UDEBulletMovement.GetNoMovement();
+                    moves[i].maxVelocity = new Vector2(float.MaxValue, float.MaxValue);
+                    moves[i].minVelocity = new Vector2(float.MinValue, float.MinValue);
+                    moves[i].maxMagnitude = float.MaxValue;
+                    moves[i].minMagnitude = float.MinValue;
+                    moves[i].maxSpeed = float.MaxValue;
+                    moves[i].minSpeed = float.MinValue;
+                    moves[i].maxRadialSpeed = float.MaxValue;
+                    moves[i].maxAngularSpeed = float.MaxValue;
+                    moves[i].minRadialSpeed = float.MinValue;
+                    moves[i].minAngularSpeed = float.MinValue;
+                    moves[i].minRotationSpeed = float.MinValue;
+                    moves[i].maxRotationSpeed = float.MaxValue;
 
                     string moveType = move["mode"] as string;
                     switch (moveType)
@@ -200,19 +214,41 @@ namespace SansyHuman.Experiment.Lua
                                 moves[i].minMagnitude = (float)keyVal.Value.Number;
                                 break;
                             case "accel":
-                                if (keyVal.Value.Type != DataType.Table)
-                                    goto MovementError;
+                                if (keyVal.Value.Type == DataType.Table)
+                                {
+                                    Table accel = keyVal.Value.Table;
+                                    Vector2 accelVec;
+                                    if (!LuaUtilFunctions.TableToVector(accel, out accelVec))
+                                        goto MovementError;
 
-                                Table accel = keyVal.Value.Table;
-                                if (accel.Length != 2)
-                                    goto MovementError;
+                                    moves[i].accel = t => new UDEMath.CartesianCoord(accelVec.x, accelVec.y);
+                                }
+                                else if (keyVal.Value.Type == DataType.String)
+                                {
+                                    DynValue function = script.Globals.Get(keyVal.Value.String);
+                                    if (function.Type != DataType.Function && function.Type != DataType.ClrFunction)
+                                        goto MovementError;
 
-                                if (accel.Get(1).Type != DataType.Number)
-                                    goto MovementError;
-                                if (accel.Get(2).Type != DataType.Number)
-                                    goto MovementError;
+                                    moves[i].accel = t =>
+                                    {
+                                        Table a = script.Call(function, t).Table;
+                                        LuaUtilFunctions.TableToVector(a, out Vector2 av);
+                                        return new UDEMath.CartesianCoord(av.x, av.y);
+                                    };
+                                }
+                                else if (keyVal.Value.Type == DataType.Function || keyVal.Value.Type == DataType.ClrFunction)
+                                {
+                                    DynValue function = keyVal.Value;
 
-                                moves[i].accel = t => new UDEMath.CartesianCoord((float)accel.Get(1).Number, (float)accel.Get(2).Number);
+                                    moves[i].accel = t =>
+                                    {
+                                        Table a = script.Call(function, t).Table;
+                                        LuaUtilFunctions.TableToVector(a, out Vector2 av);
+                                        return new UDEMath.CartesianCoord(av.x, av.y);
+                                    };
+                                }
+                                else
+                                    goto MovementError;
                                 break;
                             case "speed":
                                 if (keyVal.Value.Type != DataType.Number)
@@ -235,14 +271,44 @@ namespace SansyHuman.Experiment.Lua
                                 moves[i].angle = (float)keyVal.Value.Number;
                                 break;
                             case "tangentialAccel":
-                                if (keyVal.Value.Type != DataType.Number)
+                                if (keyVal.Value.Type == DataType.Number)
+                                    moves[i].tangentialAccel = t => (float)keyVal.Value.Number;
+                                else if (keyVal.Value.Type == DataType.String)
+                                {
+                                    DynValue function = script.Globals.Get(keyVal.Value.String);
+                                    if (function.Type != DataType.Function && function.Type != DataType.ClrFunction)
+                                        goto MovementError;
+
+                                    moves[i].tangentialAccel = t => (float)script.Call(function, t).Number;
+                                }
+                                else if (keyVal.Value.Type == DataType.Function || keyVal.Value.Type == DataType.ClrFunction)
+                                {
+                                    DynValue function = keyVal.Value;
+
+                                    moves[i].tangentialAccel = t => (float)script.Call(function, t).Number;
+                                }
+                                else
                                     goto MovementError;
-                                moves[i].tangentialAccel = t => (float)keyVal.Value.Number;
                                 break;
                             case "normalAccel":
-                                if (keyVal.Value.Type != DataType.Number)
+                                if (keyVal.Value.Type == DataType.Number)
+                                    moves[i].normalAccel = t => (float)keyVal.Value.Number;
+                                else if (keyVal.Value.Type == DataType.String)
+                                {
+                                    DynValue function = script.Globals.Get(keyVal.Value.String);
+                                    if (function.Type != DataType.Function && function.Type != DataType.ClrFunction)
+                                        goto MovementError;
+
+                                    moves[i].normalAccel = t => (float)script.Call(function, t).Number;
+                                }
+                                else if (keyVal.Value.Type == DataType.Function || keyVal.Value.Type == DataType.ClrFunction)
+                                {
+                                    DynValue function = keyVal.Value;
+
+                                    moves[i].normalAccel = t => (float)script.Call(function, t).Number;
+                                }
+                                else
                                     goto MovementError;
-                                moves[i].normalAccel = t => (float)keyVal.Value.Number;
                                 break;
                             case "radialSpeed":
                                 if (keyVal.Value.Type != DataType.Number)
@@ -275,14 +341,44 @@ namespace SansyHuman.Experiment.Lua
                                 moves[i].minAngularSpeed = (float)keyVal.Value.Number;
                                 break;
                             case "radialAccel":
-                                if (keyVal.Value.Type != DataType.Number)
+                                if (keyVal.Value.Type == DataType.Number)
+                                    moves[i].radialAccel = t => (float)keyVal.Value.Number;
+                                else if (keyVal.Value.Type == DataType.String)
+                                {
+                                    DynValue function = script.Globals.Get(keyVal.Value.String);
+                                    if (function.Type != DataType.Function && function.Type != DataType.ClrFunction)
+                                        goto MovementError;
+
+                                    moves[i].radialAccel = t => (float)script.Call(function, t).Number;
+                                }
+                                else if (keyVal.Value.Type == DataType.Function || keyVal.Value.Type == DataType.ClrFunction)
+                                {
+                                    DynValue function = keyVal.Value;
+
+                                    moves[i].radialAccel = t => (float)script.Call(function, t).Number;
+                                }
+                                else
                                     goto MovementError;
-                                moves[i].radialAccel = t => (float)keyVal.Value.Number;
                                 break;
                             case "angularAccel":
-                                if (keyVal.Value.Type != DataType.Number)
+                                if (keyVal.Value.Type == DataType.Number)
+                                    moves[i].angularAccel = t => (float)keyVal.Value.Number;
+                                else if (keyVal.Value.Type == DataType.String)
+                                {
+                                    DynValue function = script.Globals.Get(keyVal.Value.String);
+                                    if (function.Type != DataType.Function && function.Type != DataType.ClrFunction)
+                                        goto MovementError;
+
+                                    moves[i].angularAccel = t => (float)script.Call(function, t).Number;
+                                }
+                                else if (keyVal.Value.Type == DataType.Function || keyVal.Value.Type == DataType.ClrFunction)
+                                {
+                                    DynValue function = keyVal.Value;
+
+                                    moves[i].angularAccel = t => (float)script.Call(function, t).Number;
+                                }
+                                else
                                     goto MovementError;
-                                moves[i].angularAccel = t => (float)keyVal.Value.Number;
                                 break;
                             case "faceToMovingDirection":
                                 if (keyVal.Value.Type != DataType.Boolean)
@@ -295,9 +391,24 @@ namespace SansyHuman.Experiment.Lua
                                 moves[i].rotationAngularSpeed = (float)keyVal.Value.Number;
                                 break;
                             case "rotationAngularAcceleration":
-                                if (keyVal.Value.Type != DataType.Number)
+                                if (keyVal.Value.Type == DataType.Number)
+                                    moves[i].rotationAngularAcceleration = t => (float)keyVal.Value.Number;
+                                else if (keyVal.Value.Type == DataType.String)
+                                {
+                                    DynValue function = script.Globals.Get(keyVal.Value.String);
+                                    if (function.Type != DataType.Function && function.Type != DataType.ClrFunction)
+                                        goto MovementError;
+
+                                    moves[i].rotationAngularAcceleration = t => (float)script.Call(function, t).Number;
+                                }
+                                else if (keyVal.Value.Type == DataType.Function || keyVal.Value.Type == DataType.ClrFunction)
+                                {
+                                    DynValue function = keyVal.Value;
+
+                                    moves[i].rotationAngularAcceleration = t => (float)script.Call(function, t).Number;
+                                }
+                                else
                                     goto MovementError;
-                                moves[i].rotationAngularAcceleration = t => (float)keyVal.Value.Number;
                                 break;
                             case "limitRotationSpeed":
                                 if (keyVal.Value.Type != DataType.Boolean)
@@ -463,6 +574,19 @@ namespace SansyHuman.Experiment.Lua
         }
 
         /// <summary>
+        /// Used in Lua script. Stops all transitions of the character.
+        /// </summary>
+        [MoonSharpVisible(true)]
+        private void stopAllTransitions()
+        {
+            UDETransitionHelper.StopAllTransitions(originEnemy.gameObject);
+            if (background != null)
+            {
+                UDETransitionHelper.StopAllTransitions(background);
+            }
+        }
+
+        /// <summary>
         /// Used in Lua script. Sets the rotation of the character.
         /// </summary>
         /// <param name="deg">Rotation of the character in degrees</param>
@@ -486,7 +610,7 @@ namespace SansyHuman.Experiment.Lua
             }
 
             DynValue subpattern = script.Globals.Get(name);
-            if (subpattern.Type != DataType.Function || subpattern.Type != DataType.ClrFunction)
+            if (subpattern.Type != DataType.Function && subpattern.Type != DataType.ClrFunction)
             {
                 Debug.LogError($"No such subpattern function named {name}.");
                 return;
@@ -573,6 +697,15 @@ namespace SansyHuman.Experiment.Lua
         protected override IEnumerator ShotPattern()
         {
             yield return StartCoroutine(PlayPattern(patternFunc));
+        }
+
+        public override void EndPattern()
+        {
+            base.EndPattern();
+
+            subpatternDict.Clear();
+
+            script.Call(endFunc);
         }
     }
 }

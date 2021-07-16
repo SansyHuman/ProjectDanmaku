@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 
 using SansyHuman.Management;
+using SansyHuman.Player;
 using SansyHuman.UDE.Object;
 
 using TMPro;
@@ -24,19 +25,8 @@ namespace SansyHuman.UI.Setting
         [SerializeField]
         private SansyHuman.UI.Setting.Settings settings;
 
-        [Serializable]
-        public struct KeyMapping
-        {
-            public TextMeshProUGUI moveUp;
-            public TextMeshProUGUI moveDown;
-            public TextMeshProUGUI moveLeft;
-            public TextMeshProUGUI moveRight;
-            public TextMeshProUGUI shoot;
-            public TextMeshProUGUI slowMode;
-        }
-
         [SerializeField]
-        private KeyMapping keyMapping;
+        private List<TextMeshProUGUI> keyMapping;
 
         public enum KeyName
         {
@@ -45,12 +35,15 @@ namespace SansyHuman.UI.Setting
             MoveLeft = 2,
             MoveRight = 3,
             Shoot = 4,
-            SlowMode = 5
+            SlowMode = 5,
+            Skill1 = 6,
+            Skill2 = 7,
+            Skill3 = 8
         }
 
         // The order is row first.
         public const int RowNumber = 6;
-        public const int ColumnNumber = 1;
+        public const int ColumnNumber = 2;
 
         private int currentRow = 0;
         private int currentColumn = 0;
@@ -63,67 +56,27 @@ namespace SansyHuman.UI.Setting
         {
             UDEPlayer.KeyMappingInfo keyMappingInfo = KeyMappingManager.Instance.KeyMapping;
 
-            keyMapping.moveUp.text = keyMappingInfo.moveUp.ToString();
-            keyMapping.moveDown.text = keyMappingInfo.moveDown.ToString();
-            keyMapping.moveLeft.text = keyMappingInfo.moveLeft.ToString();
-            keyMapping.moveRight.text = keyMappingInfo.moveRight.ToString();
-            keyMapping.shoot.text = keyMappingInfo.shoot.ToString();
-            keyMapping.slowMode.text = keyMappingInfo.slowMode.ToString();
+            keyMapping[(int)KeyName.MoveUp].text = keyMappingInfo.moveUp.ToString();
+            keyMapping[(int)KeyName.MoveDown].text = keyMappingInfo.moveDown.ToString();
+            keyMapping[(int)KeyName.MoveLeft].text = keyMappingInfo.moveLeft.ToString();
+            keyMapping[(int)KeyName.MoveRight].text = keyMappingInfo.moveRight.ToString();
+            keyMapping[(int)KeyName.Shoot].text = keyMappingInfo.shoot.ToString();
+            keyMapping[(int)KeyName.SlowMode].text = keyMappingInfo.slowMode.ToString();
 
-            KeyName currKeySelected = (KeyName)(currentRow + RowNumber * currentColumn);
+            PlayerBase.AdditionalKeyMappingInfo additionalKeyMappingInfo = KeyMappingManager.Instance.AdditionalKeyMapping;
 
-            if (currKeySelected == KeyName.MoveUp)
-            {
-                keyMapping.moveUp.color = selectColor;
-            }
-            else
-            {
-                keyMapping.moveUp.color = unselectColor;
-            }
+            keyMapping[(int)KeyName.Skill1].text = additionalKeyMappingInfo.skill1Key.ToString();
+            keyMapping[(int)KeyName.Skill2].text = additionalKeyMappingInfo.skill2Key.ToString();
+            keyMapping[(int)KeyName.Skill3].text = additionalKeyMappingInfo.skill3Key.ToString();
 
-            if (currKeySelected == KeyName.MoveDown)
-            {
-                keyMapping.moveDown.color = selectColor;
-            }
-            else
-            {
-                keyMapping.moveDown.color = unselectColor;
-            }
+            int currKeySelected = currentRow + RowNumber * currentColumn;
 
-            if (currKeySelected == KeyName.MoveLeft)
+            for (int i = 0; i < keyMapping.Count; i++)
             {
-                keyMapping.moveLeft.color = selectColor;
-            }
-            else
-            {
-                keyMapping.moveLeft.color = unselectColor;
-            }
-
-            if (currKeySelected == KeyName.MoveRight)
-            {
-                keyMapping.moveRight.color = selectColor;
-            }
-            else
-            {
-                keyMapping.moveRight.color = unselectColor;
-            }
-
-            if (currKeySelected == KeyName.Shoot)
-            {
-                keyMapping.shoot.color = selectColor;
-            }
-            else
-            {
-                keyMapping.shoot.color = unselectColor;
-            }
-
-            if (currKeySelected == KeyName.SlowMode)
-            {
-                keyMapping.slowMode.color = selectColor;
-            }
-            else
-            {
-                keyMapping.slowMode.color = unselectColor;
+                if (i == currKeySelected)
+                    keyMapping[i].color = selectColor;
+                else
+                    keyMapping[i].color = unselectColor;
             }
 
             readingKeyInput = false;
@@ -139,52 +92,12 @@ namespace SansyHuman.UI.Setting
                 {
                     if (currentColumn > 0)
                     {
-                        KeyName currKeySelected = (KeyName)(currentRow + RowNumber * currentColumn);
-                        switch (currKeySelected)
-                        {
-                            case KeyName.MoveUp:
-                                keyMapping.moveUp.color = unselectColor;
-                                break;
-                            case KeyName.MoveDown:
-                                keyMapping.moveDown.color = unselectColor;
-                                break;
-                            case KeyName.MoveLeft:
-                                keyMapping.moveLeft.color = unselectColor;
-                                break;
-                            case KeyName.MoveRight:
-                                keyMapping.moveRight.color = unselectColor;
-                                break;
-                            case KeyName.Shoot:
-                                keyMapping.shoot.color = unselectColor;
-                                break;
-                            case KeyName.SlowMode:
-                                keyMapping.slowMode.color = unselectColor;
-                                break;
-                        }
+                        int currKeySelected = currentRow + RowNumber * currentColumn;
+                        keyMapping[currKeySelected].color = unselectColor;
                         currentColumn--;
 
-                        currKeySelected = (KeyName)(currentRow + RowNumber * currentColumn);
-                        switch (currKeySelected)
-                        {
-                            case KeyName.MoveUp:
-                                keyMapping.moveUp.color = selectColor;
-                                break;
-                            case KeyName.MoveDown:
-                                keyMapping.moveDown.color = selectColor;
-                                break;
-                            case KeyName.MoveLeft:
-                                keyMapping.moveLeft.color = selectColor;
-                                break;
-                            case KeyName.MoveRight:
-                                keyMapping.moveRight.color = selectColor;
-                                break;
-                            case KeyName.Shoot:
-                                keyMapping.shoot.color = selectColor;
-                                break;
-                            case KeyName.SlowMode:
-                                keyMapping.slowMode.color = selectColor;
-                                break;
-                        }
+                        currKeySelected = currentRow + RowNumber * currentColumn;
+                        keyMapping[currKeySelected].color = selectColor;
 
                         settings.PlayMenuMove();
                     }
@@ -195,54 +108,14 @@ namespace SansyHuman.UI.Setting
                 }
                 else if (Input.GetKeyDown(KeyCode.RightArrow) || (pad != null && pad.dpad.right.wasPressedThisFrame))
                 {
-                    if (currentColumn < ColumnNumber - 1)
+                    if (currentColumn < ColumnNumber - 1 && (currentRow + RowNumber * (currentColumn + 1)) < keyMapping.Count)
                     {
-                        KeyName currKeySelected = (KeyName)(currentRow + RowNumber * currentColumn);
-                        switch (currKeySelected)
-                        {
-                            case KeyName.MoveUp:
-                                keyMapping.moveUp.color = unselectColor;
-                                break;
-                            case KeyName.MoveDown:
-                                keyMapping.moveDown.color = unselectColor;
-                                break;
-                            case KeyName.MoveLeft:
-                                keyMapping.moveLeft.color = unselectColor;
-                                break;
-                            case KeyName.MoveRight:
-                                keyMapping.moveRight.color = unselectColor;
-                                break;
-                            case KeyName.Shoot:
-                                keyMapping.shoot.color = unselectColor;
-                                break;
-                            case KeyName.SlowMode:
-                                keyMapping.slowMode.color = unselectColor;
-                                break;
-                        }
+                        int currKeySelected = currentRow + RowNumber * currentColumn;
+                        keyMapping[currKeySelected].color = unselectColor;
                         currentColumn++;
 
-                        currKeySelected = (KeyName)(currentRow + RowNumber * currentColumn);
-                        switch (currKeySelected)
-                        {
-                            case KeyName.MoveUp:
-                                keyMapping.moveUp.color = selectColor;
-                                break;
-                            case KeyName.MoveDown:
-                                keyMapping.moveDown.color = selectColor;
-                                break;
-                            case KeyName.MoveLeft:
-                                keyMapping.moveLeft.color = selectColor;
-                                break;
-                            case KeyName.MoveRight:
-                                keyMapping.moveRight.color = selectColor;
-                                break;
-                            case KeyName.Shoot:
-                                keyMapping.shoot.color = selectColor;
-                                break;
-                            case KeyName.SlowMode:
-                                keyMapping.slowMode.color = selectColor;
-                                break;
-                        }
+                        currKeySelected = currentRow + RowNumber * currentColumn;
+                        keyMapping[currKeySelected].color = selectColor;
 
                         settings.PlayMenuMove();
                     }
@@ -255,52 +128,12 @@ namespace SansyHuman.UI.Setting
                 {
                     if (currentRow > 0)
                     {
-                        KeyName currKeySelected = (KeyName)(currentRow + RowNumber * currentColumn);
-                        switch (currKeySelected)
-                        {
-                            case KeyName.MoveUp:
-                                keyMapping.moveUp.color = unselectColor;
-                                break;
-                            case KeyName.MoveDown:
-                                keyMapping.moveDown.color = unselectColor;
-                                break;
-                            case KeyName.MoveLeft:
-                                keyMapping.moveLeft.color = unselectColor;
-                                break;
-                            case KeyName.MoveRight:
-                                keyMapping.moveRight.color = unselectColor;
-                                break;
-                            case KeyName.Shoot:
-                                keyMapping.shoot.color = unselectColor;
-                                break;
-                            case KeyName.SlowMode:
-                                keyMapping.slowMode.color = unselectColor;
-                                break;
-                        }
+                        int currKeySelected = currentRow + RowNumber * currentColumn;
+                        keyMapping[currKeySelected].color = unselectColor;
                         currentRow--;
 
-                        currKeySelected = (KeyName)(currentRow + RowNumber * currentColumn);
-                        switch (currKeySelected)
-                        {
-                            case KeyName.MoveUp:
-                                keyMapping.moveUp.color = selectColor;
-                                break;
-                            case KeyName.MoveDown:
-                                keyMapping.moveDown.color = selectColor;
-                                break;
-                            case KeyName.MoveLeft:
-                                keyMapping.moveLeft.color = selectColor;
-                                break;
-                            case KeyName.MoveRight:
-                                keyMapping.moveRight.color = selectColor;
-                                break;
-                            case KeyName.Shoot:
-                                keyMapping.shoot.color = selectColor;
-                                break;
-                            case KeyName.SlowMode:
-                                keyMapping.slowMode.color = selectColor;
-                                break;
-                        }
+                        currKeySelected = currentRow + RowNumber * currentColumn;
+                        keyMapping[currKeySelected].color = selectColor;
 
                         settings.PlayMenuMove();
                     }
@@ -313,52 +146,17 @@ namespace SansyHuman.UI.Setting
                 {
                     if (currentRow < RowNumber - 1)
                     {
-                        KeyName currKeySelected = (KeyName)(currentRow + RowNumber * currentColumn);
-                        switch (currKeySelected)
-                        {
-                            case KeyName.MoveUp:
-                                keyMapping.moveUp.color = unselectColor;
-                                break;
-                            case KeyName.MoveDown:
-                                keyMapping.moveDown.color = unselectColor;
-                                break;
-                            case KeyName.MoveLeft:
-                                keyMapping.moveLeft.color = unselectColor;
-                                break;
-                            case KeyName.MoveRight:
-                                keyMapping.moveRight.color = unselectColor;
-                                break;
-                            case KeyName.Shoot:
-                                keyMapping.shoot.color = unselectColor;
-                                break;
-                            case KeyName.SlowMode:
-                                keyMapping.slowMode.color = unselectColor;
-                                break;
-                        }
+                        int currKeySelected = currentRow + RowNumber * currentColumn;
+                        keyMapping[currKeySelected].color = unselectColor;
                         currentRow++;
 
-                        currKeySelected = (KeyName)(currentRow + RowNumber * currentColumn);
-                        switch (currKeySelected)
+                        currKeySelected = currentRow + RowNumber * currentColumn;
+                        if (currKeySelected >= keyMapping.Count)
                         {
-                            case KeyName.MoveUp:
-                                keyMapping.moveUp.color = selectColor;
-                                break;
-                            case KeyName.MoveDown:
-                                keyMapping.moveDown.color = selectColor;
-                                break;
-                            case KeyName.MoveLeft:
-                                keyMapping.moveLeft.color = selectColor;
-                                break;
-                            case KeyName.MoveRight:
-                                keyMapping.moveRight.color = selectColor;
-                                break;
-                            case KeyName.Shoot:
-                                keyMapping.shoot.color = selectColor;
-                                break;
-                            case KeyName.SlowMode:
-                                keyMapping.slowMode.color = selectColor;
-                                break;
+                            currKeySelected -= RowNumber;
+                            currentColumn--;
                         }
+                        keyMapping[currKeySelected].color = selectColor;
 
                         settings.PlayMenuMove();
                     }
@@ -369,28 +167,8 @@ namespace SansyHuman.UI.Setting
                 }
                 else if (Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.KeypadEnter) || (pad != null && pad.buttonSouth.wasPressedThisFrame))
                 {
-                    KeyName currKeySelected = (KeyName)(currentRow + RowNumber * currentColumn);
-                    switch (currKeySelected)
-                    {
-                        case KeyName.MoveUp:
-                            keyMapping.moveUp.text = I2.Loc.ScriptLocalization.Settings_Keyboard.ReadingKey;
-                            break;
-                        case KeyName.MoveDown:
-                            keyMapping.moveDown.text = I2.Loc.ScriptLocalization.Settings_Keyboard.ReadingKey;
-                            break;
-                        case KeyName.MoveLeft:
-                            keyMapping.moveLeft.text = I2.Loc.ScriptLocalization.Settings_Keyboard.ReadingKey;
-                            break;
-                        case KeyName.MoveRight:
-                            keyMapping.moveRight.text = I2.Loc.ScriptLocalization.Settings_Keyboard.ReadingKey;
-                            break;
-                        case KeyName.Shoot:
-                            keyMapping.shoot.text = I2.Loc.ScriptLocalization.Settings_Keyboard.ReadingKey;
-                            break;
-                        case KeyName.SlowMode:
-                            keyMapping.slowMode.text = I2.Loc.ScriptLocalization.Settings_Keyboard.ReadingKey;
-                            break;
-                    }
+                    int currKeySelected = currentRow + RowNumber * currentColumn;
+                    keyMapping[currKeySelected].text = I2.Loc.ScriptLocalization.Settings_Keyboard.ReadingKey;
                     readingKeyInput = true;
                 }
             }
@@ -403,26 +181,36 @@ namespace SansyHuman.UI.Setting
                 if (Input.GetKeyDown(KeyCode.Escape))
                 {
                     UDEPlayer.KeyMappingInfo keyMappingInfo = KeyMappingManager.Instance.KeyMapping;
+                    PlayerBase.AdditionalKeyMappingInfo additionalKeyMappingInfo = KeyMappingManager.Instance.AdditionalKeyMapping;
 
                     switch (currKeySelected)
                     {
                         case KeyName.MoveUp:
-                            keyMapping.moveUp.text = keyMappingInfo.moveUp.ToString();
+                            keyMapping[(int)KeyName.MoveUp].text = keyMappingInfo.moveUp.ToString();
                             break;
                         case KeyName.MoveDown:
-                            keyMapping.moveDown.text = keyMappingInfo.moveDown.ToString();
+                            keyMapping[(int)KeyName.MoveDown].text = keyMappingInfo.moveDown.ToString();
                             break;
                         case KeyName.MoveLeft:
-                            keyMapping.moveLeft.text = keyMappingInfo.moveLeft.ToString();
+                            keyMapping[(int)KeyName.MoveLeft].text = keyMappingInfo.moveLeft.ToString();
                             break;
                         case KeyName.MoveRight:
-                            keyMapping.moveRight.text = keyMappingInfo.moveRight.ToString();
+                            keyMapping[(int)KeyName.MoveRight].text = keyMappingInfo.moveRight.ToString();
                             break;
                         case KeyName.Shoot:
-                            keyMapping.shoot.text = keyMappingInfo.shoot.ToString();
+                            keyMapping[(int)KeyName.Shoot].text = keyMappingInfo.shoot.ToString();
                             break;
                         case KeyName.SlowMode:
-                            keyMapping.slowMode.text = keyMappingInfo.slowMode.ToString();
+                            keyMapping[(int)KeyName.SlowMode].text = keyMappingInfo.slowMode.ToString();
+                            break;
+                        case KeyName.Skill1:
+                            keyMapping[(int)KeyName.Skill1].text = additionalKeyMappingInfo.skill1Key.ToString();
+                            break;
+                        case KeyName.Skill2:
+                            keyMapping[(int)KeyName.Skill2].text = additionalKeyMappingInfo.skill2Key.ToString();
+                            break;
+                        case KeyName.Skill3:
+                            keyMapping[(int)KeyName.Skill3].text = additionalKeyMappingInfo.skill3Key.ToString();
                             break;
                     }
                     readingKeyInput = false;
@@ -440,35 +228,50 @@ namespace SansyHuman.UI.Setting
                     if (key != KeyCode.None)
                     {
                         UDEPlayer.KeyMappingInfo keyMappingInfo = KeyMappingManager.Instance.KeyMapping;
+                        PlayerBase.AdditionalKeyMappingInfo additionalKeyMappingInfo = KeyMappingManager.Instance.AdditionalKeyMapping;
 
                         switch (currKeySelected)
                         {
                             case KeyName.MoveUp:
                                 keyMappingInfo.moveUp = key;
-                                keyMapping.moveUp.text = keyMappingInfo.moveUp.ToString();
+                                keyMapping[(int)KeyName.MoveUp].text = keyMappingInfo.moveUp.ToString();
                                 break;
                             case KeyName.MoveDown:
                                 keyMappingInfo.moveDown = key;
-                                keyMapping.moveDown.text = keyMappingInfo.moveDown.ToString();
+                                keyMapping[(int)KeyName.MoveDown].text = keyMappingInfo.moveDown.ToString();
                                 break;
                             case KeyName.MoveLeft:
                                 keyMappingInfo.moveLeft = key;
-                                keyMapping.moveLeft.text = keyMappingInfo.moveLeft.ToString();
+                                keyMapping[(int)KeyName.MoveLeft].text = keyMappingInfo.moveLeft.ToString();
                                 break;
                             case KeyName.MoveRight:
                                 keyMappingInfo.moveRight = key;
-                                keyMapping.moveRight.text = keyMappingInfo.moveRight.ToString();
+                                keyMapping[(int)KeyName.MoveRight].text = keyMappingInfo.moveRight.ToString();
                                 break;
                             case KeyName.Shoot:
                                 keyMappingInfo.shoot = key;
-                                keyMapping.shoot.text = keyMappingInfo.shoot.ToString();
+                                keyMapping[(int)KeyName.Shoot].text = keyMappingInfo.shoot.ToString();
                                 break;
                             case KeyName.SlowMode:
                                 keyMappingInfo.slowMode = key;
-                                keyMapping.slowMode.text = keyMappingInfo.slowMode.ToString();
+                                keyMapping[(int)KeyName.SlowMode].text = keyMappingInfo.slowMode.ToString();
+                                break;
+                            case KeyName.Skill1:
+                                additionalKeyMappingInfo.skill1Key = key;
+                                keyMapping[(int)KeyName.Skill1].text = additionalKeyMappingInfo.skill1Key.ToString();
+                                break;
+                            case KeyName.Skill2:
+                                additionalKeyMappingInfo.skill2Key = key;
+                                keyMapping[(int)KeyName.Skill2].text = additionalKeyMappingInfo.skill2Key.ToString();
+                                break;
+                            case KeyName.Skill3:
+                                additionalKeyMappingInfo.skill3Key = key;
+                                keyMapping[(int)KeyName.Skill3].text = additionalKeyMappingInfo.skill3Key.ToString();
                                 break;
                         }
+
                         KeyMappingManager.Instance.KeyMapping = keyMappingInfo;
+                        KeyMappingManager.Instance.AdditionalKeyMapping = additionalKeyMappingInfo;
 
                         readingKeyInput = false;
                     }

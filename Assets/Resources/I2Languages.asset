@@ -305,6 +305,143 @@ MonoBehaviour:
       - "<\uD560\uB2F9\uD560 \uD0A4\uB97C \uB204\uB974\uC2ED\uC2DC\uC624...>"
       Flags: 0000
       Languages_Touch: []
+    - Term: Settings/Keyboard/MoveUp
+      TermType: 0
+      Description: 
+      Languages:
+      - Move Up
+      - "\uC704"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Settings/Keyboard/MoveDown
+      TermType: 0
+      Description: 
+      Languages:
+      - Move Down
+      - "\uC544\uB798"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Settings/Keyboard/MoveLeft
+      TermType: 0
+      Description: 
+      Languages:
+      - Move Left
+      - "\uC67C\uCABD"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Settings/Keyboard/MoveRight
+      TermType: 0
+      Description: 
+      Languages:
+      - Move Right
+      - "\uC624\uB978\uCABD"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Settings/Keyboard/Shoot
+      TermType: 0
+      Description: 
+      Languages:
+      - Shoot
+      - "\uBC1C\uC0AC"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Settings/Keyboard/SlowMode
+      TermType: 0
+      Description: 
+      Languages:
+      - Slow Mode
+      - "\uC800\uC18D\uC774\uB3D9"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Settings/Keyboard/Skill1
+      TermType: 0
+      Description: 
+      Languages:
+      - Skill 1
+      - "\uC2A4\uD0AC 1"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Settings/Keyboard/Skill2
+      TermType: 0
+      Description: 
+      Languages:
+      - Skill 2
+      - "\uC2A4\uD0AC 2"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Settings/Keyboard/Skill3
+      TermType: 0
+      Description: 
+      Languages:
+      - Skill 3
+      - "\uC2A4\uD0AC 3"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Skill/Shield
+      TermType: 0
+      Description: 
+      Languages:
+      - Shield
+      - "\uBC29\uC5B4\uB9C9"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Skill/ShieldDescription
+      TermType: 0
+      Description: 
+      Languages:
+      - Summons shield. The shield prevents one hit. Also, when summoning shield,
+        it removes bullets around the player and gives short invincibility. When the
+        player hit by a bullet while there is a shield, the shield disappears and
+        gives short invincibility.
+      - "\uBC29\uC5B4\uB9C9\uC744 \uC18C\uD658\uD55C\uB2E4. \uBC29\uC5B4\uB9C9\uC740
+        \uD55C \uBC88\uC758 \uD53C\uACA9\uC744 \uB9C9\uC544\uC900\uB2E4. \uB610\uD55C
+        \uBC29\uC5B4\uB9C9\uC744 \uC18C\uD658\uD560 \uB54C \uC8FC\uC704\uC758 \uD0C4\uB9C9\uC744
+        \uC81C\uAC70\uD558\uACE0 \uC9E7\uC740 \uC2DC\uAC04\uB3D9\uC548 \uBB34\uC801\uC774
+        \uB41C\uB2E4. \uBC29\uC5B4\uB9C9\uC774 \uC788\uC744 \uB54C \uD0C4\uD658\uC5D0
+        \uD53C\uACA9\uB420 \uACBD\uC6B0 \uBC29\uC5B4\uB9C9\uC774 \uC0AC\uB77C\uC9C0\uBA70
+        \uC9E7\uC740 \uC2DC\uAC04\uB3D9\uC548 \uBB34\uC801\uC774 \uB41C\uB2E4."
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Main/MainMenuFont
+      TermType: 9
+      Description: 
+      Languages:
+      - MenuEntry SDF
+      - MenuEntryKR SDF
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Main/StartGame
+      TermType: 0
+      Description: 
+      Languages:
+      - start game
+      - "\uAC8C\uC784 \uC2DC\uC791"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Main/Settings
+      TermType: 0
+      Description: 
+      Languages:
+      - settings
+      - "\uC124\uC815"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Main/License
+      TermType: 0
+      Description: 
+      Languages:
+      - license
+      - "\uB77C\uC774\uC13C\uC2A4"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Main/ExitGame
+      TermType: 0
+      Description: 
+      Languages:
+      - exit game
+      - "\uAC8C\uC784 \uC885\uB8CC"
+      Flags: 0000
+      Languages_Touch: []
     CaseInsensitiveTerms: 0
     OnMissingTranslation: 1
     mTerm_AppName: 

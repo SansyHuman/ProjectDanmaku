@@ -728,7 +728,15 @@ MonoBehaviour:
   slowMarker: {fileID: 8360352441649167252}
   mainShotPoint: {fileID: 8360352441313261175}
   power: 0
+  mana: 0
+  skill1: {fileID: 8511295609434482544, guid: b118c92676a2e0e46911070e78e9b85e, type: 3}
+  skill2: {fileID: 0}
+  skill3: {fileID: 0}
+  manaRegenerationPerSecond: 5
   scorePerGraze: 5000
+  skill1Key: 97
+  skill2Key: 115
+  skill3Key: 120
   circleColorInvert: {fileID: -5992072061145249290, guid: 67fea48c56f1394458d2b06b0c2cddba,
     type: 3}
   distortion: {fileID: 900933266348724370, guid: 712cc9b72fe3b774a913348a0685ffc6,

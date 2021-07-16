@@ -82,7 +82,7 @@ namespace SansyHuman.Pattern
             UDECartesianMovementBuilder builder = UDECartesianMovementBuilder.Create();
             builder.Velocity(Vector2.zero)
                 .Accel(t => new UDEMath.CartesianCoord(
-                6f * Mathf.Log10(t + 1f) * Mathf.Cos(2 * Mathf.PI * t / 2.0f),
+                6f * Mathf.Log10(t + 1f) * Mathf.Cos(Mathf.PI * t),
                 -2.0f
                 ))
                 .MinVelocity(new Vector2(float.MinValue, -6.0f))

@@ -132,3 +132,6 @@ function testPattern()
         coroutine.yield(waitForScaledSecond("enemy", 0.7))
     end
 end
+
+function onPatternEnd()
+end

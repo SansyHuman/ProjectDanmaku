@@ -14,6 +14,7 @@ namespace SansyHuman.Management
     public class KeyMappingManager : UDESingleton<KeyMappingManager>
     {
         private UDEPlayer.KeyMappingInfo keyMapping;
+        private PlayerBase.AdditionalKeyMappingInfo additionalKeyMapping;
 
         /// <summary>
         /// Gets the key code of the key that is pressed this frame.
@@ -47,6 +48,13 @@ namespace SansyHuman.Management
                 shoot = KeyCode.Z,
                 slowMode = KeyCode.LeftShift
             };
+
+            additionalKeyMapping = new PlayerBase.AdditionalKeyMappingInfo()
+            {
+                skill1Key = KeyCode.A,
+                skill2Key = KeyCode.S,
+                skill3Key = KeyCode.X
+            };
         }
 
         /// <summary>
@@ -62,6 +70,16 @@ namespace SansyHuman.Management
             }
         }
 
+        public PlayerBase.AdditionalKeyMappingInfo AdditionalKeyMapping
+        {
+            get => additionalKeyMapping;
+            set
+            {
+                additionalKeyMapping = value;
+                ApplyMapping();
+            }
+        }
+
         /// <summary>
         /// Applies key mapping to the player.
         /// </summary>
@@ -70,7 +88,10 @@ namespace SansyHuman.Management
             PlayerBase player = GameManager.player;
 
             if (player != null)
+            {
                 player.SetKeyMapping(keyMapping);
+                player.SetAdditionalKeyMapping(additionalKeyMapping);
+            }
         }
     }
 }

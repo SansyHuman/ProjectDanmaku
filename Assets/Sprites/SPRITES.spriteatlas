@@ -42,7 +42,7 @@ SpriteAtlas:
     variantMultiplier: 1
     packables:
     - {fileID: 102900000, guid: b2ac079b5a184cc49b813e29947db7d3, type: 3}
-    totalSpriteSurfaceArea: 6442108
+    totalSpriteSurfaceArea: 8211580
     bindAsDefault: 1
   m_MasterAtlas: {fileID: 0}
   m_PackedSprites:
@@ -149,6 +149,18 @@ SpriteAtlas:
   - {fileID: -5352681507044718959, guid: 7b85373b5c04f184cacb0a0f88273fd6, type: 3}
   - {fileID: -1468113572417194287, guid: 7b85373b5c04f184cacb0a0f88273fd6, type: 3}
   - {fileID: -7822354836018909810, guid: 7b85373b5c04f184cacb0a0f88273fd6, type: 3}
+  - {fileID: -4139967499187289690, guid: ff85626b67536754d98355d7566e2f0e, type: 3}
+  - {fileID: -1724066967173290298, guid: ff85626b67536754d98355d7566e2f0e, type: 3}
+  - {fileID: 4178837475672097676, guid: ff85626b67536754d98355d7566e2f0e, type: 3}
+  - {fileID: -8791351738350567763, guid: ff85626b67536754d98355d7566e2f0e, type: 3}
+  - {fileID: -7904321528907490436, guid: ff85626b67536754d98355d7566e2f0e, type: 3}
+  - {fileID: -8418880130915447063, guid: ff85626b67536754d98355d7566e2f0e, type: 3}
+  - {fileID: 4637961900233290276, guid: ff85626b67536754d98355d7566e2f0e, type: 3}
+  - {fileID: 2341536110440916619, guid: ff85626b67536754d98355d7566e2f0e, type: 3}
+  - {fileID: -7947067082740497745, guid: ff85626b67536754d98355d7566e2f0e, type: 3}
+  - {fileID: -6717884257390833292, guid: ff85626b67536754d98355d7566e2f0e, type: 3}
+  - {fileID: -407368442477547055, guid: ff85626b67536754d98355d7566e2f0e, type: 3}
+  - {fileID: -4098029715399502762, guid: ff85626b67536754d98355d7566e2f0e, type: 3}
   - {fileID: 21300000, guid: 0358523c283f9744088dd2d0d8cd648d, type: 3}
   - {fileID: 21300000, guid: 4d43d27c3196b424fb8738cdfa2d57d8, type: 3}
   - {fileID: 21300000, guid: 55be849ca4f0bb34bb2323cee6377efa, type: 3}
@@ -265,6 +277,18 @@ SpriteAtlas:
   - Fairy_Red_2
   - Fairy_Red_1
   - Fairy_Red_0
+  - Shield_10
+  - Shield_11
+  - Shield_9
+  - Shield_8
+  - Shield_5
+  - Shield_4
+  - Shield_7
+  - Shield_6
+  - Shield_1
+  - Shield_0
+  - Shield_3
+  - Shield_2
   - Shero_Background
   - HAJE
   - Box

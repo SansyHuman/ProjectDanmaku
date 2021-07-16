@@ -45,6 +45,20 @@ namespace SansyHuman.Player
         [Tooltip("The MP of the character.")]
         protected int mana = 0;
 
+        protected Shield activeShield = null;
+
+        [SerializeField]
+        [Tooltip("Skill 1")]
+        protected Skill skill1;
+
+        [SerializeField]
+        [Tooltip("Skill 2")]
+        protected Skill skill2;
+
+        [SerializeField]
+        [Tooltip("Skill 3")]
+        protected Skill skill3;
+
         [SerializeField]
         [Range(0, 5)]
         [Tooltip("The regeneration speed of MP per second")]
@@ -56,6 +70,26 @@ namespace SansyHuman.Player
         [SerializeField]
         [Tooltip("The score of one graze.")]
         protected int scorePerGraze = 1000;
+
+
+        [SerializeField]
+        [Tooltip("Skill 1 key")]
+        protected KeyCode skill1Key = KeyCode.A;
+
+        [SerializeField]
+        [Tooltip("Skill 2 key")]
+        protected KeyCode skill2Key = KeyCode.S;
+
+        [SerializeField]
+        [Tooltip("Skill 3 key")]
+        protected KeyCode skill3Key = KeyCode.X;
+
+        public struct AdditionalKeyMappingInfo
+        {
+            public KeyCode skill1Key;
+            public KeyCode skill2Key;
+            public KeyCode skill3Key;
+        }
 
 
         [SerializeField]
@@ -96,6 +130,10 @@ namespace SansyHuman.Player
 
         protected bool controllable = true;
 
+        protected float skill1RemainingCooldown = 0;
+        protected float skill2RemainingCooldown = 0;
+        protected float skill3RemainingCooldown = 0;
+
         private AudioSource fireSound;
         private AudioSource grazeSound;
 
@@ -115,6 +153,17 @@ namespace SansyHuman.Player
         private TextMeshProUGUI manaText;
 
         private TextMeshProUGUI grazeText;
+
+        /// <summary>
+        /// Sets the additional key mapping of the player
+        /// </summary>
+        /// <param name="info">Additional key mapping informations</param>
+        public void SetAdditionalKeyMapping(AdditionalKeyMappingInfo info)
+        {
+            skill1Key = info.skill1Key;
+            skill2Key = info.skill2Key;
+            skill3Key = info.skill3Key;
+        }
 
         protected override void Awake()
         {
@@ -140,6 +189,8 @@ namespace SansyHuman.Player
             manaBar.fillAmount = (float)mana / MaxMana;
             manaText = GameObject.Find("ManaAmount").GetComponent<TextMeshProUGUI>();
             manaText.text = $"{mana:D3}";
+
+            activeShield = null;
 
             grazeText = GameObject.Find("GrazeAmount").GetComponent<TextMeshProUGUI>();
             grazeText.text = $"{graze}";
@@ -251,14 +302,84 @@ namespace SansyHuman.Player
             slowMarker.color = col;
         }
 
+        /// <summary>
+        /// Activate the shield.
+        /// </summary>
+        /// <param name="prefab">Shield prefab</param>
+        public void ActivateShield(Shield prefab)
+        {
+            if (activeShield != null)
+                Destroy(activeShield.gameObject);
+
+            Shield shield = Instantiate<Shield>(prefab);
+            shield.transform.parent = gameObject.transform;
+            shield.transform.localPosition = Vector3.zero;
+            shield.transform.localRotation = Quaternion.Euler(0, 0, 0);
+
+            activeShield = shield;
+        }
+
+        /// <summary>
+        /// Makes the player invincible for the time.
+        /// </summary>
+        /// <param name="time">Time to make the player invincible</param>
+        /// <param name="playHitSound">Whether play hit sound</param>
+        public void MakeInvincibleForSeconds(float time, bool playHitSound)
+        {
+            StartCoroutine(InvincibleForSecondsCoroutine(time, playHitSound));
+        }
+
+        private IEnumerator InvincibleForSecondsCoroutine(float time, bool playHitSound)
+        {
+            SpriteRenderer renderer = self.GetComponent<SpriteRenderer>();
+            Color col = renderer.color;
+            col.a = 0.5f;
+            renderer.color = col;
+            invincible = true;
+
+            if (playHitSound)
+            {
+                AudioSource dieFX = gameObject.AddComponent<AudioSource>();
+                dieFX.clip = dieSound;
+                dieFX.volume = 0.7f;
+                dieFX.Play();
+            }
+
+            yield return StartCoroutine(UDETime.Instance.WaitForScaledSeconds(time, UDETime.TimeScale.PLAYER));
+
+            col.a = 1f;
+            renderer.color = col;
+            invincible = false;
+
+            yield return null;
+        }
+
         // Used on MP regeneration.
         private float accScaledTime = 0.0f;
 
+        private bool paused = false;
+        private bool fireSoundPlayed = false;
+        private bool wasInSlowMode = false;
+
         protected override void Update()
         {
+            float deltaTime = Time.deltaTime * UDETime.Instance.PlayerTimeScale;
+
+            skill1RemainingCooldown -= deltaTime;
+            skill2RemainingCooldown -= deltaTime;
+            skill3RemainingCooldown -= deltaTime;
+
             if (pauseMenu.GamePaused || debugConsole.DebugConsoleEnabled)
             {
-                fireSound.Stop();
+                if (!paused)
+                {
+                    paused = true;
+                    fireSoundPlayed = fireSound.isPlaying;
+                    wasInSlowMode = isSlowMode;
+
+                    fireSound.Stop();
+                }
+                
                 return;
             }
 
@@ -266,6 +387,29 @@ namespace SansyHuman.Player
                 base.Update();
 
             Gamepad pad = Gamepad.current;
+
+            if (paused)
+            {
+                paused = false;
+
+                if (fireSoundPlayed && (Input.GetKey(shoot) || (pad != null && pad.rightTrigger.isPressed)))
+                {
+                    fireSound.Play();
+                }
+
+                if (wasInSlowMode && (!Input.GetKey(slowMode) || (pad != null && !pad.rightShoulder.isPressed)))
+                {
+                    DisableSlowMove();
+                }
+                
+                if (!wasInSlowMode && (Input.GetKey(slowMode) || (pad != null && pad.rightShoulder.isPressed)))
+                {
+                    EnableSlowMode();
+                }
+            }
+
+            // Gamepad control
+            // RB: slow mode
 
             if (Input.GetKeyDown(slowMode) || (pad != null && pad.rightShoulder.wasPressedThisFrame))
             {
@@ -285,6 +429,38 @@ namespace SansyHuman.Player
 
             if (Input.GetKeyUp(shoot) || (pad != null && pad.rightTrigger.wasReleasedThisFrame))
                 fireSound.Stop();
+
+            // Gamepad control
+            // X: skill1
+            // Y: skill2
+            // B: skill3
+
+            if (Input.GetKeyDown(skill1Key) || (pad != null && pad.buttonWest.wasPressedThisFrame))
+            {
+                if (skill1 != null && skill1RemainingCooldown <= 0 && mana >= skill1.MP)
+                {
+                    StartCoroutine(UseSkill(1));
+                    AddMana(-skill1.MP);
+                }
+            }
+
+            if (Input.GetKeyDown(skill2Key) || (pad != null && pad.buttonNorth.wasPressedThisFrame))
+            {
+                if (skill2 != null && skill2RemainingCooldown <= 0 && mana >= skill2.MP)
+                {
+                    StartCoroutine(UseSkill(2));
+                    AddMana(-skill2.MP);
+                }
+            }
+
+            if (Input.GetKeyDown(skill3Key) || (pad != null && pad.buttonEast.wasPressedThisFrame))
+            {
+                if (skill3 != null && skill3RemainingCooldown <= 0 && mana >= skill3.MP)
+                {
+                    StartCoroutine(UseSkill(3));
+                    AddMana(-skill3.MP);
+                }
+            }
 
             // Power level check
             int tmpLvl = (int)power;
@@ -315,6 +491,41 @@ namespace SansyHuman.Player
                     tmp.Pop().DragToPlayer(characterTr);
                 }
             }
+        }
+
+        private IEnumerator UseSkill(int skillNumber)
+        {
+            float originalSpeed = speed;
+            float originalFireInterval = bulletFireInterval;
+            
+            switch (skillNumber)
+            {
+                case 1:
+                    speed *= skill1.MoveSpeedMultiplier;
+                    if (!skill1.Firable)
+                        bulletFireInterval = float.MaxValue;
+                    skill1RemainingCooldown = skill1.Cooldown;
+                    yield return StartCoroutine(skill1.UseSkill(this));
+                    break;
+                case 2:
+                    speed *= skill2.MoveSpeedMultiplier;
+                    if (!skill2.Firable)
+                        bulletFireInterval = float.MaxValue;
+                    skill2RemainingCooldown = skill2.Cooldown;
+                    yield return StartCoroutine(skill2.UseSkill(this));
+                    break;
+                case 3:
+                    speed *= skill3.MoveSpeedMultiplier;
+                    if (!skill3.Firable)
+                        bulletFireInterval = float.MaxValue;
+                    skill3RemainingCooldown = skill3.Cooldown;
+                    yield return StartCoroutine(skill3.UseSkill(this));
+                    break;
+            }
+
+            speed = originalSpeed;
+            bulletFireInterval = originalFireInterval;
+            yield return null;
         }
 
         /// <summary>
@@ -405,14 +616,30 @@ namespace SansyHuman.Player
             if (!invincible)
             {
                 if (collision.CompareTag("Enemy"))
-                    StartCoroutine(DamageSelf(1));
+                {
+                    if (activeShield != null)
+                    {
+                        Destroy(activeShield.gameObject);
+                        activeShield = null;
+                        MakeInvincibleForSeconds(0.75f, true);
+                    }
+                    else
+                        StartCoroutine(DamageSelf(1));
+                }
                 else if (collision.CompareTag("Bullet"))
                 {
                     UDEAbstractBullet bullet = collision.GetComponent<UDEAbstractBullet>();
                     if (bullet != null && bullet.gameObject.activeSelf && bullet.OriginCharacter is UDEEnemy)
                     {
                         UDEBulletPool.Instance.ReleaseBullet(bullet);
-                        StartCoroutine(DamageSelf(1));
+                        if (activeShield != null)
+                        {
+                            Destroy(activeShield.gameObject);
+                            activeShield = null;
+                            MakeInvincibleForSeconds(0.75f, true);
+                        }
+                        else
+                            StartCoroutine(DamageSelf(1));
                     }
                 }
                 else if (collision.CompareTag("Laser"))
@@ -420,7 +647,14 @@ namespace SansyHuman.Player
                     UDELaser laser = collision.GetComponent<UDELaser>();
                     if (laser != null && laser.OriginCharacter is UDEEnemy)
                     {
-                        StartCoroutine(DamageSelf(1));
+                        if (activeShield != null)
+                        {
+                            Destroy(activeShield.gameObject);
+                            activeShield = null;
+                            MakeInvincibleForSeconds(0.75f, true);
+                        }
+                        else
+                            StartCoroutine(DamageSelf(1));
                     }
                 }
             }

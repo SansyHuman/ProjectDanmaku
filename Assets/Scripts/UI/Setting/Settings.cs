@@ -148,7 +148,7 @@ namespace SansyHuman.UI.Setting
 
             if (Input.GetKeyDown(KeyCode.Escape) || (pad != null && pad.buttonEast.wasPressedThisFrame))
             {
-                    SceneManager.UnloadSceneAsync("Settings");
+                SceneManager.UnloadSceneAsync("Settings");
             }
 
             if (Input.GetKeyDown(KeyCode.Alpha1) || (pad != null && pad.leftShoulder.wasPressedThisFrame))

@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 
 using SansyHuman.UDE.Management;
@@ -161,8 +162,6 @@ namespace SansyHuman.Player
                 subWeaponTransition = SubWeaponTransit();
                 StartCoroutine(subWeaponTransition);
             }
-
-            // TODO: return when paused or debug console enabled when using bomb.
         }
 
         protected override void OnPowerLevelChange()
