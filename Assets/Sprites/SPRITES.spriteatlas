@@ -42,7 +42,7 @@ SpriteAtlas:
     variantMultiplier: 1
     packables:
     - {fileID: 102900000, guid: b2ac079b5a184cc49b813e29947db7d3, type: 3}
-    totalSpriteSurfaceArea: 8211580
+    totalSpriteSurfaceArea: 8408188
     bindAsDefault: 1
   m_MasterAtlas: {fileID: 0}
   m_PackedSprites:
@@ -110,6 +110,8 @@ SpriteAtlas:
   - {fileID: 7821492154053994802, guid: 442bc2d1f61336743a91b856d43bfb28, type: 3}
   - {fileID: -590973730929603916, guid: 442bc2d1f61336743a91b856d43bfb28, type: 3}
   - {fileID: -6197083512870809906, guid: 442bc2d1f61336743a91b856d43bfb28, type: 3}
+  - {fileID: 4575108067758201249, guid: 0c3a4574ca551bd4889f50c2f56c0efd, type: 3}
+  - {fileID: 2510562375930393039, guid: 0c3a4574ca551bd4889f50c2f56c0efd, type: 3}
   - {fileID: 2091000698555963235, guid: 8f9cb3554ff14f44580c08dd04a53228, type: 3}
   - {fileID: -2997234418702163576, guid: 8f9cb3554ff14f44580c08dd04a53228, type: 3}
   - {fileID: -6378998066731508232, guid: 8f9cb3554ff14f44580c08dd04a53228, type: 3}
@@ -136,6 +138,7 @@ SpriteAtlas:
   - {fileID: 561990268528023394, guid: fd8bf5f6492b1b34e849046b16f96e9e, type: 3}
   - {fileID: -6999817840787243438, guid: fd8bf5f6492b1b34e849046b16f96e9e, type: 3}
   - {fileID: -5659487206245914620, guid: fd8bf5f6492b1b34e849046b16f96e9e, type: 3}
+  - {fileID: 21300000, guid: 1a5f5957ddf6222499cd52f9272d953f, type: 3}
   - {fileID: 4975741955291382485, guid: c7a4ea878c55364498b67480293c0a76, type: 3}
   - {fileID: -4750089258648431207, guid: c7a4ea878c55364498b67480293c0a76, type: 3}
   - {fileID: 21300000, guid: a78148d7c98b18b4e85185d613096dc1, type: 3}
@@ -238,6 +241,8 @@ SpriteAtlas:
   - Yuresia_Forward-x2_0
   - Yuresia_Forward-x2_3
   - Yuresia_Forward-x2_2
+  - SkillSlot
+  - SkillSlot_Mask
   - Yuresia_4
   - Yuresia_5
   - Yuresia_2
@@ -264,6 +269,7 @@ SpriteAtlas:
   - EnemyHealth_Bar
   - EnemyHealth_Background
   - EnemyHealth_Empty
+  - ShieldSkillImg
   - Mana_Empty
   - Mana_Bar
   - B2B2B2

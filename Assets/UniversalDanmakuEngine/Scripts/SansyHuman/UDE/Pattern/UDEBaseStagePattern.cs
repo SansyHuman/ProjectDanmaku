@@ -51,12 +51,13 @@ namespace SansyHuman.UDE.Pattern
         /// <summary>
         /// Starts the stage. If you have paused the pattern, it restarts from where you have paused.
         /// </summary>
-        /// <exception cref="SansyHuman.UDE.Exception.UDEPatternRunningException">Thrown when you try to start the pattern
-        /// that is already running on.</exception>
         public virtual void StartStage()
         {
             if (stagePatternOn)
-                throw new UDEPatternRunningException("The stage pattern is already running on.");
+            {
+                Debug.LogError("The stage pattern is already running on. StartStage is ignored.");
+                return;
+            }
 
             if (pattern == null)
                 pattern = StagePattern();
@@ -76,11 +77,14 @@ namespace SansyHuman.UDE.Pattern
         /// <summary>
         /// Resets the stage.
         /// </summary>
-        /// <exception cref="SansyHuman.UDE.Exception.UDEPatternRunningException">Thrown when the pattern is running on</exception>
         public virtual void ResetStage()
         {
             if (stagePatternOn)
-                throw new UDEPatternRunningException("The stage pattern is running on. Cannot reset the pattern.");
+            {
+                Debug.LogError("The stage pattern is running on. Cannot reset the pattern.");
+                return;
+            }
+
             pattern = StagePattern();
         }
 

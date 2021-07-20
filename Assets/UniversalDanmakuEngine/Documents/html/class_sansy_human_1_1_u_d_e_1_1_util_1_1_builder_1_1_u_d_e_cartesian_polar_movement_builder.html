@@ -9,10 +9,6 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
-<link href="navtree.css" rel="stylesheet" type="text/css"/>
-<script type="text/javascript" src="resize.js"></script>
-<script type="text/javascript" src="navtreedata.js"></script>
-<script type="text/javascript" src="navtree.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
@@ -26,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">UniversalDanmakuEngine
-   &#160;<span id="projectnumber">alpha 1.0.0</span>
+   &#160;<span id="projectnumber">alpha 1.3.0</span>
    </div>
   </td>
  </tr>
@@ -50,23 +46,6 @@ $(function() {
 });
 /* @license-end */</script>
 <div id="main-nav"></div>
-</div><!-- top -->
-<div id="side-nav" class="ui-resizable side-nav-resizable">
-  <div id="nav-tree">
-    <div id="nav-tree-contents">
-      <div id="nav-sync" class="sync"></div>
-    </div>
-  </div>
-  <div id="splitbar" style="-moz-user-select:none;" 
-       class="ui-resizable-handle">
-  </div>
-</div>
-<script type="text/javascript">
-/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
-$(document).ready(function(){initNavTree('class_sansy_human_1_1_u_d_e_1_1_util_1_1_builder_1_1_u_d_e_cartesian_polar_movement_builder.html',''); initResizable(); });
-/* @license-end */
-</script>
-<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -81,6 +60,11 @@ $(document).ready(function(){initNavTree('class_sansy_human_1_1_u_d_e_1_1_util_1
 </iframe>
 </div>
 
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="namespace_sansy_human.html">SansyHuman</a></li><li class="navelem"><a class="el" href="namespace_sansy_human_1_1_u_d_e.html">UDE</a></li><li class="navelem"><a class="el" href="namespace_sansy_human_1_1_u_d_e_1_1_util.html">Util</a></li><li class="navelem"><a class="el" href="namespace_sansy_human_1_1_u_d_e_1_1_util_1_1_builder.html">Builder</a></li><li class="navelem"><a class="el" href="class_sansy_human_1_1_u_d_e_1_1_util_1_1_builder_1_1_u_d_e_cartesian_polar_movement_builder.html">UDECartesianPolarMovementBuilder</a></li>  </ul>
+</div>
+</div><!-- top -->
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
@@ -254,9 +238,6 @@ Additional Inherited Members</h2></td></tr>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname"><a class="el" href="class_sansy_human_1_1_u_d_e_1_1_util_1_1_builder_1_1_u_d_e_cartesian_polar_movement_builder.html">UDECartesianPolarMovementBuilder</a> SansyHuman.UDE.Util.Builder.UDECartesianPolarMovementBuilder.Angle </td>
@@ -266,11 +247,6 @@ Additional Inherited Members</h2></td></tr>
           <td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
 <p>Sets the moving angle of the bullet. </p>
@@ -304,7 +280,7 @@ Additional Inherited Members</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -343,7 +319,7 @@ Additional Inherited Members</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -360,9 +336,6 @@ Additional Inherited Members</h2></td></tr>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname"><a class="el" href="class_sansy_human_1_1_u_d_e_1_1_util_1_1_builder_1_1_u_d_e_cartesian_polar_movement_builder.html">UDECartesianPolarMovementBuilder</a> SansyHuman.UDE.Util.Builder.UDECartesianPolarMovementBuilder.MaxSpeed </td>
@@ -372,11 +345,6 @@ Additional Inherited Members</h2></td></tr>
           <td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
 <p>Sets the maximum speed and sets the variable <code>limitSpeed</code> true. </p>
@@ -397,9 +365,6 @@ Additional Inherited Members</h2></td></tr>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname"><a class="el" href="class_sansy_human_1_1_u_d_e_1_1_util_1_1_builder_1_1_u_d_e_cartesian_polar_movement_builder.html">UDECartesianPolarMovementBuilder</a> SansyHuman.UDE.Util.Builder.UDECartesianPolarMovementBuilder.MinSpeed </td>
@@ -409,11 +374,6 @@ Additional Inherited Members</h2></td></tr>
           <td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
 <p>Sets the minimum speed and sets the variabld <code>limitSpeed</code> true. </p>
@@ -434,9 +394,6 @@ Additional Inherited Members</h2></td></tr>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname"><a class="el" href="class_sansy_human_1_1_u_d_e_1_1_util_1_1_builder_1_1_u_d_e_cartesian_polar_movement_builder.html">UDECartesianPolarMovementBuilder</a> SansyHuman.UDE.Util.Builder.UDECartesianPolarMovementBuilder.NormalAccel </td>
@@ -446,11 +403,6 @@ Additional Inherited Members</h2></td></tr>
           <td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
 <p>Sets the normal acceleration. </p>
@@ -471,9 +423,6 @@ Additional Inherited Members</h2></td></tr>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname"><a class="el" href="class_sansy_human_1_1_u_d_e_1_1_util_1_1_builder_1_1_u_d_e_cartesian_polar_movement_builder.html">UDECartesianPolarMovementBuilder</a> SansyHuman.UDE.Util.Builder.UDECartesianPolarMovementBuilder.NormalAccel </td>
@@ -483,11 +432,6 @@ Additional Inherited Members</h2></td></tr>
           <td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
 <p>Sets the normal acceleration. </p>
@@ -508,9 +452,6 @@ Additional Inherited Members</h2></td></tr>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname"><a class="el" href="class_sansy_human_1_1_u_d_e_1_1_util_1_1_builder_1_1_u_d_e_cartesian_polar_movement_builder.html">UDECartesianPolarMovementBuilder</a> SansyHuman.UDE.Util.Builder.UDECartesianPolarMovementBuilder.Speed </td>
@@ -520,11 +461,6 @@ Additional Inherited Members</h2></td></tr>
           <td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
 <p>Sets the speed of the bullet. </p>
@@ -545,9 +481,6 @@ Additional Inherited Members</h2></td></tr>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname"><a class="el" href="class_sansy_human_1_1_u_d_e_1_1_util_1_1_builder_1_1_u_d_e_cartesian_polar_movement_builder.html">UDECartesianPolarMovementBuilder</a> SansyHuman.UDE.Util.Builder.UDECartesianPolarMovementBuilder.TangentialAccel </td>
@@ -557,11 +490,6 @@ Additional Inherited Members</h2></td></tr>
           <td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
 <p>Sets the tangential acceleration. </p>
@@ -582,9 +510,6 @@ Additional Inherited Members</h2></td></tr>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname"><a class="el" href="class_sansy_human_1_1_u_d_e_1_1_util_1_1_builder_1_1_u_d_e_cartesian_polar_movement_builder.html">UDECartesianPolarMovementBuilder</a> SansyHuman.UDE.Util.Builder.UDECartesianPolarMovementBuilder.TangentialAccel </td>
@@ -594,11 +519,6 @@ Additional Inherited Members</h2></td></tr>
           <td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
 <p>Sets the tangential acceleration. </p>
@@ -615,18 +535,14 @@ Additional Inherited Members</h2></td></tr>
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li>D:/Unity Project/DanmakuShooting/Assets/UniversalDanmakuEngine/Scripts/SansyHuman/UDE/Util/Builder/<a class="el" href="_u_d_e_cartesian_polar_movement_builder_8cs_source.html">UDECartesianPolarMovementBuilder.cs</a></li>
+<li>Scripts/SansyHuman/UDE/Util/Builder/<a class="el" href="_u_d_e_cartesian_polar_movement_builder_8cs_source.html">UDECartesianPolarMovementBuilder.cs</a></li>
 </ul>
 </div><!-- contents -->
-</div><!-- doc-content -->
 <!-- start footer part -->
-<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
-  <ul>
-    <li class="navelem"><a class="el" href="namespace_sansy_human.html">SansyHuman</a></li><li class="navelem"><a class="el" href="namespace_sansy_human_1_1_u_d_e.html">UDE</a></li><li class="navelem"><a class="el" href="namespace_sansy_human_1_1_u_d_e_1_1_util.html">Util</a></li><li class="navelem"><a class="el" href="namespace_sansy_human_1_1_u_d_e_1_1_util_1_1_builder.html">Builder</a></li><li class="navelem"><a class="el" href="class_sansy_human_1_1_u_d_e_1_1_util_1_1_builder_1_1_u_d_e_cartesian_polar_movement_builder.html">UDECartesianPolarMovementBuilder</a></li>
-    <li class="footer">Generated by
-    <a href="http://www.doxygen.org/index.html">
-    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.18 </li>
-  </ul>
-</div>
+<hr class="footer"/><address class="footer"><small>
+Generated by &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.18
+</small></address>
 </body>
 </html>

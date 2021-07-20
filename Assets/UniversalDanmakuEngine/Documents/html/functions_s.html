@@ -9,10 +9,6 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
-<link href="navtree.css" rel="stylesheet" type="text/css"/>
-<script type="text/javascript" src="resize.js"></script>
-<script type="text/javascript" src="navtreedata.js"></script>
-<script type="text/javascript" src="navtree.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
@@ -26,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">UniversalDanmakuEngine
-   &#160;<span id="projectnumber">alpha 1.0.0</span>
+   &#160;<span id="projectnumber">alpha 1.3.0</span>
    </div>
   </td>
  </tr>
@@ -51,22 +47,6 @@ $(function() {
 /* @license-end */</script>
 <div id="main-nav"></div>
 </div><!-- top -->
-<div id="side-nav" class="ui-resizable side-nav-resizable">
-  <div id="nav-tree">
-    <div id="nav-tree-contents">
-      <div id="nav-sync" class="sync"></div>
-    </div>
-  </div>
-  <div id="splitbar" style="-moz-user-select:none;" 
-       class="ui-resizable-handle">
-  </div>
-</div>
-<script type="text/javascript">
-/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
-$(document).ready(function(){initNavTree('functions_s.html',''); initResizable(); });
-/* @license-end */
-</script>
-<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -135,11 +115,11 @@ $(document).ready(function(){initNavTree('functions_s.html',''); initResizable()
 <li>ShotPattern()
 : <a class="el" href="class_sansy_human_1_1_u_d_e_1_1_pattern_1_1_u_d_e_base_shot_pattern.html#a9c999bde70f08e9e332e248b899765a7">SansyHuman.UDE.Pattern.UDEBaseShotPattern</a>
 </li>
-<li>shotPatternOn
-: <a class="el" href="class_sansy_human_1_1_u_d_e_1_1_pattern_1_1_u_d_e_base_shot_pattern.html#a7e0507521e195aac22b677f7f986bf0c">SansyHuman.UDE.Pattern.UDEBaseShotPattern</a>
-</li>
 <li>ShotPatternOn
 : <a class="el" href="class_sansy_human_1_1_u_d_e_1_1_pattern_1_1_u_d_e_base_shot_pattern.html#af4f7a0aefef83f841a4dfec26b9ad7c6">SansyHuman.UDE.Pattern.UDEBaseShotPattern</a>
+</li>
+<li>shotPatternOn
+: <a class="el" href="class_sansy_human_1_1_u_d_e_1_1_pattern_1_1_u_d_e_base_shot_pattern.html#a7e0507521e195aac22b677f7f986bf0c">SansyHuman.UDE.Pattern.UDEBaseShotPattern</a>
 </li>
 <li>shotPatterns
 : <a class="el" href="class_sansy_human_1_1_u_d_e_1_1_object_1_1_u_d_e_enemy.html#a425ef08e027ab2bb0bb71fe6839ee506">SansyHuman.UDE.Object.UDEEnemy</a>
@@ -202,10 +182,18 @@ $(document).ready(function(){initNavTree('functions_s.html',''); initResizable()
 <li>startTime
 : <a class="el" href="struct_sansy_human_1_1_u_d_e_1_1_e_c_s_1_1_object_1_1_u_d_e_bullet_movement_e_c_s.html#ad39fbbae9abc7b73f1f641149495e472">SansyHuman.UDE.ECS.Object.UDEBulletMovementECS</a>
 , <a class="el" href="struct_sansy_human_1_1_u_d_e_1_1_object_1_1_u_d_e_bullet_movement.html#a477fa6f1861cdf62570faaf1ca9ffddd">SansyHuman.UDE.Object.UDEBulletMovement</a>
-, <a class="el" href="class_sansy_human_1_1_u_d_e_1_1_util_1_1_builder_1_1_u_d_e_common_bullet_movement_builder.html#ac10f18f4c8adb08ac7d2d9321487b90f">SansyHuman.UDE.Util.Builder.UDECommonBulletMovementBuilder&lt; T &gt;</a>
 </li>
 <li>StartTime()
 : <a class="el" href="class_sansy_human_1_1_u_d_e_1_1_util_1_1_builder_1_1_u_d_e_common_bullet_movement_builder.html#afe94ddbe649b7a7db6e63a84ee7c43d2">SansyHuman.UDE.Util.Builder.UDECommonBulletMovementBuilder&lt; T &gt;</a>
+</li>
+<li>startTime
+: <a class="el" href="class_sansy_human_1_1_u_d_e_1_1_util_1_1_builder_1_1_u_d_e_common_bullet_movement_builder.html#ac10f18f4c8adb08ac7d2d9321487b90f">SansyHuman.UDE.Util.Builder.UDECommonBulletMovementBuilder&lt; T &gt;</a>
+</li>
+<li>StopAllTransition()
+: <a class="el" href="class_sansy_human_1_1_u_d_e_1_1_util_1_1_u_d_e_transition_helper_1_1_u_d_e_transition.html#aa72c87444a28849f4b5705f6781140e1">SansyHuman.UDE.Util.UDETransitionHelper.UDETransition</a>
+</li>
+<li>StopAllTransitions()
+: <a class="el" href="class_sansy_human_1_1_u_d_e_1_1_util_1_1_u_d_e_transition_helper.html#a7b3a98e90b1923653be570ddb3c8fe19">SansyHuman.UDE.Util.UDETransitionHelper</a>
 </li>
 <li>StopSubpattern()
 : <a class="el" href="class_sansy_human_1_1_u_d_e_1_1_pattern_1_1_u_d_e_base_shot_pattern.html#a83d5d8fba3b425d754e902610c162a03">SansyHuman.UDE.Pattern.UDEBaseShotPattern</a>
@@ -219,26 +207,27 @@ $(document).ready(function(){initNavTree('functions_s.html',''); initResizable()
 <li>SummonEnemy()
 : <a class="el" href="class_sansy_human_1_1_u_d_e_1_1_pattern_1_1_u_d_e_base_stage_pattern.html#a8a1bfa06d0a4375b0e67b5a963a8b3eb">SansyHuman.UDE.Pattern.UDEBaseStagePattern</a>
 </li>
+<li>SummonTime
+: <a class="el" href="class_sansy_human_1_1_u_d_e_1_1_e_c_s_1_1_object_1_1_u_d_e_bullet_e_c_s.html#aca674e600627be0b0c19ac3e8e7d3c92">SansyHuman.UDE.ECS.Object.UDEBulletECS</a>
+</li>
 <li>summonTime
 : <a class="el" href="class_sansy_human_1_1_u_d_e_1_1_e_c_s_1_1_object_1_1_u_d_e_bullet_e_c_s.html#ac5ac2987101a34fa43ef202e6b39f001">SansyHuman.UDE.ECS.Object.UDEBulletECS</a>
 </li>
 <li>SummonTime
 : <a class="el" href="struct_sansy_human_1_1_u_d_e_1_1_e_c_s_1_1_object_1_1_u_d_e_bullet_movements.html#a89d40dd68dbbb953cbd2f43412bd8f63">SansyHuman.UDE.ECS.Object.UDEBulletMovements</a>
-, <a class="el" href="class_sansy_human_1_1_u_d_e_1_1_object_1_1_u_d_e_base_bullet.html#ad04226824afe74992bdedee2aee5a815">SansyHuman.UDE.Object.UDEBaseBullet</a>
+, <a class="el" href="class_sansy_human_1_1_u_d_e_1_1_object_1_1_u_d_e_abstract_bullet.html#af042ae6891f73fd06c75b70e02cfa6d2">SansyHuman.UDE.Object.UDEAbstractBullet</a>
+, <a class="el" href="class_sansy_human_1_1_u_d_e_1_1_object_1_1_u_d_e_base_bullet.html#adbc50b6c51bd0338b0eb0b09d7a91b09">SansyHuman.UDE.Object.UDEBaseBullet</a>
 </li>
 <li>SyncMovementSpeed()
 : <a class="el" href="class_sansy_human_1_1_u_d_e_1_1_object_1_1_u_d_e_base_bullet.html#a069d87d0dde019fee6e96260758c7db0">SansyHuman.UDE.Object.UDEBaseBullet</a>
 </li>
 </ul>
 </div><!-- contents -->
-</div><!-- doc-content -->
 <!-- start footer part -->
-<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
-  <ul>
-    <li class="footer">Generated by
-    <a href="http://www.doxygen.org/index.html">
-    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.18 </li>
-  </ul>
-</div>
+<hr class="footer"/><address class="footer"><small>
+Generated by &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.18
+</small></address>
 </body>
 </html>

@@ -5,14 +5,10 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.18"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>UniversalDanmakuEngine: D:/Unity Project/DanmakuShooting/Assets/UniversalDanmakuEngine/Scripts/SansyHuman/UDE/Object/Bullet/UDEBaseBullet.cs Source File</title>
+<title>UniversalDanmakuEngine: Scripts/SansyHuman/UDE/Object/Bullet/UDEBaseBullet.cs Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
-<link href="navtree.css" rel="stylesheet" type="text/css"/>
-<script type="text/javascript" src="resize.js"></script>
-<script type="text/javascript" src="navtreedata.js"></script>
-<script type="text/javascript" src="navtree.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
@@ -26,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">UniversalDanmakuEngine
-   &#160;<span id="projectnumber">alpha 1.0.0</span>
+   &#160;<span id="projectnumber">alpha 1.3.0</span>
    </div>
   </td>
  </tr>
@@ -50,23 +46,6 @@ $(function() {
 });
 /* @license-end */</script>
 <div id="main-nav"></div>
-</div><!-- top -->
-<div id="side-nav" class="ui-resizable side-nav-resizable">
-  <div id="nav-tree">
-    <div id="nav-tree-contents">
-      <div id="nav-sync" class="sync"></div>
-    </div>
-  </div>
-  <div id="splitbar" style="-moz-user-select:none;" 
-       class="ui-resizable-handle">
-  </div>
-</div>
-<script type="text/javascript">
-/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
-$(document).ready(function(){initNavTree('_u_d_e_base_bullet_8cs_source.html',''); initResizable(); });
-/* @license-end */
-</script>
-<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -81,6 +60,11 @@ $(document).ready(function(){initNavTree('_u_d_e_base_bullet_8cs_source.html',''
 </iframe>
 </div>
 
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_4edcbb236dfd51dd81727243a38df6a0.html">Scripts</a></li><li class="navelem"><a class="el" href="dir_2a60efbb97cf70dceb476c3440e17769.html">SansyHuman</a></li><li class="navelem"><a class="el" href="dir_fef0d2d57b49d859e64cf15fe8a03250.html">UDE</a></li><li class="navelem"><a class="el" href="dir_02f7d7ad7c78e58aceb402918dd02e83.html">Object</a></li><li class="navelem"><a class="el" href="dir_2c0f96b2a92a3680afea851b1756f661.html">Bullet</a></li>  </ul>
+</div>
+</div><!-- top -->
 <div class="header">
   <div class="headertitle">
 <div class="title">UDEBaseBullet.cs</div>  </div>
@@ -149,7 +133,7 @@ $(document).ready(function(){initNavTree('_u_d_e_base_bullet_8cs_source.html',''
 <div class="line"><a name="l00087"></a><span class="lineno"><a class="line" href="class_sansy_human_1_1_u_d_e_1_1_object_1_1_u_d_e_base_bullet.html#a73254b76c68200418fc2483c65de1edd">   87</a></span>&#160;        <span class="keyword">public</span> <span class="keywordtype">float</span> <a class="code" href="class_sansy_human_1_1_u_d_e_1_1_object_1_1_u_d_e_base_bullet.html#a73254b76c68200418fc2483c65de1edd">SqrMagnitudeFromOrigin</a> { <span class="keyword">get</span> =&gt; Vector2.SqrMagnitude(<a class="code" href="class_sansy_human_1_1_u_d_e_1_1_object_1_1_u_d_e_base_bullet.html#a53955f5b6bbdd3c870949da0dd4d400f">position</a> - <a class="code" href="class_sansy_human_1_1_u_d_e_1_1_object_1_1_u_d_e_base_bullet.html#a0294cc3cdcf6a068c4c47bd8c865775d">origin</a>); }</div>
 <div class="line"><a name="l00089"></a><span class="lineno"><a class="line" href="class_sansy_human_1_1_u_d_e_1_1_object_1_1_u_d_e_base_bullet.html#a2265c25154a5448a3b91b7a49fb49c22">   89</a></span>&#160;        <span class="keyword">public</span> ref <a class="code" href="struct_sansy_human_1_1_u_d_e_1_1_object_1_1_u_d_e_bullet_movement.html">UDEBulletMovement</a> <a class="code" href="class_sansy_human_1_1_u_d_e_1_1_object_1_1_u_d_e_base_bullet.html#a2265c25154a5448a3b91b7a49fb49c22">CurrentMovement</a> { <span class="keyword">get</span> =&gt; ref <a class="code" href="class_sansy_human_1_1_u_d_e_1_1_object_1_1_u_d_e_base_bullet.html#abe4bfd8fd696bdad2789b81f94609a50">movements</a>[<a class="code" href="class_sansy_human_1_1_u_d_e_1_1_object_1_1_u_d_e_base_bullet.html#aac14355e43206579c7d5351053563718">phase</a>]; }</div>
 <div class="line"><a name="l00091"></a><span class="lineno"><a class="line" href="class_sansy_human_1_1_u_d_e_1_1_object_1_1_u_d_e_base_bullet.html#a5ed193c7c7f1819f8de3030b5cb58b20">   91</a></span>&#160;        <span class="keyword">public</span> ref <a class="code" href="struct_sansy_human_1_1_u_d_e_1_1_object_1_1_u_d_e_bullet_movement.html">UDEBulletMovement</a> <span class="keyword">this</span>[<span class="keywordtype">int</span> <a class="code" href="class_sansy_human_1_1_u_d_e_1_1_object_1_1_u_d_e_base_bullet.html#aac14355e43206579c7d5351053563718">phase</a>] { <span class="keyword">get</span> =&gt; ref <a class="code" href="class_sansy_human_1_1_u_d_e_1_1_object_1_1_u_d_e_base_bullet.html#abe4bfd8fd696bdad2789b81f94609a50">movements</a>[<a class="code" href="class_sansy_human_1_1_u_d_e_1_1_object_1_1_u_d_e_base_bullet.html#aac14355e43206579c7d5351053563718">phase</a>]; }</div>
-<div class="line"><a name="l00093"></a><span class="lineno"><a class="line" href="class_sansy_human_1_1_u_d_e_1_1_object_1_1_u_d_e_base_bullet.html#ad04226824afe74992bdedee2aee5a815">   93</a></span>&#160;        <span class="keyword">public</span> <span class="keywordtype">float</span> <a class="code" href="class_sansy_human_1_1_u_d_e_1_1_object_1_1_u_d_e_base_bullet.html#ad04226824afe74992bdedee2aee5a815">SummonTime</a></div>
+<div class="line"><a name="l00093"></a><span class="lineno"><a class="line" href="class_sansy_human_1_1_u_d_e_1_1_object_1_1_u_d_e_base_bullet.html#adbc50b6c51bd0338b0eb0b09d7a91b09">   93</a></span>&#160;        <span class="keyword">public</span> <span class="keyword">override</span> <span class="keywordtype">float</span> <a class="code" href="class_sansy_human_1_1_u_d_e_1_1_object_1_1_u_d_e_base_bullet.html#adbc50b6c51bd0338b0eb0b09d7a91b09">SummonTime</a></div>
 <div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;        {</div>
 <div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;            <span class="keyword">get</span> =&gt; summonTime;</div>
 <div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;            <span class="keyword">set</span></div>
@@ -556,7 +540,6 @@ $(document).ready(function(){initNavTree('_u_d_e_base_bullet_8cs_source.html',''
 <div class="line"><a name="l00558"></a><span class="lineno">  558</span>&#160;    }</div>
 <div class="line"><a name="l00559"></a><span class="lineno">  559</span>&#160;}</div>
 </div><!-- fragment --></div><!-- contents -->
-</div><!-- doc-content -->
 <div class="ttc" id="aclass_sansy_human_1_1_u_d_e_1_1_object_1_1_u_d_e_abstract_bullet_html"><div class="ttname"><a href="class_sansy_human_1_1_u_d_e_1_1_object_1_1_u_d_e_abstract_bullet.html">SansyHuman.UDE.Object.UDEAbstractBullet</a></div><div class="ttdoc">Abstract class of all bullets.</div><div class="ttdef"><b>Definition:</b> <a href="_u_d_e_abstract_bullet_8cs_source.html#l00034">UDEAbstractBullet.cs:35</a></div></div>
 <div class="ttc" id="anamespace_sansy_human_1_1_u_d_e_1_1_pattern_html"><div class="ttname"><a href="namespace_sansy_human_1_1_u_d_e_1_1_pattern.html">SansyHuman.UDE.Pattern</a></div><div class="ttdoc">Namespace of scripts for patterns.</div><div class="ttdef"><b>Definition:</b> <a href="_namespace_info_8cs_source.html#l00061">NamespaceInfo.cs:61</a></div></div>
 <div class="ttc" id="aclass_sansy_human_1_1_u_d_e_1_1_object_1_1_u_d_e_base_character_html"><div class="ttname"><a href="class_sansy_human_1_1_u_d_e_1_1_object_1_1_u_d_e_base_character.html">SansyHuman.UDE.Object.UDEBaseCharacter</a></div><div class="ttdoc">Base class of all characters, such as enemies and player.</div><div class="ttdef"><b>Definition:</b> <a href="_u_d_e_base_character_8cs_source.html#l00031">UDEBaseCharacter.cs:32</a></div></div>
@@ -571,7 +554,7 @@ $(document).ready(function(){initNavTree('_u_d_e_base_bullet_8cs_source.html',''
 <div class="ttc" id="aclass_sansy_human_1_1_u_d_e_1_1_object_1_1_u_d_e_base_bullet_html_a506c0806660342fe2df9e1ce9ad37280"><div class="ttname"><a href="class_sansy_human_1_1_u_d_e_1_1_object_1_1_u_d_e_base_bullet.html#a506c0806660342fe2df9e1ce9ad37280">SansyHuman.UDE.Object.UDEBaseBullet.originChrTr</a></div><div class="ttdeci">Transform originChrTr</div><div class="ttdoc">Transform of the origin character. Only assigned internally.</div><div class="ttdef"><b>Definition:</b> <a href="_u_d_e_base_bullet_8cs_source.html#l00156">UDEBaseBullet.cs:156</a></div></div>
 <div class="ttc" id="aclass_sansy_human_1_1_u_d_e_1_1_object_1_1_u_d_e_base_bullet_html_a53955f5b6bbdd3c870949da0dd4d400f"><div class="ttname"><a href="class_sansy_human_1_1_u_d_e_1_1_object_1_1_u_d_e_base_bullet.html#a53955f5b6bbdd3c870949da0dd4d400f">SansyHuman.UDE.Object.UDEBaseBullet.position</a></div><div class="ttdeci">Vector2 position</div><div class="ttdoc">Current position of the bullet.</div><div class="ttdef"><b>Definition:</b> <a href="_u_d_e_base_bullet_8cs_source.html#l00051">UDEBaseBullet.cs:51</a></div></div>
 <div class="ttc" id="aclass_sansy_human_1_1_u_d_e_1_1_object_1_1_u_d_e_base_bullet_html_ac22d229da1cd347732115d955591522b"><div class="ttname"><a href="class_sansy_human_1_1_u_d_e_1_1_object_1_1_u_d_e_base_bullet.html#ac22d229da1cd347732115d955591522b">SansyHuman.UDE.Object.UDEBaseBullet.Phase</a></div><div class="ttdeci">int Phase</div><div class="ttdoc">Gets the current phase of the bullet.</div><div class="ttdef"><b>Definition:</b> <a href="_u_d_e_base_bullet_8cs_source.html#l00085">UDEBaseBullet.cs:85</a></div></div>
-<div class="ttc" id="aclass_sansy_human_1_1_u_d_e_1_1_management_1_1_u_d_e_time_html_af5f025b8c1ca637380d4f904050cae60"><div class="ttname"><a href="class_sansy_human_1_1_u_d_e_1_1_management_1_1_u_d_e_time.html#af5f025b8c1ca637380d4f904050cae60">SansyHuman.UDE.Management.UDETime.TimeScale</a></div><div class="ttdeci">TimeScale</div><div class="ttdoc">Enum of time scale. ENEMY Time scale of enemies.  PLAYER Time scale of players.  UNSCALED Unscaled ti...</div><div class="ttdef"><b>Definition:</b> <a href="_u_d_e_time_8cs_source.html#l00081">UDETime.cs:82</a></div></div>
+<div class="ttc" id="aclass_sansy_human_1_1_u_d_e_1_1_management_1_1_u_d_e_time_html_af5f025b8c1ca637380d4f904050cae60"><div class="ttname"><a href="class_sansy_human_1_1_u_d_e_1_1_management_1_1_u_d_e_time.html#af5f025b8c1ca637380d4f904050cae60">SansyHuman.UDE.Management.UDETime.TimeScale</a></div><div class="ttdeci">TimeScale</div><div class="ttdoc">Enum of time scale. ENEMY Time scale of enemies.  PLAYER Time scale of players.  UNSCALED Unscaled ti...</div><div class="ttdef"><b>Definition:</b> <a href="_u_d_e_time_8cs_source.html#l00084">UDETime.cs:85</a></div></div>
 <div class="ttc" id="aclass_sansy_human_1_1_u_d_e_1_1_object_1_1_u_d_e_base_bullet_html_a694ac8fcc976f6d1cbf92f790af975ac"><div class="ttname"><a href="class_sansy_human_1_1_u_d_e_1_1_object_1_1_u_d_e_base_bullet.html#a694ac8fcc976f6d1cbf92f790af975ac">SansyHuman.UDE.Object.UDEBaseBullet.MoveBullet</a></div><div class="ttdeci">virtual void MoveBullet(float deltaTime)</div><div class="ttdoc">Moves the bullet. Only called internally in SansyHuman.UDE.Management.UDEObjectManager</div><div class="ttdef"><b>Definition:</b> <a href="_u_d_e_base_bullet_8cs_source.html#l00257">UDEBaseBullet.cs:257</a></div></div>
 <div class="ttc" id="aclass_sansy_human_1_1_u_d_e_1_1_util_1_1_math_1_1_u_d_e_math_html_a938fa8c6d1ce05b2961427eaf1e9d031"><div class="ttname"><a href="class_sansy_human_1_1_u_d_e_1_1_util_1_1_math_1_1_u_d_e_math.html#a938fa8c6d1ce05b2961427eaf1e9d031">SansyHuman.UDE.Util.Math.UDEMath.Polar2Cartesian</a></div><div class="ttdeci">static void Polar2Cartesian(float r, float deg, out float x, out float y)</div><div class="ttdoc">Changes polar coordinates to cartesian coordinates.</div><div class="ttdef"><b>Definition:</b> <a href="_u_d_e_math_8cs_source.html#l00113">UDEMath.cs:113</a></div></div>
 <div class="ttc" id="aclass_sansy_human_1_1_u_d_e_1_1_object_1_1_u_d_e_base_bullet_html_a9e45f2b15bf18e76f26deeef5df35d2c"><div class="ttname"><a href="class_sansy_human_1_1_u_d_e_1_1_object_1_1_u_d_e_base_bullet.html#a9e45f2b15bf18e76f26deeef5df35d2c">SansyHuman.UDE.Object.UDEBaseBullet.ForceMoveToPhase</a></div><div class="ttdeci">void ForceMoveToPhase(int phase)</div><div class="ttdoc">Sets forcefully to the phase.</div><div class="ttdef"><b>Definition:</b> <a href="_u_d_e_base_bullet_8cs_source.html#l00527">UDEBaseBullet.cs:527</a></div></div>
@@ -598,6 +581,7 @@ $(document).ready(function(){initNavTree('_u_d_e_base_bullet_8cs_source.html',''
 <div class="ttc" id="aclass_sansy_human_1_1_u_d_e_1_1_object_1_1_u_d_e_base_bullet_html_a0294cc3cdcf6a068c4c47bd8c865775d"><div class="ttname"><a href="class_sansy_human_1_1_u_d_e_1_1_object_1_1_u_d_e_base_bullet.html#a0294cc3cdcf6a068c4c47bd8c865775d">SansyHuman.UDE.Object.UDEBaseBullet.origin</a></div><div class="ttdeci">Vector2 origin</div><div class="ttdoc">Origin of bullet's local coordinate.</div><div class="ttdef"><b>Definition:</b> <a href="_u_d_e_base_bullet_8cs_source.html#l00045">UDEBaseBullet.cs:45</a></div></div>
 <div class="ttc" id="aclass_sansy_human_1_1_u_d_e_1_1_object_1_1_u_d_e_enemy_html"><div class="ttname"><a href="class_sansy_human_1_1_u_d_e_1_1_object_1_1_u_d_e_enemy.html">SansyHuman.UDE.Object.UDEEnemy</a></div><div class="ttdoc">Class of all enemies.</div><div class="ttdef"><b>Definition:</b> <a href="_u_d_e_enemy_8cs_source.html#l00035">UDEEnemy.cs:36</a></div></div>
 <div class="ttc" id="aclass_sansy_human_1_1_u_d_e_1_1_object_1_1_u_d_e_abstract_bullet_html_ac1925d43a3515e09b35fe6e1501a1b77"><div class="ttname"><a href="class_sansy_human_1_1_u_d_e_1_1_object_1_1_u_d_e_abstract_bullet.html#ac1925d43a3515e09b35fe6e1501a1b77">SansyHuman.UDE.Object.UDEAbstractBullet.originCharacter</a></div><div class="ttdeci">UDEBaseCharacter originCharacter</div><div class="ttdoc">Character who shot the bullet.</div><div class="ttdef"><b>Definition:</b> <a href="_u_d_e_abstract_bullet_8cs_source.html#l00041">UDEAbstractBullet.cs:41</a></div></div>
+<div class="ttc" id="aclass_sansy_human_1_1_u_d_e_1_1_object_1_1_u_d_e_base_bullet_html_adbc50b6c51bd0338b0eb0b09d7a91b09"><div class="ttname"><a href="class_sansy_human_1_1_u_d_e_1_1_object_1_1_u_d_e_base_bullet.html#adbc50b6c51bd0338b0eb0b09d7a91b09">SansyHuman.UDE.Object.UDEBaseBullet.SummonTime</a></div><div class="ttdeci">override float SummonTime</div><div class="ttdef"><b>Definition:</b> <a href="_u_d_e_base_bullet_8cs_source.html#l00093">UDEBaseBullet.cs:94</a></div></div>
 <div class="ttc" id="anamespace_sansy_human_1_1_u_d_e_html"><div class="ttname"><a href="namespace_sansy_human_1_1_u_d_e.html">SansyHuman.UDE</a></div><div class="ttdoc">Namespace of all Universal Danmaku Engine scripts.</div><div class="ttdef"><b>Definition:</b> <a href="_namespace_info_8cs_source.html#l00029">NamespaceInfo.cs:30</a></div></div>
 <div class="ttc" id="anamespace_sansy_human_1_1_u_d_e_1_1_management_html"><div class="ttname"><a href="namespace_sansy_human_1_1_u_d_e_1_1_management.html">SansyHuman.UDE.Management</a></div><div class="ttdoc">Namespace of singleton classes that manage the game.</div><div class="ttdef"><b>Definition:</b> <a href="_namespace_info_8cs_source.html#l00053">NamespaceInfo.cs:53</a></div></div>
 <div class="ttc" id="astruct_sansy_human_1_1_u_d_e_1_1_object_1_1_u_d_e_bullet_movement_html_a8ab2c5b526be0c3bfcf6634be3f8b12c"><div class="ttname"><a href="struct_sansy_human_1_1_u_d_e_1_1_object_1_1_u_d_e_bullet_movement.html#a8ab2c5b526be0c3bfcf6634be3f8b12c">SansyHuman.UDE.Object.UDEBulletMovement.angularSpeed</a></div><div class="ttdeci">float angularSpeed</div><div class="ttdoc">The bullet's angular speed in polar coordinate system.</div><div class="ttdef"><b>Definition:</b> <a href="_u_d_e_bullet_movement_8cs_source.html#l00122">UDEBulletMovement.cs:122</a></div></div>
@@ -617,18 +601,14 @@ $(document).ready(function(){initNavTree('_u_d_e_base_bullet_8cs_source.html',''
 <div class="ttc" id="aclass_sansy_human_1_1_u_d_e_1_1_management_1_1_u_d_e_object_manager_html"><div class="ttname"><a href="class_sansy_human_1_1_u_d_e_1_1_management_1_1_u_d_e_object_manager.html">SansyHuman.UDE.Management.UDEObjectManager</a></div><div class="ttdoc">Manager class of in-game objects.</div><div class="ttdef"><b>Definition:</b> <a href="_u_d_e_object_manager_8cs_source.html#l00034">UDEObjectManager.cs:35</a></div></div>
 <div class="ttc" id="aclass_sansy_human_1_1_u_d_e_1_1_object_1_1_u_d_e_base_bullet_html_a0838fdff02a236dfba39b7deafd0d4c7"><div class="ttname"><a href="class_sansy_human_1_1_u_d_e_1_1_object_1_1_u_d_e_base_bullet.html#a0838fdff02a236dfba39b7deafd0d4c7">SansyHuman.UDE.Object.UDEBaseBullet.Awake</a></div><div class="ttdeci">override void Awake()</div><div class="ttdef"><b>Definition:</b> <a href="_u_d_e_base_bullet_8cs_source.html#l00113">UDEBaseBullet.cs:113</a></div></div>
 <div class="ttc" id="astruct_sansy_human_1_1_u_d_e_1_1_object_1_1_u_d_e_bullet_movement_html"><div class="ttname"><a href="struct_sansy_human_1_1_u_d_e_1_1_object_1_1_u_d_e_bullet_movement.html">SansyHuman.UDE.Object.UDEBulletMovement</a></div><div class="ttdoc">Struct to save the movement of the bullet. All time units are seconds and all angle units are degrees...</div><div class="ttdef"><b>Definition:</b> <a href="_u_d_e_bullet_movement_8cs_source.html#l00034">UDEBulletMovement.cs:35</a></div></div>
-<div class="ttc" id="aclass_sansy_human_1_1_u_d_e_1_1_object_1_1_u_d_e_base_bullet_html_ad04226824afe74992bdedee2aee5a815"><div class="ttname"><a href="class_sansy_human_1_1_u_d_e_1_1_object_1_1_u_d_e_base_bullet.html#ad04226824afe74992bdedee2aee5a815">SansyHuman.UDE.Object.UDEBaseBullet.SummonTime</a></div><div class="ttdeci">float SummonTime</div><div class="ttdoc">Sets the summon time(default value is 0.08 seconds.</div><div class="ttdef"><b>Definition:</b> <a href="_u_d_e_base_bullet_8cs_source.html#l00093">UDEBaseBullet.cs:94</a></div></div>
 <div class="ttc" id="anamespace_sansy_human_1_1_u_d_e_1_1_util_html"><div class="ttname"><a href="namespace_sansy_human_1_1_u_d_e_1_1_util.html">SansyHuman.UDE.Util</a></div><div class="ttdoc">Namespace of useful utilities.</div><div class="ttdef"><b>Definition:</b> <a href="_namespace_info_8cs_source.html#l00065">NamespaceInfo.cs:66</a></div></div>
 <div class="ttc" id="aclass_sansy_human_1_1_u_d_e_1_1_object_1_1_u_d_e_base_bullet_html_add910f7402dfa2839a66d315b8d46a7a"><div class="ttname"><a href="class_sansy_human_1_1_u_d_e_1_1_object_1_1_u_d_e_base_bullet.html#add910f7402dfa2839a66d315b8d46a7a">SansyHuman.UDE.Object.UDEBaseBullet.renderer</a></div><div class="ttdeci">new SpriteRenderer renderer</div><div class="ttdoc">SpriteRenderer of the bullet. Only assigned internally.</div><div class="ttdef"><b>Definition:</b> <a href="_u_d_e_base_bullet_8cs_source.html#l00107">UDEBaseBullet.cs:107</a></div></div>
 <div class="ttc" id="aclass_sansy_human_1_1_u_d_e_1_1_management_1_1_u_d_e_time_html"><div class="ttname"><a href="class_sansy_human_1_1_u_d_e_1_1_management_1_1_u_d_e_time.html">SansyHuman.UDE.Management.UDETime</a></div><div class="ttdoc">Class to control the time scale.</div><div class="ttdef"><b>Definition:</b> <a href="_u_d_e_time_8cs_source.html#l00031">UDETime.cs:32</a></div></div>
 <!-- start footer part -->
-<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
-  <ul>
-    <li class="navelem"><a class="el" href="dir_84bbf7b3c7f28a5a18725745e1505219.html">Assets</a></li><li class="navelem"><a class="el" href="dir_5e4c9ed857167914616de4032aae9d62.html">UniversalDanmakuEngine</a></li><li class="navelem"><a class="el" href="dir_9a0faeee6303485141726c039c13b4ab.html">Scripts</a></li><li class="navelem"><a class="el" href="dir_6a19d3aeb61939b4d4ceba150404b3de.html">SansyHuman</a></li><li class="navelem"><a class="el" href="dir_895bfd65c2e0036c94be285a47cef107.html">UDE</a></li><li class="navelem"><a class="el" href="dir_4d1efe2522e2da674f83969a4365ba8a.html">Object</a></li><li class="navelem"><a class="el" href="dir_40e618ebf7a1f2526c47186941b675eb.html">Bullet</a></li><li class="navelem"><a class="el" href="_u_d_e_base_bullet_8cs.html">UDEBaseBullet.cs</a></li>
-    <li class="footer">Generated by
-    <a href="http://www.doxygen.org/index.html">
-    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.18 </li>
-  </ul>
-</div>
+<hr class="footer"/><address class="footer"><small>
+Generated by &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.18
+</small></address>
 </body>
 </html>

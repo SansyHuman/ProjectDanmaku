@@ -234,7 +234,6 @@ namespace SansyHuman.UDE.ECS.Object
         /// <param name="movement">Movement of the bullet.</param>
         /// <param name="setOriginToCharacter">Whether set the origin in polar coordinate to origin character's position</param>
         /// <param name="loop">Whether turn back to first movement when the last movement end</param>
-        /// <exception cref="SansyHuman.UDE.Exception.UDEInitializationExcention">Thrown when you try to initialize bullets that already initialized</exception>
         public override void Initialize(Vector2 initPos, Vector2 origin, float initRotation, UDEBaseCharacter originCharacter, UDEBaseShotPattern originShotPattern, in UDEBulletMovement movement, bool setOriginToCharacter = false, bool loop = false)
         {
             Initialize(initPos, origin, initRotation, originCharacter, originShotPattern, new UDEBulletMovement[] { movement }, setOriginToCharacter, loop);

@@ -9,10 +9,6 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
-<link href="navtree.css" rel="stylesheet" type="text/css"/>
-<script type="text/javascript" src="resize.js"></script>
-<script type="text/javascript" src="navtreedata.js"></script>
-<script type="text/javascript" src="navtree.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
@@ -26,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">UniversalDanmakuEngine
-   &#160;<span id="projectnumber">alpha 1.0.0</span>
+   &#160;<span id="projectnumber">alpha 1.3.0</span>
    </div>
   </td>
  </tr>
@@ -50,23 +46,6 @@ $(function() {
 });
 /* @license-end */</script>
 <div id="main-nav"></div>
-</div><!-- top -->
-<div id="side-nav" class="ui-resizable side-nav-resizable">
-  <div id="nav-tree">
-    <div id="nav-tree-contents">
-      <div id="nav-sync" class="sync"></div>
-    </div>
-  </div>
-  <div id="splitbar" style="-moz-user-select:none;" 
-       class="ui-resizable-handle">
-  </div>
-</div>
-<script type="text/javascript">
-/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
-$(document).ready(function(){initNavTree('struct_sansy_human_1_1_u_d_e_1_1_util_1_1_math_1_1_u_d_e_math_1_1_cartesian_coord.html',''); initResizable(); });
-/* @license-end */
-</script>
-<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -81,6 +60,11 @@ $(document).ready(function(){initNavTree('struct_sansy_human_1_1_u_d_e_1_1_util_
 </iframe>
 </div>
 
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="namespace_sansy_human.html">SansyHuman</a></li><li class="navelem"><a class="el" href="namespace_sansy_human_1_1_u_d_e.html">UDE</a></li><li class="navelem"><a class="el" href="namespace_sansy_human_1_1_u_d_e_1_1_util.html">Util</a></li><li class="navelem"><a class="el" href="namespace_sansy_human_1_1_u_d_e_1_1_util_1_1_math.html">Math</a></li><li class="navelem"><a class="el" href="class_sansy_human_1_1_u_d_e_1_1_util_1_1_math_1_1_u_d_e_math.html">UDEMath</a></li><li class="navelem"><a class="el" href="struct_sansy_human_1_1_u_d_e_1_1_util_1_1_math_1_1_u_d_e_math_1_1_cartesian_coord.html">CartesianCoord</a></li>  </ul>
+</div>
+</div><!-- top -->
 <div class="header">
   <div class="headertitle">
 <div class="title">SansyHuman.UDE.Util.Math.UDEMath.CartesianCoord Member List</div>  </div>
@@ -89,38 +73,35 @@ $(document).ready(function(){initNavTree('struct_sansy_human_1_1_u_d_e_1_1_util_
 
 <p>This is the complete list of members for <a class="el" href="struct_sansy_human_1_1_u_d_e_1_1_util_1_1_math_1_1_u_d_e_math_1_1_cartesian_coord.html">SansyHuman.UDE.Util.Math.UDEMath.CartesianCoord</a>, including all inherited members.</p>
 <table class="directory">
-  <tr class="even"><td class="entry"><a class="el" href="struct_sansy_human_1_1_u_d_e_1_1_util_1_1_math_1_1_u_d_e_math_1_1_cartesian_coord.html#a086f31e06da13fe272b6d1a1b671c92d">CartesianCoord</a>(float x, float y)</td><td class="entry"><a class="el" href="struct_sansy_human_1_1_u_d_e_1_1_util_1_1_math_1_1_u_d_e_math_1_1_cartesian_coord.html">SansyHuman.UDE.Util.Math.UDEMath.CartesianCoord</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr><td class="entry"><a class="el" href="struct_sansy_human_1_1_u_d_e_1_1_util_1_1_math_1_1_u_d_e_math_1_1_cartesian_coord.html#ae1a85e61571a126e942aaab74b0990a4">CartesianCoord</a>(CartesianCoord coord)</td><td class="entry"><a class="el" href="struct_sansy_human_1_1_u_d_e_1_1_util_1_1_math_1_1_u_d_e_math_1_1_cartesian_coord.html">SansyHuman.UDE.Util.Math.UDEMath.CartesianCoord</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="struct_sansy_human_1_1_u_d_e_1_1_util_1_1_math_1_1_u_d_e_math_1_1_cartesian_coord.html#a3482f388f0ce48fd835eee718154c8c8">CartesianCoord</a>(UnityEngine.Vector2 vector)</td><td class="entry"><a class="el" href="struct_sansy_human_1_1_u_d_e_1_1_util_1_1_math_1_1_u_d_e_math_1_1_cartesian_coord.html">SansyHuman.UDE.Util.Math.UDEMath.CartesianCoord</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr><td class="entry"><a class="el" href="struct_sansy_human_1_1_u_d_e_1_1_util_1_1_math_1_1_u_d_e_math_1_1_cartesian_coord.html#a0715c9421878a3341580fd65e22c3f7a">Deconstruct</a>(out float x, out float y)</td><td class="entry"><a class="el" href="struct_sansy_human_1_1_u_d_e_1_1_util_1_1_math_1_1_u_d_e_math_1_1_cartesian_coord.html">SansyHuman.UDE.Util.Math.UDEMath.CartesianCoord</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="struct_sansy_human_1_1_u_d_e_1_1_util_1_1_math_1_1_u_d_e_math_1_1_cartesian_coord.html#a30ab606a75d90b5919bfa2adbaa75358">Equals</a>(object obj)</td><td class="entry"><a class="el" href="struct_sansy_human_1_1_u_d_e_1_1_util_1_1_math_1_1_u_d_e_math_1_1_cartesian_coord.html">SansyHuman.UDE.Util.Math.UDEMath.CartesianCoord</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr><td class="entry"><a class="el" href="struct_sansy_human_1_1_u_d_e_1_1_util_1_1_math_1_1_u_d_e_math_1_1_cartesian_coord.html#a596634103b8b056ac8575838681033a2">Equals</a>(CartesianCoord other)</td><td class="entry"><a class="el" href="struct_sansy_human_1_1_u_d_e_1_1_util_1_1_math_1_1_u_d_e_math_1_1_cartesian_coord.html">SansyHuman.UDE.Util.Math.UDEMath.CartesianCoord</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="struct_sansy_human_1_1_u_d_e_1_1_util_1_1_math_1_1_u_d_e_math_1_1_cartesian_coord.html#a343fc8f388131c36970b2867a2b627f4">GetHashCode</a>()</td><td class="entry"><a class="el" href="struct_sansy_human_1_1_u_d_e_1_1_util_1_1_math_1_1_u_d_e_math_1_1_cartesian_coord.html">SansyHuman.UDE.Util.Math.UDEMath.CartesianCoord</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="struct_sansy_human_1_1_u_d_e_1_1_util_1_1_math_1_1_u_d_e_math_1_1_cartesian_coord.html#a086f31e06da13fe272b6d1a1b671c92d">CartesianCoord</a>(float x, float y)</td><td class="entry"><a class="el" href="struct_sansy_human_1_1_u_d_e_1_1_util_1_1_math_1_1_u_d_e_math_1_1_cartesian_coord.html">SansyHuman.UDE.Util.Math.UDEMath.CartesianCoord</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="struct_sansy_human_1_1_u_d_e_1_1_util_1_1_math_1_1_u_d_e_math_1_1_cartesian_coord.html#ae1a85e61571a126e942aaab74b0990a4">CartesianCoord</a>(CartesianCoord coord)</td><td class="entry"><a class="el" href="struct_sansy_human_1_1_u_d_e_1_1_util_1_1_math_1_1_u_d_e_math_1_1_cartesian_coord.html">SansyHuman.UDE.Util.Math.UDEMath.CartesianCoord</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="struct_sansy_human_1_1_u_d_e_1_1_util_1_1_math_1_1_u_d_e_math_1_1_cartesian_coord.html#a3482f388f0ce48fd835eee718154c8c8">CartesianCoord</a>(UnityEngine.Vector2 vector)</td><td class="entry"><a class="el" href="struct_sansy_human_1_1_u_d_e_1_1_util_1_1_math_1_1_u_d_e_math_1_1_cartesian_coord.html">SansyHuman.UDE.Util.Math.UDEMath.CartesianCoord</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="struct_sansy_human_1_1_u_d_e_1_1_util_1_1_math_1_1_u_d_e_math_1_1_cartesian_coord.html#a0715c9421878a3341580fd65e22c3f7a">Deconstruct</a>(out float x, out float y)</td><td class="entry"><a class="el" href="struct_sansy_human_1_1_u_d_e_1_1_util_1_1_math_1_1_u_d_e_math_1_1_cartesian_coord.html">SansyHuman.UDE.Util.Math.UDEMath.CartesianCoord</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="struct_sansy_human_1_1_u_d_e_1_1_util_1_1_math_1_1_u_d_e_math_1_1_cartesian_coord.html#a30ab606a75d90b5919bfa2adbaa75358">Equals</a>(object obj)</td><td class="entry"><a class="el" href="struct_sansy_human_1_1_u_d_e_1_1_util_1_1_math_1_1_u_d_e_math_1_1_cartesian_coord.html">SansyHuman.UDE.Util.Math.UDEMath.CartesianCoord</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="struct_sansy_human_1_1_u_d_e_1_1_util_1_1_math_1_1_u_d_e_math_1_1_cartesian_coord.html#a596634103b8b056ac8575838681033a2">Equals</a>(CartesianCoord other)</td><td class="entry"><a class="el" href="struct_sansy_human_1_1_u_d_e_1_1_util_1_1_math_1_1_u_d_e_math_1_1_cartesian_coord.html">SansyHuman.UDE.Util.Math.UDEMath.CartesianCoord</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="struct_sansy_human_1_1_u_d_e_1_1_util_1_1_math_1_1_u_d_e_math_1_1_cartesian_coord.html#a343fc8f388131c36970b2867a2b627f4">GetHashCode</a>()</td><td class="entry"><a class="el" href="struct_sansy_human_1_1_u_d_e_1_1_util_1_1_math_1_1_u_d_e_math_1_1_cartesian_coord.html">SansyHuman.UDE.Util.Math.UDEMath.CartesianCoord</a></td><td class="entry"></td></tr>
   <tr><td class="entry"><a class="el" href="struct_sansy_human_1_1_u_d_e_1_1_util_1_1_math_1_1_u_d_e_math_1_1_cartesian_coord.html#a2182085390b207a4f20ad250ad4cca50">Magnitude</a></td><td class="entry"><a class="el" href="struct_sansy_human_1_1_u_d_e_1_1_util_1_1_math_1_1_u_d_e_math_1_1_cartesian_coord.html">SansyHuman.UDE.Util.Math.UDEMath.CartesianCoord</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="struct_sansy_human_1_1_u_d_e_1_1_util_1_1_math_1_1_u_d_e_math_1_1_cartesian_coord.html#ae978ed673dc2ea70de04563e1cfd9dcb">operator</a>(float x, float y)(CartesianCoord c)</td><td class="entry"><a class="el" href="struct_sansy_human_1_1_u_d_e_1_1_util_1_1_math_1_1_u_d_e_math_1_1_cartesian_coord.html">SansyHuman.UDE.Util.Math.UDEMath.CartesianCoord</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">static</span></td></tr>
-  <tr><td class="entry"><a class="el" href="struct_sansy_human_1_1_u_d_e_1_1_util_1_1_math_1_1_u_d_e_math_1_1_cartesian_coord.html#a391d016403d88bf41388dbf00b4e0a65">operator PolarCoord</a>(CartesianCoord c)</td><td class="entry"><a class="el" href="struct_sansy_human_1_1_u_d_e_1_1_util_1_1_math_1_1_u_d_e_math_1_1_cartesian_coord.html">SansyHuman.UDE.Util.Math.UDEMath.CartesianCoord</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">explicit</span><span class="mlabel">static</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="struct_sansy_human_1_1_u_d_e_1_1_util_1_1_math_1_1_u_d_e_math_1_1_cartesian_coord.html#a7f7b13812897721545c4b2217a4338b7">operator UnityEngine.Vector2</a>(CartesianCoord c)</td><td class="entry"><a class="el" href="struct_sansy_human_1_1_u_d_e_1_1_util_1_1_math_1_1_u_d_e_math_1_1_cartesian_coord.html">SansyHuman.UDE.Util.Math.UDEMath.CartesianCoord</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">static</span></td></tr>
-  <tr><td class="entry"><a class="el" href="struct_sansy_human_1_1_u_d_e_1_1_util_1_1_math_1_1_u_d_e_math_1_1_cartesian_coord.html#ab93a73f83b0bf79fe24a034008c3af8e">operator!=</a>(CartesianCoord c1, CartesianCoord c2)</td><td class="entry"><a class="el" href="struct_sansy_human_1_1_u_d_e_1_1_util_1_1_math_1_1_u_d_e_math_1_1_cartesian_coord.html">SansyHuman.UDE.Util.Math.UDEMath.CartesianCoord</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">static</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="struct_sansy_human_1_1_u_d_e_1_1_util_1_1_math_1_1_u_d_e_math_1_1_cartesian_coord.html#aa1e1b0f065c367819f75b6aa746ce574">operator*</a>(float multiplier, CartesianCoord c)</td><td class="entry"><a class="el" href="struct_sansy_human_1_1_u_d_e_1_1_util_1_1_math_1_1_u_d_e_math_1_1_cartesian_coord.html">SansyHuman.UDE.Util.Math.UDEMath.CartesianCoord</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">static</span></td></tr>
-  <tr><td class="entry"><a class="el" href="struct_sansy_human_1_1_u_d_e_1_1_util_1_1_math_1_1_u_d_e_math_1_1_cartesian_coord.html#aede44f7d734c5fa845f249a92cc55efd">operator*</a>(CartesianCoord c, float multiplier)</td><td class="entry"><a class="el" href="struct_sansy_human_1_1_u_d_e_1_1_util_1_1_math_1_1_u_d_e_math_1_1_cartesian_coord.html">SansyHuman.UDE.Util.Math.UDEMath.CartesianCoord</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">static</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="struct_sansy_human_1_1_u_d_e_1_1_util_1_1_math_1_1_u_d_e_math_1_1_cartesian_coord.html#ad908307a2502b3b9bcf1f2d72b77320c">operator+</a>(CartesianCoord c1, CartesianCoord c2)</td><td class="entry"><a class="el" href="struct_sansy_human_1_1_u_d_e_1_1_util_1_1_math_1_1_u_d_e_math_1_1_cartesian_coord.html">SansyHuman.UDE.Util.Math.UDEMath.CartesianCoord</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">static</span></td></tr>
-  <tr><td class="entry"><a class="el" href="struct_sansy_human_1_1_u_d_e_1_1_util_1_1_math_1_1_u_d_e_math_1_1_cartesian_coord.html#a458482b067ef140367b0546b34732f7e">operator+</a>(CartesianCoord c)</td><td class="entry"><a class="el" href="struct_sansy_human_1_1_u_d_e_1_1_util_1_1_math_1_1_u_d_e_math_1_1_cartesian_coord.html">SansyHuman.UDE.Util.Math.UDEMath.CartesianCoord</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">static</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="struct_sansy_human_1_1_u_d_e_1_1_util_1_1_math_1_1_u_d_e_math_1_1_cartesian_coord.html#a6e75e1060019f53ddaa3b0be6f530b15">operator-</a>(CartesianCoord c1, CartesianCoord c2)</td><td class="entry"><a class="el" href="struct_sansy_human_1_1_u_d_e_1_1_util_1_1_math_1_1_u_d_e_math_1_1_cartesian_coord.html">SansyHuman.UDE.Util.Math.UDEMath.CartesianCoord</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">static</span></td></tr>
-  <tr><td class="entry"><a class="el" href="struct_sansy_human_1_1_u_d_e_1_1_util_1_1_math_1_1_u_d_e_math_1_1_cartesian_coord.html#ae15574020a05871ba553e067abc4215f">operator-</a>(CartesianCoord c)</td><td class="entry"><a class="el" href="struct_sansy_human_1_1_u_d_e_1_1_util_1_1_math_1_1_u_d_e_math_1_1_cartesian_coord.html">SansyHuman.UDE.Util.Math.UDEMath.CartesianCoord</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">static</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="struct_sansy_human_1_1_u_d_e_1_1_util_1_1_math_1_1_u_d_e_math_1_1_cartesian_coord.html#a15588ea25d5dceef0928ed68f9f3d759">operator==</a>(CartesianCoord c1, CartesianCoord c2)</td><td class="entry"><a class="el" href="struct_sansy_human_1_1_u_d_e_1_1_util_1_1_math_1_1_u_d_e_math_1_1_cartesian_coord.html">SansyHuman.UDE.Util.Math.UDEMath.CartesianCoord</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">static</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="struct_sansy_human_1_1_u_d_e_1_1_util_1_1_math_1_1_u_d_e_math_1_1_cartesian_coord.html#ae978ed673dc2ea70de04563e1cfd9dcb">operator</a>(float x, float y)(CartesianCoord c)</td><td class="entry"><a class="el" href="struct_sansy_human_1_1_u_d_e_1_1_util_1_1_math_1_1_u_d_e_math_1_1_cartesian_coord.html">SansyHuman.UDE.Util.Math.UDEMath.CartesianCoord</a></td><td class="entry"><span class="mlabel">static</span></td></tr>
+  <tr><td class="entry"><a class="el" href="struct_sansy_human_1_1_u_d_e_1_1_util_1_1_math_1_1_u_d_e_math_1_1_cartesian_coord.html#a391d016403d88bf41388dbf00b4e0a65">operator PolarCoord</a>(CartesianCoord c)</td><td class="entry"><a class="el" href="struct_sansy_human_1_1_u_d_e_1_1_util_1_1_math_1_1_u_d_e_math_1_1_cartesian_coord.html">SansyHuman.UDE.Util.Math.UDEMath.CartesianCoord</a></td><td class="entry"><span class="mlabel">explicit</span><span class="mlabel">static</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="struct_sansy_human_1_1_u_d_e_1_1_util_1_1_math_1_1_u_d_e_math_1_1_cartesian_coord.html#a7f7b13812897721545c4b2217a4338b7">operator UnityEngine.Vector2</a>(CartesianCoord c)</td><td class="entry"><a class="el" href="struct_sansy_human_1_1_u_d_e_1_1_util_1_1_math_1_1_u_d_e_math_1_1_cartesian_coord.html">SansyHuman.UDE.Util.Math.UDEMath.CartesianCoord</a></td><td class="entry"><span class="mlabel">static</span></td></tr>
+  <tr><td class="entry"><a class="el" href="struct_sansy_human_1_1_u_d_e_1_1_util_1_1_math_1_1_u_d_e_math_1_1_cartesian_coord.html#ab93a73f83b0bf79fe24a034008c3af8e">operator!=</a>(CartesianCoord c1, CartesianCoord c2)</td><td class="entry"><a class="el" href="struct_sansy_human_1_1_u_d_e_1_1_util_1_1_math_1_1_u_d_e_math_1_1_cartesian_coord.html">SansyHuman.UDE.Util.Math.UDEMath.CartesianCoord</a></td><td class="entry"><span class="mlabel">static</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="struct_sansy_human_1_1_u_d_e_1_1_util_1_1_math_1_1_u_d_e_math_1_1_cartesian_coord.html#aa1e1b0f065c367819f75b6aa746ce574">operator*</a>(float multiplier, CartesianCoord c)</td><td class="entry"><a class="el" href="struct_sansy_human_1_1_u_d_e_1_1_util_1_1_math_1_1_u_d_e_math_1_1_cartesian_coord.html">SansyHuman.UDE.Util.Math.UDEMath.CartesianCoord</a></td><td class="entry"><span class="mlabel">static</span></td></tr>
+  <tr><td class="entry"><a class="el" href="struct_sansy_human_1_1_u_d_e_1_1_util_1_1_math_1_1_u_d_e_math_1_1_cartesian_coord.html#aede44f7d734c5fa845f249a92cc55efd">operator*</a>(CartesianCoord c, float multiplier)</td><td class="entry"><a class="el" href="struct_sansy_human_1_1_u_d_e_1_1_util_1_1_math_1_1_u_d_e_math_1_1_cartesian_coord.html">SansyHuman.UDE.Util.Math.UDEMath.CartesianCoord</a></td><td class="entry"><span class="mlabel">static</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="struct_sansy_human_1_1_u_d_e_1_1_util_1_1_math_1_1_u_d_e_math_1_1_cartesian_coord.html#ad908307a2502b3b9bcf1f2d72b77320c">operator+</a>(CartesianCoord c1, CartesianCoord c2)</td><td class="entry"><a class="el" href="struct_sansy_human_1_1_u_d_e_1_1_util_1_1_math_1_1_u_d_e_math_1_1_cartesian_coord.html">SansyHuman.UDE.Util.Math.UDEMath.CartesianCoord</a></td><td class="entry"><span class="mlabel">static</span></td></tr>
+  <tr><td class="entry"><a class="el" href="struct_sansy_human_1_1_u_d_e_1_1_util_1_1_math_1_1_u_d_e_math_1_1_cartesian_coord.html#a458482b067ef140367b0546b34732f7e">operator+</a>(CartesianCoord c)</td><td class="entry"><a class="el" href="struct_sansy_human_1_1_u_d_e_1_1_util_1_1_math_1_1_u_d_e_math_1_1_cartesian_coord.html">SansyHuman.UDE.Util.Math.UDEMath.CartesianCoord</a></td><td class="entry"><span class="mlabel">static</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="struct_sansy_human_1_1_u_d_e_1_1_util_1_1_math_1_1_u_d_e_math_1_1_cartesian_coord.html#a6e75e1060019f53ddaa3b0be6f530b15">operator-</a>(CartesianCoord c1, CartesianCoord c2)</td><td class="entry"><a class="el" href="struct_sansy_human_1_1_u_d_e_1_1_util_1_1_math_1_1_u_d_e_math_1_1_cartesian_coord.html">SansyHuman.UDE.Util.Math.UDEMath.CartesianCoord</a></td><td class="entry"><span class="mlabel">static</span></td></tr>
+  <tr><td class="entry"><a class="el" href="struct_sansy_human_1_1_u_d_e_1_1_util_1_1_math_1_1_u_d_e_math_1_1_cartesian_coord.html#ae15574020a05871ba553e067abc4215f">operator-</a>(CartesianCoord c)</td><td class="entry"><a class="el" href="struct_sansy_human_1_1_u_d_e_1_1_util_1_1_math_1_1_u_d_e_math_1_1_cartesian_coord.html">SansyHuman.UDE.Util.Math.UDEMath.CartesianCoord</a></td><td class="entry"><span class="mlabel">static</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="struct_sansy_human_1_1_u_d_e_1_1_util_1_1_math_1_1_u_d_e_math_1_1_cartesian_coord.html#a15588ea25d5dceef0928ed68f9f3d759">operator==</a>(CartesianCoord c1, CartesianCoord c2)</td><td class="entry"><a class="el" href="struct_sansy_human_1_1_u_d_e_1_1_util_1_1_math_1_1_u_d_e_math_1_1_cartesian_coord.html">SansyHuman.UDE.Util.Math.UDEMath.CartesianCoord</a></td><td class="entry"><span class="mlabel">static</span></td></tr>
   <tr><td class="entry"><a class="el" href="struct_sansy_human_1_1_u_d_e_1_1_util_1_1_math_1_1_u_d_e_math_1_1_cartesian_coord.html#aa1fc5e1f1de537d1e359d8d3e7528d44">SquareMagnitude</a></td><td class="entry"><a class="el" href="struct_sansy_human_1_1_u_d_e_1_1_util_1_1_math_1_1_u_d_e_math_1_1_cartesian_coord.html">SansyHuman.UDE.Util.Math.UDEMath.CartesianCoord</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="struct_sansy_human_1_1_u_d_e_1_1_util_1_1_math_1_1_u_d_e_math_1_1_cartesian_coord.html#aa3f8b14dc8cc3955a9a129c856956824">ToVector2</a>()</td><td class="entry"><a class="el" href="struct_sansy_human_1_1_u_d_e_1_1_util_1_1_math_1_1_u_d_e_math_1_1_cartesian_coord.html">SansyHuman.UDE.Util.Math.UDEMath.CartesianCoord</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="struct_sansy_human_1_1_u_d_e_1_1_util_1_1_math_1_1_u_d_e_math_1_1_cartesian_coord.html#aa3f8b14dc8cc3955a9a129c856956824">ToVector2</a>()</td><td class="entry"><a class="el" href="struct_sansy_human_1_1_u_d_e_1_1_util_1_1_math_1_1_u_d_e_math_1_1_cartesian_coord.html">SansyHuman.UDE.Util.Math.UDEMath.CartesianCoord</a></td><td class="entry"></td></tr>
   <tr><td class="entry"><a class="el" href="struct_sansy_human_1_1_u_d_e_1_1_util_1_1_math_1_1_u_d_e_math_1_1_cartesian_coord.html#ad82e6dd3c5b53021c64dd09383c9716f">x</a></td><td class="entry"><a class="el" href="struct_sansy_human_1_1_u_d_e_1_1_util_1_1_math_1_1_u_d_e_math_1_1_cartesian_coord.html">SansyHuman.UDE.Util.Math.UDEMath.CartesianCoord</a></td><td class="entry"></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="struct_sansy_human_1_1_u_d_e_1_1_util_1_1_math_1_1_u_d_e_math_1_1_cartesian_coord.html#aa67bb5ee427a156fc024d8b2951fe8e3">y</a></td><td class="entry"><a class="el" href="struct_sansy_human_1_1_u_d_e_1_1_util_1_1_math_1_1_u_d_e_math_1_1_cartesian_coord.html">SansyHuman.UDE.Util.Math.UDEMath.CartesianCoord</a></td><td class="entry"></td></tr>
 </table></div><!-- contents -->
-</div><!-- doc-content -->
 <!-- start footer part -->
-<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
-  <ul>
-    <li class="footer">Generated by
-    <a href="http://www.doxygen.org/index.html">
-    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.18 </li>
-  </ul>
-</div>
+<hr class="footer"/><address class="footer"><small>
+Generated by &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.18
+</small></address>
 </body>
 </html>

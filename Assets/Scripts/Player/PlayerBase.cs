@@ -8,6 +8,7 @@ using SansyHuman.Management;
 using SansyHuman.UDE.Management;
 using SansyHuman.UDE.Object;
 using SansyHuman.UDE.Util;
+using SansyHuman.UI.HUD;
 using SansyHuman.UI.Pause;
 
 using TMPro;
@@ -154,6 +155,8 @@ namespace SansyHuman.Player
 
         private TextMeshProUGUI grazeText;
 
+        private SkillHUD skillHUD;
+
         /// <summary>
         /// Sets the additional key mapping of the player
         /// </summary>
@@ -194,6 +197,38 @@ namespace SansyHuman.Player
 
             grazeText = GameObject.Find("GrazeAmount").GetComponent<TextMeshProUGUI>();
             grazeText.text = $"{graze}";
+
+            skillHUD = GameObject.Find("SkillHUD").GetComponent<SkillHUD>();
+
+            skillHUD.ResetImages();
+
+            skill1RemainingCooldown = 0;
+            skill2RemainingCooldown = 0;
+            skill3RemainingCooldown = 0;
+
+            if (skill1 != null)
+            {
+                SkillSlot skill1Slot = skillHUD.Skill1;
+                skill1Slot.SkillImage = skill1.SkillImage;
+                skill1Slot.MPCooldown = 1 - ((float)mana / skill1.MP);
+                skill1Slot.Cooldown = 0;
+            }
+
+            if (skill2 != null)
+            {
+                SkillSlot skill2Slot = skillHUD.Skill2;
+                skill2Slot.SkillImage = skill2.SkillImage;
+                skill2Slot.MPCooldown = 1 - ((float)mana / skill2.MP);
+                skill2Slot.Cooldown = 0;
+            }
+
+            if (skill3 != null)
+            {
+                SkillSlot skill3Slot = skillHUD.Skill3;
+                skill3Slot.SkillImage = skill3.SkillImage;
+                skill3Slot.MPCooldown = 1 - ((float)mana / skill3.MP);
+                skill3Slot.Cooldown = 0;
+            }
 
             Color col = slowMarker.color;
             col.a = 0;
@@ -368,6 +403,39 @@ namespace SansyHuman.Player
             skill1RemainingCooldown -= deltaTime;
             skill2RemainingCooldown -= deltaTime;
             skill3RemainingCooldown -= deltaTime;
+
+            if (skill1 != null)
+            {
+                SkillSlot skill1Slot = skillHUD.Skill1;
+                skill1Slot.MPCooldown = 1 - ((float)mana / skill1.MP);
+                if (skill1RemainingCooldown < 0)
+                    skill1Slot.Cooldown = 0;
+                else
+                    skill1Slot.Cooldown = skill1RemainingCooldown / skill1.Cooldown;
+                skill1Slot.SetCooldownText(skill1RemainingCooldown);
+            }
+
+            if (skill2 != null)
+            {
+                SkillSlot skill2Slot = skillHUD.Skill2;
+                skill2Slot.MPCooldown = 1 - ((float)mana / skill2.MP);
+                if (skill2RemainingCooldown < 0)
+                    skill2Slot.Cooldown = 0;
+                else
+                    skill2Slot.Cooldown = skill2RemainingCooldown / skill2.Cooldown;
+                skill2Slot.SetCooldownText(skill2RemainingCooldown);
+            }
+
+            if (skill3 != null)
+            {
+                SkillSlot skill3Slot = skillHUD.Skill3;
+                skill3Slot.MPCooldown = 1 - ((float)mana / skill3.MP);
+                if (skill3RemainingCooldown < 0)
+                    skill3Slot.Cooldown = 0;
+                else
+                    skill3Slot.Cooldown = skill3RemainingCooldown / skill3.Cooldown;
+                skill3Slot.SetCooldownText(skill3RemainingCooldown);
+            }
 
             if (pauseMenu.GamePaused || debugConsole.DebugConsoleEnabled)
             {

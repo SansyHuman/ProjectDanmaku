@@ -9,10 +9,6 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
-<link href="navtree.css" rel="stylesheet" type="text/css"/>
-<script type="text/javascript" src="resize.js"></script>
-<script type="text/javascript" src="navtreedata.js"></script>
-<script type="text/javascript" src="navtree.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
@@ -26,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">UniversalDanmakuEngine
-   &#160;<span id="projectnumber">alpha 1.0.0</span>
+   &#160;<span id="projectnumber">alpha 1.3.0</span>
    </div>
   </td>
  </tr>
@@ -50,23 +46,6 @@ $(function() {
 });
 /* @license-end */</script>
 <div id="main-nav"></div>
-</div><!-- top -->
-<div id="side-nav" class="ui-resizable side-nav-resizable">
-  <div id="nav-tree">
-    <div id="nav-tree-contents">
-      <div id="nav-sync" class="sync"></div>
-    </div>
-  </div>
-  <div id="splitbar" style="-moz-user-select:none;" 
-       class="ui-resizable-handle">
-  </div>
-</div>
-<script type="text/javascript">
-/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
-$(document).ready(function(){initNavTree('class_sansy_human_1_1_u_d_e_1_1_management_1_1_u_d_e_time.html',''); initResizable(); });
-/* @license-end */
-</script>
-<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -81,10 +60,16 @@ $(document).ready(function(){initNavTree('class_sansy_human_1_1_u_d_e_1_1_manage
 </iframe>
 </div>
 
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="namespace_sansy_human.html">SansyHuman</a></li><li class="navelem"><a class="el" href="namespace_sansy_human_1_1_u_d_e.html">UDE</a></li><li class="navelem"><a class="el" href="namespace_sansy_human_1_1_u_d_e_1_1_management.html">Management</a></li><li class="navelem"><a class="el" href="class_sansy_human_1_1_u_d_e_1_1_management_1_1_u_d_e_time.html">UDETime</a></li>  </ul>
+</div>
+</div><!-- top -->
 <div class="header">
   <div class="summary">
 <a href="#pub-types">Public Types</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pub-attribs">Public Attributes</a> &#124;
 <a href="#properties">Properties</a> &#124;
 <a href="class_sansy_human_1_1_u_d_e_1_1_management_1_1_u_d_e_time-members.html">List of all members</a>  </div>
   <div class="headertitle">
@@ -135,6 +120,12 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ad67714b8ab10c8f40caa4873580975c7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sansy_human_1_1_u_d_e_1_1_management_1_1_u_d_e_time.html#ad67714b8ab10c8f40caa4873580975c7">ResumeGame</a> ()</td></tr>
 <tr class="memdesc:ad67714b8ab10c8f40caa4873580975c7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Resumes the game. Sets all time scales to values before pause.  <a href="class_sansy_human_1_1_u_d_e_1_1_management_1_1_u_d_e_time.html#ad67714b8ab10c8f40caa4873580975c7">More...</a><br /></td></tr>
 <tr class="separator:ad67714b8ab10c8f40caa4873580975c7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
+Public Attributes</h2></td></tr>
+<tr class="memitem:aefc7f80fcfc54b64850273db97be8c08"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sansy_human_1_1_u_d_e_1_1_management_1_1_u_d_e_time.html#aefc7f80fcfc54b64850273db97be8c08">Paused</a> =&gt; paused</td></tr>
+<tr class="memdesc:aefc7f80fcfc54b64850273db97be8c08"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets whether the game has paused. <a href="class_sansy_human_1_1_u_d_e_1_1_management_1_1_u_d_e_time.html#aefc7f80fcfc54b64850273db97be8c08">More...</a><br /></td></tr>
+<tr class="separator:aefc7f80fcfc54b64850273db97be8c08"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="properties"></a>
 Properties</h2></td></tr>
@@ -199,7 +190,7 @@ Additional Inherited Members</h2></td></tr>
 </td></tr>
 </table>
 
-<p class="definition">Definition at line <a class="el" href="_u_d_e_time_8cs_source.html#l00081">81</a> of file <a class="el" href="_u_d_e_time_8cs_source.html">UDETime.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_u_d_e_time_8cs_source.html#l00084">84</a> of file <a class="el" href="_u_d_e_time_8cs_source.html">UDETime.cs</a>.</p>
 
 </div>
 </div>
@@ -209,9 +200,6 @@ Additional Inherited Members</h2></td></tr>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">float SansyHuman.UDE.Management.UDETime.GetTimeScale </td>
@@ -221,11 +209,6 @@ Additional Inherited Members</h2></td></tr>
           <td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
 <p>Gets the time scale of the type. </p>
@@ -237,7 +220,7 @@ Additional Inherited Members</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Time scale of the type</dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_u_d_e_time_8cs_source.html#l00096">96</a> of file <a class="el" href="_u_d_e_time_8cs_source.html">UDETime.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_u_d_e_time_8cs_source.html#l00099">99</a> of file <a class="el" href="_u_d_e_time_8cs_source.html">UDETime.cs</a>.</p>
 
 </div>
 </div>
@@ -246,9 +229,6 @@ Additional Inherited Members</h2></td></tr>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">void SansyHuman.UDE.Management.UDETime.PauseGame </td>
@@ -257,17 +237,12 @@ Additional Inherited Members</h2></td></tr>
           <td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
 <p>Pauses the game. Sets all time scales 0. </p>
 <p>If you pause the game when the game is paused, the pause will be ignored.</p>
 
-<p class="definition">Definition at line <a class="el" href="_u_d_e_time_8cs_source.html#l00151">151</a> of file <a class="el" href="_u_d_e_time_8cs_source.html">UDETime.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_u_d_e_time_8cs_source.html#l00154">154</a> of file <a class="el" href="_u_d_e_time_8cs_source.html">UDETime.cs</a>.</p>
 
 </div>
 </div>
@@ -276,9 +251,6 @@ Additional Inherited Members</h2></td></tr>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">void SansyHuman.UDE.Management.UDETime.ResumeGame </td>
@@ -287,17 +259,12 @@ Additional Inherited Members</h2></td></tr>
           <td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
 <p>Resumes the game. Sets all time scales to values before pause. </p>
 <p>If you resume the game when the game is running, the resume will be ignored.</p>
 
-<p class="definition">Definition at line <a class="el" href="_u_d_e_time_8cs_source.html#l00164">164</a> of file <a class="el" href="_u_d_e_time_8cs_source.html">UDETime.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_u_d_e_time_8cs_source.html#l00167">167</a> of file <a class="el" href="_u_d_e_time_8cs_source.html">UDETime.cs</a>.</p>
 
 </div>
 </div>
@@ -306,9 +273,6 @@ Additional Inherited Members</h2></td></tr>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">IEnumerator SansyHuman.UDE.Management.UDETime.WaitForScaledSeconds </td>
@@ -328,11 +292,6 @@ Additional Inherited Members</h2></td></tr>
           <td></td><td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
 <p>Returns coroutine that pauses for given time in given time scale. To use, write <code>yield return StartCoroutine(UDETime.WaitForScaledSeconds(time, scale))</code> in a coroutine to pause. </p>
@@ -345,7 +304,26 @@ Additional Inherited Members</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Coroutine that pauses for <em>time</em>  seconds in <em>scale</em>  time scale</dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_u_d_e_time_8cs_source.html#l00116">116</a> of file <a class="el" href="_u_d_e_time_8cs_source.html">UDETime.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_u_d_e_time_8cs_source.html#l00119">119</a> of file <a class="el" href="_u_d_e_time_8cs_source.html">UDETime.cs</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="aefc7f80fcfc54b64850273db97be8c08"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aefc7f80fcfc54b64850273db97be8c08">&#9670;&nbsp;</a></span>Paused</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool SansyHuman.UDE.Management.UDETime.Paused =&gt; paused</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Gets whether the game has paused.</p>
+
+<p class="definition">Definition at line <a class="el" href="_u_d_e_time_8cs_source.html#l00039">39</a> of file <a class="el" href="_u_d_e_time_8cs_source.html">UDETime.cs</a>.</p>
 
 </div>
 </div>
@@ -372,7 +350,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Gets and sets the time scale of all enemies and bullets from enemies.</p>
 
-<p class="definition">Definition at line <a class="el" href="_u_d_e_time_8cs_source.html#l00039">39</a> of file <a class="el" href="_u_d_e_time_8cs_source.html">UDETime.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_u_d_e_time_8cs_source.html#l00042">42</a> of file <a class="el" href="_u_d_e_time_8cs_source.html">UDETime.cs</a>.</p>
 
 </div>
 </div>
@@ -398,23 +376,19 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Gets and sets the time scale of the player and bullets from the player.</p>
 
-<p class="definition">Definition at line <a class="el" href="_u_d_e_time_8cs_source.html#l00052">52</a> of file <a class="el" href="_u_d_e_time_8cs_source.html">UDETime.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_u_d_e_time_8cs_source.html#l00055">55</a> of file <a class="el" href="_u_d_e_time_8cs_source.html">UDETime.cs</a>.</p>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li>D:/Unity Project/DanmakuShooting/Assets/UniversalDanmakuEngine/Scripts/SansyHuman/UDE/Management/<a class="el" href="_u_d_e_time_8cs_source.html">UDETime.cs</a></li>
+<li>Scripts/SansyHuman/UDE/Management/<a class="el" href="_u_d_e_time_8cs_source.html">UDETime.cs</a></li>
 </ul>
 </div><!-- contents -->
-</div><!-- doc-content -->
 <!-- start footer part -->
-<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
-  <ul>
-    <li class="navelem"><a class="el" href="namespace_sansy_human.html">SansyHuman</a></li><li class="navelem"><a class="el" href="namespace_sansy_human_1_1_u_d_e.html">UDE</a></li><li class="navelem"><a class="el" href="namespace_sansy_human_1_1_u_d_e_1_1_management.html">Management</a></li><li class="navelem"><a class="el" href="class_sansy_human_1_1_u_d_e_1_1_management_1_1_u_d_e_time.html">UDETime</a></li>
-    <li class="footer">Generated by
-    <a href="http://www.doxygen.org/index.html">
-    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.18 </li>
-  </ul>
-</div>
+<hr class="footer"/><address class="footer"><small>
+Generated by &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.18
+</small></address>
 </body>
 </html>

@@ -24,6 +24,9 @@ namespace SansyHuman.UI.Main
         private TextMeshProUGUI[] menuEntries;
 
         [SerializeField]
+        private TextMeshProUGUI gameVersion;
+
+        [SerializeField]
         private AudioClip menuMove;
 
         [SerializeField]
@@ -45,6 +48,7 @@ namespace SansyHuman.UI.Main
         {
             audioSource = GetComponent<AudioSource>();
             menuEntries[selectedEntry].GetComponent<Animator>().SetBool("Selected", true);
+            gameVersion.text = Application.version;
         }
 
         private void Update()

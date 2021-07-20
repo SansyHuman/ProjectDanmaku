@@ -9,10 +9,6 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
-<link href="navtree.css" rel="stylesheet" type="text/css"/>
-<script type="text/javascript" src="resize.js"></script>
-<script type="text/javascript" src="navtreedata.js"></script>
-<script type="text/javascript" src="navtree.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
@@ -26,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">UniversalDanmakuEngine
-   &#160;<span id="projectnumber">alpha 1.0.0</span>
+   &#160;<span id="projectnumber">alpha 1.3.0</span>
    </div>
   </td>
  </tr>
@@ -50,23 +46,6 @@ $(function() {
 });
 /* @license-end */</script>
 <div id="main-nav"></div>
-</div><!-- top -->
-<div id="side-nav" class="ui-resizable side-nav-resizable">
-  <div id="nav-tree">
-    <div id="nav-tree-contents">
-      <div id="nav-sync" class="sync"></div>
-    </div>
-  </div>
-  <div id="splitbar" style="-moz-user-select:none;" 
-       class="ui-resizable-handle">
-  </div>
-</div>
-<script type="text/javascript">
-/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
-$(document).ready(function(){initNavTree('class_sansy_human_1_1_u_d_e_1_1_management_1_1_u_d_e_object_manager.html',''); initResizable(); });
-/* @license-end */
-</script>
-<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -81,6 +60,11 @@ $(document).ready(function(){initNavTree('class_sansy_human_1_1_u_d_e_1_1_manage
 </iframe>
 </div>
 
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="namespace_sansy_human.html">SansyHuman</a></li><li class="navelem"><a class="el" href="namespace_sansy_human_1_1_u_d_e.html">UDE</a></li><li class="navelem"><a class="el" href="namespace_sansy_human_1_1_u_d_e_1_1_management.html">Management</a></li><li class="navelem"><a class="el" href="class_sansy_human_1_1_u_d_e_1_1_management_1_1_u_d_e_object_manager.html">UDEObjectManager</a></li>  </ul>
+</div>
+</div><!-- top -->
 <div class="header">
   <div class="headertitle">
 <div class="title">SansyHuman.UDE.Management.UDEObjectManager Member List</div>  </div>
@@ -89,30 +73,27 @@ $(document).ready(function(){initNavTree('class_sansy_human_1_1_u_d_e_1_1_manage
 
 <p>This is the complete list of members for <a class="el" href="class_sansy_human_1_1_u_d_e_1_1_management_1_1_u_d_e_object_manager.html">SansyHuman.UDE.Management.UDEObjectManager</a>, including all inherited members.</p>
 <table class="directory">
-  <tr class="even"><td class="entry"><a class="el" href="class_sansy_human_1_1_u_d_e_1_1_management_1_1_u_d_e_object_manager.html#afca8fb2ed160e3d0d4cf2e5ecaf7a236">AddBullet</a>(UDEAbstractBullet bullet)</td><td class="entry"><a class="el" href="class_sansy_human_1_1_u_d_e_1_1_management_1_1_u_d_e_object_manager.html">SansyHuman.UDE.Management.UDEObjectManager</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr><td class="entry"><a class="el" href="class_sansy_human_1_1_u_d_e_1_1_management_1_1_u_d_e_object_manager.html#a7dc827fc7f06c912b0e4c23cd5beab2e">AddEnemy</a>(UDEEnemy enemy)</td><td class="entry"><a class="el" href="class_sansy_human_1_1_u_d_e_1_1_management_1_1_u_d_e_object_manager.html">SansyHuman.UDE.Management.UDEObjectManager</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="class_sansy_human_1_1_u_d_e_1_1_management_1_1_u_d_e_object_manager.html#a1d1ed4c1e58f3c79ade93d792129f3bb">AddLaser</a>(UDELaser laser)</td><td class="entry"><a class="el" href="class_sansy_human_1_1_u_d_e_1_1_management_1_1_u_d_e_object_manager.html">SansyHuman.UDE.Management.UDEObjectManager</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr><td class="entry"><a class="el" href="class_sansy_human_1_1_u_d_e_1_1_management_1_1_u_d_e_object_manager.html#adb042c0ffa7b00f0b1053da964b27a5c">Awake</a>()</td><td class="entry"><a class="el" href="class_sansy_human_1_1_u_d_e_1_1_management_1_1_u_d_e_object_manager.html">SansyHuman.UDE.Management.UDEObjectManager</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">protected</span><span class="mlabel">virtual</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="class_sansy_human_1_1_u_d_e_1_1_management_1_1_u_d_e_object_manager.html#aaba4fe2c0970cf897a3ab09cc42729b2">DestroyAllBullets</a>()</td><td class="entry"><a class="el" href="class_sansy_human_1_1_u_d_e_1_1_management_1_1_u_d_e_object_manager.html">SansyHuman.UDE.Management.UDEObjectManager</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr><td class="entry"><a class="el" href="class_sansy_human_1_1_u_d_e_1_1_management_1_1_u_d_e_object_manager.html#a6d432ceb68736752b9017b3bf597acad">DestroyAllEnemies</a>()</td><td class="entry"><a class="el" href="class_sansy_human_1_1_u_d_e_1_1_management_1_1_u_d_e_object_manager.html">SansyHuman.UDE.Management.UDEObjectManager</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_sansy_human_1_1_u_d_e_1_1_management_1_1_u_d_e_object_manager.html#afca8fb2ed160e3d0d4cf2e5ecaf7a236">AddBullet</a>(UDEAbstractBullet bullet)</td><td class="entry"><a class="el" href="class_sansy_human_1_1_u_d_e_1_1_management_1_1_u_d_e_object_manager.html">SansyHuman.UDE.Management.UDEObjectManager</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="class_sansy_human_1_1_u_d_e_1_1_management_1_1_u_d_e_object_manager.html#a7dc827fc7f06c912b0e4c23cd5beab2e">AddEnemy</a>(UDEEnemy enemy)</td><td class="entry"><a class="el" href="class_sansy_human_1_1_u_d_e_1_1_management_1_1_u_d_e_object_manager.html">SansyHuman.UDE.Management.UDEObjectManager</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_sansy_human_1_1_u_d_e_1_1_management_1_1_u_d_e_object_manager.html#a1d1ed4c1e58f3c79ade93d792129f3bb">AddLaser</a>(UDELaser laser)</td><td class="entry"><a class="el" href="class_sansy_human_1_1_u_d_e_1_1_management_1_1_u_d_e_object_manager.html">SansyHuman.UDE.Management.UDEObjectManager</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="class_sansy_human_1_1_u_d_e_1_1_management_1_1_u_d_e_object_manager.html#adb042c0ffa7b00f0b1053da964b27a5c">Awake</a>()</td><td class="entry"><a class="el" href="class_sansy_human_1_1_u_d_e_1_1_management_1_1_u_d_e_object_manager.html">SansyHuman.UDE.Management.UDEObjectManager</a></td><td class="entry"><span class="mlabel">protected</span><span class="mlabel">virtual</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_sansy_human_1_1_u_d_e_1_1_management_1_1_u_d_e_object_manager.html#af7209661a567dd23c0c5e822ce0a6197">DestroyAllBullets</a>(bool destroyPlayerBullets=false)</td><td class="entry"><a class="el" href="class_sansy_human_1_1_u_d_e_1_1_management_1_1_u_d_e_object_manager.html">SansyHuman.UDE.Management.UDEObjectManager</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="class_sansy_human_1_1_u_d_e_1_1_management_1_1_u_d_e_object_manager.html#a6d432ceb68736752b9017b3bf597acad">DestroyAllEnemies</a>()</td><td class="entry"><a class="el" href="class_sansy_human_1_1_u_d_e_1_1_management_1_1_u_d_e_object_manager.html">SansyHuman.UDE.Management.UDEObjectManager</a></td><td class="entry"></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="class_sansy_human_1_1_u_d_e_1_1_management_1_1_u_d_e_object_manager.html#a8d66514073c554efd1d509d805dbd1aa">GetAllBullets</a>()</td><td class="entry"><a class="el" href="class_sansy_human_1_1_u_d_e_1_1_management_1_1_u_d_e_object_manager.html">SansyHuman.UDE.Management.UDEObjectManager</a></td><td class="entry"></td></tr>
   <tr><td class="entry"><a class="el" href="class_sansy_human_1_1_u_d_e_1_1_management_1_1_u_d_e_object_manager.html#a026afc47c4c66cd838fe86f1181317b0">GetAllEnemies</a>()</td><td class="entry"><a class="el" href="class_sansy_human_1_1_u_d_e_1_1_management_1_1_u_d_e_object_manager.html">SansyHuman.UDE.Management.UDEObjectManager</a></td><td class="entry"></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="class_sansy_human_1_1_u_d_e_1_1_management_1_1_u_d_e_object_manager.html#a2f17719a20f7f3fa03a407d598b15eeb">GetAllLasers</a>()</td><td class="entry"><a class="el" href="class_sansy_human_1_1_u_d_e_1_1_management_1_1_u_d_e_object_manager.html">SansyHuman.UDE.Management.UDEObjectManager</a></td><td class="entry"></td></tr>
   <tr><td class="entry"><a class="el" href="class_sansy_human_1_1_u_d_e_1_1_management_1_1_u_d_e_singleton.html#a8d8f89c0029c27022832209b4a095389">Instance</a></td><td class="entry"><a class="el" href="class_sansy_human_1_1_u_d_e_1_1_management_1_1_u_d_e_singleton.html">SansyHuman.UDE.Management.UDESingleton&lt; UDEObjectManager &gt;</a></td><td class="entry"><span class="mlabel">static</span></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="class_sansy_human_1_1_u_d_e_1_1_management_1_1_u_d_e_object_manager.html#afa07dbce22d50435c49546687b207f3b">MoveObjects</a></td><td class="entry"><a class="el" href="class_sansy_human_1_1_u_d_e_1_1_management_1_1_u_d_e_object_manager.html">SansyHuman.UDE.Management.UDEObjectManager</a></td><td class="entry"></td></tr>
   <tr><td class="entry"><a class="el" href="class_sansy_human_1_1_u_d_e_1_1_management_1_1_u_d_e_object_manager.html#a3d63753b4257c05468fde04eff56d0e3">ObjectMoveHandler</a>(float deltaTime)</td><td class="entry"><a class="el" href="class_sansy_human_1_1_u_d_e_1_1_management_1_1_u_d_e_object_manager.html">SansyHuman.UDE.Management.UDEObjectManager</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="class_sansy_human_1_1_u_d_e_1_1_management_1_1_u_d_e_object_manager.html#a5e591a786f76a53ad0015c9b90c008ff">RemoveBullet</a>(UDEAbstractBullet bullet)</td><td class="entry"><a class="el" href="class_sansy_human_1_1_u_d_e_1_1_management_1_1_u_d_e_object_manager.html">SansyHuman.UDE.Management.UDEObjectManager</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr><td class="entry"><a class="el" href="class_sansy_human_1_1_u_d_e_1_1_management_1_1_u_d_e_object_manager.html#a471f34172acc14fecc19ab67f2c8ceb1">RemoveEnemy</a>(UDEEnemy enemy)</td><td class="entry"><a class="el" href="class_sansy_human_1_1_u_d_e_1_1_management_1_1_u_d_e_object_manager.html">SansyHuman.UDE.Management.UDEObjectManager</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="class_sansy_human_1_1_u_d_e_1_1_management_1_1_u_d_e_object_manager.html#a837a884a9b7de47b5148d675ccc57e6a">RemoveLaser</a>(UDELaser laser)</td><td class="entry"><a class="el" href="class_sansy_human_1_1_u_d_e_1_1_management_1_1_u_d_e_object_manager.html">SansyHuman.UDE.Management.UDEObjectManager</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_sansy_human_1_1_u_d_e_1_1_management_1_1_u_d_e_object_manager.html#a5e591a786f76a53ad0015c9b90c008ff">RemoveBullet</a>(UDEAbstractBullet bullet)</td><td class="entry"><a class="el" href="class_sansy_human_1_1_u_d_e_1_1_management_1_1_u_d_e_object_manager.html">SansyHuman.UDE.Management.UDEObjectManager</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="class_sansy_human_1_1_u_d_e_1_1_management_1_1_u_d_e_object_manager.html#a471f34172acc14fecc19ab67f2c8ceb1">RemoveEnemy</a>(UDEEnemy enemy)</td><td class="entry"><a class="el" href="class_sansy_human_1_1_u_d_e_1_1_management_1_1_u_d_e_object_manager.html">SansyHuman.UDE.Management.UDEObjectManager</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_sansy_human_1_1_u_d_e_1_1_management_1_1_u_d_e_object_manager.html#a837a884a9b7de47b5148d675ccc57e6a">RemoveLaser</a>(UDELaser laser)</td><td class="entry"><a class="el" href="class_sansy_human_1_1_u_d_e_1_1_management_1_1_u_d_e_object_manager.html">SansyHuman.UDE.Management.UDEObjectManager</a></td><td class="entry"></td></tr>
 </table></div><!-- contents -->
-</div><!-- doc-content -->
 <!-- start footer part -->
-<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
-  <ul>
-    <li class="footer">Generated by
-    <a href="http://www.doxygen.org/index.html">
-    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.18 </li>
-  </ul>
-</div>
+<hr class="footer"/><address class="footer"><small>
+Generated by &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.18
+</small></address>
 </body>
 </html>

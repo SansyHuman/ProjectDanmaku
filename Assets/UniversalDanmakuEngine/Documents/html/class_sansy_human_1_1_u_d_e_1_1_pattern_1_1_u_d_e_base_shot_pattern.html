@@ -9,10 +9,6 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
-<link href="navtree.css" rel="stylesheet" type="text/css"/>
-<script type="text/javascript" src="resize.js"></script>
-<script type="text/javascript" src="navtreedata.js"></script>
-<script type="text/javascript" src="navtree.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
@@ -26,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">UniversalDanmakuEngine
-   &#160;<span id="projectnumber">alpha 1.0.0</span>
+   &#160;<span id="projectnumber">alpha 1.3.0</span>
    </div>
   </td>
  </tr>
@@ -50,23 +46,6 @@ $(function() {
 });
 /* @license-end */</script>
 <div id="main-nav"></div>
-</div><!-- top -->
-<div id="side-nav" class="ui-resizable side-nav-resizable">
-  <div id="nav-tree">
-    <div id="nav-tree-contents">
-      <div id="nav-sync" class="sync"></div>
-    </div>
-  </div>
-  <div id="splitbar" style="-moz-user-select:none;" 
-       class="ui-resizable-handle">
-  </div>
-</div>
-<script type="text/javascript">
-/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
-$(document).ready(function(){initNavTree('class_sansy_human_1_1_u_d_e_1_1_pattern_1_1_u_d_e_base_shot_pattern.html',''); initResizable(); });
-/* @license-end */
-</script>
-<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -81,6 +60,11 @@ $(document).ready(function(){initNavTree('class_sansy_human_1_1_u_d_e_1_1_patter
 </iframe>
 </div>
 
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="namespace_sansy_human.html">SansyHuman</a></li><li class="navelem"><a class="el" href="namespace_sansy_human_1_1_u_d_e.html">UDE</a></li><li class="navelem"><a class="el" href="namespace_sansy_human_1_1_u_d_e_1_1_pattern.html">Pattern</a></li><li class="navelem"><a class="el" href="class_sansy_human_1_1_u_d_e_1_1_pattern_1_1_u_d_e_base_shot_pattern.html">UDEBaseShotPattern</a></li>  </ul>
+</div>
+</div><!-- top -->
 <div class="header">
   <div class="summary">
 <a href="#pub-types">Public Types</a> &#124;
@@ -333,9 +317,6 @@ Properties</h2></td></tr>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">void SansyHuman.UDE.Pattern.UDEBaseShotPattern.AddBullet </td>
@@ -345,16 +326,11 @@ Properties</h2></td></tr>
           <td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
 <p>Adds shotted bullet by this pattern. Only used internally in <a class="el" href="class_sansy_human_1_1_u_d_e_1_1_object_1_1_u_d_e_base_bullet.html" title="The Base class of all bullets.">SansyHuman.UDE.Object.UDEBaseBullet</a>. </p>
 
-<p class="definition">Definition at line <a class="el" href="_u_d_e_base_shot_pattern_8cs_source.html#l00219">219</a> of file <a class="el" href="_u_d_e_base_shot_pattern_8cs_source.html">UDEBaseShotPattern.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_u_d_e_base_shot_pattern_8cs_source.html#l00226">226</a> of file <a class="el" href="_u_d_e_base_shot_pattern_8cs_source.html">UDEBaseShotPattern.cs</a>.</p>
 
 </div>
 </div>
@@ -376,14 +352,14 @@ Properties</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
 <p>Ends the pattern. This methods is called in SansyHuman.UDE.Object.UDEEnemy.ManagePatterns(). </p>
 
-<p class="definition">Definition at line <a class="el" href="_u_d_e_base_shot_pattern_8cs_source.html#l00197">197</a> of file <a class="el" href="_u_d_e_base_shot_pattern_8cs_source.html">UDEBaseShotPattern.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_u_d_e_base_shot_pattern_8cs_source.html#l00204">204</a> of file <a class="el" href="_u_d_e_base_shot_pattern_8cs_source.html">UDEBaseShotPattern.cs</a>.</p>
 
 </div>
 </div>
@@ -406,7 +382,7 @@ Properties</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -452,7 +428,7 @@ Properties</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -467,7 +443,7 @@ Properties</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>0</dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_u_d_e_base_shot_pattern_8cs_source.html#l00231">231</a> of file <a class="el" href="_u_d_e_base_shot_pattern_8cs_source.html">UDEBaseShotPattern.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_u_d_e_base_shot_pattern_8cs_source.html#l00238">238</a> of file <a class="el" href="_u_d_e_base_shot_pattern_8cs_source.html">UDEBaseShotPattern.cs</a>.</p>
 
 </div>
 </div>
@@ -500,7 +476,7 @@ Properties</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -515,7 +491,7 @@ Properties</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>0</dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_u_d_e_base_shot_pattern_8cs_source.html#l00254">254</a> of file <a class="el" href="_u_d_e_base_shot_pattern_8cs_source.html">UDEBaseShotPattern.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_u_d_e_base_shot_pattern_8cs_source.html#l00261">261</a> of file <a class="el" href="_u_d_e_base_shot_pattern_8cs_source.html">UDEBaseShotPattern.cs</a>.</p>
 
 </div>
 </div>
@@ -537,14 +513,14 @@ Properties</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
 <p>Pauses the pattern. The progression of the pattern remains. </p>
 
-<p class="definition">Definition at line <a class="el" href="_u_d_e_base_shot_pattern_8cs_source.html#l00172">172</a> of file <a class="el" href="_u_d_e_base_shot_pattern_8cs_source.html">UDEBaseShotPattern.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_u_d_e_base_shot_pattern_8cs_source.html#l00175">175</a> of file <a class="el" href="_u_d_e_base_shot_pattern_8cs_source.html">UDEBaseShotPattern.cs</a>.</p>
 
 </div>
 </div>
@@ -553,9 +529,6 @@ Properties</h2></td></tr>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">void SansyHuman.UDE.Pattern.UDEBaseShotPattern.RemoveBullet </td>
@@ -565,16 +538,11 @@ Properties</h2></td></tr>
           <td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
 <p>Removes shotted bullet by this pattern. Only used internally in <a class="el" href="class_sansy_human_1_1_u_d_e_1_1_object_1_1_u_d_e_base_bullet.html" title="The Base class of all bullets.">SansyHuman.UDE.Object.UDEBaseBullet</a>. </p>
 
-<p class="definition">Definition at line <a class="el" href="_u_d_e_base_shot_pattern_8cs_source.html#l00242">242</a> of file <a class="el" href="_u_d_e_base_shot_pattern_8cs_source.html">UDEBaseShotPattern.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_u_d_e_base_shot_pattern_8cs_source.html#l00249">249</a> of file <a class="el" href="_u_d_e_base_shot_pattern_8cs_source.html">UDEBaseShotPattern.cs</a>.</p>
 
 </div>
 </div>
@@ -596,20 +564,14 @@ Properties</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
 <p>Resets the pattern. </p>
-<dl class="exception"><dt>Exceptions</dt><dd>
-  <table class="exception">
-    <tr><td class="paramname"><a class="el" href="class_sansy_human_1_1_u_d_e_1_1_exception_1_1_u_d_e_pattern_running_exception.html" title="Exception class thrown when calling SansyHuman.UDE.Pattern.UDEBaseShotPattern.ResetPattern() while th...">SansyHuman.UDE.Exception.UDEPatternRunningException</a></td><td>Thrown when the pattern is running on</td></tr>
-  </table>
-  </dd>
-</dl>
 
-<p class="definition">Definition at line <a class="el" href="_u_d_e_base_shot_pattern_8cs_source.html#l00186">186</a> of file <a class="el" href="_u_d_e_base_shot_pattern_8cs_source.html">UDEBaseShotPattern.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_u_d_e_base_shot_pattern_8cs_source.html#l00188">188</a> of file <a class="el" href="_u_d_e_base_shot_pattern_8cs_source.html">UDEBaseShotPattern.cs</a>.</p>
 
 </div>
 </div>
@@ -692,21 +654,14 @@ Properties</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
 <p>Starts the pattern. This methods is called in SansyHuman.UDE.Object.UDEEnemy.ManagePatterns(). If you have paused the pattern, it restarts from where you have paused. </p>
-<dl class="exception"><dt>Exceptions</dt><dd>
-  <table class="exception">
-    <tr><td class="paramname"><a class="el" href="class_sansy_human_1_1_u_d_e_1_1_exception_1_1_u_d_e_initialization_excention.html" title="Exception class thrown when you try to run the object without initialization.">SansyHuman.UDE.Exception.UDEInitializationExcention</a></td><td>Thrown when you try to start the pattern without initialization</td></tr>
-    <tr><td class="paramname"><a class="el" href="class_sansy_human_1_1_u_d_e_1_1_exception_1_1_u_d_e_pattern_running_exception.html" title="Exception class thrown when calling SansyHuman.UDE.Pattern.UDEBaseShotPattern.ResetPattern() while th...">SansyHuman.UDE.Exception.UDEPatternRunningException</a></td><td>Thrown when you try to start the pattern that is already running on.</td></tr>
-  </table>
-  </dd>
-</dl>
 
-<p class="definition">Definition at line <a class="el" href="_u_d_e_base_shot_pattern_8cs_source.html#l00156">156</a> of file <a class="el" href="_u_d_e_base_shot_pattern_8cs_source.html">UDEBaseShotPattern.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_u_d_e_base_shot_pattern_8cs_source.html#l00153">153</a> of file <a class="el" href="_u_d_e_base_shot_pattern_8cs_source.html">UDEBaseShotPattern.cs</a>.</p>
 
 </div>
 </div>
@@ -729,7 +684,7 @@ Properties</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">protected</span></span>  </td>
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -742,7 +697,7 @@ Properties</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_u_d_e_base_shot_pattern_8cs_source.html#l00266">266</a> of file <a class="el" href="_u_d_e_base_shot_pattern_8cs_source.html">UDEBaseShotPattern.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_u_d_e_base_shot_pattern_8cs_source.html#l00273">273</a> of file <a class="el" href="_u_d_e_base_shot_pattern_8cs_source.html">UDEBaseShotPattern.cs</a>.</p>
 
 </div>
 </div>
@@ -765,7 +720,7 @@ Properties</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">protected</span></span>  </td>
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -778,7 +733,7 @@ Properties</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_u_d_e_base_shot_pattern_8cs_source.html#l00277">277</a> of file <a class="el" href="_u_d_e_base_shot_pattern_8cs_source.html">UDEBaseShotPattern.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_u_d_e_base_shot_pattern_8cs_source.html#l00284">284</a> of file <a class="el" href="_u_d_e_base_shot_pattern_8cs_source.html">UDEBaseShotPattern.cs</a>.</p>
 
 </div>
 </div>
@@ -1203,20 +1158,16 @@ Properties</h2></td></tr>
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li>D:/Unity Project/DanmakuShooting/Assets/UniversalDanmakuEngine/Scripts/SansyHuman/UDE/Pattern/<a class="el" href="_u_d_e_base_shot_pattern_8cs_source.html">UDEBaseShotPattern.cs</a></li>
+<li>Scripts/SansyHuman/UDE/Pattern/<a class="el" href="_u_d_e_base_shot_pattern_8cs_source.html">UDEBaseShotPattern.cs</a></li>
 </ul>
 </div><!-- contents -->
-</div><!-- doc-content -->
 <div class="ttc" id="aclass_sansy_human_1_1_u_d_e_1_1_pattern_1_1_u_d_e_base_shot_pattern_html_ae366b8f81ccff22d9fd5f2014f3327cb"><div class="ttname"><a href="class_sansy_human_1_1_u_d_e_1_1_pattern_1_1_u_d_e_base_shot_pattern.html#ae366b8f81ccff22d9fd5f2014f3327cb">SansyHuman.UDE.Pattern.UDEBaseShotPattern.originEnemy</a></div><div class="ttdeci">UDEEnemy originEnemy</div><div class="ttdoc">Enemy object that plays the pattern.</div><div class="ttdef"><b>Definition:</b> <a href="_u_d_e_base_shot_pattern_8cs_source.html#l00103">UDEBaseShotPattern.cs:103</a></div></div>
 <div class="ttc" id="aclass_sansy_human_1_1_u_d_e_1_1_pattern_1_1_u_d_e_base_shot_pattern_html_a9c999bde70f08e9e332e248b899765a7"><div class="ttname"><a href="class_sansy_human_1_1_u_d_e_1_1_pattern_1_1_u_d_e_base_shot_pattern.html#a9c999bde70f08e9e332e248b899765a7">SansyHuman.UDE.Pattern.UDEBaseShotPattern.ShotPattern</a></div><div class="ttdeci">abstract IEnumerator ShotPattern()</div><div class="ttdoc">Method that represent the pattern. You can create various custom patterns implementing this method.</div></div>
 <!-- start footer part -->
-<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
-  <ul>
-    <li class="navelem"><a class="el" href="namespace_sansy_human.html">SansyHuman</a></li><li class="navelem"><a class="el" href="namespace_sansy_human_1_1_u_d_e.html">UDE</a></li><li class="navelem"><a class="el" href="namespace_sansy_human_1_1_u_d_e_1_1_pattern.html">Pattern</a></li><li class="navelem"><a class="el" href="class_sansy_human_1_1_u_d_e_1_1_pattern_1_1_u_d_e_base_shot_pattern.html">UDEBaseShotPattern</a></li>
-    <li class="footer">Generated by
-    <a href="http://www.doxygen.org/index.html">
-    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.18 </li>
-  </ul>
-</div>
+<hr class="footer"/><address class="footer"><small>
+Generated by &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.18
+</small></address>
 </body>
 </html>

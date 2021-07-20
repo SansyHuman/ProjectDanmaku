@@ -150,15 +150,18 @@ namespace SansyHuman.UDE.Pattern
         /// Starts the pattern. This methods is called in <see cref="SansyHuman.UDE.Object.UDEEnemy.ManagePatterns()"/>.
         /// If you have paused the pattern, it restarts from where you have paused.
         /// </summary>
-        /// <exception cref="SansyHuman.UDE.Exception.UDEInitializationExcention">Thrown when you try to start the pattern without initialization</exception>
-        /// <exception cref="SansyHuman.UDE.Exception.UDEPatternRunningException">Thrown when you try to start the pattern
-        /// that is already running on.</exception>
         public virtual void StartPattern()
         {
             if (!initialized)
-                throw new UDEInitializationExcention("You did not initalized the shot pattern but you tried to start the pattern.");
+            {
+                Debug.LogError("You did not initalized the shot pattern but you tried to start the pattern.");
+                return;
+            }
             if (shotPatternOn)
-                throw new UDEPatternRunningException("The shot pattern is already running on.");
+            {
+                Debug.LogError("The shot pattern is already running on. StartPattern is ignored.");
+                return;
+            }
 
             shotPatternOn = true;
             StartCoroutine(pattern);
@@ -182,13 +185,17 @@ namespace SansyHuman.UDE.Pattern
         /// <summary>
         /// Resets the pattern.
         /// </summary>
-        /// <exception cref="SansyHuman.UDE.Exception.UDEPatternRunningException">Thrown when the pattern is running on</exception>
         public virtual void ResetPattern()
         {
             if (shotPatternOn)
-                throw new UDEPatternRunningException("The shot pattern is running on. Cannot reset the pattern.");
+            {
+                Debug.LogError("The shot pattern is running on. Cannot reset the pattern.");
+                return;
+            }
+
             pattern = ShotPattern();
             subpatterns.Clear();
+            time = 0;
         }
 
         /// <summary>

@@ -9,10 +9,6 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
-<link href="navtree.css" rel="stylesheet" type="text/css"/>
-<script type="text/javascript" src="resize.js"></script>
-<script type="text/javascript" src="navtreedata.js"></script>
-<script type="text/javascript" src="navtree.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
@@ -26,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">UniversalDanmakuEngine
-   &#160;<span id="projectnumber">alpha 1.0.0</span>
+   &#160;<span id="projectnumber">alpha 1.3.0</span>
    </div>
   </td>
  </tr>
@@ -50,23 +46,6 @@ $(function() {
 });
 /* @license-end */</script>
 <div id="main-nav"></div>
-</div><!-- top -->
-<div id="side-nav" class="ui-resizable side-nav-resizable">
-  <div id="nav-tree">
-    <div id="nav-tree-contents">
-      <div id="nav-sync" class="sync"></div>
-    </div>
-  </div>
-  <div id="splitbar" style="-moz-user-select:none;" 
-       class="ui-resizable-handle">
-  </div>
-</div>
-<script type="text/javascript">
-/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
-$(document).ready(function(){initNavTree('class_sansy_human_1_1_u_d_e_1_1_util_1_1_u_d_e_transition_helper.html',''); initResizable(); });
-/* @license-end */
-</script>
-<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -81,6 +60,11 @@ $(document).ready(function(){initNavTree('class_sansy_human_1_1_u_d_e_1_1_util_1
 </iframe>
 </div>
 
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="namespace_sansy_human.html">SansyHuman</a></li><li class="navelem"><a class="el" href="namespace_sansy_human_1_1_u_d_e.html">UDE</a></li><li class="navelem"><a class="el" href="namespace_sansy_human_1_1_u_d_e_1_1_util.html">Util</a></li><li class="navelem"><a class="el" href="class_sansy_human_1_1_u_d_e_1_1_util_1_1_u_d_e_transition_helper.html">UDETransitionHelper</a></li>  </ul>
+</div>
+</div><!-- top -->
 <div class="header">
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
@@ -204,6 +188,9 @@ Static Public Member Functions</h2></td></tr>
 <tr class="memitem:a3e776d185ce731cd8971813be04f039e"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="class_sansy_human_1_1_u_d_e_1_1_util_1_1_u_d_e_transition_helper_1_1_transition_result.html">TransitionResult</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sansy_human_1_1_u_d_e_1_1_util_1_1_u_d_e_transition_helper.html#a3e776d185ce731cd8971813be04f039e">RotateAmount</a> (GameObject target, Vector3 delta, float duration, UDEMath.TimeFunction easeFunc, <a class="el" href="class_sansy_human_1_1_u_d_e_1_1_management_1_1_u_d_e_time.html#af5f025b8c1ca637380d4f904050cae60">UDETime.TimeScale</a> timeScale, bool isPhysics)</td></tr>
 <tr class="memdesc:a3e776d185ce731cd8971813be04f039e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Rotate the object for an amount of <em>delta</em>  angles for <em>duration</em>  seconds.  <a href="class_sansy_human_1_1_u_d_e_1_1_util_1_1_u_d_e_transition_helper.html#a3e776d185ce731cd8971813be04f039e">More...</a><br /></td></tr>
 <tr class="separator:a3e776d185ce731cd8971813be04f039e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7b3a98e90b1923653be570ddb3c8fe19"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sansy_human_1_1_u_d_e_1_1_util_1_1_u_d_e_transition_helper.html#a7b3a98e90b1923653be570ddb3c8fe19">StopAllTransitions</a> (GameObject target)</td></tr>
+<tr class="memdesc:a7b3a98e90b1923653be570ddb3c8fe19"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stops all currently running transitions of the object.  <a href="class_sansy_human_1_1_u_d_e_1_1_util_1_1_u_d_e_transition_helper.html#a7b3a98e90b1923653be570ddb3c8fe19">More...</a><br /></td></tr>
+<tr class="separator:a7b3a98e90b1923653be570ddb3c8fe19"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-attribs"></a>
 Static Public Attributes</h2></td></tr>
@@ -362,7 +349,7 @@ Static Public Attributes</h2></td></tr>
 <tr><td class="fieldname"><a id="ab84bf170726ee8f85832170fa23396b4a009d0dbb48b182b03569883379cf5294"></a>EaseInOutBounce&#160;</td><td class="fielddoc"></td></tr>
 </table>
 
-<p class="definition">Definition at line <a class="el" href="_u_d_e_transition_helper_8cs_source.html#l00544">544</a> of file <a class="el" href="_u_d_e_transition_helper_8cs_source.html">UDETransitionHelper.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_u_d_e_transition_helper_8cs_source.html#l00554">554</a> of file <a class="el" href="_u_d_e_transition_helper_8cs_source.html">UDETransitionHelper.cs</a>.</p>
 
 </div>
 </div>
@@ -420,7 +407,7 @@ Static Public Attributes</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -439,7 +426,7 @@ Static Public Attributes</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd><a class="el" href="class_sansy_human_1_1_u_d_e_1_1_util_1_1_u_d_e_transition_helper_1_1_transition_result.html" title="Class that contains the result of the transition.">TransitionResult</a> instance that contains whether the transition ended</dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_u_d_e_transition_helper_8cs_source.html#l00847">847</a> of file <a class="el" href="_u_d_e_transition_helper_8cs_source.html">UDETransitionHelper.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_u_d_e_transition_helper_8cs_source.html#l00857">857</a> of file <a class="el" href="_u_d_e_transition_helper_8cs_source.html">UDETransitionHelper.cs</a>.</p>
 
 </div>
 </div>
@@ -496,7 +483,7 @@ Static Public Attributes</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -515,7 +502,7 @@ Static Public Attributes</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd><a class="el" href="class_sansy_human_1_1_u_d_e_1_1_util_1_1_u_d_e_transition_helper_1_1_transition_result.html" title="Class that contains the result of the transition.">TransitionResult</a> instance that contains whether the transition ended</dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_u_d_e_transition_helper_8cs_source.html#l00873">873</a> of file <a class="el" href="_u_d_e_transition_helper_8cs_source.html">UDETransitionHelper.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_u_d_e_transition_helper_8cs_source.html#l00883">883</a> of file <a class="el" href="_u_d_e_transition_helper_8cs_source.html">UDETransitionHelper.cs</a>.</p>
 
 </div>
 </div>
@@ -548,7 +535,7 @@ Static Public Attributes</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -563,7 +550,7 @@ Static Public Attributes</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Inout easing function</dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_u_d_e_transition_helper_8cs_source.html#l00468">468</a> of file <a class="el" href="_u_d_e_transition_helper_8cs_source.html">UDETransitionHelper.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_u_d_e_transition_helper_8cs_source.html#l00478">478</a> of file <a class="el" href="_u_d_e_transition_helper_8cs_source.html">UDETransitionHelper.cs</a>.</p>
 
 </div>
 </div>
@@ -586,7 +573,7 @@ Static Public Attributes</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -601,7 +588,7 @@ Static Public Attributes</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Conversed easing function</dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_u_d_e_transition_helper_8cs_source.html#l00457">457</a> of file <a class="el" href="_u_d_e_transition_helper_8cs_source.html">UDETransitionHelper.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_u_d_e_transition_helper_8cs_source.html#l00467">467</a> of file <a class="el" href="_u_d_e_transition_helper_8cs_source.html">UDETransitionHelper.cs</a>.</p>
 
 </div>
 </div>
@@ -624,7 +611,7 @@ Static Public Attributes</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -638,7 +625,7 @@ Static Public Attributes</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Easing function of the type</dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_u_d_e_transition_helper_8cs_source.html#l00584">584</a> of file <a class="el" href="_u_d_e_transition_helper_8cs_source.html">UDETransitionHelper.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_u_d_e_transition_helper_8cs_source.html#l00594">594</a> of file <a class="el" href="_u_d_e_transition_helper_8cs_source.html">UDETransitionHelper.cs</a>.</p>
 
 </div>
 </div>
@@ -701,7 +688,7 @@ Static Public Attributes</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -721,7 +708,7 @@ Static Public Attributes</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd><a class="el" href="class_sansy_human_1_1_u_d_e_1_1_util_1_1_u_d_e_transition_helper_1_1_transition_result.html" title="Class that contains the result of the transition.">TransitionResult</a> instance that contains whether the transition ended</dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_u_d_e_transition_helper_8cs_source.html#l00751">751</a> of file <a class="el" href="_u_d_e_transition_helper_8cs_source.html">UDETransitionHelper.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_u_d_e_transition_helper_8cs_source.html#l00761">761</a> of file <a class="el" href="_u_d_e_transition_helper_8cs_source.html">UDETransitionHelper.cs</a>.</p>
 
 </div>
 </div>
@@ -778,7 +765,7 @@ Static Public Attributes</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -797,7 +784,7 @@ Static Public Attributes</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd><a class="el" href="class_sansy_human_1_1_u_d_e_1_1_util_1_1_u_d_e_transition_helper_1_1_transition_result.html" title="Class that contains the result of the transition.">TransitionResult</a> instance that contains whether the transition ended</dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_u_d_e_transition_helper_8cs_source.html#l00770">770</a> of file <a class="el" href="_u_d_e_transition_helper_8cs_source.html">UDETransitionHelper.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_u_d_e_transition_helper_8cs_source.html#l00780">780</a> of file <a class="el" href="_u_d_e_transition_helper_8cs_source.html">UDETransitionHelper.cs</a>.</p>
 
 </div>
 </div>
@@ -854,7 +841,7 @@ Static Public Attributes</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -873,7 +860,7 @@ Static Public Attributes</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd><a class="el" href="class_sansy_human_1_1_u_d_e_1_1_util_1_1_u_d_e_transition_helper_1_1_transition_result.html" title="Class that contains the result of the transition.">TransitionResult</a> instance that contains whether the transition ended</dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_u_d_e_transition_helper_8cs_source.html#l00790">790</a> of file <a class="el" href="_u_d_e_transition_helper_8cs_source.html">UDETransitionHelper.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_u_d_e_transition_helper_8cs_source.html#l00800">800</a> of file <a class="el" href="_u_d_e_transition_helper_8cs_source.html">UDETransitionHelper.cs</a>.</p>
 
 </div>
 </div>
@@ -924,7 +911,7 @@ Static Public Attributes</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -942,7 +929,7 @@ Static Public Attributes</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd><a class="el" href="class_sansy_human_1_1_u_d_e_1_1_util_1_1_u_d_e_transition_helper_1_1_transition_result.html" title="Class that contains the result of the transition.">TransitionResult</a> instance that contains whether the transition ended</dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_u_d_e_transition_helper_8cs_source.html#l00805">805</a> of file <a class="el" href="_u_d_e_transition_helper_8cs_source.html">UDETransitionHelper.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_u_d_e_transition_helper_8cs_source.html#l00815">815</a> of file <a class="el" href="_u_d_e_transition_helper_8cs_source.html">UDETransitionHelper.cs</a>.</p>
 
 </div>
 </div>
@@ -999,7 +986,7 @@ Static Public Attributes</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -1024,7 +1011,7 @@ Static Public Attributes</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd><a class="el" href="class_sansy_human_1_1_u_d_e_1_1_util_1_1_u_d_e_transition_helper_1_1_transition_result.html" title="Class that contains the result of the transition.">TransitionResult</a> instance that contains whether the transition ended</dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_u_d_e_transition_helper_8cs_source.html#l00823">823</a> of file <a class="el" href="_u_d_e_transition_helper_8cs_source.html">UDETransitionHelper.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_u_d_e_transition_helper_8cs_source.html#l00833">833</a> of file <a class="el" href="_u_d_e_transition_helper_8cs_source.html">UDETransitionHelper.cs</a>.</p>
 
 </div>
 </div>
@@ -1087,7 +1074,7 @@ Static Public Attributes</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -1107,7 +1094,7 @@ Static Public Attributes</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd><a class="el" href="class_sansy_human_1_1_u_d_e_1_1_util_1_1_u_d_e_transition_helper_1_1_transition_result.html" title="Class that contains the result of the transition.">TransitionResult</a> instance that contains whether the transition ended</dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_u_d_e_transition_helper_8cs_source.html#l00669">669</a> of file <a class="el" href="_u_d_e_transition_helper_8cs_source.html">UDETransitionHelper.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_u_d_e_transition_helper_8cs_source.html#l00679">679</a> of file <a class="el" href="_u_d_e_transition_helper_8cs_source.html">UDETransitionHelper.cs</a>.</p>
 
 </div>
 </div>
@@ -1164,7 +1151,7 @@ Static Public Attributes</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -1183,7 +1170,7 @@ Static Public Attributes</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd><a class="el" href="class_sansy_human_1_1_u_d_e_1_1_util_1_1_u_d_e_transition_helper_1_1_transition_result.html" title="Class that contains the result of the transition.">TransitionResult</a> instance that contains whether the transition ended</dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_u_d_e_transition_helper_8cs_source.html#l00694">694</a> of file <a class="el" href="_u_d_e_transition_helper_8cs_source.html">UDETransitionHelper.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_u_d_e_transition_helper_8cs_source.html#l00704">704</a> of file <a class="el" href="_u_d_e_transition_helper_8cs_source.html">UDETransitionHelper.cs</a>.</p>
 
 </div>
 </div>
@@ -1240,7 +1227,7 @@ Static Public Attributes</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -1259,7 +1246,7 @@ Static Public Attributes</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd><a class="el" href="class_sansy_human_1_1_u_d_e_1_1_util_1_1_u_d_e_transition_helper_1_1_transition_result.html" title="Class that contains the result of the transition.">TransitionResult</a> instance that contains whether the transition ended</dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_u_d_e_transition_helper_8cs_source.html#l00719">719</a> of file <a class="el" href="_u_d_e_transition_helper_8cs_source.html">UDETransitionHelper.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_u_d_e_transition_helper_8cs_source.html#l00729">729</a> of file <a class="el" href="_u_d_e_transition_helper_8cs_source.html">UDETransitionHelper.cs</a>.</p>
 
 </div>
 </div>
@@ -1310,7 +1297,7 @@ Static Public Attributes</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -1328,7 +1315,7 @@ Static Public Attributes</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd><a class="el" href="class_sansy_human_1_1_u_d_e_1_1_util_1_1_u_d_e_transition_helper_1_1_transition_result.html" title="Class that contains the result of the transition.">TransitionResult</a> instance that contains whether the transition ended</dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_u_d_e_transition_helper_8cs_source.html#l00734">734</a> of file <a class="el" href="_u_d_e_transition_helper_8cs_source.html">UDETransitionHelper.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_u_d_e_transition_helper_8cs_source.html#l00744">744</a> of file <a class="el" href="_u_d_e_transition_helper_8cs_source.html">UDETransitionHelper.cs</a>.</p>
 
 </div>
 </div>
@@ -1385,7 +1372,7 @@ Static Public Attributes</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -1404,7 +1391,7 @@ Static Public Attributes</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd><a class="el" href="class_sansy_human_1_1_u_d_e_1_1_util_1_1_u_d_e_transition_helper_1_1_transition_result.html" title="Class that contains the result of the transition.">TransitionResult</a> instance that contains whether the transition ended</dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_u_d_e_transition_helper_8cs_source.html#l00925">925</a> of file <a class="el" href="_u_d_e_transition_helper_8cs_source.html">UDETransitionHelper.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_u_d_e_transition_helper_8cs_source.html#l00935">935</a> of file <a class="el" href="_u_d_e_transition_helper_8cs_source.html">UDETransitionHelper.cs</a>.</p>
 
 </div>
 </div>
@@ -1461,7 +1448,7 @@ Static Public Attributes</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -1480,7 +1467,43 @@ Static Public Attributes</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd><a class="el" href="class_sansy_human_1_1_u_d_e_1_1_util_1_1_u_d_e_transition_helper_1_1_transition_result.html" title="Class that contains the result of the transition.">TransitionResult</a> instance that contains whether the transition ended</dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_u_d_e_transition_helper_8cs_source.html#l00899">899</a> of file <a class="el" href="_u_d_e_transition_helper_8cs_source.html">UDETransitionHelper.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_u_d_e_transition_helper_8cs_source.html#l00909">909</a> of file <a class="el" href="_u_d_e_transition_helper_8cs_source.html">UDETransitionHelper.cs</a>.</p>
+
+</div>
+</div>
+<a id="a7b3a98e90b1923653be570ddb3c8fe19"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7b3a98e90b1923653be570ddb3c8fe19">&#9670;&nbsp;</a></span>StopAllTransitions()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void SansyHuman.UDE.Util.UDETransitionHelper.StopAllTransitions </td>
+          <td>(</td>
+          <td class="paramtype">GameObject&#160;</td>
+          <td class="paramname"><em>target</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Stops all currently running transitions of the object. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">target</td><td>GameObject to stop transition</td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="_u_d_e_transition_helper_8cs_source.html#l00944">944</a> of file <a class="el" href="_u_d_e_transition_helper_8cs_source.html">UDETransitionHelper.cs</a>.</p>
 
 </div>
 </div>
@@ -1507,7 +1530,7 @@ Static Public Attributes</h2></td></tr>
 
 <p>In easing function that once goes to backward and then frontward again. </p>
 
-<p class="definition">Definition at line <a class="el" href="_u_d_e_transition_helper_8cs_source.html#l00523">523</a> of file <a class="el" href="_u_d_e_transition_helper_8cs_source.html">UDETransitionHelper.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_u_d_e_transition_helper_8cs_source.html#l00533">533</a> of file <a class="el" href="_u_d_e_transition_helper_8cs_source.html">UDETransitionHelper.cs</a>.</p>
 
 </div>
 </div>
@@ -1533,7 +1556,7 @@ Static Public Attributes</h2></td></tr>
 
 <p>In easing function that bounces at the start point 4 times. </p>
 
-<p class="definition">Definition at line <a class="el" href="_u_d_e_transition_helper_8cs_source.html#l00535">535</a> of file <a class="el" href="_u_d_e_transition_helper_8cs_source.html">UDETransitionHelper.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_u_d_e_transition_helper_8cs_source.html#l00545">545</a> of file <a class="el" href="_u_d_e_transition_helper_8cs_source.html">UDETransitionHelper.cs</a>.</p>
 
 </div>
 </div>
@@ -1559,7 +1582,7 @@ Static Public Attributes</h2></td></tr>
 
 <p>Circular in easing function. </p>
 
-<p class="definition">Definition at line <a class="el" href="_u_d_e_transition_helper_8cs_source.html#l00517">517</a> of file <a class="el" href="_u_d_e_transition_helper_8cs_source.html">UDETransitionHelper.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_u_d_e_transition_helper_8cs_source.html#l00527">527</a> of file <a class="el" href="_u_d_e_transition_helper_8cs_source.html">UDETransitionHelper.cs</a>.</p>
 
 </div>
 </div>
@@ -1585,7 +1608,7 @@ Static Public Attributes</h2></td></tr>
 
 <p>Cubic in easing function. </p>
 
-<p class="definition">Definition at line <a class="el" href="_u_d_e_transition_helper_8cs_source.html#l00493">493</a> of file <a class="el" href="_u_d_e_transition_helper_8cs_source.html">UDETransitionHelper.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_u_d_e_transition_helper_8cs_source.html#l00503">503</a> of file <a class="el" href="_u_d_e_transition_helper_8cs_source.html">UDETransitionHelper.cs</a>.</p>
 
 </div>
 </div>
@@ -1611,7 +1634,7 @@ Static Public Attributes</h2></td></tr>
 
 <p>In easing function that vibrates 3 times that the amplitude increases every oscillation. </p>
 
-<p class="definition">Definition at line <a class="el" href="_u_d_e_transition_helper_8cs_source.html#l00529">529</a> of file <a class="el" href="_u_d_e_transition_helper_8cs_source.html">UDETransitionHelper.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_u_d_e_transition_helper_8cs_source.html#l00539">539</a> of file <a class="el" href="_u_d_e_transition_helper_8cs_source.html">UDETransitionHelper.cs</a>.</p>
 
 </div>
 </div>
@@ -1637,7 +1660,7 @@ Static Public Attributes</h2></td></tr>
 
 <p>Exponential in easing function. </p>
 
-<p class="definition">Definition at line <a class="el" href="_u_d_e_transition_helper_8cs_source.html#l00511">511</a> of file <a class="el" href="_u_d_e_transition_helper_8cs_source.html">UDETransitionHelper.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_u_d_e_transition_helper_8cs_source.html#l00521">521</a> of file <a class="el" href="_u_d_e_transition_helper_8cs_source.html">UDETransitionHelper.cs</a>.</p>
 
 </div>
 </div>
@@ -1663,7 +1686,7 @@ Static Public Attributes</h2></td></tr>
 
 <p>Inout easing function that goes over lower bound and again upper bound. </p>
 
-<p class="definition">Definition at line <a class="el" href="_u_d_e_transition_helper_8cs_source.html#l00527">527</a> of file <a class="el" href="_u_d_e_transition_helper_8cs_source.html">UDETransitionHelper.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_u_d_e_transition_helper_8cs_source.html#l00537">537</a> of file <a class="el" href="_u_d_e_transition_helper_8cs_source.html">UDETransitionHelper.cs</a>.</p>
 
 </div>
 </div>
@@ -1689,7 +1712,7 @@ Static Public Attributes</h2></td></tr>
 
 <p>Inout easing function that bounces at the start point and ent point 4 times each. </p>
 
-<p class="definition">Definition at line <a class="el" href="_u_d_e_transition_helper_8cs_source.html#l00539">539</a> of file <a class="el" href="_u_d_e_transition_helper_8cs_source.html">UDETransitionHelper.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_u_d_e_transition_helper_8cs_source.html#l00549">549</a> of file <a class="el" href="_u_d_e_transition_helper_8cs_source.html">UDETransitionHelper.cs</a>.</p>
 
 </div>
 </div>
@@ -1715,7 +1738,7 @@ Static Public Attributes</h2></td></tr>
 
 <p>Circular in out easing function. </p>
 
-<p class="definition">Definition at line <a class="el" href="_u_d_e_transition_helper_8cs_source.html#l00521">521</a> of file <a class="el" href="_u_d_e_transition_helper_8cs_source.html">UDETransitionHelper.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_u_d_e_transition_helper_8cs_source.html#l00531">531</a> of file <a class="el" href="_u_d_e_transition_helper_8cs_source.html">UDETransitionHelper.cs</a>.</p>
 
 </div>
 </div>
@@ -1741,7 +1764,7 @@ Static Public Attributes</h2></td></tr>
 
 <p>Cubic inout easing function. </p>
 
-<p class="definition">Definition at line <a class="el" href="_u_d_e_transition_helper_8cs_source.html#l00497">497</a> of file <a class="el" href="_u_d_e_transition_helper_8cs_source.html">UDETransitionHelper.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_u_d_e_transition_helper_8cs_source.html#l00507">507</a> of file <a class="el" href="_u_d_e_transition_helper_8cs_source.html">UDETransitionHelper.cs</a>.</p>
 
 </div>
 </div>
@@ -1767,7 +1790,7 @@ Static Public Attributes</h2></td></tr>
 
 <p>Inout easing function that vibrates 6 times that the amplitude increases halfway and after that decreases. </p>
 
-<p class="definition">Definition at line <a class="el" href="_u_d_e_transition_helper_8cs_source.html#l00533">533</a> of file <a class="el" href="_u_d_e_transition_helper_8cs_source.html">UDETransitionHelper.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_u_d_e_transition_helper_8cs_source.html#l00543">543</a> of file <a class="el" href="_u_d_e_transition_helper_8cs_source.html">UDETransitionHelper.cs</a>.</p>
 
 </div>
 </div>
@@ -1793,7 +1816,7 @@ Static Public Attributes</h2></td></tr>
 
 <p>Exponential in out easing function. </p>
 
-<p class="definition">Definition at line <a class="el" href="_u_d_e_transition_helper_8cs_source.html#l00515">515</a> of file <a class="el" href="_u_d_e_transition_helper_8cs_source.html">UDETransitionHelper.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_u_d_e_transition_helper_8cs_source.html#l00525">525</a> of file <a class="el" href="_u_d_e_transition_helper_8cs_source.html">UDETransitionHelper.cs</a>.</p>
 
 </div>
 </div>
@@ -1819,7 +1842,7 @@ Static Public Attributes</h2></td></tr>
 
 <p>Quadratic inout easing function. </p>
 
-<p class="definition">Definition at line <a class="el" href="_u_d_e_transition_helper_8cs_source.html#l00491">491</a> of file <a class="el" href="_u_d_e_transition_helper_8cs_source.html">UDETransitionHelper.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_u_d_e_transition_helper_8cs_source.html#l00501">501</a> of file <a class="el" href="_u_d_e_transition_helper_8cs_source.html">UDETransitionHelper.cs</a>.</p>
 
 </div>
 </div>
@@ -1845,7 +1868,7 @@ Static Public Attributes</h2></td></tr>
 
 <p>Quartic inout easing function. </p>
 
-<p class="definition">Definition at line <a class="el" href="_u_d_e_transition_helper_8cs_source.html#l00503">503</a> of file <a class="el" href="_u_d_e_transition_helper_8cs_source.html">UDETransitionHelper.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_u_d_e_transition_helper_8cs_source.html#l00513">513</a> of file <a class="el" href="_u_d_e_transition_helper_8cs_source.html">UDETransitionHelper.cs</a>.</p>
 
 </div>
 </div>
@@ -1871,7 +1894,7 @@ Static Public Attributes</h2></td></tr>
 
 <p>Quintic inout easing function. </p>
 
-<p class="definition">Definition at line <a class="el" href="_u_d_e_transition_helper_8cs_source.html#l00509">509</a> of file <a class="el" href="_u_d_e_transition_helper_8cs_source.html">UDETransitionHelper.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_u_d_e_transition_helper_8cs_source.html#l00519">519</a> of file <a class="el" href="_u_d_e_transition_helper_8cs_source.html">UDETransitionHelper.cs</a>.</p>
 
 </div>
 </div>
@@ -1897,7 +1920,7 @@ Static Public Attributes</h2></td></tr>
 
 <p>Sine inout easing function. </p>
 
-<p class="definition">Definition at line <a class="el" href="_u_d_e_transition_helper_8cs_source.html#l00485">485</a> of file <a class="el" href="_u_d_e_transition_helper_8cs_source.html">UDETransitionHelper.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_u_d_e_transition_helper_8cs_source.html#l00495">495</a> of file <a class="el" href="_u_d_e_transition_helper_8cs_source.html">UDETransitionHelper.cs</a>.</p>
 
 </div>
 </div>
@@ -1923,7 +1946,7 @@ Static Public Attributes</h2></td></tr>
 
 <p>Quadratic in easing function. </p>
 
-<p class="definition">Definition at line <a class="el" href="_u_d_e_transition_helper_8cs_source.html#l00487">487</a> of file <a class="el" href="_u_d_e_transition_helper_8cs_source.html">UDETransitionHelper.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_u_d_e_transition_helper_8cs_source.html#l00497">497</a> of file <a class="el" href="_u_d_e_transition_helper_8cs_source.html">UDETransitionHelper.cs</a>.</p>
 
 </div>
 </div>
@@ -1949,7 +1972,7 @@ Static Public Attributes</h2></td></tr>
 
 <p>Quartic in easing function. </p>
 
-<p class="definition">Definition at line <a class="el" href="_u_d_e_transition_helper_8cs_source.html#l00499">499</a> of file <a class="el" href="_u_d_e_transition_helper_8cs_source.html">UDETransitionHelper.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_u_d_e_transition_helper_8cs_source.html#l00509">509</a> of file <a class="el" href="_u_d_e_transition_helper_8cs_source.html">UDETransitionHelper.cs</a>.</p>
 
 </div>
 </div>
@@ -1975,7 +1998,7 @@ Static Public Attributes</h2></td></tr>
 
 <p>Quintic in easing function. </p>
 
-<p class="definition">Definition at line <a class="el" href="_u_d_e_transition_helper_8cs_source.html#l00505">505</a> of file <a class="el" href="_u_d_e_transition_helper_8cs_source.html">UDETransitionHelper.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_u_d_e_transition_helper_8cs_source.html#l00515">515</a> of file <a class="el" href="_u_d_e_transition_helper_8cs_source.html">UDETransitionHelper.cs</a>.</p>
 
 </div>
 </div>
@@ -2001,7 +2024,7 @@ Static Public Attributes</h2></td></tr>
 
 <p>Sine in easing function. </p>
 
-<p class="definition">Definition at line <a class="el" href="_u_d_e_transition_helper_8cs_source.html#l00481">481</a> of file <a class="el" href="_u_d_e_transition_helper_8cs_source.html">UDETransitionHelper.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_u_d_e_transition_helper_8cs_source.html#l00491">491</a> of file <a class="el" href="_u_d_e_transition_helper_8cs_source.html">UDETransitionHelper.cs</a>.</p>
 
 </div>
 </div>
@@ -2027,7 +2050,7 @@ Static Public Attributes</h2></td></tr>
 
 <p>Linear easing function. </p>
 
-<p class="definition">Definition at line <a class="el" href="_u_d_e_transition_helper_8cs_source.html#l00479">479</a> of file <a class="el" href="_u_d_e_transition_helper_8cs_source.html">UDETransitionHelper.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_u_d_e_transition_helper_8cs_source.html#l00489">489</a> of file <a class="el" href="_u_d_e_transition_helper_8cs_source.html">UDETransitionHelper.cs</a>.</p>
 
 </div>
 </div>
@@ -2053,7 +2076,7 @@ Static Public Attributes</h2></td></tr>
 
 <p>Out easing function that once goes to frontward over the boundary and back to end point. </p>
 
-<p class="definition">Definition at line <a class="el" href="_u_d_e_transition_helper_8cs_source.html#l00525">525</a> of file <a class="el" href="_u_d_e_transition_helper_8cs_source.html">UDETransitionHelper.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_u_d_e_transition_helper_8cs_source.html#l00535">535</a> of file <a class="el" href="_u_d_e_transition_helper_8cs_source.html">UDETransitionHelper.cs</a>.</p>
 
 </div>
 </div>
@@ -2079,7 +2102,7 @@ Static Public Attributes</h2></td></tr>
 
 <p>Out easing function that bounces at the end point 4 times. </p>
 
-<p class="definition">Definition at line <a class="el" href="_u_d_e_transition_helper_8cs_source.html#l00537">537</a> of file <a class="el" href="_u_d_e_transition_helper_8cs_source.html">UDETransitionHelper.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_u_d_e_transition_helper_8cs_source.html#l00547">547</a> of file <a class="el" href="_u_d_e_transition_helper_8cs_source.html">UDETransitionHelper.cs</a>.</p>
 
 </div>
 </div>
@@ -2105,7 +2128,7 @@ Static Public Attributes</h2></td></tr>
 
 <p>Circular out easing function. </p>
 
-<p class="definition">Definition at line <a class="el" href="_u_d_e_transition_helper_8cs_source.html#l00519">519</a> of file <a class="el" href="_u_d_e_transition_helper_8cs_source.html">UDETransitionHelper.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_u_d_e_transition_helper_8cs_source.html#l00529">529</a> of file <a class="el" href="_u_d_e_transition_helper_8cs_source.html">UDETransitionHelper.cs</a>.</p>
 
 </div>
 </div>
@@ -2131,7 +2154,7 @@ Static Public Attributes</h2></td></tr>
 
 <p>Cubic out easing function. </p>
 
-<p class="definition">Definition at line <a class="el" href="_u_d_e_transition_helper_8cs_source.html#l00495">495</a> of file <a class="el" href="_u_d_e_transition_helper_8cs_source.html">UDETransitionHelper.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_u_d_e_transition_helper_8cs_source.html#l00505">505</a> of file <a class="el" href="_u_d_e_transition_helper_8cs_source.html">UDETransitionHelper.cs</a>.</p>
 
 </div>
 </div>
@@ -2157,7 +2180,7 @@ Static Public Attributes</h2></td></tr>
 
 <p>Out easing function that vibrates 3 times that the amplitude decreases every oscillation. </p>
 
-<p class="definition">Definition at line <a class="el" href="_u_d_e_transition_helper_8cs_source.html#l00531">531</a> of file <a class="el" href="_u_d_e_transition_helper_8cs_source.html">UDETransitionHelper.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_u_d_e_transition_helper_8cs_source.html#l00541">541</a> of file <a class="el" href="_u_d_e_transition_helper_8cs_source.html">UDETransitionHelper.cs</a>.</p>
 
 </div>
 </div>
@@ -2183,7 +2206,7 @@ Static Public Attributes</h2></td></tr>
 
 <p>Exponential out easing function. </p>
 
-<p class="definition">Definition at line <a class="el" href="_u_d_e_transition_helper_8cs_source.html#l00513">513</a> of file <a class="el" href="_u_d_e_transition_helper_8cs_source.html">UDETransitionHelper.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_u_d_e_transition_helper_8cs_source.html#l00523">523</a> of file <a class="el" href="_u_d_e_transition_helper_8cs_source.html">UDETransitionHelper.cs</a>.</p>
 
 </div>
 </div>
@@ -2209,7 +2232,7 @@ Static Public Attributes</h2></td></tr>
 
 <p>Quadratic out easing function. </p>
 
-<p class="definition">Definition at line <a class="el" href="_u_d_e_transition_helper_8cs_source.html#l00489">489</a> of file <a class="el" href="_u_d_e_transition_helper_8cs_source.html">UDETransitionHelper.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_u_d_e_transition_helper_8cs_source.html#l00499">499</a> of file <a class="el" href="_u_d_e_transition_helper_8cs_source.html">UDETransitionHelper.cs</a>.</p>
 
 </div>
 </div>
@@ -2235,7 +2258,7 @@ Static Public Attributes</h2></td></tr>
 
 <p>Quartic out easing function. </p>
 
-<p class="definition">Definition at line <a class="el" href="_u_d_e_transition_helper_8cs_source.html#l00501">501</a> of file <a class="el" href="_u_d_e_transition_helper_8cs_source.html">UDETransitionHelper.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_u_d_e_transition_helper_8cs_source.html#l00511">511</a> of file <a class="el" href="_u_d_e_transition_helper_8cs_source.html">UDETransitionHelper.cs</a>.</p>
 
 </div>
 </div>
@@ -2261,7 +2284,7 @@ Static Public Attributes</h2></td></tr>
 
 <p>Quintic out easing function. </p>
 
-<p class="definition">Definition at line <a class="el" href="_u_d_e_transition_helper_8cs_source.html#l00507">507</a> of file <a class="el" href="_u_d_e_transition_helper_8cs_source.html">UDETransitionHelper.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_u_d_e_transition_helper_8cs_source.html#l00517">517</a> of file <a class="el" href="_u_d_e_transition_helper_8cs_source.html">UDETransitionHelper.cs</a>.</p>
 
 </div>
 </div>
@@ -2287,23 +2310,19 @@ Static Public Attributes</h2></td></tr>
 
 <p>Sine out easing function. </p>
 
-<p class="definition">Definition at line <a class="el" href="_u_d_e_transition_helper_8cs_source.html#l00483">483</a> of file <a class="el" href="_u_d_e_transition_helper_8cs_source.html">UDETransitionHelper.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_u_d_e_transition_helper_8cs_source.html#l00493">493</a> of file <a class="el" href="_u_d_e_transition_helper_8cs_source.html">UDETransitionHelper.cs</a>.</p>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li>D:/Unity Project/DanmakuShooting/Assets/UniversalDanmakuEngine/Scripts/SansyHuman/UDE/Util/<a class="el" href="_u_d_e_transition_helper_8cs_source.html">UDETransitionHelper.cs</a></li>
+<li>Scripts/SansyHuman/UDE/Util/<a class="el" href="_u_d_e_transition_helper_8cs_source.html">UDETransitionHelper.cs</a></li>
 </ul>
 </div><!-- contents -->
-</div><!-- doc-content -->
 <!-- start footer part -->
-<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
-  <ul>
-    <li class="navelem"><a class="el" href="namespace_sansy_human.html">SansyHuman</a></li><li class="navelem"><a class="el" href="namespace_sansy_human_1_1_u_d_e.html">UDE</a></li><li class="navelem"><a class="el" href="namespace_sansy_human_1_1_u_d_e_1_1_util.html">Util</a></li><li class="navelem"><a class="el" href="class_sansy_human_1_1_u_d_e_1_1_util_1_1_u_d_e_transition_helper.html">UDETransitionHelper</a></li>
-    <li class="footer">Generated by
-    <a href="http://www.doxygen.org/index.html">
-    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.18 </li>
-  </ul>
-</div>
+<hr class="footer"/><address class="footer"><small>
+Generated by &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.18
+</small></address>
 </body>
 </html>

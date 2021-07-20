@@ -19,7 +19,7 @@ namespace SansyHuman.Debugging
                 .GetMethod("FindObjectFromInstanceID", BindingFlags.NonPublic | BindingFlags.Static);
 
             if (methodInfo == null)
-                Debug.LogError("FindObjectFromInstanceID was not found in UnityEngine.Object");
+                findObjectFromInstanceID = t => null;
             else
                 findObjectFromInstanceID = (Func<int, UnityEngine.Object>)Delegate.CreateDelegate(typeof(Func<int, UnityEngine.Object>), methodInfo);
         }
@@ -32,18 +32,11 @@ namespace SansyHuman.Debugging
         /// <returns>The object with the instance. If does not exist, the returns null.</returns>
         public static T FindObjectFromInstanceID<T>(int id) where T : UnityEngine.Object
         {
-            try
-            {
-                var obj = findObjectFromInstanceID.Invoke(id);
-                if (obj == null)
-                    return null;
-
-                return obj as T;
-            }
-            catch(Exception)
-            {
+            var obj = findObjectFromInstanceID.Invoke(id);
+            if (obj == null)
                 return null;
-            }
+
+            return obj as T;
         }
     }
 }

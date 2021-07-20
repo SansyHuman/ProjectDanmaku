@@ -48,7 +48,7 @@ MonoBehaviour:
     it removes bullets around the player and gives short invincibility. When the player
     hit by a bullet while there is a shield, the shield disappears and gives short
     invincibility.
-  skillImage: {fileID: 0}
+  skillImage: {fileID: 21300000, guid: 1a5f5957ddf6222499cd52f9272d953f, type: 3}
   cooldown: 30
   mp: 100
   moveSpeedMultiplier: 1
