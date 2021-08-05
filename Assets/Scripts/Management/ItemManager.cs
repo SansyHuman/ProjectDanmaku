@@ -57,10 +57,10 @@ namespace SansyHuman.Management
             draggedItems.CopyTo(d);
 
             foreach (var e in nd)
-                ObjectPool.Instance.ReturnObject(e);
+                e.RemoveItem();
 
             foreach (var e in d)
-                ObjectPool.Instance.ReturnObject(e);
+                e.RemoveItem();
 
             notDraggedItems.Clear();
             draggedItems.Clear();

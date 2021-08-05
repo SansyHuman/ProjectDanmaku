@@ -211,17 +211,24 @@ namespace SansyHuman.Player
             UDEAbstractBullet bullet = UDEBulletPool.Instance.GetBullet(mainBullet);
             bullet.Damage = mainCenterBulletDamage;
             bullet.MoveBulletToDirection(this, null, mainShotPoint.position, 0, new Vector2(arrowBulletSpeed, 0));
+            if (superHot)
+                bullet.TimeScale = UDETime.TimeScale.ENEMY;
+
             if (powerLevel >= 1)
             {
                 bullet = UDEBulletPool.Instance.GetBullet(mainBullet);
                 bullet.Damage = mainSubBulletDamage;
                 var vel = UDEMath.Polar2Cartesian(arrowBulletSpeed, mainShotAngle * (isSlowMode ? mainShotAngleMultiplier : 1.0f));
                 bullet.MoveBulletToDirection(this, null, mainShotPoint.position , 0, new Vector2(vel.x, vel.y));
+                if (superHot)
+                    bullet.TimeScale = UDETime.TimeScale.ENEMY;
 
                 bullet = UDEBulletPool.Instance.GetBullet(mainBullet);
                 bullet.Damage = mainSubBulletDamage;
                 vel = UDEMath.Polar2Cartesian(arrowBulletSpeed, -mainShotAngle * (isSlowMode ? mainShotAngleMultiplier : 1.0f));
                 bullet.MoveBulletToDirection(this, null, mainShotPoint.position, 0, new Vector2(vel.x, vel.y));
+                if (superHot)
+                    bullet.TimeScale = UDETime.TimeScale.ENEMY;
             }
             if (powerLevel >= 2)
             {
@@ -229,41 +236,57 @@ namespace SansyHuman.Player
                 bullet.Damage = subBulletDamage;
                 var vel = UDEMath.Polar2Cartesian(arrowBulletSpeed, subWeaponShotAngle * (isSlowMode ? subWeaponShotAngleSlowMultiplier : 1.0f));
                 bullet.MoveBulletToDirection(this, null, subWeapons[0].position, 0, new Vector2(vel.x, vel.y));
+                if (superHot)
+                    bullet.TimeScale = UDETime.TimeScale.ENEMY;
 
                 bullet = UDEBulletPool.Instance.GetBullet(subBullet);
                 bullet.Damage = subBulletDamage;
                 vel = UDEMath.Polar2Cartesian(arrowBulletSpeed, subWeaponShotAngle * (isSlowMode ? subWeaponShotAngleSlowMultiplier : 1.0f) + subArrowAngle * (isSlowMode ? subArrowAngleSlowMultiplier : 1.0f));
                 bullet.MoveBulletToDirection(this, null, subWeapons[0].position, 0, new Vector2(vel.x, vel.y));
+                if (superHot)
+                    bullet.TimeScale = UDETime.TimeScale.ENEMY;
 
                 bullet = UDEBulletPool.Instance.GetBullet(subBullet);
                 bullet.Damage = subBulletDamage;
                 vel = UDEMath.Polar2Cartesian(arrowBulletSpeed, subWeaponShotAngle * (isSlowMode ? subWeaponShotAngleSlowMultiplier : 1.0f) - subArrowAngle * (isSlowMode ? subArrowAngleSlowMultiplier : 1.0f));
                 bullet.MoveBulletToDirection(this, null, subWeapons[0].position, 0, new Vector2(vel.x, vel.y));
+                if (superHot)
+                    bullet.TimeScale = UDETime.TimeScale.ENEMY;
 
                 bullet = UDEBulletPool.Instance.GetBullet(subBullet);
                 bullet.Damage = subBulletDamage;
                 vel = UDEMath.Polar2Cartesian(arrowBulletSpeed, -subWeaponShotAngle * (isSlowMode ? subWeaponShotAngleSlowMultiplier : 1.0f));
                 bullet.MoveBulletToDirection(this, null, subWeapons[1].position, 0, new Vector2(vel.x, vel.y));
+                if (superHot)
+                    bullet.TimeScale = UDETime.TimeScale.ENEMY;
 
                 bullet = UDEBulletPool.Instance.GetBullet(subBullet);
                 bullet.Damage = subBulletDamage;
                 vel = UDEMath.Polar2Cartesian(arrowBulletSpeed, -subWeaponShotAngle * (isSlowMode ? subWeaponShotAngleSlowMultiplier : 1.0f) + subArrowAngle * (isSlowMode ? subArrowAngleSlowMultiplier : 1.0f));
                 bullet.MoveBulletToDirection(this, null, subWeapons[1].position, 0, new Vector2(vel.x, vel.y));
+                if (superHot)
+                    bullet.TimeScale = UDETime.TimeScale.ENEMY;
 
                 bullet = UDEBulletPool.Instance.GetBullet(subBullet);
                 bullet.Damage = subBulletDamage;
                 vel = UDEMath.Polar2Cartesian(arrowBulletSpeed, -subWeaponShotAngle * (isSlowMode ? subWeaponShotAngleSlowMultiplier : 1.0f) - subArrowAngle * (isSlowMode ? subArrowAngleSlowMultiplier : 1.0f));
                 bullet.MoveBulletToDirection(this, null, subWeapons[1].position, 0, new Vector2(vel.x, vel.y));
+                if (superHot)
+                    bullet.TimeScale = UDETime.TimeScale.ENEMY;
             }
             if (powerLevel >= 3 && shotCnt == 0)
             {
                 UDEHomingBullet homingBullet = UDEBulletPool.Instance.GetBullet(subHomingBullet) as UDEHomingBullet;
                 homingBullet.Damage = subHomingBulletDamage;
                 homingBullet.Initialize(subWeapons[2].position, this, isSlowMode ? homingMoveSlow1 : homingMove1);
+                if (superHot)
+                    homingBullet.TimeScale = UDETime.TimeScale.ENEMY;
 
                 homingBullet = UDEBulletPool.Instance.GetBullet(subHomingBullet) as UDEHomingBullet;
                 homingBullet.Damage = subHomingBulletDamage;
                 homingBullet.Initialize(subWeapons[3].position, this, isSlowMode ? homingMoveSlow2 : homingMove2);
+                if (superHot)
+                    homingBullet.TimeScale = UDETime.TimeScale.ENEMY;
             }
         }
 

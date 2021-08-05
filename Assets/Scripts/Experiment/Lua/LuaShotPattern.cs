@@ -6,13 +6,13 @@ using MoonSharp.Interpreter;
 using SansyHuman.UDE.Management;
 using SansyHuman.UDE.Object;
 using SansyHuman.UDE.Util.Math;
-using SansyHuman.UDE.Pattern;
 using SansyHuman.UDE.Util;
 using MoonSharp.Interpreter.Interop;
+using SansyHuman.Pattern;
 
 namespace SansyHuman.Experiment.Lua
 {
-    public class LuaShotPattern : UDEBaseShotPattern
+    public class LuaShotPattern : ShotPatternBase
     {
         [SerializeField]
         [Tooltip("Name of the shot pattern Lua script")]

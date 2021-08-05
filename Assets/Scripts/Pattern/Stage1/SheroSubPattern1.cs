@@ -9,7 +9,7 @@ using SansyHuman.UDE.Util.Math;
 
 namespace SansyHuman.Pattern
 {
-    public class SheroSubPattern1 : UDEBaseShotPattern
+    public class SheroSubPattern1 : ShotPatternBase
     {
         // Bullet codes
         public const int GreenLuminusBullet = 0;

@@ -73,6 +73,11 @@ namespace SansyHuman.UDE.Object
         {
             get; set;
         }
+        /// <value>Gets and sets the timescale of the bullet.</value>
+        public abstract UDETime.TimeScale TimeScale 
+        {
+            get; set; 
+        }
 
         /// <value>Gets the character that shot the bullet.</value>
         public UDEBaseCharacter OriginCharacter { get => originCharacter; }

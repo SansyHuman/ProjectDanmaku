@@ -72,6 +72,9 @@ namespace SansyHuman.Player
         [Tooltip("The score of one graze.")]
         protected int scorePerGraze = 1000;
 
+        [SerializeField]
+        protected bool superHot = false;
+
 
         [SerializeField]
         [Tooltip("Skill 1 key")]
@@ -264,6 +267,20 @@ namespace SansyHuman.Player
 
                 animator.SetFloat("Direction", (float)tmp);
 
+                int tmp2 = 0;
+                if (Input.GetKey(moveUp))
+                    tmp2 += 1;
+                if (Input.GetKey(moveDown))
+                    tmp2 -= 1;
+
+                if (superHot)
+                {
+                    if (tmp == 0 && tmp2 == 0)
+                        UDETime.Instance.EnemyTimeScale = 0.1f;
+                    else
+                        UDETime.Instance.EnemyTimeScale = 1f;
+                }
+
                 return;
             }
 
@@ -280,6 +297,20 @@ namespace SansyHuman.Player
 
                 animator.SetFloat("Direction", (float)tmp);
 
+                int tmp2 = 0;
+                if (Input.GetKey(moveUp))
+                    tmp2 += 1;
+                if (Input.GetKey(moveDown))
+                    tmp2 -= 1;
+
+                if (superHot)
+                {
+                    if (tmp == 0 && tmp2 == 0)
+                        UDETime.Instance.EnemyTimeScale = 0.1f;
+                    else
+                        UDETime.Instance.EnemyTimeScale = 1f;
+                }
+
                 return;
             }
 
@@ -292,6 +323,14 @@ namespace SansyHuman.Player
 
             Vector3 velocity = pad.leftStick.ReadValue().normalized * realSpeed;
             characterTr.Translate(velocity * deltaTime * UDETime.Instance.PlayerTimeScale);
+
+            if (superHot)
+            {
+                if (velocity.sqrMagnitude < 0.0001f)
+                    UDETime.Instance.EnemyTimeScale = 0.1f;
+                else
+                    UDETime.Instance.EnemyTimeScale = 1f;
+            }
 
             Vector3 pos = Camera.main.WorldToViewportPoint(characterTr.position);
             if (pos.x < 0)
@@ -354,6 +393,8 @@ namespace SansyHuman.Player
             activeShield = shield;
         }
 
+        private IEnumerator invincibleCoroutine = null;
+
         /// <summary>
         /// Makes the player invincible for the time.
         /// </summary>
@@ -361,7 +402,15 @@ namespace SansyHuman.Player
         /// <param name="playHitSound">Whether play hit sound</param>
         public void MakeInvincibleForSeconds(float time, bool playHitSound)
         {
-            StartCoroutine(InvincibleForSecondsCoroutine(time, playHitSound));
+            if (invincibleCoroutine != null)
+            {
+                StopCoroutine(invincibleCoroutine);
+                invincibleCoroutine = null;
+            }
+
+            invincibleCoroutine = InvincibleForSecondsCoroutine(time, playHitSound);
+
+            StartCoroutine(invincibleCoroutine);
         }
 
         private IEnumerator InvincibleForSecondsCoroutine(float time, bool playHitSound)
@@ -385,6 +434,8 @@ namespace SansyHuman.Player
             col.a = 1f;
             renderer.color = col;
             invincible = false;
+
+            invincibleCoroutine = null;
 
             yield return null;
         }
@@ -692,7 +743,7 @@ namespace SansyHuman.Player
                         MakeInvincibleForSeconds(0.75f, true);
                     }
                     else
-                        StartCoroutine(DamageSelf(1));
+                        DamagePlayer(1);
                 }
                 else if (collision.CompareTag("Bullet"))
                 {
@@ -707,7 +758,7 @@ namespace SansyHuman.Player
                             MakeInvincibleForSeconds(0.75f, true);
                         }
                         else
-                            StartCoroutine(DamageSelf(1));
+                            DamagePlayer(1);
                     }
                 }
                 else if (collision.CompareTag("Laser"))
@@ -722,7 +773,7 @@ namespace SansyHuman.Player
                             MakeInvincibleForSeconds(0.75f, true);
                         }
                         else
-                            StartCoroutine(DamageSelf(1));
+                            DamagePlayer(1);
                     }
                 }
             }
@@ -739,6 +790,19 @@ namespace SansyHuman.Player
 
                 item.RemoveItem();
             }
+        }
+
+        private void DamagePlayer(float damage)
+        {
+            if (invincibleCoroutine != null)
+            {
+                StopCoroutine(invincibleCoroutine);
+                invincibleCoroutine = null;
+            }
+
+            invincibleCoroutine = DamageSelf(damage);
+
+            StartCoroutine(invincibleCoroutine);
         }
 
         // TODO: Reduce player's power and drop some power.

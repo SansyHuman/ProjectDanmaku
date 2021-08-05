@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using SansyHuman.UDE.Management;
 using SansyHuman.UDE.Pattern;
 using TMPro;
 using UnityEngine;
@@ -7,6 +8,7 @@ using UnityEngine;
 namespace SansyHuman.UI.HUD
 {
     [DisallowMultipleComponent]
+    [RequireComponent(typeof(AudioSource))]
     public class TimelimitHUD : MonoBehaviour
     {
         [SerializeField]
@@ -35,10 +37,14 @@ namespace SansyHuman.UI.HUD
         [Range(0, 20)]
         private float threshold;
 
+        private AudioSource audioSource;
+
         private UDEBaseShotPattern pattern = null;
 
         private void Awake()
         {
+            audioSource = GetComponent<AudioSource>();
+
             StopShowingTimeLimit();
         }
 
@@ -59,13 +65,16 @@ namespace SansyHuman.UI.HUD
         {
             pattern = null;
             timeLimitText.text = "";
+            audioSource.Stop();
             StopAllCoroutines();
         }
 
         private IEnumerator TimeLimitUpdate()
         {
+            timeLimitText.gameObject.SetActive(false);
             timeLimitText.outlineColor = normalTimeLimitOutlineColor;
             timeLimitText.outlineWidth = normalTimeLimitOutlineWidth;
+            timeLimitText.gameObject.SetActive(true);
 
             while (true)
             {
@@ -77,8 +86,12 @@ namespace SansyHuman.UI.HUD
                 yield return null;
             }
 
+            timeLimitText.gameObject.SetActive(false);
             timeLimitText.outlineColor = warningTimeLimitOutlineColor;
             timeLimitText.outlineWidth = warningTimeLimitOutlineWidth;
+            timeLimitText.gameObject.SetActive(true);
+
+            audioSource.Play();
 
             while (true)
             {
@@ -87,6 +100,7 @@ namespace SansyHuman.UI.HUD
                     break;
 
                 timeLimitText.text = remainingTime.ToString("00.00");
+                audioSource.pitch = UDETime.Instance.EnemyTimeScale;
                 yield return null;
             }
 

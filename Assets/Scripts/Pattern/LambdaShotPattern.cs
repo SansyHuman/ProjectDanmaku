@@ -7,7 +7,7 @@ using SansyHuman.UDE.Object;
 
 namespace SansyHuman.Pattern
 {
-    public class LambdaShotPattern : UDEBaseShotPattern
+    public class LambdaShotPattern : ShotPatternBase
     {
         private Func<LambdaShotPattern, List<UDEAbstractBullet>, UDEEnemy, IEnumerator> patternFunc;
 

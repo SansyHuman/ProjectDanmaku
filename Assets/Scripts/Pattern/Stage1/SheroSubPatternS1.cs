@@ -12,7 +12,7 @@ using UnityEngine;
 
 namespace SansyHuman.Pattern
 {
-    public class SheroSubPatternS1 : UDEBaseShotPattern
+    public class SheroSubPatternS1 : ShotPatternBase
     {
         // Bullet codes
         public const int GreenLuminusBullet = 0;

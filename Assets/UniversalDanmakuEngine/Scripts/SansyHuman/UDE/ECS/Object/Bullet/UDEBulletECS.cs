@@ -77,6 +77,22 @@ namespace SansyHuman.UDE.ECS.Object
             }
         }
 
+        /// <inheritdoc/>
+        public override UDETime.TimeScale TimeScale 
+        { 
+            get
+            {
+                UDEBulletMovements movements = manager.GetComponentData<UDEBulletMovements>(selfEntity);
+                return movements.UsingTimeScale;
+            }
+            set
+            {
+                UDEBulletMovements movements = manager.GetComponentData<UDEBulletMovements>(selfEntity);
+                movements.UsingTimeScale = value;
+                manager.SetComponentData<UDEBulletMovements>(selfEntity, movements);
+            }
+        }
+
         protected override void Awake()
         {
             base.Awake();

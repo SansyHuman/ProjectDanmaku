@@ -100,6 +100,12 @@ namespace SansyHuman.UDE.Object
                     summonTime = 0;
             } 
         }
+        /// <inheritdoc/>
+        public override UDETime.TimeScale TimeScale
+        {
+            get => usingTimeScale;
+            set => usingTimeScale = value;
+        }
         #endregion
 
         #region Initialize and Dispose
