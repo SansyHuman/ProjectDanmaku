@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 
 using SansyHuman.Enemy;
+using SansyHuman.Experiment.Lua;
 using SansyHuman.Pattern;
 using SansyHuman.UDE.Management;
 using SansyHuman.UDE.Object;
@@ -36,7 +37,7 @@ namespace SansyHuman.Stage
 
         public enum Wave
         {
-            Intro, Wave1, Wave2, Wave3
+            Intro, Wave1, Wave2, Wave3, Wave4
         }
 
         [SerializeField]
@@ -54,6 +55,8 @@ namespace SansyHuman.Stage
                     goto WAVE_2;
                 case Wave.Wave3:
                     goto WAVE_3;
+                case Wave.Wave4:
+                    goto WAVE_4;
             }
 
             INTRO:
@@ -153,6 +156,30 @@ namespace SansyHuman.Stage
             sheroSub.transform.SetPositionAndRotation(Camera.main.ViewportToWorldPoint(new Vector3(1.1f, 0.4f, 0)), Quaternion.Euler(0, 0, 0));
             sheroSub.Initialize();
             sheroSub.ShowHealthAndSpecllCount();
+
+            yield return StartCoroutine(new WaitUntil(() => sheroSub.SpecialSpellCount == 0));
+
+            WAVE_4:
+            fairySummonPositions = new Vector3[]
+            {
+                new Vector3(1.1f, 0.7f),
+                new Vector3(1.1f, 0.2f),
+                new Vector3(1.1f, 0.8f),
+                new Vector3(1.1f, 0.5f),
+                new Vector3(1.1f, 0.25f),
+                new Vector3(1.1f, 0.69f),
+                new Vector3(1.1f, 0.73f),
+                new Vector3(1.1f, 0.35f)
+            };
+
+
+            for (int i = 0; i < fairySummonPositions.Length; i++)
+            {
+                LambdaPatternEnemy fairy = SummonEnemy(enemies[Fairy]) as LambdaPatternEnemy;
+                fairy.transform.SetPositionAndRotation(Camera.main.ViewportToWorldPoint(fairySummonPositions[i]), Quaternion.Euler(0, 0, 0));
+                fairy.Initialize(Wave4FairyPattern, 12, UDEBaseShotPattern.RemoveBulletsOnDeath.NONE, BulletMap.Instance["DarkGreenEllipseBullet"]);
+                yield return StartCoroutine(UDETime.Instance.WaitForScaledSeconds(1.5f, UDETime.TimeScale.ENEMY));
+            }
         }
 
         private IEnumerator IntroWhiteSpiritPattern(LambdaShotPattern pattern, List<UDEAbstractBullet> bullets, UDEEnemy enemy)
@@ -295,6 +322,76 @@ namespace SansyHuman.Stage
             movePoint.y = enemyTr.position.y;
 
             var trResult = UDETransitionHelper.MoveTo(enemy.gameObject, movePoint, 6f, UDETransitionHelper.easeInQuad, UDETime.TimeScale.ENEMY, true);
+            yield return new WaitUntil(() => trResult.EndTransition);
+
+            ((EnemyBase)enemy).OnDestroy();
+            Destroy(enemy);
+
+            yield return null;
+        }
+
+        private IEnumerator Wave4FairyPattern(LambdaShotPattern pattern, List<UDEAbstractBullet> bullets, UDEEnemy enemy)
+        {
+            var transitionResult = UDETransitionHelper.MoveAmount(enemy.gameObject, new Vector2(-3, 0), 1f, UDETransitionHelper.easeOutQuad, UDETime.TimeScale.ENEMY, true);
+            yield return new WaitUntil(() => transitionResult.EndTransition);
+
+            UDECartesianMovementBuilder builder1 = UDECartesianMovementBuilder.Create()
+                .Velocity(new Vector2(-4, 0)).EndTime(0.7f);
+            UDEPolarMovementBuilder builder2 = UDEPolarMovementBuilder.Create(true)
+                .StartTime(0.7f).EndTime(1.5f)
+                .MaxAngularSpeed(10).MinAngularSpeed(-10);
+            UDECartesianMovementBuilder builder3 = UDECartesianMovementBuilder.Create(true)
+                .StartTime(1.5f);
+
+            UDEBulletMovement[] movement1 =
+            {
+                builder1.Build(),
+                builder2.AngularAccel(60).Build(),
+                builder3.Build()
+            };
+
+            UDEBulletMovement[] movement2 =
+            {
+                builder1.Build(),
+                builder2.AngularAccel(0).Build(),
+                builder3.Build()
+            };
+
+            UDEBulletMovement[] movement3 =
+            {
+                builder1.Build(),
+                builder2.AngularAccel(-60).Build(),
+                builder3.Build()
+            };
+
+            Transform enemyTr = enemy.transform;
+
+            for (int i = 0; i < 5; i++)
+            {
+                UDEBulletPool pool = UDEBulletPool.Instance;
+
+                UDEAbstractBullet[] summonBullets =
+                {
+                    pool.GetBullet(bullets[0]), pool.GetBullet(bullets[0]), pool.GetBullet(bullets[0])
+                };
+                summonBullets[0].SummonTime = 0;
+                summonBullets[1].SummonTime = 0;
+                summonBullets[2].SummonTime = 0;
+                summonBullets[0].transform.localScale = new Vector3(0.7f, 0.7f);
+                summonBullets[1].transform.localScale = new Vector3(0.7f, 0.7f);
+                summonBullets[2].transform.localScale = new Vector3(0.7f, 0.7f);
+
+                summonBullets[0].Initialize(enemyTr.position, enemyTr.position, 0, enemy, pattern, movement1);
+                summonBullets[1].Initialize(enemyTr.position, enemyTr.position, 0, enemy, pattern, movement2);
+                summonBullets[2].Initialize(enemyTr.position, enemyTr.position, 0, enemy, pattern, movement3);
+
+                yield return StartCoroutine(UDETime.Instance.WaitForScaledSeconds(0.2f, UDETime.TimeScale.ENEMY));
+            }
+
+            Vector2 movePoint = Camera.main.ViewportToWorldPoint(new Vector3(-0.1f, 0));
+            movePoint.y = enemyTr.position.y;
+
+            var trResult = UDETransitionHelper.MoveTo(enemy.gameObject, movePoint, 8f, UDETransitionHelper.easeLinear, UDETime.TimeScale.ENEMY, true);
             yield return new WaitUntil(() => trResult.EndTransition);
 
             ((EnemyBase)enemy).OnDestroy();

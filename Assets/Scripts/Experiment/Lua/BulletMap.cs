@@ -13,10 +13,6 @@ namespace SansyHuman.Experiment.Lua
     [DisallowMultipleComponent]
     public class BulletMap : UDESingleton<BulletMap>
     {
-        [SerializeField]
-        [Tooltip("Bullet prefabs")]
-        private List<UDEAbstractBullet> bullets;
-
         private Dictionary<string, UDEAbstractBullet> bulletMap;
 
         protected override void Awake()
@@ -25,9 +21,10 @@ namespace SansyHuman.Experiment.Lua
 
             bulletMap = new Dictionary<string, UDEAbstractBullet>();
 
-            for (int i = 0; i < bullets.Count; i++)
+            UDEAbstractBullet[] bullets = Resources.LoadAll<UDEAbstractBullet>("Bullet");
+            for (int i = 0; i < bullets.Length; i++)
             {
-                bulletMap.Add(bullets[i].gameObject.name, bullets[i]);
+                bulletMap.Add(bullets[i].name, bullets[i]);
             }
         }
 
@@ -49,37 +46,6 @@ namespace SansyHuman.Experiment.Lua
                     return bulletMap[name];
                 else
                     return null;
-            }
-        }
-
-        /// <summary>
-        /// Adds a bullet to the map. If the bullet already exists, then ignored.
-        /// </summary>
-        /// <param name="bullet">Bullet to add</param>
-        public void AddBullet(UDEAbstractBullet bullet)
-        {
-            if (bulletMap.ContainsKey(bullet.gameObject.name))
-            {
-                Debug.LogError("Bullet map already has the bullet.");
-                return;
-            }
-
-            bulletMap.Add(bullet.gameObject.name, bullet);
-        }
-
-        /// <summary>
-        /// Removes a bullet from the map. If the bullet does not exist, then ignored.
-        /// </summary>
-        /// <param name="bullet">Bullet to remove</param>
-        public void RemoveBullet(UDEAbstractBullet bullet)
-        {
-            if (bulletMap.ContainsKey(bullet.gameObject.name))
-            {
-                bulletMap.Remove(bullet.gameObject.name);
-            }
-            else
-            {
-                Debug.LogError("Bullet map does not have the bullet.");
             }
         }
     }

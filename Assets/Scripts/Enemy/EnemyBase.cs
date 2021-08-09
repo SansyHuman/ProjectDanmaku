@@ -70,6 +70,8 @@ namespace SansyHuman.Enemy
             set => itemDropRange = value > 0 ? value : 0;
         }
 
+        public int SpecialSpellCount => specialSpellCount;
+
         public bool ShowHealth
         {
             get => showHealth;
