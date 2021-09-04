@@ -231,13 +231,7 @@ MonoBehaviour:
   scoreOnDeath: 1500
   canBeDamaged: 1
   death: {fileID: 4025044712025991190, guid: d9412730599015d489f01f245c73499f, type: 3}
-  dropPowerItems:
-  - power: 0.01
-    number: 4
-    initSpeed: 2
-  - power: 0.05
-    number: 1
-    initSpeed: 2
+  dropPowerItems: []
   dropItems: []
   itemDropRange: 2.47
   showHealth: 0

@@ -167,6 +167,9 @@ MonoBehaviour:
   - {fileID: -6727333996420667418, guid: f9812c753bcdba24791cf8ddef3a3e4d, type: 3}
   - {fileID: 420942117348367294, guid: 400e43910ae69b341a4d176d9604b7a6, type: 3}
   - {fileID: 8441401278314793083, guid: 8282e01f409716145b754c6499647f5a, type: 3}
+  - {fileID: 3551767774379428116, guid: f3f00ac4137714a4d8a680548d4facf2, type: 3}
+  - {fileID: 5015208332157865963, guid: 075d5a6fc3e44444e94a59c73e560233, type: 3}
+  - {fileID: 4375163716526188233, guid: dadb3509546b5e54286ae05882655e6b, type: 3}
   subBoss:
   - {fileID: -1441821767958844262, guid: b474e0bceeca19e40866dd2eca9a4a38, type: 3}
   boss: []
@@ -176,7 +179,7 @@ MonoBehaviour:
   - {fileID: 5203572429405644856, guid: a8c623a89e9fc514b987f17176d1585b, type: 3}
   - {fileID: 3767459207996566999, guid: f498d672474df42469b721e62b3ffec7, type: 3}
   - {fileID: 2944077472419195511, guid: 21201032ad987a3409c3c2f1033f83ba, type: 3}
-  startWave: 3
+  startWave: 5
 --- !u!1 &111213092
 GameObject:
   m_ObjectHideFlags: 0

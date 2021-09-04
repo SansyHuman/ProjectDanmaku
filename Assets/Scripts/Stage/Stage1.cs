@@ -21,6 +21,9 @@ namespace SansyHuman.Stage
         public const int WhiteSpirit = 0;
         public const int Fairy = 1;
         public const int FairyRed = 2;
+        public const int RedSpirit = 3;
+        public const int BlueSpirit = 4;
+        public const int GreenSpirit = 5;
 
         // Sub boss codes
         public const int SheroSub = 0;
@@ -37,7 +40,7 @@ namespace SansyHuman.Stage
 
         public enum Wave
         {
-            Intro, Wave1, Wave2, Wave3, Wave4
+            Intro, Wave1, Wave2, Wave3, Wave4, Wave5
         }
 
         [SerializeField]
@@ -57,18 +60,26 @@ namespace SansyHuman.Stage
                     goto WAVE_3;
                 case Wave.Wave4:
                     goto WAVE_4;
+                case Wave.Wave5:
+                    goto WAVE_5;
             }
 
-            INTRO:
+        INTRO:
             // Intro
 
             yield return StartCoroutine(UDETime.Instance.WaitForScaledSeconds(1f, UDETime.TimeScale.ENEMY));
+
+            EnemyBase.DropPowerItem[] whiteSpiritPowers = new EnemyBase.DropPowerItem[2];
+            whiteSpiritPowers[0] = new EnemyBase.DropPowerItem() { power = 0.01f, number = 4, initSpeed = 2 };
+            whiteSpiritPowers[1] = new EnemyBase.DropPowerItem() { power = 0.05f, number = 1, initSpeed = 2 };
 
             for (int i = 0; i < 3; i++)
             {
                 for (int j = 0; j < 4; j++)
                 {
                     LambdaPatternEnemy spirit = SummonEnemy(enemies[WhiteSpirit]) as LambdaPatternEnemy;
+                    spirit.DropPowerItems = whiteSpiritPowers;
+                    spirit.ScoreOnDeath = 1500;
                     spirit.transform.SetPositionAndRotation(Camera.main.ViewportToWorldPoint(new Vector3(1.1f, 0.05f + 0.2f * j + 0.1f * i, 0)), Quaternion.Euler(0, 0, 0));
                     spirit.Initialize(IntroWhiteSpiritPattern, 1, UDEBaseShotPattern.RemoveBulletsOnDeath.NONE, bullets[GreenLuminusBullet]);
                     yield return StartCoroutine(UDETime.Instance.WaitForScaledSeconds(0.1f, UDETime.TimeScale.ENEMY));
@@ -79,7 +90,7 @@ namespace SansyHuman.Stage
 
             yield return StartCoroutine(UDETime.Instance.WaitForScaledSeconds(13.5f, UDETime.TimeScale.ENEMY));
 
-            WAVE_1:
+        WAVE_1:
             // Wave 1
 
             Vector3[] fairySummonPositions =
@@ -94,9 +105,15 @@ namespace SansyHuman.Stage
                 new Vector3(1.1f, 0.35f)
             };
 
+            EnemyBase.DropPowerItem[] fairyPowers = new EnemyBase.DropPowerItem[2];
+            fairyPowers[0] = new EnemyBase.DropPowerItem() { power = 0.01f, number = 3, initSpeed = 2 };
+            fairyPowers[1] = new EnemyBase.DropPowerItem() { power = 0.03f, number = 2, initSpeed = 2 };
+
             for (int i = 0; i < fairySummonPositions.Length; i++)
             {
                 LambdaPatternEnemy fairy = SummonEnemy(enemies[Fairy]) as LambdaPatternEnemy;
+                fairy.DropPowerItems = fairyPowers;
+                fairy.ScoreOnDeath = 3000;
                 fairy.transform.SetPositionAndRotation(Camera.main.ViewportToWorldPoint(fairySummonPositions[i]), Quaternion.Euler(0, 0, 0));
                 fairy.Initialize(Wave1FairyPattern, 9, UDEBaseShotPattern.RemoveBulletsOnDeath.NONE, bullets[LightBlueLuminusBullet]);
                 fairy.ShowHealthAndSpecllCount();
@@ -106,10 +123,11 @@ namespace SansyHuman.Stage
             yield return StartCoroutine(UDETime.Instance.WaitForScaledSeconds(1.5f, UDETime.TimeScale.ENEMY));
 
 
-            WAVE_2:
+        WAVE_2:
             // Wave 2
 
             LambdaPatternEnemy fairyRed = SummonEnemy(enemies[FairyRed]) as LambdaPatternEnemy;
+            fairyRed.ScoreOnDeath = 6500;
             fairyRed.transform.SetPositionAndRotation(Camera.main.ViewportToWorldPoint(new Vector3(1.1f, 0.5f, 0)), Quaternion.Euler(0, 0, 0));
             fairyRed.Initialize(Wave2FairyPattern, 45, UDEBaseShotPattern.RemoveBulletsOnDeath.NONE, bullets[GreenCircleBullet], bullets[RedCircleBullet], bullets[LightBlueCircleBullet]);
             fairyRed.ShowHealthAndSpecllCount();
@@ -117,6 +135,7 @@ namespace SansyHuman.Stage
             yield return StartCoroutine(UDETime.Instance.WaitForScaledSeconds(5f, UDETime.TimeScale.ENEMY));
 
             fairyRed = SummonEnemy(enemies[FairyRed]) as LambdaPatternEnemy;
+            fairyRed.ScoreOnDeath = 6500;
             fairyRed.transform.SetPositionAndRotation(Camera.main.ViewportToWorldPoint(new Vector3(1.1f, 0.7f, 0)), Quaternion.Euler(0, 0, 0));
             fairyRed.Initialize(Wave2FairyPattern, 45, UDEBaseShotPattern.RemoveBulletsOnDeath.NONE, bullets[GreenCircleBullet], bullets[RedCircleBullet], bullets[LightBlueCircleBullet]);
             fairyRed.ShowHealthAndSpecllCount();
@@ -124,6 +143,7 @@ namespace SansyHuman.Stage
             yield return StartCoroutine(UDETime.Instance.WaitForScaledSeconds(5f, UDETime.TimeScale.ENEMY));
 
             fairyRed = SummonEnemy(enemies[FairyRed]) as LambdaPatternEnemy;
+            fairyRed.ScoreOnDeath = 6500;
             fairyRed.transform.SetPositionAndRotation(Camera.main.ViewportToWorldPoint(new Vector3(1.1f, 0.3f, 0)), Quaternion.Euler(0, 0, 0));
             fairyRed.Initialize(Wave2FairyPattern, 45, UDEBaseShotPattern.RemoveBulletsOnDeath.NONE, bullets[GreenCircleBullet], bullets[RedCircleBullet], bullets[LightBlueCircleBullet]);
             fairyRed.ShowHealthAndSpecllCount();
@@ -131,6 +151,7 @@ namespace SansyHuman.Stage
             yield return StartCoroutine(UDETime.Instance.WaitForScaledSeconds(4f, UDETime.TimeScale.ENEMY));
 
             fairyRed = SummonEnemy(enemies[FairyRed]) as LambdaPatternEnemy;
+            fairyRed.ScoreOnDeath = 6500;
             fairyRed.transform.SetPositionAndRotation(Camera.main.ViewportToWorldPoint(new Vector3(1.1f, 0.6f, 0)), Quaternion.Euler(0, 0, 0));
             fairyRed.Initialize(Wave2FairyPattern, 45, UDEBaseShotPattern.RemoveBulletsOnDeath.NONE, bullets[GreenCircleBullet], bullets[RedCircleBullet], bullets[LightBlueCircleBullet]);
             fairyRed.ShowHealthAndSpecllCount();
@@ -138,6 +159,7 @@ namespace SansyHuman.Stage
             yield return StartCoroutine(UDETime.Instance.WaitForScaledSeconds(4f, UDETime.TimeScale.ENEMY));
 
             fairyRed = SummonEnemy(enemies[FairyRed]) as LambdaPatternEnemy;
+            fairyRed.ScoreOnDeath = 6500;
             fairyRed.transform.SetPositionAndRotation(Camera.main.ViewportToWorldPoint(new Vector3(1.1f, 0.4f, 0)), Quaternion.Euler(0, 0, 0));
             fairyRed.Initialize(Wave2FairyPattern, 45, UDEBaseShotPattern.RemoveBulletsOnDeath.NONE, bullets[GreenCircleBullet], bullets[RedCircleBullet], bullets[LightBlueCircleBullet]);
             fairyRed.ShowHealthAndSpecllCount();
@@ -146,7 +168,7 @@ namespace SansyHuman.Stage
 
             UDEObjectManager.Instance.DestroyAllEnemies();
 
-            WAVE_3:
+        WAVE_3:
             // Wave 3
 
             WarningHUD warning = GameObject.Find("WarningHUD").GetComponent<WarningHUD>();
@@ -159,27 +181,58 @@ namespace SansyHuman.Stage
 
             yield return StartCoroutine(new WaitUntil(() => sheroSub.SpecialSpellCount == 0));
 
-            WAVE_4:
-            fairySummonPositions = new Vector3[]
+        WAVE_4:
+            // Wave 4
+
+            yield return StartCoroutine(UDETime.Instance.WaitForScaledSeconds(1.5f, UDETime.TimeScale.ENEMY));
+
+            var fairySummonPosAndWaitTimes = new[]
             {
-                new Vector3(1.1f, 0.7f),
-                new Vector3(1.1f, 0.2f),
-                new Vector3(1.1f, 0.8f),
-                new Vector3(1.1f, 0.5f),
-                new Vector3(1.1f, 0.25f),
-                new Vector3(1.1f, 0.69f),
-                new Vector3(1.1f, 0.73f),
-                new Vector3(1.1f, 0.35f)
+                new {pos = new Vector3(1.1f, 0.5f), time = 1.6f},
+                new {pos = new Vector3(1.1f, 0.65f), time = 2.6f},
+                new {pos = new Vector3(1.1f, 0.4f), time = 1.0f},
+                new {pos = new Vector3(1.1f, 0.28f), time = 1.4f},
+                new {pos = new Vector3(1.1f, 0.75f), time = 3.0f},
+                new {pos = new Vector3(1.1f, 0.89f), time = 0.8f},
+                new {pos = new Vector3(1.1f, 0.66f), time = 1.4f},
+                new {pos = new Vector3(1.1f, 0.32f), time = 1.8f},
+                new {pos = new Vector3(1.1f, 0.18f), time = 2.4f},
+                new {pos = new Vector3(1.1f, 0.46f), time = 1.8f},
+                new {pos = new Vector3(1.1f, 0.55f), time = 0.6f},
+                new {pos = new Vector3(1.1f, 0.5f), time = 0f}
             };
 
+            EnemyBase.DropPowerItem[] fairyPowersWave4 = new EnemyBase.DropPowerItem[2];
+            fairyPowersWave4[0] = new EnemyBase.DropPowerItem() { power = 0.01f, number = 3, initSpeed = 2 };
+            fairyPowersWave4[1] = new EnemyBase.DropPowerItem() { power = 0.03f, number = 1, initSpeed = 2 };
 
-            for (int i = 0; i < fairySummonPositions.Length; i++)
+            for (int i = 0; i < fairySummonPosAndWaitTimes.Length; i++)
             {
                 LambdaPatternEnemy fairy = SummonEnemy(enemies[Fairy]) as LambdaPatternEnemy;
-                fairy.transform.SetPositionAndRotation(Camera.main.ViewportToWorldPoint(fairySummonPositions[i]), Quaternion.Euler(0, 0, 0));
-                fairy.Initialize(Wave4FairyPattern, 12, UDEBaseShotPattern.RemoveBulletsOnDeath.NONE, BulletMap.Instance["DarkGreenEllipseBullet"]);
-                yield return StartCoroutine(UDETime.Instance.WaitForScaledSeconds(1.5f, UDETime.TimeScale.ENEMY));
+                fairy.DropPowerItems = fairyPowersWave4;
+                fairy.ScoreOnDeath = 3500;
+                fairy.transform.SetPositionAndRotation(Camera.main.ViewportToWorldPoint(fairySummonPosAndWaitTimes[i].pos), Quaternion.Euler(0, 0, 0));
+                fairy.Initialize(Wave4FairyPattern, 10, UDEBaseShotPattern.RemoveBulletsOnDeath.NONE, BulletMap.Instance["DarkGreenEllipseBullet"]);
+                yield return StartCoroutine(UDETime.Instance.WaitForScaledSeconds(fairySummonPosAndWaitTimes[i].time, UDETime.TimeScale.ENEMY));
             }
+
+            yield return StartCoroutine(UDETime.Instance.WaitForScaledSeconds(8f, UDETime.TimeScale.ENEMY));
+
+        WAVE_5:
+            for (int i = 0; i < 40; i++)
+            {
+                LambdaPatternEnemy redSpirit = SummonEnemy(enemies[RedSpirit]) as LambdaPatternEnemy;
+                redSpirit.ScoreOnDeath = 1500;
+                redSpirit.transform.SetPositionAndRotation(Camera.main.ViewportToWorldPoint(new Vector3(0.9f + 0.12f * Mathf.Sin(i), 1.1f)), Quaternion.Euler(0, 0, 0));
+                redSpirit.Initialize(
+                    (LambdaShotPattern pattern, List<UDEAbstractBullet> bullets, UDEEnemy enemy) => Wave5RedSpiritPattern(pattern, bullets, enemy, i),
+                    0, UDEBaseShotPattern.RemoveBulletsOnDeath.NONE, BulletMap.Instance["OrangeBrightLight"]
+                    );
+
+                yield return StartCoroutine(UDETime.Instance.WaitForScaledSeconds(0.6f, UDETime.TimeScale.ENEMY));
+            }
+
+            yield return null;
         }
 
         private IEnumerator IntroWhiteSpiritPattern(LambdaShotPattern pattern, List<UDEAbstractBullet> bullets, UDEEnemy enemy)
@@ -336,10 +389,10 @@ namespace SansyHuman.Stage
             yield return new WaitUntil(() => transitionResult.EndTransition);
 
             UDECartesianMovementBuilder builder1 = UDECartesianMovementBuilder.Create()
-                .Velocity(new Vector2(-4, 0)).EndTime(0.7f);
+                .Velocity(new Vector2(-3f, 0)).EndTime(0.7f);
             UDEPolarMovementBuilder builder2 = UDEPolarMovementBuilder.Create(true)
                 .StartTime(0.7f).EndTime(1.5f)
-                .MaxAngularSpeed(10).MinAngularSpeed(-10);
+                .MaxAngularSpeed(12).MinAngularSpeed(-12);
             UDECartesianMovementBuilder builder3 = UDECartesianMovementBuilder.Create(true)
                 .StartTime(1.5f);
 
@@ -385,7 +438,7 @@ namespace SansyHuman.Stage
                 summonBullets[1].Initialize(enemyTr.position, enemyTr.position, 0, enemy, pattern, movement2);
                 summonBullets[2].Initialize(enemyTr.position, enemyTr.position, 0, enemy, pattern, movement3);
 
-                yield return StartCoroutine(UDETime.Instance.WaitForScaledSeconds(0.2f, UDETime.TimeScale.ENEMY));
+                yield return StartCoroutine(UDETime.Instance.WaitForScaledSeconds(0.3f, UDETime.TimeScale.ENEMY));
             }
 
             Vector2 movePoint = Camera.main.ViewportToWorldPoint(new Vector3(-0.1f, 0));
@@ -393,6 +446,44 @@ namespace SansyHuman.Stage
 
             var trResult = UDETransitionHelper.MoveTo(enemy.gameObject, movePoint, 8f, UDETransitionHelper.easeLinear, UDETime.TimeScale.ENEMY, true);
             yield return new WaitUntil(() => trResult.EndTransition);
+
+            ((EnemyBase)enemy).OnDestroy();
+            Destroy(enemy);
+
+            yield return null;
+        }
+
+        private IEnumerator Wave5RedSpiritPattern(LambdaShotPattern pattern, List<UDEAbstractBullet> bullets, UDEEnemy enemy, int enemyIndex)
+        {
+            Vector3 initViewPos = Camera.main.WorldToViewportPoint(enemy.transform.position);
+            Vector3 finalViewPos = initViewPos;
+            finalViewPos.x -= 0.13f;
+            finalViewPos.y = -0.1f;
+
+            var transitionResult = UDETransitionHelper.MoveTo(enemy.gameObject, (Vector2)Camera.main.ViewportToWorldPoint(finalViewPos), 3f, UDETransitionHelper.easeLinear, UDETime.TimeScale.ENEMY, true);
+
+            yield return StartCoroutine(UDETime.Instance.WaitForScaledSeconds(0.5f, UDETime.TimeScale.ENEMY));
+
+            UDEMersenneRandom random = new UDEMersenneRandom(seed: (uint)(351237 * enemyIndex));
+
+            for (int i = 0; i < 3; i++)
+            {
+                UDEAbstractBullet bullet = UDEBulletPool.Instance.GetBullet(bullets[0]);
+                bullet.SummonTime = 0.05f;
+
+                Vector3 enemyPos = enemy.gameObject.transform.position;
+                Vector3 playerPos = GameManager.player.gameObject.transform.position;
+                Vector2 velocity = (Vector2)(playerPos - enemyPos);
+                velocity = velocity.normalized;
+                velocity.y += random.NextFloat(-0.1f, 0.1f);
+                velocity *= 4f;
+                bullet.MoveBulletToDirection(enemy, pattern, enemyPos, 0, velocity);
+
+                yield return StartCoroutine(UDETime.Instance.WaitForScaledSeconds(0.66f, UDETime.TimeScale.ENEMY));
+            }
+
+            yield return new WaitUntil(() => transitionResult.EndTransition);
+
 
             ((EnemyBase)enemy).OnDestroy();
             Destroy(enemy);

@@ -42,7 +42,7 @@ SpriteAtlas:
     variantMultiplier: 1
     packables:
     - {fileID: 102900000, guid: b2ac079b5a184cc49b813e29947db7d3, type: 3}
-    totalSpriteSurfaceArea: 8408188
+    totalSpriteSurfaceArea: 8752252
     bindAsDefault: 1
   m_MasterAtlas: {fileID: 0}
   m_PackedSprites:
@@ -110,6 +110,13 @@ SpriteAtlas:
   - {fileID: 7821492154053994802, guid: 442bc2d1f61336743a91b856d43bfb28, type: 3}
   - {fileID: -590973730929603916, guid: 442bc2d1f61336743a91b856d43bfb28, type: 3}
   - {fileID: -6197083512870809906, guid: 442bc2d1f61336743a91b856d43bfb28, type: 3}
+  - {fileID: 6296741268354173346, guid: ba1d0593aa5da8e4cbe5689376276851, type: 3}
+  - {fileID: 130806934330923051, guid: ba1d0593aa5da8e4cbe5689376276851, type: 3}
+  - {fileID: 9146321749186313833, guid: ba1d0593aa5da8e4cbe5689376276851, type: 3}
+  - {fileID: -5362437997625645263, guid: ba1d0593aa5da8e4cbe5689376276851, type: 3}
+  - {fileID: -4798919757796195360, guid: ba1d0593aa5da8e4cbe5689376276851, type: 3}
+  - {fileID: -5835891547982426996, guid: ba1d0593aa5da8e4cbe5689376276851, type: 3}
+  - {fileID: -5063225896050207258, guid: ba1d0593aa5da8e4cbe5689376276851, type: 3}
   - {fileID: 4575108067758201249, guid: 0c3a4574ca551bd4889f50c2f56c0efd, type: 3}
   - {fileID: 2510562375930393039, guid: 0c3a4574ca551bd4889f50c2f56c0efd, type: 3}
   - {fileID: 2091000698555963235, guid: 8f9cb3554ff14f44580c08dd04a53228, type: 3}
@@ -146,6 +153,13 @@ SpriteAtlas:
   - {fileID: 6100763260885094525, guid: ad1e1468ef0027846b4fcc619a643b89, type: 3}
   - {fileID: 3841437482219250654, guid: ad1e1468ef0027846b4fcc619a643b89, type: 3}
   - {fileID: 3242926043527927470, guid: ad1e1468ef0027846b4fcc619a643b89, type: 3}
+  - {fileID: 5600212277770549344, guid: aa6b363a2364725448a04df9fee0bd3f, type: 3}
+  - {fileID: -4020996691042747302, guid: aa6b363a2364725448a04df9fee0bd3f, type: 3}
+  - {fileID: 6366790265913680634, guid: aa6b363a2364725448a04df9fee0bd3f, type: 3}
+  - {fileID: 78934349578550539, guid: aa6b363a2364725448a04df9fee0bd3f, type: 3}
+  - {fileID: 6353539785821514107, guid: aa6b363a2364725448a04df9fee0bd3f, type: 3}
+  - {fileID: 5773951487911344186, guid: aa6b363a2364725448a04df9fee0bd3f, type: 3}
+  - {fileID: -4808086830736556955, guid: aa6b363a2364725448a04df9fee0bd3f, type: 3}
   - {fileID: 331392075001448360, guid: 791e4a7a4807caf42bcc3d3cca7d60ef, type: 3}
   - {fileID: 8459614131401900424, guid: 791e4a7a4807caf42bcc3d3cca7d60ef, type: 3}
   - {fileID: -1125191786241282117, guid: 7b85373b5c04f184cacb0a0f88273fd6, type: 3}
@@ -164,6 +178,13 @@ SpriteAtlas:
   - {fileID: -6717884257390833292, guid: ff85626b67536754d98355d7566e2f0e, type: 3}
   - {fileID: -407368442477547055, guid: ff85626b67536754d98355d7566e2f0e, type: 3}
   - {fileID: -4098029715399502762, guid: ff85626b67536754d98355d7566e2f0e, type: 3}
+  - {fileID: 3839508724757018654, guid: e01c2efbf69f55346ab553d36c3e4c70, type: 3}
+  - {fileID: -935601535587986532, guid: e01c2efbf69f55346ab553d36c3e4c70, type: 3}
+  - {fileID: -5566896977249908238, guid: e01c2efbf69f55346ab553d36c3e4c70, type: 3}
+  - {fileID: -3030630666815624757, guid: e01c2efbf69f55346ab553d36c3e4c70, type: 3}
+  - {fileID: -3454400314595883613, guid: e01c2efbf69f55346ab553d36c3e4c70, type: 3}
+  - {fileID: 817008942623270436, guid: e01c2efbf69f55346ab553d36c3e4c70, type: 3}
+  - {fileID: 8407452842544637642, guid: e01c2efbf69f55346ab553d36c3e4c70, type: 3}
   - {fileID: 21300000, guid: 0358523c283f9744088dd2d0d8cd648d, type: 3}
   - {fileID: 21300000, guid: 4d43d27c3196b424fb8738cdfa2d57d8, type: 3}
   - {fileID: 21300000, guid: 55be849ca4f0bb34bb2323cee6377efa, type: 3}
@@ -241,6 +262,13 @@ SpriteAtlas:
   - Yuresia_Forward-x2_0
   - Yuresia_Forward-x2_3
   - Yuresia_Forward-x2_2
+  - Spirit_Red_1
+  - Spirit_Red_0
+  - Spirit_Red_3
+  - Spirit_Red_2
+  - Spirit_Red_5
+  - Spirit_Red_4
+  - Spirit_Red_6
   - SkillSlot
   - SkillSlot_Mask
   - Yuresia_4
@@ -277,6 +305,13 @@ SpriteAtlas:
   - Fairy_2
   - Fairy_1
   - Fairy_0
+  - Spirit_Green_1
+  - Spirit_Green_0
+  - Spirit_Green_3
+  - Spirit_Green_2
+  - Spirit_Green_5
+  - Spirit_Green_4
+  - Spirit_Green_6
   - Power_Empty
   - Power_Bar
   - Fairy_Red_3
@@ -295,6 +330,13 @@ SpriteAtlas:
   - Shield_0
   - Shield_3
   - Shield_2
+  - Spirit_Blue_6
+  - Spirit_Blue_4
+  - Spirit_Blue_5
+  - Spirit_Blue_2
+  - Spirit_Blue_3
+  - Spirit_Blue_0
+  - Spirit_Blue_1
   - Shero_Background
   - HAJE
   - Box
